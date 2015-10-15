@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="etsdk-4.0.6">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.exacttarget.etpushsdk/etsdk/4.0.6/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.exacttarget.etpushsdk/etsdk/4.0.6/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

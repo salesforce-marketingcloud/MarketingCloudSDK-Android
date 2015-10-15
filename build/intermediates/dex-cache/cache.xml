@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
+        <dex dex="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/pre-dexed/debug/classes-087b01a52cfc644c2e97eac9428a1640cff91029.jar" />
+    </item>
+    <item
+        jar="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/pre-dexed/debug/classes-82c6d241056dd540abbc778363a4a06056a59867.jar" />
+    </item>
+    <item
+        jar="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/exploded-aar/com.android.support/design/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/pre-dexed/debug/classes-bd244d51e66d5c5c1545e50198b28cb76532f70b.jar" />
+    </item>
+    <item
+        jar="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/exploded-aar/com.radiusnetworks/AndroidIBeaconLibrary/0.7.6/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6c01ef1fd5fb99256596b0c06ee2484da50de53f">
+        <dex dex="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/pre-dexed/debug/classes-e1407a4a30f1737b5114af24c43b30f16cc18ca6.jar" />
+    </item>
+    <item
+        jar="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a78183f30e769a98ab4820794f597763088d3065">
+        <dex dex="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/pre-dexed/debug/classes-658c9db629a0febe56f6426d32ef9a1c26bfde4a.jar" />
+    </item>
+    <item
+        jar="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/exploded-aar/com.exacttarget.etpushsdk/etsdk/4.0.6/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="dd8bc70e46b355be45f873f10d414b18a5fd5a77">
+        <dex dex="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/pre-dexed/debug/classes-0c57d9e6fd408cf008b7c01c19994c3ab2f271a7.jar" />
+    </item>
+    <item
+        jar="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/pre-dexed/debug/classes-7a5dd49ae430ca38c0a5f1d52e588274d923da1d.jar" />
+    </item>
+    <item
+        jar="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-5205e71ccbd07132dbef2c4fa4f1b26d31baa477.jar" />
+    </item>
+    <item
+        jar="/Users/admin/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-c7d13e2abb8a4d174460e107d4623b3f17ff1c59.jar" />
+    </item>
+    <item
+        jar="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
+        <dex dex="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/pre-dexed/debug/classes-baf0f39f6ee7e691af12c13b698b23f553c72390.jar" />
+    </item>
+    <item
+        jar="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/admin/AndroidStudioProjects/marketing-cloud/app/build/intermediates/pre-dexed/debug/classes-59cc6d1221485964b53907bfdd85b2a1f9f66f52.jar" />
+    </item>
+
+</items>
