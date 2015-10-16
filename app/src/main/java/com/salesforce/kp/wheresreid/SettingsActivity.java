@@ -1,6 +1,5 @@
 package com.salesforce.kp.wheresreid;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -83,9 +82,12 @@ public class SettingsActivity extends PreferenceActivity {
         //
         // SUBSCRIBER KEY PREFERENCE
         //
-        final Preference skPref = findPreference(CONSTS.KEY_PREF_SUBSCRIBER_KEY);
-        if (!sp.getString(CONSTS.KEY_PREF_SUBSCRIBER_KEY, "").isEmpty()) {
-            skPref.setSummary(sp.getString(CONSTS.KEY_PREF_SUBSCRIBER_KEY, ""));
+        // KEY_PREF_SUBSCRIBER_KEY must match the key of the EditTextPreference correspondent to the subscriber key.
+        final String KEY_PREF_SUBSCRIBER_KEY = "pref_subscriber_key";
+
+        final Preference skPref = findPreference(KEY_PREF_SUBSCRIBER_KEY);
+        if (!sp.getString(KEY_PREF_SUBSCRIBER_KEY, "").isEmpty()) {
+            skPref.setSummary(sp.getString(KEY_PREF_SUBSCRIBER_KEY, ""));
         }
 
         skPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
@@ -95,11 +97,11 @@ public class SettingsActivity extends PreferenceActivity {
 
                 PreferenceScreen prefSet = getPreferenceScreen();
 
-                final EditTextPreference skETP = (EditTextPreference) prefSet.findPreference(CONSTS.KEY_PREF_SUBSCRIBER_KEY);
+                final EditTextPreference skETP = (EditTextPreference) prefSet.findPreference(KEY_PREF_SUBSCRIBER_KEY);
 
                 final AlertDialog d = (AlertDialog) skETP.getDialog();
                 final EditText skET = skETP.getEditText();
-                skET.setText(sp.getString(CONSTS.KEY_PREF_SUBSCRIBER_KEY, ""));
+                skET.setText(sp.getString(KEY_PREF_SUBSCRIBER_KEY, ""));
 
                 Button b = d.getButton(AlertDialog.BUTTON_POSITIVE);
                 b.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +115,7 @@ public class SettingsActivity extends PreferenceActivity {
                         } else {
 
                             // save the preference to Shared Preferences
-                            updatePreferencesForKey(CONSTS.KEY_PREF_SUBSCRIBER_KEY, newSubscriberKey);
+                            updatePreferencesForKey(KEY_PREF_SUBSCRIBER_KEY, newSubscriberKey);
                             skPref.setSummary(newSubscriberKey);
 
                             try {
