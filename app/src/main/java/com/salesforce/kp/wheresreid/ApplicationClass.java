@@ -112,6 +112,9 @@ public class ApplicationClass extends Application {
      * @param event the type of event we're listening for.
      *
      * This method is one of several methods for getting notified when an event
+     * occurs in the SDK.
+     *
+     * They are all called onEvent(), but will have a different parameter to indicate
      * the event that has occurred.
      *
      * RegistrationEvent will be triggered when the SDK receives the response from the
