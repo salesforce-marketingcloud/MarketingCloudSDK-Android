@@ -1,4 +1,22 @@
 <resources>
+
+    <!-- GENERAL -->
     <string name="app_name">Marketing Cloud Demo</string>
-    <string name="action_settings">Settings</string>
+    <!--<string name="action_settings">Settings</string>-->
+    <string name="action_settings">Login</string>
+
+    <!-- SETTINGS -->
+    <string name="pref_personal_info_title">Attributes</string>
+
+    <string name="pref_subscriber_key">Subscriber Key</string>
+    <string name="pref_subscriber_key_summ">Please enter a subscriber key (usually email address)</string>
+
+    <!-- HELP -->
+    <string name="attribute_help">Attributes contain specific information about your subscribers, such as first and last name, gender, and geographical location.\n\nYou can assign specific information as part of a subscriber attribute to be used as part of sends or subscriber management.\n\nThis JB4A SDK Explorer stores first name and last name as attributes.</string>
+    <string name="subscriber_key_help">Your subscriber key provides a key for the Contact Record and can be used to tie together multiple channels/devices for each Contact.</string>
+
+
+    <!-- Errors -->
+    <string name="error_cannot_be_blank">This field cannot be blank</string>
+
 </resources>

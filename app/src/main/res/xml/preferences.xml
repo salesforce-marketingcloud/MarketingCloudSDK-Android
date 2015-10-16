@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+     <PreferenceCategory
+        android:key="pref_personal_info_settings"
+        android:title="@string/pref_personal_info_title">
+
+        <Preference
+            android:key="prefSubscriberKeyHelp"
+            android:selectable="false"
+            android:summary="@string/subscriber_key_help"
+            android:title="Background" />
+
+        <EditTextPreference
+            android:defaultValue=""
+            android:dialogMessage="@string/pref_subscriber_key_summ"
+            android:inputType="textEmailAddress"
+            android:key="pref_subscriber_key"
+            android:singleLine="true"
+            android:summary="@string/pref_subscriber_key_summ"
+            android:title="@string/pref_subscriber_key" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

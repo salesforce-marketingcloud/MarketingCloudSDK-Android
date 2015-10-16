@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.salesforce.kp.wheresreid">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.salesforce.kp.wheresreid" >
 
     <permission
         android:name="${applicationId}.permission.C2D_MESSAGE"
@@ -11,8 +12,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -23,30 +22,24 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" />
-
-        <activity
-            android:name="com.exacttarget.etpushsdk.ETLandingPagePresenter"
-            android:label="Landing Page" />
-
-        <activity-alias
-            android:name=".ApplicationLauncher"
-            android:targetActivity=".MainActivity"
-            android:exported="true">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity-alias>
+        </activity>
+
+        <activity
+            android:name="com.exacttarget.etpushsdk.ETLandingPagePresenter"
+            android:label="Landing Page" />
 
         <receiver
             android:name="com.exacttarget.etpushsdk.ETPushReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
+            android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="${applicationId}.MESSAGE_OPENED" />
                 <action android:name="com.exacttarget.etpushsdk.SEND_REGISTRATION" />
@@ -54,24 +47,24 @@
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
                 <action android:name="android.intent.action.ACTION_SHUTDOWN" />
                 <action android:name="android.intent.action.AIRPLANE_MODE" />
-
                 <action android:name="android.intent.action.BATTERY_LOW" />
                 <action android:name="android.intent.action.BATTERY_OKAY" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
 
                 <category android:name="${applicationId}" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REPLACED" />
+
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
         <!-- ETLocationReceiver and Service -->
-        <receiver android:name="com.exacttarget.etpushsdk.ETLocationReceiver">
+        <receiver android:name="com.exacttarget.etpushsdk.ETLocationReceiver" >
             <intent-filter>
                 <action android:name="android.location.PROVIDERS_CHANGED" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
@@ -83,7 +76,8 @@
             android:name="com.exacttarget.etpushsdk.ETLocationService"
             android:enabled="true" />
 
+        <activity android:name=".SettingsActivity" >
+        </activity>
     </application>
 
 </manifest>
-        
