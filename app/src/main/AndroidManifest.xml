@@ -1,66 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.salesforce.marketingcloud" >
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.salesforce.kp.wheresreid">
 
-    <!-- JB4A SDK Google Permissions -->
     <permission
         android:name="${applicationId}.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
+
     <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <!-- JB4A SDK Google Permissions -->
-
-    <!-- ET SDK required permissions -->
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <!-- END ET SDK Required Permissions -->
-
-    <!-- JB4A SDK Permissions for location and region monitoring -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-    <!-- END JB4A SDK Permissions for location and region monitoring -->
-
-    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS"/>
 
     <application
         android:name=".ApplicationClass"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
 
-        <!-- ETPushReceiver and Service -->
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" />
+
+        <activity
+            android:name="com.exacttarget.etpushsdk.ETLandingPagePresenter"
+            android:label="Landing Page" />
+
+        <activity-alias
+            android:name=".ApplicationLauncher"
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
         <receiver
-            android:exported="true"
             android:name="com.exacttarget.etpushsdk.ETPushReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
+                <action android:name="${applicationId}.MESSAGE_OPENED" />
+                <action android:name="com.exacttarget.etpushsdk.SEND_REGISTRATION" />
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
                 <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+                <action android:name="android.intent.action.AIRPLANE_MODE" />
 
-                <category android:name="${applicationId}" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.BATTERY_LOW" />
                 <action android:name="android.intent.action.BATTERY_OKAY" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
+                <category android:name="${applicationId}" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REPLACED" />
                 <data android:scheme="package" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="${applicationId}.MESSAGE_OPENED" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
         </receiver>
-
         <!-- ETLocationReceiver and Service -->
         <receiver android:name="com.exacttarget.etpushsdk.ETLocationReceiver">
             <intent-filter>
@@ -72,42 +79,6 @@
         <service
             android:name="com.exacttarget.etpushsdk.ETPushService"
             android:enabled="true" />
-        <!-- ETPushReceiver and Service -->
-
-        <!-- JB4A SDK Activity required for Cloud Page or Open Direct URLs sent from Marketing Cloud -->
-        <activity
-            android:name="com.exacttarget.etpushsdk.ETLandingPagePresenter"
-            android:label="Landing Page" />
-        <!-- JB4A SDK Activity required for Cloud Page or Open Direct URLs sent from Marketing Cloud -->
-
-        <!-- Google Play Services version.  Using the resource file will require your project contain the Google Play services project. -->
-        <!-- See Google documentation for more information -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <!-- Google Play Services version. -->
-
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="com.salesforce.marketingcloud.MainActivity"/>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".SendMessageActivity"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".MainActivity"/>
-        <activity
-            android:name=".DisplayMessageActivity"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-            android:screenOrientation="portrait" />
-
         <service
             android:name="com.exacttarget.etpushsdk.ETLocationService"
             android:enabled="true" />
@@ -115,3 +86,4 @@
     </application>
 
 </manifest>
+        

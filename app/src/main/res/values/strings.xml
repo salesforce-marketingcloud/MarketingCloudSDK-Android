@@ -1,38 +1,4 @@
 <resources>
-    <!-- GENERAL -->
-    <string name="app_name">Marketing Cloud</string>
-    <string name="app_subtitle">Android SDK Implementation</string>
-    <string name="menu_settings">Preferences</string>
-    <string name="placeholder_long">Placeholder to test until text loaded.</string>
-    <string name="blank"></string>
-
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="nav_send_message">Send Message</string>
-    <string name="nav_last_message">Last Messages Received</string>
-
-    <!-- Actions -->
+    <string name="app_name">Marketing Cloud Demo</string>
     <string name="action_settings">Settings</string>
-
-
-     <!-- Activities -->
-    <string name="discount_activity_title">SDK Explorer - Current Discount</string>
-    <string name="display_current_message_activity_title">SDK Explorer - Message Received</string>
-    <string name="display_last_message_activity_title">SDK Explorer - Last Message Received</string>
-    <string name="send_message_activity_title">SDK Explorer - Send Message</string>
-
-
-    <!-- Alerts -->
-    <!--<string name="alert_settings1_title">Delayed Update</string>-->
-    <!--<string name="alert_settings1_text">Any updates to any of these Preferences will take approximately 15 minutes to take effect.  Before sending a message, you should wait 15 minutes for the new values to take effect.</string>-->
-    <!--<string name="alert_utils1_title">Send Log Data</string>-->
-    <!--<string name="alert_utils1_text">Please enter an email address to send log data.\n\nPress OK to open an email client to send this data.</string>-->
-    <string name="alert_send_message1_text">Message submitted&#8230;</string>
-    <!--<string name="alert_utils2_text">Problem creating logcat file:\u0020</string>-->
-    <!--<string name="alert_utils3_text">Send debug info&#8230;</string>-->
-    <!--<string name="alert_utils4_text">There are no email clients installed.</string>-->
-    <string name="alert_utils5_text">Please enable Push Notifications in Preferences before attempting to Send Messages</string>
-
 </resources>

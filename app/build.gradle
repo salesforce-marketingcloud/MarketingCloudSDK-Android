@@ -1,37 +1,46 @@
 apply plugin: 'com.android.application'
 
 android {
+    // Change these to fit your applications requirements!
     compileSdkVersion 23
-    buildToolsVersion '23.0.1'
+    buildToolsVersion "23"
 
     defaultConfig {
-        applicationId "com.salesforce.marketingcloud"
-        minSdkVersion 15
-        targetSdkVersion 22
+        applicationId "com.salesforce.kp.wheresreid"
+        minSdkVersion 10
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
+        testApplicationId "com.salesforce.kp.wheresreid.test"
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
     }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            debuggable true
+            applicationIdSuffix ".debug"
+            versionNameSuffix "d"
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.android.support:support-v4:23.0.1'
     compile 'com.android.support:design:23.0.1'
     // ET SDK
     compile 'com.exacttarget.etpushsdk:etsdk:4.0.6@aar'
     // Google Play Services for Location and Google Cloud Messaging
-    compile 'com.google.android.gms:play-services-location:7.5.0'
-    compile 'com.google.android.gms:play-services-gcm:7.5.0'
+    compile 'com.google.android.gms:play-services-location:7.8.0'
+    compile 'com.google.android.gms:play-services-gcm:7.8.0'
     // Google's Support v4 for Notification compatibility
-//    compile 'com.android.support:support-v4:22.2.0'
+    compile 'com.android.support:support-v4:23.0.0'
     // 3rd Party Libraries Required for SDK integration
     compile 'com.radiusnetworks:AndroidIBeaconLibrary:0.7.6'
 }

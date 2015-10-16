@@ -12,9 +12,14 @@ buildscript {
     }
 }
 
+// This section is the important part. A standard new project built with Android studio
+// will contain jcenter() references but what the SDK requires is the reference to
+// the maven url found on the last repository line
 allprojects {
     repositories {
         jcenter()
+        mavenCentral()
+        //maven { url "http://exacttarget.github.io/JB4A-SDK-Android/repository/" }
         maven {
             url "http://salesforcefuel.github.io/JB4A-SDK-Android/repository"
         }
@@ -24,3 +29,5 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
