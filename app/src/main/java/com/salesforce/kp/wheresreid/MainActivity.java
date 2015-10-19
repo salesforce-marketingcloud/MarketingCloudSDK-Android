@@ -10,6 +10,16 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * MainActivity is the primary activity.
+ *
+ * This activity extends AppCompatActivity to provide the primary interface for user interaction.
+ *
+ *
+ * @author Salesforce (R) 2015.
+ *
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

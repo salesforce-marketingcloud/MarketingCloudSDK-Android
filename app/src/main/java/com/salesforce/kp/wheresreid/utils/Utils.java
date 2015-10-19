@@ -3,12 +3,12 @@ package com.salesforce.kp.wheresreid.utils;
 import android.widget.EditText;
 
 /**
- * UTILS
- * <p/>
- * A class of utility methods.
- * Created by Romina on 10/16/15.
+ * Utils is a class of utility methods.
+ *
+ * @author Salesforce (R) 2015.
  */
 public class Utils {
+
 
     public static void flashError(final EditText et, String message) {
         et.setError(message);

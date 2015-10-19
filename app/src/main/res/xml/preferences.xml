@@ -4,6 +4,7 @@
         android:key="pref_personal_info_settings"
         android:title="@string/pref_personal_info_title">
 
+         <!-- Subscriber key -->
         <Preference
             android:key="prefSubscriberKeyHelp"
             android:selectable="false"
@@ -18,6 +19,8 @@
             android:singleLine="true"
             android:summary="@string/pref_subscriber_key_summ"
             android:title="@string/pref_subscriber_key" />
+
+         <!-- End Subscriber key -->
 
     </PreferenceCategory>
 
