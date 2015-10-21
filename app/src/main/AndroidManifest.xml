@@ -2,20 +2,28 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.salesforce.kp.wheresreid" >
 
+    <!-- JB4A SDK Google Permissions -->
     <permission
         android:name="${applicationId}.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
-
     <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <!-- END JB4A SDK Google Permissions -->
+
+    <!-- JB4A SDK required permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- END JB4A SDK required permissions -->
+
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+    <!-- JB4A SDK Permissions for location and region monitoring -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- END JB4A SDK location and region monitoring Permissions -->
 
     <application
         android:name="ApplicationClass"
@@ -37,6 +45,7 @@
             android:name="com.exacttarget.etpushsdk.ETLandingPagePresenter"
             android:label="Landing Page" />
 
+        <!-- ETPushReceiver and Service -->
         <receiver
             android:name="com.exacttarget.etpushsdk.ETPushReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
@@ -60,6 +69,12 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
+
+        <service
+            android:name="com.exacttarget.etpushsdk.ETPushService"
+            android:enabled="true" />
+        <!-- END ETPushReceiver and Service -->
+
         <!-- ETLocationReceiver and Service -->
         <receiver android:name="com.exacttarget.etpushsdk.ETLocationReceiver" >
             <intent-filter>
@@ -70,11 +85,9 @@
         </receiver>
 
         <service
-            android:name="com.exacttarget.etpushsdk.ETPushService"
-            android:enabled="true" />
-        <service
             android:name="com.exacttarget.etpushsdk.ETLocationService"
             android:enabled="true" />
+        <!-- END ETLocationReceiver and Service -->
 
         <activity android:name=".SettingsActivity" >
         </activity>

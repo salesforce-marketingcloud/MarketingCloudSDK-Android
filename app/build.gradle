@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.salesforce.kp.wheresreid"
-        minSdkVersion 10
+        minSdkVersion 11
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
