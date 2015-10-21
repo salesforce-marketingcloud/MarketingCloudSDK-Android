@@ -36,10 +36,7 @@ import java.util.Set;
  * Activities that contain this fragment must implement the
  * {@link SettingsFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link SettingsFragment#newInstance} factory method to
- * create an instance of this fragment.
  */
-@TargetApi(11)
 public class SettingsFragment extends PreferenceFragment {
     // Set of current tags
     private Set<String> allTags;
@@ -48,22 +45,6 @@ public class SettingsFragment extends PreferenceFragment {
     private PreferenceScreen prefScreen;
 
     private OnFragmentInteractionListener mListener;
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SettingsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SettingsFragment newInstance(String param1, String param2) {
-        SettingsFragment fragment = new SettingsFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     public SettingsFragment() {
     }
@@ -85,11 +66,8 @@ public class SettingsFragment extends PreferenceFragment {
             e.printStackTrace();
         }
 
-        // getFragmentManager().executePendingTransactions();
+        /* SUBSCRIBER KEY PREFERENCE */
 
-        //
-        // SUBSCRIBER KEY PREFERENCE
-        //
         // KEY_PREF_SUBSCRIBER_KEY must match the key of the EditTextPreference correspondent to the subscriber key.
         final String KEY_PREF_SUBSCRIBER_KEY = "pref_subscriber_key";
 
@@ -238,9 +216,6 @@ public class SettingsFragment extends PreferenceFragment {
 
     /**
      * Configures the Shared Preferences section to be displayed
-     *
-     * @param String Parameter 1.
-     * @return A new instance of fragment SettingsFragment.
      */
     private void configureTags(){
         // Creates a new PreferenceCategory if is not already created..

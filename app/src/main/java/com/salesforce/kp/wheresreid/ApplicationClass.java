@@ -48,7 +48,7 @@ public class ApplicationClass extends Application {
     public static final boolean CLOUD_PAGES_ENABLED = true;
     public static final boolean WAMA_ENABLED = true;
     public static final boolean LOCATION_ENABLED = true;
-    public static final long MIDDLE_TIER_PROPAGATION_MIN_DELAY = DateUtils.MINUTE_IN_MILLIS * 5; // 5 min.
+    public static final long MIDDLE_TIER_PROPAGATION_MIN_DELAY = DateUtils.MINUTE_IN_MILLIS * 5; // 5 minutes
     public static final String EXTRAS_REGISTRATION_EVENT = "event";
     public static final String HELLO_WORLD_PREFERENCES = "ApplicationClass";
     public static final String KEY_PREFS_ALARM_TIME = "mt_alarm_time";
@@ -91,14 +91,14 @@ public class ApplicationClass extends Application {
         SharedPreferences sharedPreferences = getSharedPreferences(HELLO_WORLD_PREFERENCES, MODE_PRIVATE);
         preferencesEditor = sharedPreferences.edit();
 
-        /*
-            A good practice is to register your application to listen for events posted to a private
-            communication bus by the SDK.
+        /**
+         * Register the application to listen for events posted to a private communication bus
+         * by the SDK.
          */
         EventBus.getInstance().register(this);
 
+        // Register to receive push notifications.
         try {
-            // Register to receive push notifications.
             ETPush.readyAimFire(new ETPushConfig.Builder(this)
                             .setEtAppId(getString(R.string.app_id))
                             .setAccessToken(getString(R.string.access_token))
@@ -116,10 +116,9 @@ public class ApplicationClass extends Application {
     }
 
     /**
-     * Return the application version name as recorded in the app's build.gradle file.  If this is
-     * a debug release then append a "d" to denote such.
+     * Returns the application version name as recorded in the app's build.gradle file.
      *
-     * @return a String representing the application version name
+     * @return the application version name
      */
     private String getAppVersionName() {
         try {
@@ -143,20 +142,17 @@ public class ApplicationClass extends Application {
     }
 
     /**
-     * EventBus callback listening for a RegistrationEvent.
+     * Listens for a RegistrationEvent on EventBus callback.
      *
-     * @param event the type of event we're listening for.
-     *
-     * This method is one of several methods for getting notified when an event
-     * occurs in the SDK.
-     *
-     * They are all called onEvent(), but will have a different parameter to indicate
-     * the event that has occurred.
+     * This method is one of several methods to log notifications when an event occurs in the SDK.
+     * Different attributes indicate which event has occurred.
      *
      * RegistrationEvent will be triggered when the SDK receives the response from the
      * registration as triggered by the com.google.android.c2dm.intent.REGISTRATION intent.
      *
-     * These events are only called if EventBus.getInstance().register() is called
+     * These events are only called if EventBus.getInstance().register() is called.
+     *
+     * @param event the type of event we're listening for.
      */
 
     public void onEvent(final RegistrationEvent event) {

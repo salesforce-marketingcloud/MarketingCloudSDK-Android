@@ -45,9 +45,6 @@ import java.util.ArrayList;
 
 public class SettingsActivity extends PreferenceActivity {
     private static final String TAG = "SettingsActivity";
-    private SharedPreferences sp;
-    private ArrayList<String> allTags;
-    private ETPush pusher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,14 +52,8 @@ public class SettingsActivity extends PreferenceActivity {
 
         EventBus.getInstance().register(this);
 
-        sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-            addPreferencesFromResource(R.xml.preferences);
-        }else{
-            getFragmentManager().beginTransaction().replace(android.R.id.content,
-                    new SettingsFragment()).commit();
-        }
+        getFragmentManager().beginTransaction().replace(android.R.id.content,
+                new SettingsFragment()).commit();
     }
 
     @Override

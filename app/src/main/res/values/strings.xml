@@ -2,8 +2,8 @@
 
     <!-- GENERAL -->
     <string name="app_name">Marketing Cloud Demo</string>
-    <!--<string name="action_settings">Settings</string>-->
-    <string name="action_settings">Login</string>
+    <string name="action_settings">Settings</string>
+    <string name="logo">Logo</string>
 
     <!-- SETTINGS -->
     <string name="pref_personal_info_title">Attributes</string>
