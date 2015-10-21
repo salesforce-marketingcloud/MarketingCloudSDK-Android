@@ -2,10 +2,12 @@ package com.salesforce.kp.wheresreid;
 
 import android.app.AlertDialog;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.util.Log;
@@ -15,7 +17,10 @@ import android.widget.EditText;
 
 import com.exacttarget.etpushsdk.ETException;
 import com.exacttarget.etpushsdk.ETPush;
+import com.exacttarget.etpushsdk.util.EventBus;
 import com.salesforce.kp.wheresreid.utils.Utils;
+
+import java.util.ArrayList;
 
 /**
  * SettingsActivity is the primary settings activity.
@@ -41,78 +46,29 @@ import com.salesforce.kp.wheresreid.utils.Utils;
 public class SettingsActivity extends PreferenceActivity {
     private static final String TAG = "SettingsActivity";
     private SharedPreferences sp;
+    private ArrayList<String> allTags;
+    private ETPush pusher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        EventBus.getInstance().register(this);
+
         sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        addPreferencesFromResource(R.xml.preferences);
 
-        //
-        // SUBSCRIBER KEY PREFERENCE
-        //
-        // KEY_PREF_SUBSCRIBER_KEY must match the key of the EditTextPreference correspondent to the subscriber key.
-        final String KEY_PREF_SUBSCRIBER_KEY = "pref_subscriber_key";
-
-        final Preference skPref = findPreference(KEY_PREF_SUBSCRIBER_KEY);
-        if (!sp.getString(KEY_PREF_SUBSCRIBER_KEY, "").isEmpty()) {
-            skPref.setSummary(sp.getString(KEY_PREF_SUBSCRIBER_KEY, ""));
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+            addPreferencesFromResource(R.xml.preferences);
+        }else{
+            getFragmentManager().beginTransaction().replace(android.R.id.content,
+                    new SettingsFragment()).commit();
         }
-
-        skPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-
-                PreferenceScreen prefSet = getPreferenceScreen();
-
-                final EditTextPreference skETP = (EditTextPreference) prefSet.findPreference(KEY_PREF_SUBSCRIBER_KEY);
-
-                final AlertDialog d = (AlertDialog) skETP.getDialog();
-                final EditText skET = skETP.getEditText();
-                skET.setText(sp.getString(KEY_PREF_SUBSCRIBER_KEY, ""));
-
-                Button b = d.getButton(AlertDialog.BUTTON_POSITIVE);
-                b.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(android.view.View v) {
-                        String newSubscriberKey = skET.getText().toString().trim();
-                        if (newSubscriberKey.isEmpty()) {
-                            Utils.flashError(skET, getString(R.string.error_cannot_be_blank));
-                            return;
-                        } else {
-
-                            // save the preference to Shared Preferences
-                            updatePreferencesForKey(KEY_PREF_SUBSCRIBER_KEY, newSubscriberKey);
-                            skPref.setSummary(newSubscriberKey);
-
-                            try {
-                                ETPush.getInstance().setSubscriberKey(newSubscriberKey);
-                            } catch (ETException e) {
-                                if (ETPush.getLogLevel() <= Log.ERROR) {
-                                    Log.e(TAG, e.getMessage(), e);
-                                }
-                            }
-                        }
-
-                        d.dismiss();
-                    }
-                });
-
-                return true;
-            }
-        });
     }
 
-
-    //
-    // updatePreferencesForKey
-    //
-    // Update the Shared Preferences file for the given String key.
-    //
-    private void updatePreferencesForKey(String key, String value) {
-        sp.edit().putString(key, value).apply();
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getInstance().unregister(this);
     }
+
 }
