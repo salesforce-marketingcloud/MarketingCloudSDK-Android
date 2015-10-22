@@ -184,7 +184,7 @@ public class SettingsFragment extends PreferenceFragment {
     /**
      * Receives a Set of Tags, those are stored in Shared preferences
      *
-     * @param pSet Parameter 1.
+     * @param pSet a Set<String> of Tags to be stored.
      */
     private void storeAllTags(Set<String> pSet) throws ETException{
         // Retrieve the tags stored in Shared preferences
@@ -205,7 +205,7 @@ public class SettingsFragment extends PreferenceFragment {
     /**
      * Receives a Tag to Store in Shared preferences
      *
-     * @param tag Parameter 1.
+     * @param tag a new Tag to be added.
      * @return A new instance of fragment SettingsFragment.
      */
     private void addNewTag(String tag) throws ETException{
@@ -245,8 +245,8 @@ public class SettingsFragment extends PreferenceFragment {
     /**
      * Creates a row from the Tag passed as parameter to be displayed.
      *
-     * @param prefCat Parameter 1.
-     * @param tag Parameter 2.
+     * @param prefCat a PreferenceCategory, the section where the Tag is going to be displayed on.
+     * @param tag the Tag to be displayed on the screen.
      */
     private void addTagCheckbox(PreferenceCategory prefCat, final String tag) {
         // Creates a new row if is not already created for the Tag.
