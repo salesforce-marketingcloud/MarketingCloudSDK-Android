@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    // Change these to fit your applications requirements!
+    /* Change these to fit your applications requirements! */
     compileSdkVersion 23
     buildToolsVersion "23"
 
