@@ -31,18 +31,22 @@ public class ApplicationClass extends Application {
 
     public static final String TAG = "ApplicationClass";
 
-    // ANALYTICS_ENABLED is set to true to show how Salesforce analytics will save statistics for
-    // how your customers use the app.
+     /**
+      * ANALYTICS_ENABLED is set to true to show how Salesforce analytics will save statistics for
+      * how your customers use the app.
+      *
+      * CLOUD_PAGES_ENABLED is set to true to test how notifications can send your app customers to
+      * different web pages.
+      *
+      * WAMA_ENABLED is set to true to show how Predictive Intelligence analytics (PIAnalytics) will
+      * save statistics for how your customers use the app (by invitation at this point).
+      *
+      * LOCATION_ENABLED is set to true to show how geo fencing works within the SDK.
+      *
+      * Your app will have these choices set based on how you want your app to work.
+      */
 
-    // CLOUD_PAGES_ENABLED is set to true to test how notifications can send your app customers to
-    // different web pages.
 
-    // WAMA_ENABLED is set to true to show how Predictive Intelligence analytics (PIAnalytics) will
-    // save statistics for how your customers use the app (by invitation at this point).
-
-    // LOCATION_ENABLED is set to true to show how geo fencing works within the SDK.
-
-    // Your app will have these choices set based on how you want your app to work.
 
     public static final boolean ANALYTICS_ENABLED = true;
     public static final boolean CLOUD_PAGES_ENABLED = true;
