@@ -43,7 +43,7 @@ import java.util.ArrayList;
  * @author Salesforce (R) 2015.
  */
 
-public class SettingsActivity extends PreferenceActivity {
+public class SettingsActivity extends BasePreferenceActivity {
     private static final String TAG = "SettingsActivity";
 
     @Override

@@ -6,9 +6,11 @@
     <permission
         android:name="${applicationId}.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
+
     <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <!-- END JB4A SDK Google Permissions -->
+
 
     <!-- JB4A SDK required permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -23,10 +25,10 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <!-- END JB4A SDK location and region monitoring Permissions -->
 
+    <!-- END JB4A SDK location and region monitoring Permissions -->
     <application
-        android:name="ApplicationClass"
+        android:name=".ApplicationClass"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -40,7 +42,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.exacttarget.etpushsdk.ETLandingPagePresenter"
             android:label="Landing Page" />
@@ -75,6 +76,7 @@
             android:enabled="true" />
         <!-- END ETPushReceiver and Service -->
 
+
         <!-- ETLocationReceiver and Service -->
         <receiver android:name="com.exacttarget.etpushsdk.ETLocationReceiver" >
             <intent-filter>
@@ -90,6 +92,10 @@
         <!-- END ETLocationReceiver and Service -->
 
         <activity android:name=".SettingsActivity" >
+        </activity>
+        <activity android:name=".BaseActivity" >
+        </activity>
+        <activity android:name=".BasePreferenceActivity" >
         </activity>
     </application>
 
