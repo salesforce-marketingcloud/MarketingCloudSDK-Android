@@ -226,7 +226,7 @@ public class SettingsFragment extends PreferenceFragment {
             tagsSection.setKey("pref_tag_section");
             /* Creates 'About' preference */
             Preference about = new Preference(getActivity());
-            about.setTitle("About Tags");
+            about.setTitle(getResources().getString(R.string.pref_tag_about));
             about.setSelectable(false);
             about.setSummary(getResources().getString(R.string.tag_help));
             /* Creates the Add new Tag section. */
