@@ -88,25 +88,25 @@ Review the Android documentation regarding the integration of your Android mobil
 
 2. Record the Project Number value supplied by the Google Cloud Console. You will use this value later in your Android application code as the **Google Cloud Messaging Sender ID**.
 
-![image alt text](/images/image_0.png)
+![image alt text](images/image_0.png)
 
 3. In the the left menu click on **APIs **(**APIs & auth** section).
 
 4. Enable **Google Cloud Messaging for Android** by clicking Google Cloud Messaging For Android:
 
-![image alt text](/images/image_1.png)
+![image alt text](images/image_1.png)
 
 5. Click the button that says "Enable API".
 
-![image alt text](/images/image_2.png)
+![image alt text](images/image_2.png)
 
 6. Click **Credentials** in the left menu.
 
 7. Click **Add credentials **→ **API key**, and select **Android key** in the dialog.
 
-![image alt text](/images/image_3.png)
+![image alt text](images/image_3.png)
 
-![image alt text](/images/image_4.png)
+![image alt text](images/image_4.png)
 
 8. Retrieve the **SHA1 Certificate Fingerprint** of the Android Debug Key from a (Unix/Mac) Terminal or (Windows) Command Prompt.  *Have each developer on your team complete this step and provide their SHA1 Certificate Fingerprint for inclusion in the ***_allowed Android applications_*** field below. ***_You will also need to add an entry for your production signing key._**
 
@@ -114,17 +114,17 @@ Unix/Mac: keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.
 
 Windows: keytool -alias androiddebugkey -keystore %USERPROFILE%\.android\debug.keystore -list -v
 
-![image alt text](/images/image_5.jpg)
+![image alt text](images/image_5.jpg)
 
-![image alt text](/images/image_6.jpg) 
+![image alt text](images/image_6.jpg) 
 
 9. Enter a name for your key, and click in **Add package name and fingerprint**. Enter your package name (must match the package name you will use in your Android project) and paste each developer’s **SHA1 Certificate Fingerprint** separated by a semicolon in the corresponding fields, and then click **Create**.
 
-![image alt text](/images/image_7.png)
+![image alt text](images/image_7.png)
 
 10. Click **Ok** in the dialog.
 
-![image alt text](/images/image_8.png)
+![image alt text](images/image_8.png)
 
 11. Now create a new Server key by repeating step 7 but choosing **Server key**.
 
@@ -132,7 +132,7 @@ Windows: keytool -alias androiddebugkey -keystore %USERPROFILE%\.android\debug.k
 
 *Important: Leaving this entry blank will simplify development but is not secure. When you have verified that you have things setup correctly you should restrict access by providing individual server IP addresses or, at least, restrict the range to your known address ranges.*
 
-![image alt text](/images/image_9.png)
+![image alt text](images/image_9.png)
 
 13. Click **Create** and copy the **API KEY** value from the **Server application**.
 
@@ -156,11 +156,11 @@ To create a new MobilePush app:
 
 2. Create a new app and select the MobilePush template.
 
-![image alt text](/images/image_10.png)
+![image alt text](images/image_10.png)
 
 3. Fill in, at a minimum, the mandatory fields in this form.
 
-![image alt text](/images/image_11.png)
+![image alt text](images/image_11.png)
 
 *Depending on your setup, repeat this process if you plan on using different instances for production and development.*
 
@@ -182,7 +182,7 @@ Follow these steps in order to connect this MobilePush app to the correct Market
 
 1. Select an account (or New…) in the **Account** drop-down.
 
-![image alt text](/images/image_12.png)
+![image alt text](images/image_12.png)
 
 2. Select the **Production ExactTarget Account** button *unless otherwise instructed by your Salesforce Marketing Cloud relationship manager.*
 
@@ -190,7 +190,7 @@ Follow these steps in order to connect this MobilePush app to the correct Market
 
 A popup window (pictured below) will appear.
 
-![image alt text](/images/image_13.png)
+![image alt text](images/image_13.png)
 
 4. In an Enterprise 2.0 account, ensure that you select the correct business unit for your app integration.
 
@@ -198,7 +198,7 @@ A popup window (pictured below) will appear.
 
 6. In the GCM Client section, enter the server API KEY previously created in the [Provision Apps with Google](#heading=h.1aedy6lcafpy) step (you can get this key by entering in the [Google Cloud Console](https://console.developers.google.com/)).
 
-![image alt text](/images/image_14.png)
+![image alt text](images/image_14.png)
 
 7. When you have all the fields required for your application’s platform(s) populated, click *Next*.
 
@@ -206,7 +206,7 @@ A popup window (pictured below) will appear.
 
 You should be presented with a *Success!* message and an application details screen. Any of the areas can be edited by clicking the edit icon associated with the **Summary** or **Application Provisioning** sections.
 
-![image alt text](/images/image_15.png)
+![image alt text](images/image_15.png)
 
 Record the **Application ID** and the **Access Token** as they will be used later in readyAimFire() as shown in Implementing the SDK Push Notifications.
 
