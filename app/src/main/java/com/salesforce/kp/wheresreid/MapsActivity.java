@@ -14,8 +14,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,5 +46,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .radius(5000)
                 .strokeColor(Color.BLUE)
                 .fillColor(Color.parseColor("#500084d3")));
+
+        map.animateCamera(CameraUpdateFactory.zoomTo(10));
     }
 }

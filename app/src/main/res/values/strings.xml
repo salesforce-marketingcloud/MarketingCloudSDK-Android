@@ -4,6 +4,7 @@
     <string name="app_name">Marketing Cloud Demo</string>
     <string name="action_settings">Settings</string>
     <string name="action_cloudpage_inbox">CloudPage Inbox</string>
+    <string name="action_map">Map</string>
     <string name="logo">Logo</string>
     <string name="readme_remote_url">https://github.com/PhilCommunication/marketingCloudSDK-android/blob/readme/README.md#readme</string>
 
