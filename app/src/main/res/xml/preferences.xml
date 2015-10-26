@@ -9,7 +9,7 @@
             android:key="prefSubscriberKeyHelp"
             android:selectable="false"
             android:summary="@string/subscriber_key_help"
-            android:title="Background" />
+            android:title="About Subscriber Key" />
 
         <EditTextPreference
             android:defaultValue=""

@@ -11,10 +11,12 @@
 
     <string name="pref_subscriber_key">Subscriber Key</string>
     <string name="pref_subscriber_key_summ">Please enter a subscriber key (usually email address)</string>
+    <string name="pref_subscriber_key_about">About Subscriber Key</string>
 
     <string name="pref_new_tag">New Tag</string>
     <string name="pref_new_tag_summ">Tap here to add a new Tag</string>
     <string name="pref_new_tag_dialog">Enter the new Tag</string>
+    <string name="pref_tag_about">About Tags</string>
 
     <!-- HELP -->
     <string name="attribute_help">Attributes contain specific information about your subscribers, such as first and last name, gender, and geographical location.\n\nYou can assign specific information as part of a subscriber attribute to be used as part of sends or subscriber management.\n\nThis JB4A SDK Explorer stores first name and last name as attributes.</string>
