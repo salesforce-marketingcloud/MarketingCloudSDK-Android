@@ -8,11 +8,11 @@ This project provides a template for creating a mobile app (Android or iOS) that
 
 The code in this repository includes all of the code used to run the fully functional APK. However, the API keys have been removed. To debug the app or to modify to create a new app, the following keys must be set within the corresponding file (res/values/secrets.xml for Android and AppDelegate+ETPushConstants.m for iOS):
 
-1. app_id: the App ID for your development app as defined in the App Center section of the Marketing Cloud.
+1. `app_id`: the App ID for your development app as defined in the App Center section of the Marketing Cloud.
 
-2. gcm_sender_id: the Google Cloud Messaging ID as defined in the Google Cloud Developers Console for your app.
+2. `gcm_sender_id`: the Google Cloud Messaging ID as defined in the Google Cloud Developers Console for your app.
 
-3. access_token: the Access Token for your development app as defined in the App Center section of the Marketing Cloud.
+3. `access_token`: the Access Token for your development app as defined in the App Center section of the Marketing Cloud.
 
 NB: You can use different keys for the staging/testing phase and the production phase.  Staging/testing keys are indicated by the prefix "staging_".
 
@@ -110,9 +110,9 @@ Review the Android documentation regarding the integration of your Android mobil
 
 8. Retrieve the **SHA1 Certificate Fingerprint** of the Android Debug Key from a (Unix/Mac) Terminal or (Windows) Command Prompt.  *Have each developer on your team complete this step and provide their SHA1 Certificate Fingerprint for inclusion in the ***_allowed Android applications_*** field below. ***_You will also need to add an entry for your production signing key._**
 
-Unix/Mac: keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore -list -v
+Unix/Mac: `keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore -list -v`
 
-Windows: keytool -alias androiddebugkey -keystore %USERPROFILE%\.android\debug.keystore -list -v
+Windows: `keytool -alias androiddebugkey -keystore %USERPROFILE%\.android\debug.keystore -list -v`
 
 ![image alt text](images/image_5.jpg)
 
@@ -130,7 +130,7 @@ Windows: keytool -alias androiddebugkey -keystore %USERPROFILE%\.android\debug.k
 
 12. Enter a name for the key. You can enter server IP address to filter request or leave this entry blank.
 
-*Important: Leaving this entry blank will simplify development but is not secure. When you have verified that you have things setup correctly you should restrict access by providing individual server IP addresses or, at least, restrict the range to your known address ranges.*
+>*Important: Leaving this entry blank will simplify development but is not secure. When you have verified that you have things setup correctly you should restrict access by providing individual server IP addresses or, at least, restrict the range to your known address ranges.*
 
 ![image alt text](images/image_9.png)
 
@@ -155,22 +155,17 @@ To create a new MobilePush app:
 1. [Log in to the App Center](https://appcenter-auth.exacttargetapps.com/redirect) ([create an account](https://appcenter-auth.exacttargetapps.com/create) if necessary).
 
 2. Create a new app and select the MobilePush template.
-
 ![image alt text](images/image_10.png)
 
 3. Fill in, at a minimum, the mandatory fields in this form.
-
 ![image alt text](images/image_11.png)
 
-*Depending on your setup, repeat this process if you plan on using different instances for production and development.*
+    > *Depending on your setup, repeat this process if you plan on using different instances for production and development.*
 
-Note that following about the required fields:
-
-    1. The **Name** can be anything you choose.
-
-    2. The **Package** has no correlation to anything outside of the MarketingCloud ecosystem and can be **any** unique identifier for your application.
-
-    3. The **Description** & **MobilePush Icon** fields are optional but will help you identify your application within your Marketing Cloud account. 
+    > Note that following about the required fields:
+    > * The **Name** can be anything you choose.
+    > * The **Package** has no correlation to anything outside of the MarketingCloud ecosystem and can be **any** unique identifier for your application.
+    > * The **Description** & **MobilePush Icon** fields are optional but will help you identify your application within your Marketing Cloud account. 
 
 4. Click **Next** in order to integrate this new app with your Marketing Cloud account.
 
@@ -181,16 +176,15 @@ The MobilePush app created in the App Center must be connected to a specific Mar
 Follow these steps in order to connect this MobilePush app to the correct Marketing Cloud account:
 
 1. Select an account (or New…) in the **Account** drop-down.
-
 ![image alt text](images/image_12.png)
 
 2. Select the **Production ExactTarget Account** button *unless otherwise instructed by your Salesforce Marketing Cloud relationship manager.*
 
 3. Click **Link to Account**.
 
-A popup window (pictured below) will appear.
+ A popup window (pictured below) will appear.
 
-![image alt text](images/image_13.png)
+  ![image alt text](images/image_13.png)
 
 4. In an Enterprise 2.0 account, ensure that you select the correct business unit for your app integration.
 
@@ -198,7 +192,7 @@ A popup window (pictured below) will appear.
 
 6. In the GCM Client section, enter the server API KEY previously created in the [Provision Apps with Google](#heading=h.1aedy6lcafpy) step (you can get this key by entering in the [Google Cloud Console](https://console.developers.google.com/)).
 
-![image alt text](images/image_14.png)
+  ![image alt text](images/image_14.png)
 
 7. When you have all the fields required for your application’s platform(s) populated, click *Next*.
 
@@ -224,13 +218,12 @@ Copy the following files from this repository into a project in Android Studio:
 
 5. ApplicationClass.java
 
-6. proguard-rules.pro
 
-Secrets.xml
+`Secrets.xml`
 
 In this file you have to put your keys, as explained in *About* section.
 
-AndroidManifest.xml
+`AndroidManifest.xml`
 
 In the AndroidManifest you have to declare several permissions.
 
@@ -443,15 +436,15 @@ private SharedPreferences sp;
 
 8. Now create the reference to the EditTextPreference from preferences.xml and set the value stored in settings Preferences. Add an OnPreferenceClickListener() to open a Dialog with input for the user to enter their Subscriber Key.  This value is stored in the settings Preferences and will be passed to the pusher.
 
-	SharedPreferences.Editor editor = sp.edit();
+  SharedPreferences.Editor editor = sp.edit();
 
 editor.putString(KEY_PREF_SUBSCRIBER_KEY, newSubscriberKey);
 
 editor.commit();
 
-	…
+  …
 
-	pusher.setSubscriberKey(newSubscriberKey);
+  pusher.setSubscriberKey(newSubscriberKey);
 
 It will take up to 15 minutes for the new value to be recorded in the Contact Record. If an internet connection is not available when the update is made, the SDK will save the update and send it whenever the network becomes available.
 
@@ -463,15 +456,15 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
 
 1. Add a Set of tags as a private attribute.
 
-	private Set<String> allTags;
+  private Set<String> allTags;
 
 2. For the implementation of this feature, an instance of PreferenceScreen is needed to display the tags dynamically on the screen.
 
-	private PreferenceScreen prefScreen;
+  private PreferenceScreen prefScreen;
 
 3. In the onCreate() method set the values for prefScreen.
 
-	this.prefScreen = getPreferenceScreen();
+  this.prefScreen = getPreferenceScreen();
 
 4. To display the tags on screen, call these methods inside the onCreate() method:
 
@@ -532,3 +525,5 @@ dependencies{
 
 public static final boolean *LOCATION_ENABLED *= true;
 
+
+----------
