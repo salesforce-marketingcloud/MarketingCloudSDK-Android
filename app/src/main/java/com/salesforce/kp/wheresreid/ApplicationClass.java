@@ -228,11 +228,6 @@ public class ApplicationClass extends Application {
 
     public void onEvent(final GeofenceResponseEvent event) {
         Log.d(TAG, "Fences: " + event.getFences());
-        try {
-            ETLocationManager lm = ETLocationManager.getInstance();
-            lm = lm;
-            String a = "";
-        }catch (Exception e){}
         McLocation newLocation = new McLocation();
         LatLng latLng = new LatLng(event.getRefreshCenter().a(), event.getRefreshCenter().b());
         newLocation.setCoordenates(latLng);
