@@ -211,6 +211,7 @@ public class SettingsFragment extends PreferenceFragment {
     private void addNewTag(String tag) throws ETException{
         Set tempSet = new HashSet<String>();
         tempSet.add(tag);
+        pusher.addTag(tag);
         storeAllTags(tempSet);
     }
 
