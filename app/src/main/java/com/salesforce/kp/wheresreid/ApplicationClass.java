@@ -8,11 +8,13 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.text.format.DateUtils;
 import android.util.Log;
 
 import com.exacttarget.etpushsdk.ETException;
+import com.exacttarget.etpushsdk.ETLocationManager;
 import com.exacttarget.etpushsdk.ETPush;
 import com.exacttarget.etpushsdk.ETPushConfig;
 import com.exacttarget.etpushsdk.data.Attribute;
@@ -111,7 +113,7 @@ public class ApplicationClass extends Application {
                             .setGcmSenderId(getString(R.string.gcm_sender_id))
                             .setLogLevel(BuildConfig.DEBUG ? Log.VERBOSE : Log.ERROR)
                             .setAnalyticsEnabled(ANALYTICS_ENABLED)
-                            .setLocationEnabled(LOCATION_ENABLED)
+                            .setLocationEnabled(true)
                             .setPiAnalyticsEnabled(WAMA_ENABLED)
                             .setCloudPagesEnabled(CLOUD_PAGES_ENABLED)
                             .build()
@@ -226,6 +228,11 @@ public class ApplicationClass extends Application {
 
     public void onEvent(final GeofenceResponseEvent event) {
         Log.d(TAG, "Fences: " + event.getFences());
+        try {
+            ETLocationManager lm = ETLocationManager.getInstance();
+            lm = lm;
+            String a = "";
+        }catch (Exception e){}
         McLocation newLocation = new McLocation();
         LatLng latLng = new LatLng(event.getRefreshCenter().a(), event.getRefreshCenter().b());
         newLocation.setCoordenates(latLng);

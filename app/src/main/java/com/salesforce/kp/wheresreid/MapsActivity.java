@@ -55,7 +55,4 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         map.animateCamera(CameraUpdateFactory.zoomTo(10));
     }
 
-    public void onEvent(final GeofenceResponseEvent event) {
-        Log.d("Fences", "Fences: " + event.getFences());
-    }
 }
