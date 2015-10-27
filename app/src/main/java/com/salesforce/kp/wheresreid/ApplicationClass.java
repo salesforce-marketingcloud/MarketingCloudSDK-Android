@@ -16,8 +16,10 @@ import com.exacttarget.etpushsdk.ETException;
 import com.exacttarget.etpushsdk.ETPush;
 import com.exacttarget.etpushsdk.ETPushConfig;
 import com.exacttarget.etpushsdk.data.Attribute;
+import com.exacttarget.etpushsdk.event.GeofenceResponseEvent;
 import com.exacttarget.etpushsdk.event.RegistrationEvent;
 import com.exacttarget.etpushsdk.util.EventBus;
+import com.google.android.gms.maps.model.LatLng;
 
 
 /**
@@ -221,5 +223,15 @@ public class ApplicationClass extends Application {
 //
 //        preferencesEditor.putLong(KEY_PREFS_ALARM_TIME, okToCheckMiddleTier).apply();
     }
+
+    public void onEvent(final GeofenceResponseEvent event) {
+        Log.d(TAG, "Fences: " + event.getFences());
+        McLocation newLocation = new McLocation();
+        LatLng latLng = new LatLng(event.getRefreshCenter().a(), event.getRefreshCenter().b());
+        newLocation.setCoordenates(latLng);
+        newLocation.setRadius(event.getRefreshRadius());
+        McLocationManager.getInstance().getLocations().add(newLocation);
+    }
+
 }
         
