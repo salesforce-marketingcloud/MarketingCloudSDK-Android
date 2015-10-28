@@ -1,26 +1,7 @@
 package com.salesforce.kp.wheresreid;
 
-import android.app.AlertDialog;
-import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
-import android.preference.EditTextPreference;
-import android.preference.Preference;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceManager;
-import android.preference.PreferenceScreen;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-
-import com.exacttarget.etpushsdk.ETException;
-import com.exacttarget.etpushsdk.ETPush;
 import com.exacttarget.etpushsdk.util.EventBus;
-import com.salesforce.kp.wheresreid.utils.Utils;
-
-import java.util.ArrayList;
 
 /**
  * SettingsActivity is the primary settings activity.
