@@ -3,6 +3,7 @@
     <!-- GENERAL -->
     <string name="app_name">Marketing Cloud Demo</string>
     <string name="action_settings">Settings</string>
+    <string name="action_cloudpage_inbox">CloudPage Inbox</string>
     <string name="logo">Logo</string>
 
     <!-- SETTINGS -->
@@ -36,6 +37,11 @@
 
     <!-- Errors -->
     <string name="error_cannot_be_blank">This field cannot be blank</string>
+
+    <!-- Cloud Inbox -->
+    <string name="option_all">All</string>
+    <string name="option_read">Read</string>
+    <string name="option_unread">Unread</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
