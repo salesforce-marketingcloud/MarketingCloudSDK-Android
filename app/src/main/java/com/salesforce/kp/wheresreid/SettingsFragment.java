@@ -66,7 +66,7 @@ public class SettingsFragment extends PreferenceFragment {
             e.printStackTrace();
         }
 
-        /* SUBSCRIBER KEY PREFERENCE */
+        /** SUBSCRIBER KEY PREFERENCE */
 
         /* KEY_PREF_SUBSCRIBER_KEY must match the key of the EditTextPreference correspondent to the subscriber key. */
         final String KEY_PREF_SUBSCRIBER_KEY = "pref_subscriber_key";
@@ -182,7 +182,7 @@ public class SettingsFragment extends PreferenceFragment {
     }
 
     /**
-     * Receives a Set of Tags, those are stored in Shared preferences
+     * Receives a Set of tags and adds them to the Set of tags in Shared Preferences.
      *
      * @param pSet a Set<String> of Tags to be stored.
      */
@@ -203,7 +203,7 @@ public class SettingsFragment extends PreferenceFragment {
     }
 
     /**
-     * Receives a Tag to Store in Shared preferences
+     * Receives a Tag to store in Shared preferences
      *
      * @param tag a new Tag to be added.
      * @return A new instance of fragment SettingsFragment.
@@ -251,7 +251,7 @@ public class SettingsFragment extends PreferenceFragment {
     }
 
     /**
-     * Creates a row from the Tag passed as parameter to be displayed.
+     * Creates a row from the tag passed in as parameter to be displayed.
      *
      * @param prefCat a PreferenceCategory, the section where the Tag is going to be displayed on.
      * @param tag the Tag to be displayed on the screen.

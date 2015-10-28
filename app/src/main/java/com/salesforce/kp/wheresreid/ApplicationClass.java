@@ -65,9 +65,9 @@ public class ApplicationClass extends Application {
 
     /**
      * In ETPush.readyAimFire() you must set several parameters.
-     *  AppId and AccessToken: these values are taken from the Marketing Cloud definition for your app.
-     *  GcmSenderId for the push notifications: this value is taken from the Google API console.
-     *  You also set whether you enable LocationManager, CloudPages, and Analytics.
+     * AppId and AccessToken: these values are taken from the Marketing Cloud definition for your app.
+     * GcmSenderId for the push notifications: this value is taken from the Google API console.
+     * You also set whether you enable LocationManager, CloudPages, and Analytics.
      *
      * When ReadyAimFire() is called for the first time for a device, it will get a device token
      * from Google or Amazon and send to the MarketingCloud.
@@ -101,7 +101,7 @@ public class ApplicationClass extends Application {
          */
         EventBus.getInstance().register(this);
 
-        // Register to receive push notifications.
+        /** Register to receive push notifications. */
         try {
             ETPush.readyAimFire(new ETPushConfig.Builder(this)
                             .setEtAppId(getString(R.string.app_id))
@@ -133,7 +133,7 @@ public class ApplicationClass extends Application {
     }
 
     /**
-     * Return the application version code as recorded in the app's build.gradle file.
+     * Returns the application version code as recorded in the app's build.gradle file.
      *
      * @return an int representing the application version code
      */
