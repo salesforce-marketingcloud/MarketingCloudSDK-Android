@@ -18,10 +18,13 @@ import com.exacttarget.etpushsdk.ETLocationManager;
 import com.exacttarget.etpushsdk.ETPush;
 import com.exacttarget.etpushsdk.ETPushConfig;
 import com.exacttarget.etpushsdk.data.Attribute;
+import com.exacttarget.etpushsdk.data.Region;
 import com.exacttarget.etpushsdk.event.GeofenceResponseEvent;
 import com.exacttarget.etpushsdk.event.RegistrationEvent;
 import com.exacttarget.etpushsdk.util.EventBus;
 import com.google.android.gms.maps.model.LatLng;
+
+import java.util.ArrayList;
 
 
 /**
@@ -225,14 +228,18 @@ public class ApplicationClass extends Application {
 //
 //        preferencesEditor.putLong(KEY_PREFS_ALARM_TIME, okToCheckMiddleTier).apply();
     }
-
+    
     public void onEvent(final GeofenceResponseEvent event) {
-        Log.d(TAG, "Fences: " + event.getFences());
-        McLocation newLocation = new McLocation();
-        LatLng latLng = new LatLng(event.getRefreshCenter().a(), event.getRefreshCenter().b());
-        newLocation.setCoordenates(latLng);
-        newLocation.setRadius(event.getRefreshRadius());
-        McLocationManager.getInstance().getLocations().add(newLocation);
+        ArrayList<Region> regions = (ArrayList<Region>) event.getFences();
+        for (Region r : regions){
+            McLocation newLocation = new McLocation();
+            LatLng latLng = new LatLng(r.getLatitude(), r.getLongitude());
+            newLocation.setCoordenates(latLng);
+            newLocation.setRadius(r.getRadius());
+            newLocation.setName(r.getName());
+            newLocation.setType("g");
+            McLocationManager.getInstance().getLocations().add(newLocation);
+        }
     }
 
 }

@@ -12,6 +12,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -41,18 +42,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap map) {
-        // Add a marker in Sydney, Australia, and move the camera.
-        LatLng sydney = new LatLng(-34.482844, -56.12114);
-        map.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        setUpMap(map);
+    }
 
-        map.addCircle(new CircleOptions()
-                .center(sydney)
-                .radius(5000)
-                .strokeColor(Color.BLUE)
-                .fillColor(Color.parseColor("#500084d3")));
+    private void setUpMap(GoogleMap map){
+        McLocationManager lm = McLocationManager.getInstance();
+        LatLng lastCoord = new LatLng(-34.482844, -56.12114);
+        for (McLocation location : lm.getLocations()){
+            map.addMarker(new MarkerOptions().position(location.getCoordenates()).title(location.getName()));
+            map.addCircle(new CircleOptions()
+                    .center(location.getCoordenates())
+                    .radius(location.getRadius())
+                    .strokeColor(getResources().getColor(R.color.geoLocationOuterCircle))
+                    .fillColor(getResources().getColor(R.color.geoLocationInnerCircle)));
+            lastCoord = location.getCoordenates();
+        }
 
-        map.animateCamera(CameraUpdateFactory.zoomTo(10));
+        CameraPosition cameraPosition = new CameraPosition.Builder()
+                .target(lastCoord).zoom(12).build();
+        map.animateCamera(CameraUpdateFactory
+                .newCameraPosition(cameraPosition));
     }
 
 }
