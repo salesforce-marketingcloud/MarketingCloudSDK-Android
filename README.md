@@ -479,6 +479,7 @@ The `configureTags()` method renders the tags section, a clickable EditTextPrefe
     ```
 2. In your AndroidManifest, add the *JB4A SDK Permissions for location and region monitoring*, and the ETLocation Receiver and Service required to receive the push notifications based on the location of the customer.
 
+    [view the code](/app/src/main/AndroidManifest.xml#L24)
     ```java
     <!-- JB4A SDK Permissions for location and region monitoring -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -502,4 +503,7 @@ The `configureTags()` method renders the tags section, a clickable EditTextPrefe
     ```
 3. In your ApplicationClass, set the `LOCATION_ENABLED` parameter to true:
 
-    `public static final boolean LOCATION_ENABLED = true;`
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/ApplicationClass.java#L54)
+    ```java
+    public static final boolean LOCATION_ENABLED = true;
+    ```
