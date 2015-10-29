@@ -1,64 +1,65 @@
 # README
 
-1. [About](README.md#L31)
+1. [About](#0001)
 
-    1. [Marketing Cloud App Center](README.md#L55)
+    1. [Marketing Cloud App Center](#0002)
 
-    2. [Push Notifications](README.md#L75)
+    2. [Push Notifications](#0003)
 
-    3. [Subscriber key](README.md#L79)
+    3. [Subscriber key](#0004)
 
-    4. [Tags](README.md#L89)
+    4. [Tags](#0005)
 
-    5. [Beacon and Geofence Messages](README.md#L93)
+    5. [Beacon and Geofence Messages](#0006)
 
-2. [Android](README.md#L103)
+2. [Android](#0007)
 
-    1. [Previous steps](README.md#L105)
+    1. [Previous steps](#0008)
 
-        1. [Provision Apps with Google](README.md#L111)
+        1. [Provision Apps with Google](#0009)
 
-        2. [Create your apps in the App Center](README.md#L177)
+        2. [Create your apps in the App Center](#0010)
 
-            1. [Add app to App Center](README.md#L187)
+            1. [Add app to App Center](#0011)
 
-            2. [Integrate App Center app](README.md#L213)
+            2. [Integrate App Center app](#0012)
 
-    2. [Implementing the SDK Push Notifications](README.md#L249)
+    2. [Implementing the SDK Push Notifications](#0013)
 
-    3. [Subscriber Key Implementation](README.md#L362)
+    3. [Subscriber Key Implementation](#0014)
 
-    4. [Tag Implementation](README.md#L403)
+    4. [Tag Implementation](#0015)
 
-    5. [Beacon and Geofence Message Implementation](README.md#L429)
+    5. [Beacon and Geofence Message Implementation](#0016)
 
-3. [iOS](README.md#L467)
+3. [iOS](#0017)
 
-    1. [Previous steps](README.md#L469)
+    1. [Previous steps](#0018)
 
-        1. [iOS Provisioning Panel](README.md#L475)
+        1. [iOS Provisioning Panel](#0019)
 
-        2. [Create your apps in the App Center](README.md#L585)
+        2. [Create your apps in the App Center](#0020)
 
-            1. [Add app to App Center](README.md#L595)
+            1. [Add app to App Center](#0021)
 
-            2. [Integrate App Center app](README.md#L621)
+            2. [Integrate App Center app](#0022)
 
-    2. [Implementing the SDK Push Notifications](README.md#L657)
+    2. [Implementing the SDK Push Notifications](#0023)
 
-    3. [Subscriber Key Implementation](README.md#L705)
+    3. [Subscriber Key Implementation](#0024)
 
-    4. [Tag Implementation](README.md#L719)
+    4. [Tag Implementation](#0025)
 
-    5. [Beacon and Geofence Message Implementation](README.md#L738)
+    5. [Beacon and Geofence Message Implementation](#0026)
 
+<a name="0001"></a>
 # About
 
 This project provides a template for creating a mobile app (Android or iOS) that uses the Journey Builder for Apps SDK.  It is also a UI for exploring its features and provides a mechanism to collect and send debugging information to learn about the workings of the SDK as you explore.
 
 The code in this repository includes all of the code used to run the fully functional APK. However, the API keys have been removed. To debug, modify or create a new app the following keys must be set within the corresponding file.
 
-For Android (`secrets.xml`):
+**secrets.xml**
 
 1. `app_id`: the App ID for your development app as defined in the App Center section of the Marketing Cloud.
 
@@ -68,14 +69,7 @@ For Android (`secrets.xml`):
 
 NB: You can use different keys for the staging/testing phase and the production phase.  Staging/testing keys are indicated by the prefix `staging_`.
 
-For iOS (`AppDelegate+ETPushConstants.m`):
-
-1. `kETAppID_Prod`: the App ID for your development app as defined in the App Center section of the Marketing Cloud.
-
-2. `kETAccessToken_Prod`: the Access Token for your development app as defined in the App Center section of the Marketing Cloud.
-
-NB: You can use different keys for the staging/testing phase and the production phase.  Staging/testing keys are called `kETAppID_Debug` and `kETAccessToken_Debug`.
-
+<a name="0002"></a>
 ## Marketing Cloud App Center
 
 App Center is the central development console for using Fuel’s APIs and building Marketing Cloud apps.
@@ -95,11 +89,11 @@ Each app in App Center represents an application connected to the Marketing Clou
 If you haven’t already, you should [create an App Center account](https://appcenter-auth.exacttargetapps.com/create).
 
 If you have an App Center account, you can [log in to that account](https://appcenter-auth.exacttargetapps.com/redirect).
-
+<a name="0003"></a>
 ## Push Notifications
 
 MobilePush lets you create and send targeted push messages based on cross-channel consumer data to encourage app usage and deliver increased ROI.  With MobilePush, you view how users navigate through your app and because MobilePush is built on the Salesforce Marketing Cloud, you can easily integrate push message campaigns with any email, SMS, or social campaigns.
-
+<a name="0004"></a>
 ## Subscriber key
 
 A subscriber is a person who has opted to receive communications from your organization. 
@@ -117,14 +111,14 @@ For example, using a subscriber key to identify a subscriber with a value other 
 * Include a single email address multiple times on a list. For example, if a message interaction sends a separate message for each car a subscriber owns, it may be appropriate for a single subscriber to receive multiple messages.
 
 The Salesforce Marketing Cloud interface as well as the Web Service SOAP API support functionality around subscribers identified with a subscriber key.
-
+<a name="0005"></a>
 ## Tags
 
 Tags let you implement contact segmentation. You can set tags for subscriptions as defined by user choice.  Additionally, use tags to collect information from the mobile app and for unstructured data or data that can contain many potential unknown values. For example, you can use tags when the number of potential attribute names exceeds the number of potential values of an individual attribute (such as the favorite brand specified by a contact).
-
+<a name="0006"></a>
 ## Beacon and Geofence Messages
 
-You can use the location capabilities of the *JB4A SDK* to target messages to a segmented group of contacts. The app pre-downloads geofence messages and triggers those messages when a mobile device crosses a geofence boundary.  To use this functionality:
+You can use the location capabilities of the *JB4A SDK* to target messages to a segmented group of contacts.  Send personalized messages to increase engagement.  The app pre-downloads geofence messages and triggers those messages when a mobile device crosses a geofence boundary.  To use this functionality:
 
 1. The account must have access to both MobilePush and Location Services.
 
@@ -132,14 +126,16 @@ You can use the location capabilities of the *JB4A SDK* to target messages to a 
 
 3. You must receive user permission to implement location services.
 
+<a name="0007"></a>
 # Android
-
+<a name="0008"></a>
 ## Previous steps
 
 1. Provision Apps with Google  
 
 2. Create your apps in the App Center
 
+<a name="0009"></a>
 ### Provision Apps with Google
 
 These steps are key to receiving push messages in your app.
@@ -170,13 +166,13 @@ Review the Android documentation regarding the integration of your Android mobil
 
 6. Click **Credentials** in the left menu.
 
-7. Click **Add credentials **→ **API key**, and select **Android key** in the dialog.
+7. Click **Add credentials** → **API key**, and select **Android key** in the dialog.
 
     ![image alt text](imgReadMe/image_03.png)
 
     ![image alt text](imgReadMe/image_04.png)
 
-8. Retrieve the **SHA1 Certificate Fingerprint** of the Android Debug Key from a (Unix/Mac) Terminal or (Windows) Command Prompt.  *Have each developer on your team complete this step and provide their SHA1 Certificate Fingerprint for inclusion in the ***_allowed Android applications_*** field below. ***_You will also need to add an entry for your production signing key._**
+8. Retrieve the **SHA1 Certificate Fingerprint** of the Android Debug Key from a (Unix/Mac) Terminal or (Windows) Command Prompt.  *Have each developer on your team complete this step and provide their SHA1 Certificate Fingerprint for inclusion in the* ***allowed Android applications*** *field below*. ***You will also need to add an entry for your production signing key.***
 
     Unix/Mac: `keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore -list -v`
 
@@ -206,6 +202,7 @@ Review the Android documentation regarding the integration of your Android mobil
 
 14. Use the API Key from the server application created above to add to your MobilePush app in the *Create your apps in the App Center* step. And use the project number to set the `gcm_sender_id` in your project.
 
+<a name="0010"></a>
 ### Create your apps in the App Center
 
 In order to connect your app to your Marketing Cloud account, you must follow these steps:
@@ -216,6 +213,7 @@ In order to connect your app to your Marketing Cloud account, you must follow th
 
 3. Add the Provisioning info created in the GCM Console to the app in the App Center.
 
+<a name="0011"></a>
 #### Add app to App Center
 
 To create a new MobilePush app:
@@ -242,6 +240,7 @@ To create a new MobilePush app:
 
 4. Click **Next** in order to integrate this new app with your Marketing Cloud account.
 
+<a name="0012"></a>
 #### Integrate App Center app
 
 The MobilePush app created in the App Center must be connected to a specific Marketing Cloud account. You must have a login for your Marketing Cloud account in order to connect this MobilePush app to the correct Marketing Cloud account.
@@ -278,6 +277,7 @@ Follow these steps in order to connect this MobilePush app to the correct Market
 
 Record the **Application ID** and the **Access Token** as they will be used later in the secrets.xml file.
 
+<a name="0013"></a>
 ## Implementing the SDK Push Notifications
 
 Update the following files in your project:
@@ -391,6 +391,7 @@ dependencies {
 
 The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED` and `LOCATION_ENABLED` enable certain functionalities of the SDK, however, they are not required for the push notifications themselves to function which will still be sent even if all are set to false.
 
+<a name="0014"></a>
 ## Subscriber Key Implementation
 
 1. Create a new activity called `SettingsActivity` that extends `PreferenceActivity` in your project.
@@ -432,6 +433,7 @@ It will take up to 15 minutes for the new value to be recorded in the Contact Re
 
 By default, if your app does not set the Subscriber Key using `setSubscriberKey()`, the registration sent will be matched with a Contact Record that matches the System Token included in the registration payload. If no match is found, then a new Subscriber Key will be set in the Marketing Cloud and will not be sent back to the SDK.
 
+<a name="0015"></a>
 ## Tag Implementation
 
 This feature is implemented in Settings Preferences.  We assume that the Subscriber Key feature has been implemented as described in this guide in order for the following steps to work.
@@ -458,6 +460,7 @@ The `storeAllTags(Set<String> tags)` method saves the tags in Preferences and po
 
 The `configureTags()` method renders the tags section, a clickable EditTextPreference to add a new tag and the tags from allTags with checkboxes to enable/disable the tag.
 
+<a name="0016"></a>
 ## Beacon and Geofence Message Implementation
 
 1. In your application’s app\build.gradle file add the following dependence (required for applications that will run on devices with Android OS < 5.0):
@@ -494,339 +497,3 @@ The `configureTags()` method renders the tags section, a clickable EditTextPrefe
 3. In your ApplicationClass, set the `LOCATION_ENABLED` parameter to true:
 
     `public static final boolean LOCATION_ENABLED = true;`
-
-
-# iOS
-
-## Previous steps
-
-1. [iOS Provisioning Panel](#heading=h.n7uu76rehwgi)
-
-2. [Create your apps in the App Center](#heading=h.93541hvmgam9)
-
-### iOS Provisioning Panel
-
-You must provision your mobile app in the iOS Provisioning Panel. The certificates issued in the process remain valid for one year. Ensure that you repeat this procedure once per year before your certificates expire to maintain app functionality. Follow the instructions below to integrate version 3.4.2 of the Journey Builder for Apps SDK with your iOS mobile app.
-
-1. Log in at the iOS Dev Center.
-
-2. Click Certificates, Identifiers & Profiles.
-
-    ![image alt text](imgReadMe/image_16.jpg)
-
-3. Click Identifiers.
-
-    ![image alt text](imgReadMe/image_17.jpg)
-
-4. Click the + icon to create a new app.
-
-    ![image alt text](imgReadMe/image_18.jpg)
-
-5. Enter a name for the app in the Name text field.
-
-    ![image alt text](imgReadMe/image_19.jpg)
-
-6. Enter an explicit app ID in the Bundle ID field.
-
-7. Click the checkbox next to Push Notifications.
-
-8. Click Continue.
-
-9. Click Submit to confirm your app ID creation.
-
-10. Select your app in the presented list.
-
-    ![image alt text](imgReadMe/image_20.jpg)
-
-11. Click Edit.
-
-12. Click Create Certificate... under Development SSL Certificate or Production SSL Certificate depending on the instance of the app you provision. Note that you must repeat these steps for both the development and production instances of this app.
-
-    ![image alt text](imgReadMe/image_21.jpg)
-
-13. Launch Keychain Access on your Mac.
-
-    ![image alt text](imgReadMe/image_22.jpg)
-
-14. Click Keychain Access.
-
-15. Click Certificate Assistant.
-
-16. Click Request a Certificate from a Certificate Authority...
-
-17. Enter your email address in the User Email Address field.
-
-    ![image alt text](imgReadMe/image_23.jpg)
-
-18. Enter a recognizable name for the certificate in the Common Name field.
-
-19. Click Saved to disk.
-
-20. Click Continue.
-
-21. Enter a filename for the saved certificate.
-
-    ![image alt text](imgReadMe/image_24.jpg)
-
-22. Choose a location at which to save the certificate.
-
-23. Click Save.
-
-24. Return to the iOS Dev Center website.
-
-25. Click Continue.
-
-    ![image alt text](imgReadMe/image_25.jpg)
-
-26. Click Choose File.
-
-27. Select the file saved in step 23.
-
-    ![image alt text](imgReadMe/image_26.jpg)
-
-28. Click Generate.
-
-29. Click Download.
-
-    ![image alt text](imgReadMe/image_27.jpg)
-
-30. Double-click the downloaded file to install the certificate in Keychain Access.
-
-31. Select the certificate in Keychain Access.
-
-    ![image alt text](imgReadMe/image_28.jpg)
-
-32. Right-click on the certificate.
-
-33. Select Export. Ensure that you select only the certificate entry when exporting your certifications. Selecting multiple lines for export will cause an upload failure. Ensure you do not export the certificate as an embedded key.
-
-34. Select a location to which to save the certificate.
-
-35. Click Save.
-
-36. Optionally, enter a password in the Password field.
-
-    ![image alt text](imgReadMe/image_29.jpg)
-
-37. If you entered a password, enter that password again in the Verify field.
-
-38. If you entered a password, Click OK.
-
-39. Use the production and development certificates (the .p12 files) created in the previous steps along with the passwords to add to your MobilePush app in the the *Create your apps in the App Center* step.
-
-### Create your apps in the App Center
-
-In order to connect your app to your Marketing Cloud account, you must follow these steps:
-
-1. Add app to App Center.
-
-2. Integrate the App Center app to your Marketing Cloud account.
-
-3. Add the Provisioning info created in the iOS Dev Center to the app in the App Center.
-
-#### Add app to App Center
-
-To create a new MobilePush app:
-
-1. [Log in to the App Center](https://appcenter-auth.exacttargetapps.com/redirect) ([create an account](https://appcenter-auth.exacttargetapps.com/create) if necessary).
-
-2. Create a new app and select the MobilePush template
-
-    ![image alt text](imgReadMe/image_10.png)
-
-3. Fill in, at a minimum, the mandatory fields in this form.
-
-    ![image alt text](imgReadMe/image_11.png)
-
-    *Depending on your setup, repeat this process if you plan on using different instances for production and development.*
-
-    Note the following about the required fields:
-
-      1. The **Name** can be anything you choose.
-
-      2. The **Package** has no correlation to anything outside of the MarketingCloud ecosystem and can be **any** unique identifier for your application.
-
-      3. The **Description** & **MobilePush Icon** fields are optional but will help you identify your application within your Marketing Cloud account. 
-
-4. Click **Next** in order to integrate this new app with your Marketing Cloud account.
-
-#### Integrate App Center app
-
-The MobilePush app created in the App Center must be connected to a specific Marketing Cloud account. You must have a login for your Marketing Cloud account in order to connect this MobilePush app to the correct Marketing Cloud account.
-
-Follow these steps in order to connect this MobilePush app to the correct Marketing Cloud account:
-
-1. Select an account (or New…) in the **Account** drop-down.
-
-    ![image alt text](imgReadMe/image_12.png)
-
-2. Select the **Production ExactTarget Account** button *unless otherwise instructed by your Salesforce Marketing Cloud relationship manager.*
-
-3. Click **Link to Account**.
-
-    A popup window (pictured below) will appear.
-
-    ![image alt text](imgReadMe/image_13.png)
-
-In an Enterprise 2.0 account, ensure that you select the correct business unit for your app integration.
-
-4. Click **Integrate**.
-
-5. In the APNS Client section, click **Choose File** and upload the APNS certificate provided when you created your app in the[ iOS Dev Center](https://developer.apple.com/devcenter/ios/).
-
-6. Type in the APNS certificate password in the **Password** field.
-
-    ![image alt text](imgReadMe/image_14.png)
-
-7. When you have all the fields required for your application’s platform(s) populated, click *Next*.
-
-8. Review the information you provided and check for any potential errors and click **Finish**.
-
-    You should be presented with a *Success!* message and an application details screen. Any of the areas can be edited by clicking the edit icon associated with the **Summary** or **Application Provisioning** sections.
-
-    ![image alt text](imgReadMe/image_15.png)
-
-## Implementing the SDK Push Notifications
-
-**AppDelegate+ETPushConstants.m**
-
-The SDK can now be configured with the App ID and Access Token, as explained in the *About* section.  Update `kETAppID_Prod` and `kETAccessToken_Prod` with their respective values.
-
-**AppDelegate+ETPush.m**
-
-The boolean parameters `withAnalytics`, `andLocationServices`, `andCloudPages` and `withPIAnalytics` enable certain functionalities of the SDK, however, they are not required for the push notifications themselves to function which will still be sent even if all are set to `NO`.
-
-```objective-c
-successful = [[ETPush pushManager] configureSDKWithAppID:kETAppID_Debug         // set the Debug ID
-                                          andAccessToken:kETAccessToken_Debug   // set the Debug Access Token
-                                           withAnalytics:NO                     
-                                     andLocationServices:NO                     // set geoLocation
-                                           andCloudPages:NO                     
-                                         withPIAnalytics:NO
-                                                   error:&error];
-```
-If the configuration is successful and returns YES, the push notifications are registered.
-
-```objective-c
-UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:
-                                        UIUserNotificationTypeBadge |
-                                        UIUserNotificationTypeSound |
-                                        UIUserNotificationTypeAlert
-                                                                         categories:nil];
-        
-[[ETPush pushManager] registerUserNotificationSettings:settings];
-[[ETPush pushManager] registerForRemoteNotifications];
-…
-[[ETPush pushManager] applicationLaunchedWithOptions:launchOptions];
-```
-If the configuration is unsuccessful an error message is shown:
-```objective-c
-dispatch_async(dispatch_get_main_queue(), ^{
-    /**
-     Something has failed in the configureSDKWithAppID call - show error message
-     */
-    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Failed configureSDKWithAppID!", @"Failed configureSDKWithAppID!")
-                                message:[error localizedDescription]
-                                elegate:nil
-                      cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
-                      otherButtonTitles:nil] show];
-});
-```
-Check the error object for detailed failure info. See file PushConstants.h for codes.
-
-## Subscriber Key Implementation
-
-To update the subscriber key, you should create a feature for the user to introduce a value, and then set this new value in the pushManager.
-
-**MCSubscribeKeyViewController.m**
-
-To get the subscriber key, use the following snippet (you can assign this value to any variable):
-```objective-c
-self.subscriberKey.text = [[ETPush pushManager] getSubscriberKey];
-```
-To set the subscriber key, use the following snippet (substitute self.subscriberKey.text with the appropriate value):
-```objective-c
-[[ETPush pushManager] setSubscriberKey:self.subscriberKey.text];
-```
-## Tag Implementation
-
-To implement contact segmentation by tags, include code to set tags for subscriptions as defined by user choice.
-
-**MCTagsViewController.m**
-
-To add a tag:
-```objective-c
-[[ETPush pushManager] addTag:@"tag"];
-```
-To remove a tag:
-```objective-c
-[[ETPush pushManager] removeTag:@"tag"];
-```
-To get all the tags:
-```objective-c
-[[ETPush pushManager] allTags];
-```
-
-## Beacon and Geofence Message Implementation
-
-**AppDelegate+ETPush.m**
-
-To implement location services, pass a `YES` value for the `andLocationServices` parameter and use `ETLocationManager` to monitor location and geofence for a user.
-```objective-c
-successful = [[ETPush pushManager] configureSDKWithAppID:kETAppID_Debug         // set the Debug ID
-                                          andAccessToken:kETAccessToken_Debug   // set the Debug Access Token
-                                           withAnalytics:NO                     
-                                     andLocationServices:YES                    // set geoLocation
-                                           andCloudPages:NO                     
-                                         withPIAnalytics:NO
-                                                   error:&error];
-```
-Make sure you also add the "NSLocationAlwaysUsageDescription" key to your application’s *.plist file. See docs: [NSLocationAlwaysUsageDescription](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18) and [NSLocationUsageDescription](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW27).
-
-After push notifications are registered, start watching locations to retrieve the fence and location notifications from ET Geofences and Beacons:
-```objective-c
-/**   
- Start geoLocation
- */
-[[ETLocationManager locationManager]startWatchingLocation];
-        
-/**
- Begins fence retrieval from ET of Geofences.
- */
-[ETRegion retrieveGeofencesFromET];
-        
-/**
- Begins fence retrieval from ET of Beacons.
- */
-[ETRegion retrieveProximityFromET];
-```
-When the application enters background mode, Location Services are disabled through the MobilePush SDK.
-
-```objective-c
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    /**
-     Use this method to disable Location Services through the MobilePush SDK.
-     */
-    [[ETLocationManager locationManager]stopWatchingLocation];
-}
-```
-When the application becomes active, Location Services are initiated through the MobilePush SDK.
-```objective-c
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    /**
-     Use this method to initiate Location Services through the MobilePush SDK.
-     */
-    [[ETLocationManager locationManager]startWatchingLocation];
-}
-```
-**MCGeoLocationViewController.m**
-To check if locations are active, use the boolean method:
-```objective-c
-[[ETLocationManager locationManager]getWatchingLocation]
-```
-If locations are active it returns `YES`, otherwise it returns `NO`.
-
-To obtain the monitored regions use this method:
-```objective-c
-[[ETLocationManager locationManager] monitoredRegions]
-```
