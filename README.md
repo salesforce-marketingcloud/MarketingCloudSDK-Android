@@ -32,26 +32,6 @@
 
     5. [Beacon and Geofence Message Implementation](#0016)
 
-3. [iOS](#0017)
-
-    1. [Previous steps](#0018)
-
-        1. [iOS Provisioning Panel](#0019)
-
-        2. [Create your apps in the App Center](#0020)
-
-            1. [Add app to App Center](#0021)
-
-            2. [Integrate App Center app](#0022)
-
-    2. [Implementing the SDK Push Notifications](#0023)
-
-    3. [Subscriber Key Implementation](#0024)
-
-    4. [Tag Implementation](#0025)
-
-    5. [Beacon and Geofence Message Implementation](#0026)
-
 <a name="0001"></a>
 # About
 
