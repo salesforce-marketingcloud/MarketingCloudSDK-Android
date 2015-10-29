@@ -6,8 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
-import us.feras.mdv.MarkdownView;
+import android.webkit.WebView;
 
 /**
  * MainActivity is the primary activity.
@@ -21,7 +20,7 @@ import us.feras.mdv.MarkdownView;
 
 public class MainActivity extends BaseActivity {
 
-    private MarkdownView markdownView;
+    private WebView markdownView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +58,8 @@ public class MainActivity extends BaseActivity {
     }
 
     private void prepareDisplay(){
-        markdownView = (MarkdownView) findViewById(R.id.markdownView);
+        markdownView = (WebView)findViewById(R.id.markdownView);
+        markdownView.
         markdownView.loadMarkdownFile("https://raw.githubusercontent.com/PhilCommunication/marketingCloudSDK-android/master/README.md");
         markdownView.setOnClickListener(new View.OnClickListener() {
             @Override
