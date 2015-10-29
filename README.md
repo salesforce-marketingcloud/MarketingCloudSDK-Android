@@ -279,7 +279,7 @@ In this file declare the following permissions:
 *JB4A SDK Google Permissions* - These permissions are required to receive push messages which use the Google Cloud Messaging service.
 
 [view the code](/app/src/main/AndroidManifest.xml#L5)
-```java
+```xml
 <!-- JB4A SDK Google Permissions -->
 <permission 
     android:name="${applicationId}.permission.C2D_MESSAGE"
@@ -292,7 +292,7 @@ In this file declare the following permissions:
 *JB4A SDK required permissions* - These permissions are necessary for the SDK to function.  The first three permissions establish internet connection status for the application to synchronize with Marketing Cloud. The WAKE_LOCK permission allows PowerManager WakeLocks to keep the processor from sleeping or screen from dimming.
 
 [view the code](/app/src/main/AndroidManifest.xml#L15)
-```java
+```xml
 <!-- JB4A SDK required permissions -->
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -303,7 +303,7 @@ In this file declare the following permissions:
 In the activity section, make sure to include the ETPushReceiver and Service for the push notifications.
 
 [view the code](/app/src/main/AndroidManifest.xml#L49)
-```java
+```xml
 <!-- ETPushReceiver and Service -->
 <receiver
     android:name="com.exacttarget.etpushsdk.ETPushReceiver"
@@ -485,7 +485,7 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
 2. In your AndroidManifest, add the *JB4A SDK Permissions for location and region monitoring*, and the ETLocation Receiver and Service required to receive the push notifications based on the location of the customer.
 
     [view the code](/app/src/main/AndroidManifest.xml#L24)
-    ```java
+    ```xml
     <!-- JB4A SDK Permissions for location and region monitoring -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
