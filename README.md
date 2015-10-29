@@ -279,6 +279,8 @@ In this file declare the following permissions:
 *JB4A SDK Google Permissions*
 
 These permissions are required to receive push messages which use the Google Cloud Messaging service.
+
+[view the code](/app/src/main/AndroidManifest.xml#L5)
 ```java
 <!-- JB4A SDK Google Permissions -->
 <permission 
