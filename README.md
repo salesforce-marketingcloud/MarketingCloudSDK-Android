@@ -276,9 +276,7 @@ The SDK can now be configured with the App ID and Access Token, as explained in 
 
 In this file declare the following permissions:
 
-*JB4A SDK Google Permissions*
-
-These permissions are required to receive push messages which use the Google Cloud Messaging service.
+*JB4A SDK Google Permissions* - These permissions are required to receive push messages which use the Google Cloud Messaging service.
 
 [view the code](/app/src/main/AndroidManifest.xml#L5)
 ```java
@@ -286,13 +284,14 @@ These permissions are required to receive push messages which use the Google Clo
 <permission 
     android:name="${applicationId}.permission.C2D_MESSAGE"
     android:protectionLevel="signature" />
+
 <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE" />
 <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 <!-- END JB4A SDK Google Permissions -->
 ```
-*JB4A SDK required permissions*
+*JB4A SDK required permissions* - These permissions are necessary for the SDK to function.  The first three permissions establish internet connection status for the application to synchronize with Marketing Cloud. The WAKE_LOCK permission allows PowerManager WakeLocks to keep the processor from sleeping or screen from dimming.
 
-These permissions are necessary for the SDK to function.  The first three permissions establish internet connection status for the application to synchronize with Marketing Cloud. The WAKE_LOCK permission allows PowerManager WakeLocks to keep the processor from sleeping or screen from dimming.
+[view the code](/app/src/main/AndroidManifest.xml#L15)
 ```java
 <!-- JB4A SDK required permissions -->
 <uses-permission android:name="android.permission.INTERNET" />
@@ -302,6 +301,8 @@ These permissions are necessary for the SDK to function.  The first three permis
 <!-- END JB4A SDK required permissions -->
 ```
 In the activity section, make sure to include the ETPushReceiver and Service for the push notifications.
+
+[view the code](/app/src/main/AndroidManifest.xml#L49)
 ```java
 <!-- ETPushReceiver and Service -->
 <receiver
@@ -337,35 +338,40 @@ In the activity section, make sure to include the ETPushReceiver and Service for
 **build.gradle**
 
 Add the following repository:
+
+[view the code](/build.gradle#L18)
 ```java
 allprojects {
-  …
-  repositories {
-    jcenter()
-      mavenCentral()
-        maven {url "http://salesforcefuel.github.io/JB4A-SDK-Android/repository"
-      }
-      …
-   }
-   …
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url "http://salesforce-marketingcloud.github.io/JB4A-SDK-Android/repository"
+        }
+    }
 }
 ```
 **app/build.gradle**
 
 Include the following dependencies in your application's app/build.gradle file:
+
+[view the code](/app/build.gradle#L33)
 ```java
 dependencies {
-   /* SDK */
-   compile 'com.exacttarget.etpushsdk:etsdk:4.0.6@aar'
-   /* Google Play Services for GCM and Location */
-   compile 'com.google.android.gms:play-services-location:7.8.0'
-   compile 'com.google.android.gms:play-services-gcm:7.8.0'
-   /* Google's Support v4 for Notification compatibility */
-   compile 'com.android.support:support-v4:21.0.2'
-   /* 3rd Party Libraries Required for SDK integration */
-   compile 'com.android.support:appcompat-v7:23.1.0'
-   compile 'com.android.support:support-v4:23.1.0'
-   compile 'com.android.support:design:23.1.0'
+    /* 3rd Party Libraries Required for SDK integration */
+    compile 'com.android.support:appcompat-v7:23.1.0'
+    compile 'com.android.support:support-v4:23.1.0'
+    compile 'com.android.support:design:23.1.0'
+
+    /* SDK */
+    compile 'com.exacttarget.etpushsdk:etsdk:4.0.6@aar'
+
+    /* Google Play Services for Location and Google Cloud Messaging */
+    compile 'com.google.android.gms:play-services-location:7.8.0'
+    compile 'com.google.android.gms:play-services-gcm:7.8.0'
+
+    /* Google's Support v4 for Notification compatibility */
+    compile 'com.radiusnetworks:AndroidIBeaconLibrary:0.7.6'
 }
 ```
 
@@ -381,6 +387,8 @@ The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED
 2. Create a new fragment called `SettingsFragment` that extends `PreferenceFragment`.
 
 3. Now create an instance of the SettingsFragment in the SettingsActivity class, add the following code to the `onCreate()` method:
+
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsActivity.java#L36)
     ```java
     getFragmentManager().beginTransaction().replace(android.R.id.content, new SettingsFragment()).commit();
     ```
@@ -389,6 +397,8 @@ The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED
 5. Reference the preferences.xml file in the `onCreate()` method in the SettingsFragment class with the following code: `addPreferencesFromResource(R.xml.preferences);`
 
 6. Add a private attribute SharedPreferences sp and set it as the default shared preference:
+
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L57)
     ```java
     private SharedPreferences sp;
     …
@@ -396,6 +406,8 @@ The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED
     ```
 
 7. Add a private attribute pusher, the instance of ETPush:
+
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L61)
     ```java
     private ETPush pusher;
     …
@@ -403,6 +415,7 @@ The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED
     ```
 8. Now create the reference to the EditTextPreference from preferences.xml and set the value stored in settings Preferences. Add an `OnPreferenceClickListener()` to open a Dialog with input for the user to enter their Subscriber Key.  This value is stored in the settings Preferences and will be passed to the pusher.
 
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L101)
     ```java
     SharedPreferences.Editor editor = sp.edit();
     editor.putString(KEY_PREF_SUBSCRIBER_KEY, newSubscriberKey);
@@ -422,17 +435,28 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
 
 1. Add a Set of tags as a private attribute.
 
-   `private Set<String> allTags;`
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L42)
+    ```java
+    private Set<String> allTags;
+    ```
 
 2. For the implementation of this feature, an instance of PreferenceScreen is needed to display the tags dynamically on the screen.
    
-   `private PreferenceScreen prefScreen;`
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L45)
+    ```java
+    private PreferenceScreen prefScreen;
+    ```
 
 3. In the onCreate() method set the values for prefScreen.
 
-   `this.prefScreen = getPreferenceScreen();`
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L58)
+    ```java
+    this.prefScreen = getPreferenceScreen();
+    ```
 
 4. To display the tags on screen, call these methods inside the onCreate() method:
+
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L58)
     ```java
     storeAllTags(this.pusher.getTags());
     configureTags();
