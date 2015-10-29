@@ -1,9 +1,13 @@
 package com.salesforce.kp.wheresreid;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import us.feras.mdv.MarkdownView;
 
 /**
  * MainActivity is the primary activity.
@@ -17,11 +21,15 @@ import android.view.MenuItem;
 
 public class MainActivity extends BaseActivity {
 
+    private MarkdownView markdownView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        prepareDisplay();
     }
 
     @Override
@@ -48,5 +56,17 @@ public class MainActivity extends BaseActivity {
             startActivity(new Intent(this, CloudPageInboxActivity.class));
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void prepareDisplay(){
+        markdownView = (MarkdownView) findViewById(R.id.markdownView);
+        markdownView.loadMarkdownFile("https://raw.githubusercontent.com/PhilCommunication/marketingCloudSDK-android/master/README.md");
+        markdownView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/PhilCommunication/marketingCloudSDK-android#readme"));
+                startActivity(browserIntent);
+            }
+        });
     }
 }
