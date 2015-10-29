@@ -243,7 +243,7 @@ Follow these steps in order to connect this MobilePush app to the correct Market
 
 5. Click **Integrate**.
 
-6. In the GCM Client section, enter the server API KEY previously created in the [Provision Apps with Google](#heading=h.1aedy6lcafpy) step (you can get this key by entering in the [Google Cloud Console](https://console.developers.google.com/)).
+6. In the GCM Client section, enter the server API KEY previously created in the [Provision Apps with Google](#0009) step (you can get this key by entering in the [Google Cloud Console](https://console.developers.google.com/)).
 
     ![image alt text](imgReadMe/image_14.png)
 
