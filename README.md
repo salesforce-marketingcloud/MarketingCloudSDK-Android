@@ -340,7 +340,7 @@ In the activity section, make sure to include the ETPushReceiver and Service for
 Add the following repository:
 
 [view the code](/build.gradle#L18)
-```java
+```gradle
 allprojects {
     repositories {
         jcenter()
@@ -356,9 +356,9 @@ allprojects {
 Include the following dependencies in your application's app/build.gradle file:
 
 [view the code](/app/build.gradle#L33)
-```java
+```gradle
 dependencies {
-    /* 3rd Party Libraries Required for SDK integration */
+    /* Google's Support v4 for Notification compatibility */
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.android.support:support-v4:23.1.0'
     compile 'com.android.support:design:23.1.0'
@@ -370,7 +370,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-location:7.8.0'
     compile 'com.google.android.gms:play-services-gcm:7.8.0'
 
-    /* Google's Support v4 for Notification compatibility */
+    /* 3rd Party Libraries Required for SDK integration */
     compile 'com.radiusnetworks:AndroidIBeaconLibrary:0.7.6'
 }
 ```
@@ -478,7 +478,7 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
 1. In your application’s app/build.gradle file add the following dependence (required for applications that will run on devices with Android OS < 5.0):
     
     [view the code](/app/build.gradle#L47)
-    ```java
+    ```gradle
     /* 3rd Party Libraries Required for SDK integration */
     compile 'com.radiusnetworks:AndroidIBeaconLibrary:0.7.6'
     ```
