@@ -31,7 +31,7 @@ android {
 }
 
 dependencies {
-    /* 3rd Party Libraries Required for SDK integration */
+    /* Google's Support v4 for Notification compatibility */
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.android.support:support-v4:23.1.0'
     compile 'com.android.support:design:23.1.0'
@@ -43,6 +43,6 @@ dependencies {
     compile 'com.google.android.gms:play-services-location:7.8.0'
     compile 'com.google.android.gms:play-services-gcm:7.8.0'
 
-    /* Google's Support v4 for Notification compatibility */
+    /* 3rd Party Libraries Required for SDK integration */
     compile 'com.radiusnetworks:AndroidIBeaconLibrary:0.7.6'
 }

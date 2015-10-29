@@ -25,7 +25,6 @@ import com.exacttarget.etpushsdk.util.EventBus;
  * This class extends Application to provide global activities.
  *
  * @author Salesforce (R) 2015.
- *
  */
 public class ApplicationClass extends Application {
 
@@ -45,9 +44,6 @@ public class ApplicationClass extends Application {
       *
       * Your app will have these choices set based on how you want your app to work.
       */
-
-
-
     public static final boolean ANALYTICS_ENABLED = true;
     public static final boolean CLOUD_PAGES_ENABLED = true;
     public static final boolean WAMA_ENABLED = true;
@@ -135,7 +131,7 @@ public class ApplicationClass extends Application {
     /**
      * Returns the application version code as recorded in the app's build.gradle file.
      *
-     * @return an int representing the application version code
+     * @return the application version code
      */
     private int getAppVersionCode() {
         try {
@@ -156,9 +152,8 @@ public class ApplicationClass extends Application {
      *
      * These events are only called if EventBus.getInstance().register() is called.
      *
-     * @param event the type of event we're listening for.
+     * @param event contains attributes which identify the type of event and are logged.
      */
-
     public void onEvent(final RegistrationEvent event) {
         if (ETPush.getLogLevel() <= Log.DEBUG) {
             Log.d(TAG, "Marketing Cloud update occurred.");
