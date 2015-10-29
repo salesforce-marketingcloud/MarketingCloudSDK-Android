@@ -1,12 +1,14 @@
 package com.salesforce.kp.wheresreid;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 /**
  * MainActivity is the primary activity.
@@ -21,13 +23,13 @@ import android.webkit.WebView;
 public class MainActivity extends BaseActivity {
 
     private WebView markdownView;
+    public static boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-
         prepareDisplay();
     }
 
@@ -57,15 +59,32 @@ public class MainActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Loads the webView with project's markdown at github
+     */
     private void prepareDisplay(){
         markdownView = (WebView)findViewById(R.id.markdownView);
-        markdownView.
-        markdownView.loadMarkdownFile("https://raw.githubusercontent.com/PhilCommunication/marketingCloudSDK-android/master/README.md");
-        markdownView.setOnClickListener(new View.OnClickListener() {
+        markdownView.getSettings().setJavaScriptEnabled(true);
+        markdownView.loadUrl(getResources().getString(R.string.readme_remote_url));
+        markdownView.setWebViewClient(new WebViewClient() {
             @Override
-            public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/PhilCommunication/marketingCloudSDK-android#readme"));
-                startActivity(browserIntent);
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return false;
+            }
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                // TODO Auto-generated method stub
+                super.onPageStarted(view, url, favicon);
+            }
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                if (url.contains("#") && flag == false) {
+                    markdownView.loadUrl(url);
+                    flag = true;
+                } else {
+                    flag = false;
+                }
             }
         });
     }
