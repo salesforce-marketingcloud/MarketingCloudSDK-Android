@@ -456,26 +456,31 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
 
 4. To display the tags on screen, call these methods inside the onCreate() method:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L58)
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L64)
     ```java
     storeAllTags(this.pusher.getTags());
+    ````
+
+    The `storeAllTags(Set<String> tags)` method saves the tags in Preferences and populates the allTags attribute with all of the stored tags.
+
+5. To display the tags on screen, call these methods inside the onCreate() method:
+
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L119)
+    ```java
     configureTags();
     ````
 
-The `storeAllTags(Set<String> tags)` method saves the tags in Preferences and populates the allTags attribute with all of the stored tags.
-
-The `configureTags()` method renders the tags section, a clickable EditTextPreference to add a new tag and the tags from allTags with checkboxes to enable/disable the tag.
+    The `configureTags()` method renders the tags section, a clickable EditTextPreference to add a new tag and the tags from allTags with checkboxes to enable/disable the tag.
 
 <a name="0016"></a>
 ## Beacon and Geofence Message Implementation
 
-1. In your application’s app\build.gradle file add the following dependence (required for applications that will run on devices with Android OS < 5.0):
+1. In your application’s app/build.gradle file add the following dependence (required for applications that will run on devices with Android OS < 5.0):
     
+    [view the code](/app/build.gradle#L47)
     ```java
-    dependencies{
-        /* 3rd Party Libraries Required for SDK integration */
-        compile 'com.radiusnetworks:AndroidIBeaconLibrary:0.7.6'
-    }
+    /* 3rd Party Libraries Required for SDK integration */
+    compile 'com.radiusnetworks:AndroidIBeaconLibrary:0.7.6'
     ```
 2. In your AndroidManifest, add the *JB4A SDK Permissions for location and region monitoring*, and the ETLocation Receiver and Service required to receive the push notifications based on the location of the customer.
 
