@@ -125,7 +125,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.salesforce.kp.wheresreid.CloudPageInboxActivity" />
         </activity>
-        <activity android:name=".MapsActivity" >
+        <activity
+            android:name=".MapsActivity"
+            android:parentActivityName=".MainActivity" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.salesforce.kp.wheresreid.MainActivity" />
         </activity>
 
         <!-- Google Maps API Key -->
