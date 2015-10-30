@@ -1,8 +1,6 @@
 #Generating JavaDoc in Android Studio
 
-Javadoc is a tool for generating API documentation in HTML format from doc comments from source code.  
-This document explains how to generate JavaDocs with Android Studio.  
-For more info on guidelines for style, tag and image conventions click [here](http://www.oracle.com/technetwork/articles/java/index-137868.html)).
+Javadoc is a tool for generating API documentation in HTML format from doc comments from source code. This document explains how to generate JavaDocs with Android Studio. For more info on guidelines for style, tag and image conventions click [here](http://www.oracle.com/technetwork/articles/java/index-137868.html)).
 
 ## Generation
 
