@@ -49,6 +49,11 @@ public class MapsActivity extends BaseActivity implements OnMapReadyCallback {
         setUpMap(map);
     }
 
+    /**
+     * Configures the google map
+     * In case there is geolocations or beacons
+     * @param map Google map to work on
+     */
     private void setUpMap(GoogleMap map){
         McLocationManager lm = McLocationManager.getInstance();
         LatLng lastCoord = new LatLng(-34.482844, -56.12114);

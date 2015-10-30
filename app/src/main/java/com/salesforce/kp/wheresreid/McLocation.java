@@ -11,7 +11,6 @@ public class McLocation {
 
     private LatLng coordenates;
     private int radius;
-    private String type;
     private String name;
 
     public LatLng getCoordenates() {
@@ -28,14 +27,6 @@ public class McLocation {
 
     public void setRadius(int radius) {
         this.radius = radius;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public String getName() {

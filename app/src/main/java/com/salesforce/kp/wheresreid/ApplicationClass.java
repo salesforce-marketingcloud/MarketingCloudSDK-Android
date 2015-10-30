@@ -1,20 +1,13 @@
 
 package com.salesforce.kp.wheresreid;
 
-import android.app.AlarmManager;
 import android.app.Application;
-import android.app.PendingIntent;
-import android.app.Service;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.location.LocationManager;
-import android.os.Bundle;
 import android.text.format.DateUtils;
 import android.util.Log;
 
 import com.exacttarget.etpushsdk.ETException;
-import com.exacttarget.etpushsdk.ETLocationManager;
 import com.exacttarget.etpushsdk.ETPush;
 import com.exacttarget.etpushsdk.ETPushConfig;
 import com.exacttarget.etpushsdk.data.Attribute;
@@ -228,7 +221,7 @@ public class ApplicationClass extends Application {
 //
 //        preferencesEditor.putLong(KEY_PREFS_ALARM_TIME, okToCheckMiddleTier).apply();
     }
-    
+
     public void onEvent(final GeofenceResponseEvent event) {
         ArrayList<Region> regions = (ArrayList<Region>) event.getFences();
         for (Region r : regions){
@@ -237,10 +230,8 @@ public class ApplicationClass extends Application {
             newLocation.setCoordenates(latLng);
             newLocation.setRadius(r.getRadius());
             newLocation.setName(r.getName());
-            newLocation.setType("g");
             McLocationManager.getInstance().getLocations().add(newLocation);
         }
     }
-
 }
         
