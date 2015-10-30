@@ -8,11 +8,13 @@ import android.text.format.DateUtils;
 import android.util.Log;
 
 import com.exacttarget.etpushsdk.ETException;
+import com.exacttarget.etpushsdk.ETLocationManager;
 import com.exacttarget.etpushsdk.ETPush;
 import com.exacttarget.etpushsdk.ETPushConfig;
 import com.exacttarget.etpushsdk.data.Attribute;
 import com.exacttarget.etpushsdk.data.Region;
 import com.exacttarget.etpushsdk.event.GeofenceResponseEvent;
+import com.exacttarget.etpushsdk.event.ReadyAimFireInitCompletedEvent;
 import com.exacttarget.etpushsdk.event.RegistrationEvent;
 import com.exacttarget.etpushsdk.util.EventBus;
 import com.google.android.gms.maps.model.LatLng;
@@ -51,6 +53,7 @@ public class ApplicationClass extends Application {
     public static final boolean ANALYTICS_ENABLED = true;
     public static final boolean CLOUD_PAGES_ENABLED = true;
     public static final boolean WAMA_ENABLED = true;
+    public static final boolean PROXIMITY_ENABLED = true;
     public static final boolean LOCATION_ENABLED = true;
     public static final long MIDDLE_TIER_PROPAGATION_MIN_DELAY = DateUtils.MINUTE_IN_MILLIS * 5; // 5 minutes
     public static final String EXTRAS_REGISTRATION_EVENT = "event";
@@ -109,14 +112,21 @@ public class ApplicationClass extends Application {
                             .setGcmSenderId(getString(R.string.gcm_sender_id))
                             .setLogLevel(BuildConfig.DEBUG ? Log.VERBOSE : Log.ERROR)
                             .setAnalyticsEnabled(ANALYTICS_ENABLED)
-                            .setLocationEnabled(true)
+                            .setLocationEnabled(LOCATION_ENABLED)
                             .setPiAnalyticsEnabled(WAMA_ENABLED)
                             .setCloudPagesEnabled(CLOUD_PAGES_ENABLED)
+                            .setProximityEnabled(PROXIMITY_ENABLED)
                             .build()
             );
         } catch (ETException e) {
             Log.e(TAG, e.getMessage(), e);
         }
+    }
+
+    public void onEvent (final ReadyAimFireInitCompletedEvent event){
+        try {
+            ETLocationManager.getInstance().startWatchingProximity();
+        } catch (ETException e) {}
     }
 
     /**
