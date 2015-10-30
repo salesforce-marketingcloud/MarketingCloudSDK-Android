@@ -21,7 +21,7 @@ When your comments are ready, follow this steps to automatically generate the do
 
 4. Choose an output folder and click **Ok**.
 
-The documents will been saved in the output folder.
+The documents will be saved in the output folder.
 
 ## Visualization
 
