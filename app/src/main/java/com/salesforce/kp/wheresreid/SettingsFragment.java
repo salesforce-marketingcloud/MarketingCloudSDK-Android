@@ -61,7 +61,8 @@ public class SettingsFragment extends PreferenceFragment {
             this.pusher = ETPush.getInstance();
             /* gets the tags */
             Log.e("TAGS", this.pusher.getTags().toString());
-            storeAllTags(this.pusher.getTags());
+            this.allTags = this.pusher.getTags() != null ? this.pusher.getTags() : new HashSet<String>();
+            storeAllTags(this.allTags);
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -245,8 +246,10 @@ public class SettingsFragment extends PreferenceFragment {
             tagsSection.addPreference(et);
         }
         /* Creates the rows out of the tag's list. */
-        for (String tag : this.allTags){
-            addTagCheckbox(tagsSection, tag);
+        if (!this.allTags.isEmpty()) {
+            for (String tag : this.allTags) {
+                addTagCheckbox(tagsSection, tag);
+            }
         }
     }
 

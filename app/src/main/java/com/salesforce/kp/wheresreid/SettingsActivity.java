@@ -24,7 +24,7 @@ import com.exacttarget.etpushsdk.util.EventBus;
  * @author Salesforce (R) 2015.
  */
 
-public class SettingsActivity extends BasePreferenceActivity {
+public class SettingsActivity extends BaseActivity {
     private static final String TAG = "SettingsActivity";
 
     @Override
@@ -32,6 +32,8 @@ public class SettingsActivity extends BasePreferenceActivity {
         super.onCreate(savedInstanceState);
 
         EventBus.getInstance().register(this);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         getFragmentManager().beginTransaction().replace(android.R.id.content,
                 new SettingsFragment()).commit();
