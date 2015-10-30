@@ -1,9 +1,12 @@
 package com.salesforce.kp.wheresreid;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 /**
  * MainActivity is the primary activity.
@@ -17,11 +20,15 @@ import android.view.MenuItem;
 
 public class MainActivity extends BaseActivity {
 
+    private WebView markdownView;
+    public static boolean flag = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+        prepareDisplay();
     }
 
     @Override
@@ -48,5 +55,21 @@ public class MainActivity extends BaseActivity {
             startActivity(new Intent(this, CloudPageInboxActivity.class));
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Loads the webView with project's markdown at github
+     */
+    private void prepareDisplay(){
+        markdownView = (WebView)findViewById(R.id.markdownView);
+        markdownView.getSettings().setJavaScriptEnabled(true);
+        markdownView.loadUrl(getResources().getString(R.string.readme_remote_url));
+        markdownView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return false;
+            }
+        });
     }
 }
