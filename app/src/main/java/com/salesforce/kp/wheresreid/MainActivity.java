@@ -2,11 +2,9 @@ package com.salesforce.kp.wheresreid;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -71,20 +69,6 @@ public class MainActivity extends BaseActivity {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
                 return false;
-            }
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                // TODO Auto-generated method stub
-                super.onPageStarted(view, url, favicon);
-            }
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                if (url.contains("#") && flag == false) {
-                    markdownView.loadUrl(url);
-                    flag = true;
-                } else {
-                    flag = false;
-                }
             }
         });
     }
