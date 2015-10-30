@@ -1,30 +1,26 @@
 #Generating JavaDoc in Android Studio
 
-## Previous steps
-In order to generate the JavaDoc, when coding you have to write doc comments for the JavaDoc tool (more info  
-
-[here](http://www.oracle.com/technetwork/articles/java/index-137868.html)).
+Javadoc is a tool for generating API documentation in HTML format from doc comments from source code.  
+This document explains how to generate JavaDocs with Android Studio.  
+For more info on guidelines for style, tag and image conventions click [here](http://www.oracle.com/technetwork/articles/java/index-137868.html)).
 
 ## Generation
 
-When your comments are ready, follow this steps to automatically generate the documentation:
+When comments are finalized, follow these steps to automatically generate the JavaDoc:
 
-1. In Android Studio, go to **Tools** -> **Generate JavaDoc…**
+1. Go to **Tools** -> **Generate JavaDoc…**
 
-2. In **Other command line arguments** enter: 
+2. In **Other command line arguments** enter the path to the android.jar as the bootclasspath, e.g: 
 
-    ```-bootclasspath /Users/admin/Library/Android/sdk/platforms/android-22/android.jar```
+    ```-bootclasspath /Users/YourUserName/Library/Android/sdk/platforms/android-22/android.jar```
 
-    (substitute this path with the appropriate one).
+3. Configure any additional settings specific to the documentation.
 
-3. Configure as wished.
+4. Documents will be saved in the **Output directory**, choose a folder and click **Ok**.
 
-4. Choose an output folder and click **Ok**.
-
-The documents will be saved in the output folder.
 
 ## Visualization
 
-1. Go to the output folder you defined when generating the docs.
+1. Go to the output directory you defined when generating the docs.
 
 2. Open "index.html" with any browser.
