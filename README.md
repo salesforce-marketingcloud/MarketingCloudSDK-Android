@@ -12,6 +12,8 @@
 
     5. [Beacon and Geofence Messages](#0006)
 
+    6. [Analytics](#0006b)
+
 2. [Android](#0007)
 
     1. [Previous steps](#0008)
@@ -31,6 +33,8 @@
     4. [Tag Implementation](#0015)
 
     5. [Beacon and Geofence Message Implementation](#0016)
+
+    6. [Implement Analytics in your Mobile App](#0016b)
 
 <a name="0001"></a>
 # About
@@ -105,6 +109,13 @@ You can use the location capabilities of the *JB4A SDK* to target messages to a 
 2. Ensure that you use version 7.8.0 or earlier of Google Play Services to enable geolocation for your app.
 
 3. You must receive user permission to implement location services.
+
+<a name="0006b"></a>
+## Analytics
+
+Mobile Application Analytics enables marketers to gather mobile app actions and behaviors from users and provides powerful visualizations of the data. The data helps you make informative decisions about how to structure your customer journeys, design your client facing experiences and tailor your digital marketing campaigns. The collected data is also available inside the Salesforce Marketing Cloud – ready to be used to segment messaging lists, provide highly personalized messaging content and drive 1:1  Custom Journeys.
+
+After enabling the analytics feature in your app, visit the Web & Mobile Analytics application within the Marketing Cloud.
 
 <a name="0007"></a>
 # Android
@@ -508,7 +519,52 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
     ```
 3. In your ApplicationClass, set the `LOCATION_ENABLED` parameter to true:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/ApplicationClass.java#L54)
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/ApplicationClass.java#L50)
     ```java
     public static final boolean LOCATION_ENABLED = true;
     ```
+
+<a name="0016b"></a>
+## Implement Analytics in your Mobile App
+
+**ApplicationClass.java**
+
+In your ApplicationClass, set the `LOCATION_ENABLED` parameter to true:
+
+[view the code](/app/src/main/java/com/salesforce/kp/wheresreid/ApplicationClass.java#L47)
+```java
+public static final boolean LOCATION_ENABLED = true;
+```
+
+**BaseActivity.java**
+
+Your app sends analytics whenever it goes into the background.  Override onPause() and onResume() in each Activity class to notify the SDK when activities pause and resume so the SDK can determine when your app goes into the background.
+
+[view the code](/app/src/main/java/com/salesforce/kp/wheresreid/BaseActivity.java#L14)
+```java
+@Override
+protected void onPause() {
+   super.onPause();
+   try {
+       // Let JB4A SDK know when each activity paused
+       ETPush.activityPaused(this);
+   } catch (Exception e) {
+       if (ETPush.getLogLevel() <= Log.ERROR) {
+           Log.e(TAG, e.getMessage(), e);
+       }
+   }
+}
+
+@Override
+protected void onResume() {
+   super.onResume();
+   try {
+       // Let JB4A SDK know when each activity is resumed
+       ETPush.activityResumed(this);
+   } catch (Exception e) {
+       if (ETPush.getLogLevel() <= Log.ERROR) {
+           Log.e(TAG, e.getMessage(), e);
+       }
+   }
+}
+```
