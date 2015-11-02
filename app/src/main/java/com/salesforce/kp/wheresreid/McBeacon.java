@@ -3,15 +3,32 @@ package com.salesforce.kp.wheresreid;
 import com.google.android.gms.maps.model.LatLng;
 
 /**
- * Object meant to store Geolocations's data
+ * Object meant to store Beacon's data
  *
- * Created by admin on 10/26/15.
+ * Created by admin on 11/2/15.
  */
-public class McLocation {
+public class McBeacon {
 
+    private String guid;
+    private String name;
     private LatLng coordenates;
     private int radius;
-    private String name;
+
+    public String getGuid() {
+        return guid;
+    }
+
+    public void setGuid(String guid) {
+        this.guid = guid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public LatLng getCoordenates() {
         return coordenates;
@@ -27,13 +44,5 @@ public class McLocation {
 
     public void setRadius(int radius) {
         this.radius = radius;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

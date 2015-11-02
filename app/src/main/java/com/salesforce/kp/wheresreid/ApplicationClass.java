@@ -13,6 +13,7 @@ import com.exacttarget.etpushsdk.ETPush;
 import com.exacttarget.etpushsdk.ETPushConfig;
 import com.exacttarget.etpushsdk.data.Attribute;
 import com.exacttarget.etpushsdk.data.Region;
+import com.exacttarget.etpushsdk.event.BeaconResponseEvent;
 import com.exacttarget.etpushsdk.event.GeofenceResponseEvent;
 import com.exacttarget.etpushsdk.event.ReadyAimFireInitCompletedEvent;
 import com.exacttarget.etpushsdk.event.RegistrationEvent;
@@ -225,13 +226,22 @@ public class ApplicationClass extends Application {
 //        alarmManager.cancel(pendingIntent);
 //        alarmManager.set(
 //                AlarmManager.RTC_WAKEUP,
-//                okToCheckMiddleTier,
+//                okToCheckMiddleTier,si,
 //                pendingIntent
 //        );
 //
 //        preferencesEditor.putLong(KEY_PREFS_ALARM_TIME, okToCheckMiddleTier).apply();
     }
 
+    /**
+     * Listens for a GeofenceResponseEvent on EventBus callback.
+     *
+     * This event retrieves the data related to geolocations
+     * beacons are saved as a list of McLocation in McLocationManager
+     *
+     * @param event the type of event we're listening for.
+     */
+    @SuppressWarnings("unused, unchecked")
     public void onEvent(final GeofenceResponseEvent event) {
         ArrayList<Region> regions = (ArrayList<Region>) event.getFences();
         for (Region r : regions){
@@ -243,5 +253,26 @@ public class ApplicationClass extends Application {
             McLocationManager.getInstance().getLocations().add(newLocation);
         }
     }
+
+    /**
+     * Listens for a BeaconResponseEvent on EventBus callback.
+     *
+     * This event retrieves the data related to beacons,
+     * beacons are saved as a list of McBeacon in McLocationManager
+     *
+     * @param event the type of event we're listening for.
+     */
+    @SuppressWarnings("unused, unchecked")
+    public void onEvent(final BeaconResponseEvent event) {
+        ArrayList<Region> regions = (ArrayList<Region>) event.getBeacons();
+        for (Region r : regions){
+            McBeacon newBeacon = new McBeacon();
+            LatLng latLng = new LatLng(r.getLatitude(), r.getLongitude());
+            newBeacon.setCoordenates(latLng);
+            newBeacon.setRadius(getResources().getInteger(R.integer.beacon_radius));
+            newBeacon.setName(r.getName());
+            newBeacon.setGuid(r.getGuid());
+            McLocationManager.getInstance().getBeacons().add(newBeacon);
+        }
+    }
 }
-        
