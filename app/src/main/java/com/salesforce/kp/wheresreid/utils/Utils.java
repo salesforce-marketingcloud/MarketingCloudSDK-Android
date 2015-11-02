@@ -1,4 +1,4 @@
-package com.salesforce.marketingcloud.android.demoapp.utils;
+package com.salesforce.kp.wheresreid.utils;
 
 import android.widget.EditText;
 

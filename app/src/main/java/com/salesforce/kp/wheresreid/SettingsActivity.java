@@ -1,4 +1,4 @@
-package com.salesforce.marketingcloud.android.demoapp;
+package com.salesforce.kp.wheresreid;
 
 import android.os.Bundle;
 import com.exacttarget.etpushsdk.util.EventBus;

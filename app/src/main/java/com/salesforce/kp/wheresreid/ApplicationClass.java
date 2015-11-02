@@ -1,8 +1,7 @@
 
-package com.salesforce.marketingcloud.android.demoapp;
+package com.salesforce.kp.wheresreid;
 
 import android.app.Application;
-import android.content.pm.PackageManager;
 import android.util.Log;
 
 import com.exacttarget.etpushsdk.ETException;

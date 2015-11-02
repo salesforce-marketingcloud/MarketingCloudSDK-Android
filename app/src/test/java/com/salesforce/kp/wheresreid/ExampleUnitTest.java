@@ -1,4 +1,4 @@
-package com.salesforce.marketingcloud.android.demoapp;
+package com.salesforce.kp.wheresreid;
 
 import org.junit.Test;
 

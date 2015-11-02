@@ -1,4 +1,4 @@
-package com.salesforce.marketingcloud.android.demoapp;
+package com.salesforce.kp.wheresreid;
 
 import android.content.Intent;
 import android.os.Bundle;
