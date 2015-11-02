@@ -1,23 +1,26 @@
 
 package com.salesforce.kp.wheresreid;
 
-import android.app.AlarmManager;
 import android.app.Application;
-import android.app.PendingIntent;
-import android.app.Service;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.os.Bundle;
 import android.text.format.DateUtils;
 import android.util.Log;
 
 import com.exacttarget.etpushsdk.ETException;
+import com.exacttarget.etpushsdk.ETLocationManager;
 import com.exacttarget.etpushsdk.ETPush;
 import com.exacttarget.etpushsdk.ETPushConfig;
 import com.exacttarget.etpushsdk.data.Attribute;
+import com.exacttarget.etpushsdk.data.Region;
+import com.exacttarget.etpushsdk.event.BeaconResponseEvent;
+import com.exacttarget.etpushsdk.event.GeofenceResponseEvent;
+import com.exacttarget.etpushsdk.event.ReadyAimFireInitCompletedEvent;
 import com.exacttarget.etpushsdk.event.RegistrationEvent;
 import com.exacttarget.etpushsdk.util.EventBus;
+import com.google.android.gms.maps.model.LatLng;
+
+import java.util.ArrayList;
 
 
 /**
@@ -51,6 +54,7 @@ public class ApplicationClass extends Application {
     public static final boolean ANALYTICS_ENABLED = true;
     public static final boolean CLOUD_PAGES_ENABLED = true;
     public static final boolean WAMA_ENABLED = true;
+    public static final boolean PROXIMITY_ENABLED = true;
     public static final boolean LOCATION_ENABLED = true;
     public static final long MIDDLE_TIER_PROPAGATION_MIN_DELAY = DateUtils.MINUTE_IN_MILLIS * 5; // 5 minutes
     public static final String EXTRAS_REGISTRATION_EVENT = "event";
@@ -112,11 +116,18 @@ public class ApplicationClass extends Application {
                             .setLocationEnabled(LOCATION_ENABLED)
                             .setPiAnalyticsEnabled(WAMA_ENABLED)
                             .setCloudPagesEnabled(CLOUD_PAGES_ENABLED)
+                            .setProximityEnabled(PROXIMITY_ENABLED)
                             .build()
             );
         } catch (ETException e) {
             Log.e(TAG, e.getMessage(), e);
         }
+    }
+
+    public void onEvent (final ReadyAimFireInitCompletedEvent event){
+        try {
+            ETLocationManager.getInstance().startWatchingProximity();
+        } catch (ETException e) {}
     }
 
     /**
@@ -215,11 +226,53 @@ public class ApplicationClass extends Application {
 //        alarmManager.cancel(pendingIntent);
 //        alarmManager.set(
 //                AlarmManager.RTC_WAKEUP,
-//                okToCheckMiddleTier,
+//                okToCheckMiddleTier,si,
 //                pendingIntent
 //        );
 //
 //        preferencesEditor.putLong(KEY_PREFS_ALARM_TIME, okToCheckMiddleTier).apply();
     }
+
+    /**
+     * Listens for a GeofenceResponseEvent on EventBus callback.
+     *
+     * This event retrieves the data related to geolocations
+     * beacons are saved as a list of McLocation in McLocationManager
+     *
+     * @param event the type of event we're listening for.
+     */
+    @SuppressWarnings("unused, unchecked")
+    public void onEvent(final GeofenceResponseEvent event) {
+        ArrayList<Region> regions = (ArrayList<Region>) event.getFences();
+        for (Region r : regions){
+            McLocation newLocation = new McLocation();
+            LatLng latLng = new LatLng(r.getLatitude(), r.getLongitude());
+            newLocation.setCoordenates(latLng);
+            newLocation.setRadius(r.getRadius());
+            newLocation.setName(r.getName());
+            McLocationManager.getInstance().getLocations().add(newLocation);
+        }
+    }
+
+    /**
+     * Listens for a BeaconResponseEvent on EventBus callback.
+     *
+     * This event retrieves the data related to beacons,
+     * beacons are saved as a list of McBeacon in McLocationManager
+     *
+     * @param event the type of event we're listening for.
+     */
+    @SuppressWarnings("unused, unchecked")
+    public void onEvent(final BeaconResponseEvent event) {
+        ArrayList<Region> regions = (ArrayList<Region>) event.getBeacons();
+        for (Region r : regions){
+            McBeacon newBeacon = new McBeacon();
+            LatLng latLng = new LatLng(r.getLatitude(), r.getLongitude());
+            newBeacon.setCoordenates(latLng);
+            newBeacon.setRadius(getResources().getInteger(R.integer.beacon_radius));
+            newBeacon.setName(r.getName());
+            newBeacon.setGuid(r.getGuid());
+            McLocationManager.getInstance().getBeacons().add(newBeacon);
+        }
+    }
 }
-        

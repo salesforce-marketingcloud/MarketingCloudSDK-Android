@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.exacttarget.etpushsdk.ETException;
+import com.exacttarget.etpushsdk.ETLocationManager;
 import com.exacttarget.etpushsdk.ETPush;
 import com.salesforce.kp.wheresreid.utils.Utils;
 

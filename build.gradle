@@ -19,7 +19,6 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral()
-        //maven { url "http://exacttarget.github.io/JB4A-SDK-Android/repository/" } //url "http://salesforcefuel.github.io/JB4A-SDK-Android/repository"
         maven {
             url "http://salesforce-marketingcloud.github.io/JB4A-SDK-Android/repository"
         }

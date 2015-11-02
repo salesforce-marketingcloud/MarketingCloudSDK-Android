@@ -5,4 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="gray">#808080</color>
     <color name="darkGray">#A9A9A9</color>
+    <color name="beaconInnerCircle">#500084d3</color>
+    <color name="beaconOuterCircle">#800000FF</color>
+    <color name="geoLocationInnerCircle">#20FF0000</color>
+    <color name="geoLocationOuterCircle">#80FF0000</color>
 </resources>

@@ -50,6 +50,9 @@ public class MainActivity extends BaseActivity {
 
         if (id == R.id.action_settings) {
             startActivity(new Intent(this, SettingsActivity.class));
+
+        } else if (id == R.id.action_map) {
+            startActivity(new Intent(this, MapsActivity.class));
         }
         else if (id == R.id.action_cloudpage_inbox){
             startActivity(new Intent(this, CloudPageInboxActivity.class));
