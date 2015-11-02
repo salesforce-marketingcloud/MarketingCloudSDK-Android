@@ -568,3 +568,7 @@ protected void onResume() {
    }
 }
 ```
+
+To see your new Web and Mobile Analytics, open the Web and Mobile Analytics app within the Marketing Cloud and agree to the Terms and Conditions to get started.
+
+![image alt text](imgReadMe/image_30.png)
