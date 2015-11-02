@@ -44,6 +44,8 @@ public class ApplicationClass extends Application {
       * WAMA_ENABLED is set to true to show how Predictive Intelligence analytics (PIAnalytics) will
       * save statistics for how your customers use the app (by invitation at this point).
       *
+      * PROXIMITY_ENABLED is set to true to show how beacons messages works within the SDK.
+      *
       * LOCATION_ENABLED is set to true to show how geo fencing works within the SDK.
       *
       * Your app will have these choices set based on how you want your app to work.
