@@ -1,4 +1,4 @@
-package com.salesforce.kp.wheresreid;
+package com.salesforce.marketingcloud.android.demoapp;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;

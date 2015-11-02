@@ -6,13 +6,13 @@ android {
     buildToolsVersion "23"
 
     defaultConfig {
-        applicationId "com.salesforce.kp.wheresreid"
-        minSdkVersion 11
+        applicationId "com.salesforce.marketingcloud.android.demoapp"
+        minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
 
-        testApplicationId "com.salesforce.kp.wheresreid.test"
+        testApplicationId "com.salesforce.marketingcloud.android.demoapp.test"
         testInstrumentationRunner "android.test.InstrumentationTestRunner"
     }
 

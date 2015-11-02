@@ -1,7 +1,6 @@
-package com.salesforce.kp.wheresreid;
+package com.salesforce.marketingcloud.android.demoapp;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,9 +18,6 @@ import android.webkit.WebViewClient;
  */
 
 public class MainActivity extends BaseActivity {
-
-    private WebView markdownView;
-    public static boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +57,7 @@ public class MainActivity extends BaseActivity {
      * Loads the webView with project's markdown at github
      */
     private void prepareDisplay(){
-        markdownView = (WebView)findViewById(R.id.markdownView);
+        WebView markdownView = (WebView) findViewById(R.id.markdownView);
         markdownView.getSettings().setJavaScriptEnabled(true);
         markdownView.loadUrl(getResources().getString(R.string.readme_remote_url));
         markdownView.setWebViewClient(new WebViewClient() {

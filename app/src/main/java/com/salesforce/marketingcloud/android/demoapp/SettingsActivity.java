@@ -1,4 +1,4 @@
-package com.salesforce.kp.wheresreid;
+package com.salesforce.marketingcloud.android.demoapp;
 
 import android.os.Bundle;
 import com.exacttarget.etpushsdk.util.EventBus;
@@ -25,7 +25,6 @@ import com.exacttarget.etpushsdk.util.EventBus;
  */
 
 public class SettingsActivity extends BaseActivity {
-    private static final String TAG = "SettingsActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

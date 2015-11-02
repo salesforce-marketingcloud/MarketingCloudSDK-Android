@@ -1,4 +1,4 @@
-package com.salesforce.kp.wheresreid;
+package com.salesforce.marketingcloud.android.demoapp;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import com.exacttarget.etpushsdk.ETException;
 import com.exacttarget.etpushsdk.ETPush;
-import com.salesforce.kp.wheresreid.utils.Utils;
+import com.salesforce.marketingcloud.android.demoapp.utils.Utils;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -37,8 +37,6 @@ public class SettingsFragment extends PreferenceFragment {
     private ETPush pusher;
     private SharedPreferences sp;
     private PreferenceScreen prefScreen;
-
-    private OnFragmentInteractionListener mListener;
 
     public SettingsFragment() {
     }
@@ -160,12 +158,6 @@ public class SettingsFragment extends PreferenceFragment {
         });
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -178,7 +170,7 @@ public class SettingsFragment extends PreferenceFragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(Uri uri);
     }
 
     /**
@@ -186,16 +178,17 @@ public class SettingsFragment extends PreferenceFragment {
      *
      * @param pSet a Set<String> of Tags to be stored.
      */
-    private void storeAllTags(Set<String> pSet) throws ETException{
+    private void storeAllTags(Set<String> pSet) {
         /* Retrieves the tags stored in Shared preferences */
-        Set<String> setToLoad = sp.getStringSet("tags", null) == null ? new HashSet<String>() : sp.getStringSet("tags", null);
+        //Set<String> setToLoad = sp.getStringSet("tags", null) == null ? new HashSet<String>() : sp.getStringSet("tags", null);
+        Set<String> setToLoad =  sp.getStringSet("tags", new HashSet<String>());
         /* Adds the tags from the Set passed as parameter */
         for (String t : pSet){
             setToLoad.add(t);
         }
         /* Stores the tags in Shared Preferences */
         SharedPreferences.Editor editor = sp.edit();
-        Set<String> setToSave = new HashSet<String>();
+        Set<String> setToSave = new HashSet<>();
         setToSave.addAll(setToLoad);
         editor.putStringSet("tags", setToSave);
         editor.commit();
@@ -206,10 +199,10 @@ public class SettingsFragment extends PreferenceFragment {
      * Receives a Tag to store in Shared preferences
      *
      * @param tag a new Tag to be added.
-     * @return A new instance of fragment SettingsFragment.
+     *
      */
     private void addNewTag(String tag) throws ETException{
-        Set tempSet = new HashSet<String>();
+        Set tempSet = new HashSet<>();
         tempSet.add(tag);
         pusher.addTag(tag);
         storeAllTags(tempSet);
@@ -282,7 +275,7 @@ public class SettingsFragment extends PreferenceFragment {
                             pusher.removeTag(tag);
                         }
                     } catch (ETException e) {
-                        if (pusher.getLogLevel() <= Log.ERROR) {
+                        if (ETPush.getLogLevel() <= Log.ERROR) {
                             Log.e("TAG", e.getMessage(), e);
                         }
                     }

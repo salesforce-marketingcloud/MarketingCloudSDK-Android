@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.salesforce.kp.wheresreid" >
+    package="com.salesforce.marketingcloud.android.demoapp" >
 
     <!-- JB4A SDK Google Permissions -->
     <permission
@@ -28,13 +28,13 @@
 
     <!-- END JB4A SDK location and region monitoring Permissions -->
     <application
-        android:name=".ApplicationClass"
+        android:name="com.salesforce.marketingcloud.android.demoapp.ApplicationClass"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="com.salesforce.marketingcloud.android.demoapp.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -92,32 +92,32 @@
         <!-- END ETLocationReceiver and Service -->
 
         <activity
-            android:name=".SettingsActivity"
-            android:parentActivityName=".MainActivity" >
+            android:name="com.salesforce.marketingcloud.android.demoapp.SettingsActivity"
+            android:parentActivityName="com.salesforce.marketingcloud.android.demoapp.MainActivity" >
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.salesforce.kp.wheresreid.MainActivity" />
+                android:value="com.salesforce.marketingcloud.android.demoapp.MainActivity" />
         </activity>
-        <activity android:name=".BaseActivity" >
+        <activity android:name="com.salesforce.marketingcloud.android.demoapp.BaseActivity" >
         </activity>
-        <activity android:name=".BasePreferenceActivity" >
+        <activity android:name="com.salesforce.marketingcloud.android.demoapp.BasePreferenceActivity" >
         </activity>
         <activity
-            android:name=".CloudPageInboxActivity"
-            android:parentActivityName=".MainActivity" >
+            android:name="com.salesforce.marketingcloud.android.demoapp.CloudPageInboxActivity"
+            android:parentActivityName="com.salesforce.marketingcloud.android.demoapp.MainActivity" >
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.salesforce.kp.wheresreid.MainActivity" />
+                android:value="com.salesforce.marketingcloud.android.demoapp.MainActivity" />
         </activity>
         <activity
-            android:name=".CloudPageActivity"
-            android:parentActivityName=".CloudPageInboxActivity" >
+            android:name="com.salesforce.marketingcloud.android.demoapp.CloudPageActivity"
+            android:parentActivityName="com.salesforce.marketingcloud.android.demoapp.CloudPageInboxActivity" >
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.salesforce.kp.wheresreid.CloudPageInboxActivity" />
+                android:value="com.salesforce.marketingcloud.android.demoapp.CloudPageInboxActivity" />
         </activity>
     </application>
 
