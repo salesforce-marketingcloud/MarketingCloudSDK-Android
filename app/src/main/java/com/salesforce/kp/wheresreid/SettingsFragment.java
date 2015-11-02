@@ -1,7 +1,5 @@
 package com.salesforce.kp.wheresreid;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -12,22 +10,18 @@ import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.exacttarget.etpushsdk.ETException;
 import com.exacttarget.etpushsdk.ETPush;
-import com.salesforce.kp.wheresreid.R;
 import com.salesforce.kp.wheresreid.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -61,7 +55,8 @@ public class SettingsFragment extends PreferenceFragment {
             this.pusher = ETPush.getInstance();
             /* gets the tags */
             Log.e("TAGS", this.pusher.getTags().toString());
-            storeAllTags(this.pusher.getTags());
+            this.allTags = this.pusher.getTags() != null ? this.pusher.getTags() : new HashSet<String>();
+            storeAllTags(this.allTags);
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -125,36 +120,41 @@ public class SettingsFragment extends PreferenceFragment {
             @Override
             public boolean onPreferenceClick(Preference preference) {
 
-                final EditTextPreference skETP = (EditTextPreference) prefScreen.findPreference("pref_new_tag");
+                if (pusher != null) {
 
-                final AlertDialog d = (AlertDialog) skETP.getDialog();
-                final EditText skET = skETP.getEditText();
-                skET.setText(sp.getString("pref_new_tag", ""));
 
-                Button b = d.getButton(AlertDialog.BUTTON_POSITIVE);
-                b.setOnClickListener(new View.OnClickListener() {
+                    final EditTextPreference skETP = (EditTextPreference) prefScreen.findPreference("pref_new_tag");
 
-                    @Override
-                    public void onClick(android.view.View v) {
-                        String newTagValue = skET.getText().toString().trim();
-                        if (newTagValue.isEmpty()) {
-                            Utils.flashError(skET, getString(R.string.error_cannot_be_blank));
-                            return;
-                        } else {
-                            try {
-                                addNewTag(newTagValue);
-                            } catch (ETException e) {
-                                if (ETPush.getLogLevel() <= Log.ERROR) {
-                                    Log.e("TAG", e.getMessage(), e);
+                    final AlertDialog d = (AlertDialog) skETP.getDialog();
+                    final EditText skET = skETP.getEditText();
+                    skET.setText(sp.getString("pref_new_tag", ""));
+
+                    Button b = d.getButton(AlertDialog.BUTTON_POSITIVE);
+                    b.setOnClickListener(new View.OnClickListener() {
+
+                        @Override
+                        public void onClick(android.view.View v) {
+                            String newTagValue = skET.getText().toString().trim();
+                            if (newTagValue.isEmpty()) {
+                                Utils.flashError(skET, getString(R.string.error_cannot_be_blank));
+                                return;
+                            } else {
+                                try {
+                                    addNewTag(newTagValue);
+                                } catch (ETException e) {
+                                    if (ETPush.getLogLevel() <= Log.ERROR) {
+                                        Log.e("TAG", e.getMessage(), e);
+                                    }
                                 }
+                                configureTags();
                             }
-                            configureTags();
+
+                            d.dismiss();
                         }
-
-                        d.dismiss();
-                    }
-                });
-
+                    });
+                } else {
+                    Toast.makeText(getActivity(), "There was a problem while loading SDK, unable to add new Tags", Toast.LENGTH_LONG);
+                }
                 return true;
             }
         });
@@ -245,8 +245,10 @@ public class SettingsFragment extends PreferenceFragment {
             tagsSection.addPreference(et);
         }
         /* Creates the rows out of the tag's list. */
-        for (String tag : this.allTags){
-            addTagCheckbox(tagsSection, tag);
+        if (allTags != null && !allTags.isEmpty()) {
+            for (String tag : this.allTags) {
+                addTagCheckbox(tagsSection, tag);
+            }
         }
     }
 
