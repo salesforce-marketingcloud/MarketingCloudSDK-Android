@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 /**
  * A placeholder fragment containing a simple view.
  *
- * @author Salesforce (R) 2015.
+ * @author Salesforce &reg; 2015.
  */
 public class MainActivityFragment extends Fragment {
 

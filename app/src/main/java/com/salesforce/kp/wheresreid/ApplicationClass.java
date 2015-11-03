@@ -24,7 +24,7 @@ import java.util.ArrayList;
  * ApplicationClass is the primary application class.
  * This class extends Application to provide global activities.
  *
- * @author Salesforce (R) 2015.
+ * @author Salesforce &reg; 2015.
  */
 public class ApplicationClass extends Application {
 
@@ -81,7 +81,6 @@ public class ApplicationClass extends Application {
      *     </li>
      * </ul>
      *
-     * To set the logging level, call ETPush.setLogLevel().
      * <p/>
      * The application keys are stored in a separate file (secrets.xml) in order to provide
      * centralized access to these keys and to ensure you use the appropriate keys when
@@ -165,7 +164,7 @@ public class ApplicationClass extends Application {
      * Listens for a GeofenceResponseEvent on EventBus callback.
      *
      * This event retrieves the data related to geolocations
-     * beacons are saved as a list of McLocation in McLocationManager
+     * beacons are saved as a list of McGeofence in McLocationManager
      *
      * @param event the type of event we're listening for.
      */
@@ -173,12 +172,12 @@ public class ApplicationClass extends Application {
     public void onEvent(final GeofenceResponseEvent event) {
         ArrayList<Region> regions = (ArrayList<Region>) event.getFences();
         for (Region r : regions){
-            McLocation newLocation = new McLocation();
+            McGeofence newLocation = new McGeofence();
             LatLng latLng = new LatLng(r.getLatitude(), r.getLongitude());
             newLocation.setCoordenates(latLng);
             newLocation.setRadius(r.getRadius());
             newLocation.setName(r.getName());
-            McLocationManager.getInstance().getLocations().add(newLocation);
+            McLocationManager.getInstance().getGeofences().add(newLocation);
         }
     }
 

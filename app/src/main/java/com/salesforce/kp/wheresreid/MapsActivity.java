@@ -73,7 +73,7 @@ public class MapsActivity extends BaseActivity implements OnMapReadyCallback {
         }
 
         /* Loops through the locations and set them in the map */
-        for (McLocation location : lm.getLocations()){
+        for (McGeofence location : lm.getGeofences()){
             map.addMarker(new MarkerOptions().position(location.getCoordenates()).title(location.getName()));
             map.addCircle(new CircleOptions()
                     .center(location.getCoordenates())

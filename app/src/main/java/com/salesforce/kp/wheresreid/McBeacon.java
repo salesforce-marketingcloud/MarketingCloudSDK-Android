@@ -2,10 +2,11 @@ package com.salesforce.kp.wheresreid;
 
 import com.google.android.gms.maps.model.LatLng;
 
+
 /**
- * Object meant to store Beacon's data
+ * McBeacon class stores beacon message data.
  *
- * Created by Marketing Cloud on 11/2/15.
+ * @author Salesforce &reg; 2015.
  */
 public class McBeacon {
 

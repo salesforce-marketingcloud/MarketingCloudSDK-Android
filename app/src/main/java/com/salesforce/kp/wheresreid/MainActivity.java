@@ -12,7 +12,7 @@ import android.webkit.WebViewClient;
  *
  * This activity extends AppCompatActivity to provide the primary interface for user interaction.
  *
- * @author Salesforce (R) 2015.
+ * @author Salesforce &reg; 2015.
  */
 public class MainActivity extends BaseActivity {
 
@@ -24,21 +24,23 @@ public class MainActivity extends BaseActivity {
         prepareDisplay();
     }
 
+    /**
+     *  Add items to the action bar if present.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        /* Add items to the action bar if present. */
+
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
+    /**
+     * Handles action bar item clicks
+     * The action bar automatically handles clicks on the Home/Up button if
+     * a parent activity in AndroidManifest.xml has been specified.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        /**
-         * Handles action bar item clicks
-         * The action bar automatically handles clicks on the Home/Up button if
-         * a parent activity in AndroidManifest.xml has been specified.
-         */
-
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
@@ -54,7 +56,7 @@ public class MainActivity extends BaseActivity {
     }
 
     /**
-     * Loads the webView with project's markdown at github
+     * Loads the webView with project's readme at github
      */
     private void prepareDisplay(){
         WebView markdownView = (WebView) findViewById(R.id.markdownView);
