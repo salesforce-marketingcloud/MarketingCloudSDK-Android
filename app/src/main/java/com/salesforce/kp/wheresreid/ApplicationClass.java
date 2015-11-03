@@ -59,11 +59,7 @@ public class ApplicationClass extends Application {
      * You also set whether you enable LocationManager, CloudPages, and Analytics.
      *
      * When ReadyAimFire() is called for the first time for a device, it will get a device token
-     * from Google or Amazon and send to the MarketingCloud.
-     *
-     * As well, the ETPackageReplacedReceiver will ensure that a new device token is retrieved from
-     * Google or Amazon when a new version of your app is installed.  However, it will only initiate
-     * the send when the user opens the app and your app calls readyAimFire().
+     * from Google and send to the MarketingCloud.
      *
      * To set the logging level, call ETPush.setLogLevel().
      *
