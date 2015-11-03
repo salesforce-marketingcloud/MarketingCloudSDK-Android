@@ -783,7 +783,7 @@ successful = [[ETPush pushManager] configureSDKWithAppID:kETAppID_Debug         
 ```
 Make sure you also add the "NSLocationAlwaysUsageDescription" key to your application’s *.plist file. See docs: [NSLocationAlwaysUsageDescription](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18) and [NSLocationUsageDescription](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW27).
 
-After push notifications are registered, start watching geofences to retrieve the fence and location notifications from ET Geofences and Beacons:
+After push notifications are registered, start watching locations to retrieve the fence and location notifications from ET Geofences and Beacons:
 ```objective-c
 /**   
  Start geoLocation
@@ -820,11 +820,11 @@ When the application becomes active, Location Services are initiated through the
 }
 ```
 **MCGeoLocationViewController.m**
-To check if geofences are active, use the boolean method:
+To check if locations are active, use the boolean method:
 ```objective-c
 [[ETLocationManager locationManager]getWatchingLocation]
 ```
-If geofences are active it returns `YES`, otherwise it returns `NO`.
+If locations are active it returns `YES`, otherwise it returns `NO`.
 
 To obtain the monitored regions use this method:
 ```objective-c
