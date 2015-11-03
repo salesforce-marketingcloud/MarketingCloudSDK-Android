@@ -1,7 +1,6 @@
 package com.salesforce.kp.wheresreid;
 
 import android.os.Bundle;
-import com.exacttarget.etpushsdk.util.EventBus;
 
 /**
  * SettingsActivity is the primary settings activity.
@@ -30,18 +29,9 @@ public class SettingsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        EventBus.getInstance().register(this);
-
         getSupportActionBar().setHomeButtonEnabled(true);
 
         getFragmentManager().beginTransaction().replace(android.R.id.content,
                 new SettingsFragment()).commit();
     }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        EventBus.getInstance().unregister(this);
-    }
-
 }

@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.exacttarget.etpushsdk.ETPush;
-import com.exacttarget.etpushsdk.data.Region;
 
 public class BaseActivity extends AppCompatActivity {
 
