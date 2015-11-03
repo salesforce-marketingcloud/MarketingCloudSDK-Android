@@ -13,11 +13,8 @@ import android.webkit.WebViewClient;
  *
  * This activity extends AppCompatActivity to provide the primary interface for user interaction.
  *
- *
  * @author Salesforce (R) 2015.
- *
  */
-
 public class MainActivity extends BaseActivity {
 
     private WebView markdownView;
