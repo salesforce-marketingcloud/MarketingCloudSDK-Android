@@ -31,45 +31,63 @@ public class ApplicationClass extends Application {
     private static final String TAG = "ApplicationClass";
 
      /**
-      * ANALYTICS_ENABLED is set to true to show how Salesforce analytics will save statistics for
+      * Set to true to show how Salesforce analytics will save statistics for
       * how your customers use the app.
-      *
-      * CLOUD_PAGES_ENABLED is set to true to test how notifications can send your app customers to
-      * different web pages.
-      *
-      * WAMA_ENABLED is set to true to show how Predictive Intelligence analytics (PIAnalytics) will
-      * save statistics for how your customers use the app (by invitation at this point).
-      *
-      * PROXIMITY_ENABLED is set to true to show how beacons messages works within the SDK.
-      *
-      * LOCATION_ENABLED is set to true to show how geo fencing works within the SDK.
-      *
-      * Your app will have these choices set based on how you want your app to work.
       */
     public static final boolean ANALYTICS_ENABLED = true;
+
+    /**
+     * Set to true to test how notifications can send your app customers to
+     * different web pages.
+     */
     public static final boolean CLOUD_PAGES_ENABLED = true;
+
+    /**
+     * Set to true to show how Predictive Intelligence analytics (PIAnalytics) will
+     * save statistics for how your customers use the app (by invitation at this point).
+     */
     public static final boolean WAMA_ENABLED = true;
+
+    /**
+     * Set to true to show how beacons messages works within the SDK.
+     */
     public static final boolean PROXIMITY_ENABLED = true;
+
+    /**
+     * Set to true to show how geo fencing works within the SDK.
+     */
     public static final boolean LOCATION_ENABLED = true;
 
     /**
-     * In ETPush.readyAimFire() you must set several parameters.
-     * AppId and AccessToken: these values are taken from the Marketing Cloud definition for your app.
-     * GcmSenderId for the push notifications: this value is taken from the Google API console.
-     * You also set whether you enable LocationManager, CloudPages, and Analytics.
-     *
+     * The onCreate() method initialize your app.
+     * <p/>
+     * It registers the application to listen for events posted to a private communication bus
+     * by the SDK and calls `ETPush.readyAimFire` to configures the SDK to point to the correct code
+     * application and to initialize the ETPush, according to the constants defined before.
+     * <p/>
      * When ReadyAimFire() is called for the first time for a device, it will get a device token
      * from Google and send to the MarketingCloud.
+     * <p/>
+     * In ETPush.readyAimFire() you must set several parameters:
+     * <ul>
+     *     <li>
+     *         AppId and AccessToken: these values are taken from the Marketing Cloud definition for your app.
+     *     </li>
+     *     <li>
+     *         GcmSenderId for the push notifications: this value is taken from the Google API console.
+     *     </li>
+     *     <li>
+     *         You also set whether you enable LocationManager, CloudPages, and Analytics.
+     *     </li>
+     * </ul>
      *
      * To set the logging level, call ETPush.setLogLevel().
-     *
+     * <p/>
      * The application keys are stored in a separate file (secrets.xml) in order to provide
      * centralized access to these keys and to ensure you use the appropriate keys when
-     * compiling the test and production versions.  This is not part of the SDK, but is shown
-     * as a way to assist in managing these keys.
+     * compiling the test and production versions.
      *
     **/
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -99,25 +117,35 @@ public class ApplicationClass extends Application {
         }
     }
 
+    /**
+     * Listens for a ReadyAimFireInitCompletedEvent on EventBus callback.
+     * <p/>
+     * When the readyAimFire() initialization is completed, start watching at beacon messages.
+     * @param event the type of event we're listening for.
+     */
+    @SuppressWarnings("unused")
     public void onEvent (final ReadyAimFireInitCompletedEvent event){
         try {
             ETLocationManager.getInstance().startWatchingProximity();
-        } catch (ETException e) {}
+        } catch (ETException e) {
+            Log.e(TAG, e.getMessage(), e);
+        }
     }
 
     /**
      * Listens for a RegistrationEvent on EventBus callback.
-     *
+     * <p/>
      * This method is one of several methods to log notifications when an event occurs in the SDK.
      * Different attributes indicate which event has occurred.
-     *
+     * <p/>
      * RegistrationEvent will be triggered when the SDK receives the response from the
      * registration as triggered by the com.google.android.c2dm.intent.REGISTRATION intent.
-     *
+     * <p/>
      * These events are only called if EventBus.getInstance().register() is called.
-     *
+     * <p/>
      * @param event contains attributes which identify the type of event and are logged.
      */
+    @SuppressWarnings({"unused", "unchecked"})
     public void onEvent(final RegistrationEvent event) {
         if (ETPush.getLogLevel() <= Log.DEBUG) {
             Log.d(TAG, "Marketing Cloud update occurred.");
@@ -156,10 +184,10 @@ public class ApplicationClass extends Application {
 
     /**
      * Listens for a BeaconResponseEvent on EventBus callback.
-     *
-     * This event retrieves the data related to beacons,
-     * beacons are saved as a list of McBeacon in McLocationManager
-     *
+     * <p/>
+     * This event retrieves the data related to beacon messages and saves them
+     * as a list of McBeacon in McLocationManager.
+     * <p/>
      * @param event the type of event we're listening for.
      */
     @SuppressWarnings("unused, unchecked")
