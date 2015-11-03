@@ -5,6 +5,14 @@ import android.util.Log;
 
 import com.exacttarget.etpushsdk.ETPush;
 
+/**
+ * BaseActivity is the activity to be extended by other activities.<br/>
+ * This design structure handles onPause() and onEvent() listeners regardless of what activity is at the foreground when the events are triggered.
+ *
+ * This activity extends AppCompatActivity to provide the primary interface for user interaction.
+ *
+ * @author Salesforce &reg; 2015.
+ */
 public class BaseActivity extends AppCompatActivity {
 
     private static final String TAG = BaseActivity.class.getSimpleName();

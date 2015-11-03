@@ -17,6 +17,11 @@ import android.widget.TextView;
 import com.exacttarget.etpushsdk.adapter.CloudPageListAdapter;
 import com.exacttarget.etpushsdk.data.Message;
 
+/**
+ * CloudPageInboxActivity works as an inbox for the Cloud Pages received.
+ *
+ * @author Salesforce &reg; 2015.
+ */
 public class CloudPageInboxActivity extends BaseActivity {
     private MyCloudPageListAdapter cloudPageListAdapter;
 
@@ -28,6 +33,9 @@ public class CloudPageInboxActivity extends BaseActivity {
         prepareDisplay();
     }
 
+    /**
+     * Listener of the radio buttons, the list is filtered according to the selected option.
+     */
     private RadioGroup.OnCheckedChangeListener radioChangedListener = new RadioGroup.OnCheckedChangeListener() {
 
         @Override
@@ -42,6 +50,9 @@ public class CloudPageInboxActivity extends BaseActivity {
         }
     };
 
+    /**
+     * Long click event listener on the row, it deletes the Cloud Page.
+     */
     private AdapterView.OnItemLongClickListener cloudPageItemDeleteListener = new AdapterView.OnItemLongClickListener() {
 
         @Override
@@ -55,6 +66,9 @@ public class CloudPageInboxActivity extends BaseActivity {
         }
     };
 
+    /**
+     * Click event listener on the row, it starts a new CloudPageActivity, where the Cloud Page is going to be displayed.
+     */
     private AdapterView.OnItemClickListener cloudPageItemClickListener = new AdapterView.OnItemClickListener() {
 
         @Override
@@ -70,6 +84,9 @@ public class CloudPageInboxActivity extends BaseActivity {
         }
     };
 
+    /**
+     * Sets the SDK's adapter to the list, so as the event listeners.
+     */
     private void prepareDisplay() {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -88,6 +105,11 @@ public class CloudPageInboxActivity extends BaseActivity {
         cloudPageListView.setAdapter(cloudPageListAdapter);
     }
 
+    /**
+     * Navigates back to parent's Activity: MainActivity
+     *
+     * @param item which is the reference to the parent's activity: MainActivity
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -99,7 +121,9 @@ public class CloudPageInboxActivity extends BaseActivity {
         }
     }
 
-
+    /**
+     * MyCloudPageListAdapter extends CloudPageListAdapter which is provided by Marketing Cloud's SDK.
+     */
     private class MyCloudPageListAdapter extends CloudPageListAdapter {
 
         public MyCloudPageListAdapter(Context appContext) {

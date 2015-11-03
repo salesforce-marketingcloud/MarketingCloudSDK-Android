@@ -14,6 +14,11 @@ import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+/**
+ * MapsActivity displays a Google map with the regions configured at Marketing Cloud.
+ *
+ * @author Salesforce &reg; 2015.
+ */
 public class MapsActivity extends BaseActivity implements OnMapReadyCallback {
 
     @Override
