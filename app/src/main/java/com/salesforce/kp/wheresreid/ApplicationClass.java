@@ -2,9 +2,6 @@
 package com.salesforce.kp.wheresreid;
 
 import android.app.Application;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.text.format.DateUtils;
 import android.util.Log;
 
 import com.exacttarget.etpushsdk.ETException;
@@ -31,7 +28,7 @@ import java.util.ArrayList;
  */
 public class ApplicationClass extends Application {
 
-    public static final String TAG = "ApplicationClass";
+    private static final String TAG = "ApplicationClass";
 
      /**
       * ANALYTICS_ENABLED is set to true to show how Salesforce analytics will save statistics for
@@ -54,16 +51,6 @@ public class ApplicationClass extends Application {
     public static final boolean WAMA_ENABLED = true;
     public static final boolean PROXIMITY_ENABLED = true;
     public static final boolean LOCATION_ENABLED = true;
-    public static final long MIDDLE_TIER_PROPAGATION_MIN_DELAY = DateUtils.MINUTE_IN_MILLIS * 5; // 5 minutes
-    public static final String EXTRAS_REGISTRATION_EVENT = "event";
-    public static final String HELLO_WORLD_PREFERENCES = "ApplicationClass";
-    public static final String KEY_PREFS_ALARM_TIME = "mt_alarm_time";
-    public static final String INTENT_ACTION_STRING = "mt_propagation_alarm";
-
-    public static String VERSION_NAME;
-    public static int VERSION_CODE;
-    private static long okToCheckMiddleTier;
-    private SharedPreferences.Editor preferencesEditor;
 
     /**
      * In ETPush.readyAimFire() you must set several parameters.
@@ -90,12 +77,6 @@ public class ApplicationClass extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
-        VERSION_NAME = getAppVersionName();
-        VERSION_CODE = getAppVersionCode();
-
-        SharedPreferences sharedPreferences = getSharedPreferences(HELLO_WORLD_PREFERENCES, MODE_PRIVATE);
-        preferencesEditor = sharedPreferences.edit();
 
         /**
          * Register the application to listen for events posted to a private communication bus
@@ -129,32 +110,6 @@ public class ApplicationClass extends Application {
     }
 
     /**
-     * Returns the application version name as recorded in the app's build.gradle file.
-     *
-     * @return the application version name
-     */
-    private String getAppVersionName() {
-        try {
-            return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            throw new RuntimeException(e.getMessage());
-        }
-    }
-
-    /**
-     * Returns the application version code as recorded in the app's build.gradle file.
-     *
-     * @return the application version code
-     */
-    private int getAppVersionCode() {
-        try {
-            return this.getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
-        } catch (PackageManager.NameNotFoundException e) {
-            throw new RuntimeException(e.getMessage());
-        }
-    }
-
-    /**
      * Listens for a RegistrationEvent on EventBus callback.
      *
      * This method is one of several methods to log notifications when an event occurs in the SDK.
@@ -180,54 +135,6 @@ public class ApplicationClass extends Application {
             Log.d(TAG, "Language: " + event.getLocale());
             Log.d(TAG, String.format("Last sent: %1$d", System.currentTimeMillis()));
         }
-
-        /**
-         * BEGIN Developer Helper Notification
-         *
-         * Notify me when my changes have been propagated by the Middle Tier to the Marketing
-         * Cloud.  This should never be required in a production application.
-         */
-//        if (!BuildConfig.DEBUG) {
-//            return;
-//        }
-//
-//        /*
-//            The middle tier has a 15 min. delay in data propagation.  Make sure we're waiting an
-//            appropriate amount of time before having our tests run.
-//        */
-//        long proposedCheckTime = System.currentTimeMillis() + MIDDLE_TIER_PROPAGATION_MIN_DELAY;
-//        /*
-//            Because we have async tasks, never set an alarm for the middle tier that would be
-//            earlier than any previous alarm.
-//
-//            This could be expanded to handle multiple alarms but that is overkill at the moment.
-//         */
-//        if (proposedCheckTime < okToCheckMiddleTier) {
-//            return;
-//        }
-//        // getLastSent() is returning 0, but I need to discuss with team.
-//        event.setLastSent(System.currentTimeMillis());
-//
-//        okToCheckMiddleTier = proposedCheckTime;
-//        Log.v(TAG, String.format("Setting an alarm for %3$dms from %1$d (alarm time: %2$d)", System.currentTimeMillis(), okToCheckMiddleTier, okToCheckMiddleTier - System.currentTimeMillis()));
-//        Intent intent = new Intent(INTENT_ACTION_STRING);
-//        Bundle bundle = new Bundle();
-//        bundle.putSerializable(EXTRAS_REGISTRATION_EVENT, event);
-//        intent.putExtras(bundle);
-//        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, R.id.mt_alarm, intent, 0);
-//        AlarmManager alarmManager = (AlarmManager) this.getSystemService(Service.ALARM_SERVICE);
-//        /*
-//            Cancel any existing alarms as we're about to set one that will account for the latest
-//            change.
-//         */
-//        alarmManager.cancel(pendingIntent);
-//        alarmManager.set(
-//                AlarmManager.RTC_WAKEUP,
-//                okToCheckMiddleTier,si,
-//                pendingIntent
-//        );
-//
-//        preferencesEditor.putLong(KEY_PREFS_ALARM_TIME, okToCheckMiddleTier).apply();
     }
 
     /**

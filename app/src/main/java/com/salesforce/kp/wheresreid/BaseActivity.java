@@ -1,10 +1,8 @@
 package com.salesforce.kp.wheresreid;
 
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 
-import com.exacttarget.etpushsdk.ETLocationManager;
 import com.exacttarget.etpushsdk.ETPush;
 import com.exacttarget.etpushsdk.data.Region;
 
@@ -12,7 +10,7 @@ public class BaseActivity extends AppCompatActivity {
 
     private static final String TAG = BaseActivity.class.getSimpleName();
 
-    /** Calling ETPush.activityPaused is required only if you are targetting earlier than Android API 14.
+    /** Calling ETPush.activityPaused is required only if you are targeting earlier than Android API 14.
      * For apps targeting Android 14 or later, the SDK will implement these calls using
      * registerActivityLifecycleCallbacks().
      * If you are targeting earlier than Android API 14, you must also call ETPush.activityResumed(this)
@@ -31,7 +29,7 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    /** Calling ETPush.activityResumed is required only if you are targetting earlier than Android API 14.
+    /** Calling ETPush.activityResumed is required only if you are targeting earlier than Android API 14.
      * For apps targeting Android 14 or later, the SDK will implement these calls using
      * registerActivityLifecycleCallbacks().
      * If you are targeting earlier than Android API 14, you must also call ETPush.activityPaused(this)

@@ -4,7 +4,7 @@ android {
     /* Change these to fit your applications requirements! */
     compileSdkVersion 22
     buildToolsVersion "22"
-
+    
     defaultConfig {
         applicationId "com.salesforce.kp.wheresreid"
         minSdkVersion 16
@@ -12,7 +12,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testApplicationId "com.salesforce.kp.wheresreid.test"
+        testApplicationId "com.salesforce.marketingcloud.android.demoapp.test"
         testInstrumentationRunner "android.test.InstrumentationTestRunner"
     }
 

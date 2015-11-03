@@ -1,17 +1,18 @@
 package com.salesforce.kp.wheresreid;
 
 import android.preference.PreferenceActivity;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
-
-import com.exacttarget.etpushsdk.ETLocationManager;
 import com.exacttarget.etpushsdk.ETPush;
 
 public class BasePreferenceActivity extends PreferenceActivity {
 
-    //private static final String TAG = Utils.formatTag(BaseActivity.class.getSimpleName());
+    private static final String TAG = BaseActivity.class.getSimpleName();
 
+    /** Calling ETPush.activityPaused is required only if you are targeting earlier than Android API 14.
+     * For apps targeting Android 14 or later, the SDK will implement these calls using
+     * registerActivityLifecycleCallbacks().
+     * If you are targeting earlier than Android API 14, you must also call ETPush.activityResumed(this)
+     * in onResume method. */
     @Override
     protected void onPause() {
         super.onPause();
@@ -19,34 +20,28 @@ public class BasePreferenceActivity extends PreferenceActivity {
         try {
             // Let JB4A SDK know when each activity paused
             ETPush.activityPaused(this);
-            Log.e("PAUSED", "PAUSED");
-            ETLocationManager.getInstance().startWatchingLocation();
-
         } catch (Exception e) {
             if (ETPush.getLogLevel() <= Log.ERROR) {
-                //Log.e(TAG, e.getMessage(), e);
+                Log.e(TAG, e.getMessage(), e);
             }
         }
     }
 
+    /** Calling ETPush.activityResumed is required only if you are targeting earlier than Android API 14.
+     * For apps targeting Android 14 or later, the SDK will implement these calls using
+     * registerActivityLifecycleCallbacks().
+     * If you are targeting earlier than Android API 14, you must also call ETPush.activityPaused(this)
+     * in onPause method. */
     @Override
     protected void onResume() {
         super.onResume();
         try {
             // Let JB4A SDK know when each activity is resumed
             ETPush.activityResumed(this);
-            Log.e("RESUMED", "RESUMED");
-            ETLocationManager.getInstance().stopWatchingLocation();
-
         } catch (Exception e) {
             if (ETPush.getLogLevel() <= Log.ERROR) {
-                //Log.e(TAG, e.getMessage(), e);
+                Log.e(TAG, e.getMessage(), e);
             }
         }
-        /*
-        if (SDK_ExplorerApp.getQuitAppNow()) {
-            finish();
-        }
-        */
     }
 }

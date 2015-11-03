@@ -25,7 +25,6 @@ import com.exacttarget.etpushsdk.util.EventBus;
  */
 
 public class SettingsActivity extends BaseActivity {
-    private static final String TAG = "SettingsActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
