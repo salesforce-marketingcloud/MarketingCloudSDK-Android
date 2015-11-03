@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     /* Change these to fit your applications requirements! */
-    compileSdkVersion 23
-    buildToolsVersion "23"
-
+    compileSdkVersion 22
+    buildToolsVersion "22"
+    
     defaultConfig {
-        applicationId "com.salesforce.marketingcloud.android.demoapp"
+        applicationId "com.salesforce.kp.wheresreid"
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
 
@@ -35,9 +35,9 @@ dependencies {
     compile 'com.exacttarget.etpushsdk:etsdk:4.0.6@aar'
 
     /* Google's Support v4 for Notification compatibility */
-    compile 'com.android.support:appcompat-v7:23.1.0'
-    compile 'com.android.support:support-v4:23.1.0'
-    compile 'com.android.support:design:23.1.0'
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:support-v4:22.2.1'
+    compile 'com.android.support:design:22.2.1'
 
     /* Google Play Services for Location and Google Cloud Messaging */
     compile 'com.google.android.gms:play-services-location:7.8.0'

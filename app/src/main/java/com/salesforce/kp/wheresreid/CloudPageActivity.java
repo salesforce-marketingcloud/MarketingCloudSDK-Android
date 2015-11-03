@@ -19,6 +19,9 @@ public class CloudPageActivity extends BaseActivity {
         getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
     }
 
+    /**
+     *
+     */
     private void prepareDisplay() {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getResources().getString(R.string.action_cloudpage_inbox));

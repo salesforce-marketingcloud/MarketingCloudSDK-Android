@@ -5,11 +5,19 @@ import android.app.Application;
 import android.util.Log;
 
 import com.exacttarget.etpushsdk.ETException;
+import com.exacttarget.etpushsdk.ETLocationManager;
 import com.exacttarget.etpushsdk.ETPush;
 import com.exacttarget.etpushsdk.ETPushConfig;
 import com.exacttarget.etpushsdk.data.Attribute;
+import com.exacttarget.etpushsdk.data.Region;
+import com.exacttarget.etpushsdk.event.BeaconResponseEvent;
+import com.exacttarget.etpushsdk.event.GeofenceResponseEvent;
+import com.exacttarget.etpushsdk.event.ReadyAimFireInitCompletedEvent;
 import com.exacttarget.etpushsdk.event.RegistrationEvent;
 import com.exacttarget.etpushsdk.util.EventBus;
+import com.google.android.gms.maps.model.LatLng;
+
+import java.util.ArrayList;
 
 
 /**
@@ -17,7 +25,6 @@ import com.exacttarget.etpushsdk.util.EventBus;
  * This class extends Application to provide global activities.
  *
  * @author Salesforce (R) 2015.
- *
  */
 public class ApplicationClass extends Application {
 
@@ -33,15 +40,17 @@ public class ApplicationClass extends Application {
       * WAMA_ENABLED is set to true to show how Predictive Intelligence analytics (PIAnalytics) will
       * save statistics for how your customers use the app (by invitation at this point).
       *
+      * PROXIMITY_ENABLED is set to true to show how beacons messages works within the SDK.
+      *
       * LOCATION_ENABLED is set to true to show how geo fencing works within the SDK.
       *
       * Your app will have these choices set based on how you want your app to work.
       */
-
-    private static final boolean ANALYTICS_ENABLED = true;
-    private static final boolean CLOUD_PAGES_ENABLED = true;
-    private static final boolean WAMA_ENABLED = true;
-    private static final boolean LOCATION_ENABLED = true;
+    public static final boolean ANALYTICS_ENABLED = true;
+    public static final boolean CLOUD_PAGES_ENABLED = true;
+    public static final boolean WAMA_ENABLED = true;
+    public static final boolean PROXIMITY_ENABLED = true;
+    public static final boolean LOCATION_ENABLED = true;
 
     /**
      * In ETPush.readyAimFire() you must set several parameters.
@@ -86,11 +95,18 @@ public class ApplicationClass extends Application {
                             .setLocationEnabled(LOCATION_ENABLED)
                             .setPiAnalyticsEnabled(WAMA_ENABLED)
                             .setCloudPagesEnabled(CLOUD_PAGES_ENABLED)
+                            .setProximityEnabled(PROXIMITY_ENABLED)
                             .build()
             );
         } catch (ETException e) {
             Log.e(TAG, e.getMessage(), e);
         }
+    }
+
+    public void onEvent (final ReadyAimFireInitCompletedEvent event){
+        try {
+            ETLocationManager.getInstance().startWatchingProximity();
+        } catch (ETException e) {}
     }
 
     /**
@@ -104,10 +120,8 @@ public class ApplicationClass extends Application {
      *
      * These events are only called if EventBus.getInstance().register() is called.
      *
-     * @param event the type of event we're listening for.
+     * @param event contains attributes which identify the type of event and are logged.
      */
-
-    @SuppressWarnings("unused")
     public void onEvent(final RegistrationEvent event) {
         if (ETPush.getLogLevel() <= Log.DEBUG) {
             Log.d(TAG, "Marketing Cloud update occurred.");
@@ -122,6 +136,47 @@ public class ApplicationClass extends Application {
             Log.d(TAG, String.format("Last sent: %1$d", System.currentTimeMillis()));
         }
     }
-}
 
-        
+    /**
+     * Listens for a GeofenceResponseEvent on EventBus callback.
+     *
+     * This event retrieves the data related to geolocations
+     * beacons are saved as a list of McLocation in McLocationManager
+     *
+     * @param event the type of event we're listening for.
+     */
+    @SuppressWarnings("unused, unchecked")
+    public void onEvent(final GeofenceResponseEvent event) {
+        ArrayList<Region> regions = (ArrayList<Region>) event.getFences();
+        for (Region r : regions){
+            McLocation newLocation = new McLocation();
+            LatLng latLng = new LatLng(r.getLatitude(), r.getLongitude());
+            newLocation.setCoordenates(latLng);
+            newLocation.setRadius(r.getRadius());
+            newLocation.setName(r.getName());
+            McLocationManager.getInstance().getLocations().add(newLocation);
+        }
+    }
+
+    /**
+     * Listens for a BeaconResponseEvent on EventBus callback.
+     *
+     * This event retrieves the data related to beacons,
+     * beacons are saved as a list of McBeacon in McLocationManager
+     *
+     * @param event the type of event we're listening for.
+     */
+    @SuppressWarnings("unused, unchecked")
+    public void onEvent(final BeaconResponseEvent event) {
+        ArrayList<Region> regions = (ArrayList<Region>) event.getBeacons();
+        for (Region r : regions){
+            McBeacon newBeacon = new McBeacon();
+            LatLng latLng = new LatLng(r.getLatitude(), r.getLongitude());
+            newBeacon.setCoordenates(latLng);
+            newBeacon.setRadius(getResources().getInteger(R.integer.beacon_radius));
+            newBeacon.setName(r.getName());
+            newBeacon.setGuid(r.getGuid());
+            McLocationManager.getInstance().getBeacons().add(newBeacon);
+        }
+    }
+}

@@ -12,11 +12,8 @@ import android.webkit.WebViewClient;
  *
  * This activity extends AppCompatActivity to provide the primary interface for user interaction.
  *
- *
  * @author Salesforce (R) 2015.
- *
  */
-
 public class MainActivity extends BaseActivity {
 
     @Override
@@ -46,6 +43,9 @@ public class MainActivity extends BaseActivity {
 
         if (id == R.id.action_settings) {
             startActivity(new Intent(this, SettingsActivity.class));
+
+        } else if (id == R.id.action_map) {
+            startActivity(new Intent(this, MapsActivity.class));
         }
         else if (id == R.id.action_cloudpage_inbox){
             startActivity(new Intent(this, CloudPageInboxActivity.class));

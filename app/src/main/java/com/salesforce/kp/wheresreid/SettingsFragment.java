@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.exacttarget.etpushsdk.ETException;
+import com.exacttarget.etpushsdk.ETLocationManager;
 import com.exacttarget.etpushsdk.ETPush;
 import com.salesforce.kp.wheresreid.utils.Utils;
 
@@ -32,7 +33,7 @@ import java.util.Set;
  * to handle interaction events.
  */
 public class SettingsFragment extends PreferenceFragment {
-    /* Set of current tags */
+    /* Current set of tags */
     private Set<String> allTags;
     private ETPush pusher;
     private SharedPreferences sp;
@@ -51,7 +52,7 @@ public class SettingsFragment extends PreferenceFragment {
 
         try {
             this.pusher = ETPush.getInstance();
-            /* gets the tags */
+            /* get and store tags */
             Log.e("TAGS", this.pusher.getTags().toString());
             this.allTags = this.pusher.getTags() != null ? this.pusher.getTags() : new HashSet<String>();
             storeAllTags(this.allTags);
@@ -90,7 +91,7 @@ public class SettingsFragment extends PreferenceFragment {
                             Utils.flashError(skET, getString(R.string.error_cannot_be_blank));
                             return;
                         } else {
-                            /* saves the preference to Shared Preferences */
+                            /* Save the preference to Shared Preferences */
                             SharedPreferences.Editor editor = sp.edit();
                             editor.putString(KEY_PREF_SUBSCRIBER_KEY, newSubscriberKey);
                             editor.commit();
@@ -176,7 +177,7 @@ public class SettingsFragment extends PreferenceFragment {
     /**
      * Receives a Set of tags and adds them to the Set of tags in Shared Preferences.
      *
-     * @param pSet a Set<String> of Tags to be stored.
+     * @param pSet tags to be stored.
      */
     private void storeAllTags(Set<String> pSet) {
         /* Retrieves the tags stored in Shared preferences */
@@ -209,47 +210,46 @@ public class SettingsFragment extends PreferenceFragment {
     }
 
     /**
-     * Configures the Shared Preferences section to be displayed
+     * Configures the Shared Preferences section to be displayed.
      */
     private void configureTags(){
-        /* Creates a new PreferenceCategory if is not already created. */
+        /* Create a new PreferenceCategory if not already created. */
         PreferenceCategory tagsSection = (PreferenceCategory)this.prefScreen.findPreference("pref_tag_section");
         if (this.prefScreen.findPreference("pref_tag_section") == null) {
             tagsSection = new PreferenceCategory(getActivity());
             tagsSection.setTitle(getResources().getString(R.string.pref_tag_category_title));
             tagsSection.setKey("pref_tag_section");
-            /* Creates 'About' preference */
+            /* Create 'About' preference */
             Preference about = new Preference(getActivity());
             about.setTitle(getResources().getString(R.string.pref_tag_about));
             about.setSelectable(false);
             about.setSummary(getResources().getString(R.string.tag_help));
-            /* Creates the Add new Tag section. */
+            /* Create the Add new Tag section. */
             EditTextPreference et = new EditTextPreference(getActivity());
             et.setDefaultValue("");
             et.setDialogMessage(getResources().getString(R.string.pref_new_tag_summ));
             et.setKey("pref_new_tag");
             et.setSummary(getResources().getString(R.string.pref_new_tag_summ));
             et.setTitle(getResources().getString(R.string.pref_new_tag));
-            /* Adds the PreferenceCategory to the Preference's screen. */
+            /* Add the PreferenceCategory to the Preference's screen. */
             this.prefScreen.addPreference(tagsSection);
-            /* Adds the 'About' section to Tags section */
+            /* Add the 'About' section to Tags section */
             tagsSection.addPreference(about);
-            /* Adds the new Tag section to the PreferenceCategory. */
+            /* Add the new Tag section to the PreferenceCategory. */
             tagsSection.addPreference(et);
         }
-        /* Creates the rows out of the tag's list. */
-        if (allTags != null && !allTags.isEmpty()) {
-            for (String tag : this.allTags) {
-                addTagCheckbox(tagsSection, tag);
-            }
+
+        /* Create rows from list of tags. */
+        for (String tag : this.allTags){
+            addTagCheckbox(tagsSection, tag);
         }
     }
 
     /**
      * Creates a row from the tag passed in as parameter to be displayed.
      *
-     * @param prefCat a PreferenceCategory, the section where the Tag is going to be displayed on.
-     * @param tag the Tag to be displayed on the screen.
+     * @param prefCat  the section where the Tag will be displayed.
+     * @param tag      the Tag to be displayed on the screen.
      */
     private void addTagCheckbox(PreferenceCategory prefCat, final String tag) {
         /* Creates a new row if is not already created for the Tag. */
@@ -266,7 +266,7 @@ public class SettingsFragment extends PreferenceFragment {
 
                 @Override
                 public boolean onPreferenceChange(Preference pref, Object newValue) {
-                    /* Adds the Tag to the Pusher instance if it is checked, removes it otherwise. */
+                    /* Add the Tag to the Pusher instance if checked, else remove it. */
                     Boolean enabled = (Boolean) newValue;
                     try {
                         if (enabled) {
@@ -282,7 +282,7 @@ public class SettingsFragment extends PreferenceFragment {
                     return true;
                 }
             });
-            /* Adds the row to the section. */
+            /* Add row to section. */
             prefCat.addPreference(cbp);
         }
     }
