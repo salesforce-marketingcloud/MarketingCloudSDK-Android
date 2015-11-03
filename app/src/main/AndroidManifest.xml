@@ -108,8 +108,6 @@
         </activity>
         <activity android:name="com.salesforce.kp.wheresreid.BaseActivity" >
         </activity>
-        <activity android:name="com.salesforce.kp.wheresreid.BasePreferenceActivity" >
-        </activity>
         <activity
             android:name="com.salesforce.kp.wheresreid.CloudPageInboxActivity"
             android:parentActivityName="com.salesforce.kp.wheresreid.MainActivity" >
