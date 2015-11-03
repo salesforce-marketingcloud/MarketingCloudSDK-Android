@@ -7,14 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * A placeholder fragment containing a simple view.
+ * A placeholder fragment containing the home view.
  *
  * @author Salesforce &reg; 2015.
  */
 public class MainActivityFragment extends Fragment {
-
-    public MainActivityFragment() {
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

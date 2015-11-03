@@ -5,6 +5,11 @@ import android.view.Gravity;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 
+/**
+ * CloudPageActivity displays a Cloud Page.
+ *
+ * @author Salesforce &reg; 2015.
+ */
 public class CloudPageActivity extends BaseActivity {
 
     @Override
@@ -20,7 +25,7 @@ public class CloudPageActivity extends BaseActivity {
     }
 
     /**
-     *
+     * Creates the Layout and a WebView, the WebView will load the url passed as parameter, showing the Cloud Page.
      */
     private void prepareDisplay() {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
