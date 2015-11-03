@@ -366,7 +366,7 @@ allprojects {
 
 Include the following dependencies in your application's app/build.gradle file:
 
-[view the code](/app/build.gradle#L33)
+[view the code](/app/build.gradle#L33-L48)
 ```gradle
 dependencies {
     /* Google's Support v4 for Notification compatibility */
@@ -399,7 +399,7 @@ The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED
 
 3. Now create an instance of the SettingsFragment in the SettingsActivity class, add the following code to the `onCreate()` method:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsActivity.java#L38-L40)
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsActivity.java#L37-L38)
     ```java
     getFragmentManager().beginTransaction().replace(android.R.id.content, new SettingsFragment()).commit();
     ```
@@ -409,7 +409,7 @@ The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED
 
 6. Add a private attribute SharedPreferences sp and set it as the default shared preference:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#52)
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L50)
     ```java
     private SharedPreferences sp;
     …
@@ -418,7 +418,7 @@ The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED
 
 7. Add a private attribute pusher, the instance of ETPush:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L56)
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L54)
     ```java
     private ETPush pusher;
     …
@@ -426,7 +426,7 @@ The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED
     ```
 8. Now create the reference to the EditTextPreference from preferences.xml and set the value stored in settings Preferences. Add an `OnPreferenceClickListener()` to open a Dialog with input for the user to enter their Subscriber Key.  This value is stored in the settings Preferences and will be passed to the pusher.
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L96-L106)
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L94-L104)
     ```java
     SharedPreferences.Editor editor = sp.edit();
     editor.putString(KEY_PREF_SUBSCRIBER_KEY, newSubscriberKey);
