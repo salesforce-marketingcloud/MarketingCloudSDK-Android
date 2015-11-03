@@ -289,7 +289,7 @@ In this file declare the following permissions:
 
 *JB4A SDK Google Permissions* - These permissions are required to receive push messages which use the Google Cloud Messaging service.
 
-[view the code](/app/src/main/AndroidManifest.xml#L5)
+[view the code](/app/src/main/AndroidManifest.xml#L5-L12)
 ```xml
 <!-- JB4A SDK Google Permissions -->
 <permission 
@@ -302,7 +302,7 @@ In this file declare the following permissions:
 ```
 *JB4A SDK required permissions* - These permissions are necessary for the SDK to function.  The first three permissions establish internet connection status for the application to synchronize with Marketing Cloud. The WAKE_LOCK permission allows PowerManager WakeLocks to keep the processor from sleeping or screen from dimming.
 
-[view the code](/app/src/main/AndroidManifest.xml#L15)
+[view the code](/app/src/main/AndroidManifest.xml#L15-L20)
 ```xml
 <!-- JB4A SDK required permissions -->
 <uses-permission android:name="android.permission.INTERNET" />
@@ -313,7 +313,7 @@ In this file declare the following permissions:
 ```
 In the activity section, make sure to include the ETPushReceiver and Service for the push notifications.
 
-[view the code](/app/src/main/AndroidManifest.xml#L49)
+[view the code](/app/src/main/AndroidManifest.xml#L56-L84)
 ```xml
 <!-- ETPushReceiver and Service -->
 <receiver
@@ -350,7 +350,7 @@ In the activity section, make sure to include the ETPushReceiver and Service for
 
 Add the following repository:
 
-[view the code](/build.gradle#L18)
+[view the code](/build.gradle#L18-L26)
 ```gradle
 allprojects {
     repositories {
@@ -399,17 +399,17 @@ The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED
 
 3. Now create an instance of the SettingsFragment in the SettingsActivity class, add the following code to the `onCreate()` method:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsActivity.java#L36)
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsActivity.java#L38-L40)
     ```java
     getFragmentManager().beginTransaction().replace(android.R.id.content, new SettingsFragment()).commit();
     ```
-4. Create a new file called preferences.xml in res/xml that will be the settings view.
+4. Create a new file called [preferences.xml](app/src/main/res/xml/preferences.xml) in res/xml that will be the settings view.
 
 5. Reference the preferences.xml file in the `onCreate()` method in the SettingsFragment class with the following code: `addPreferencesFromResource(R.xml.preferences);`
 
 6. Add a private attribute SharedPreferences sp and set it as the default shared preference:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L57)
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#52)
     ```java
     private SharedPreferences sp;
     …
@@ -418,7 +418,7 @@ The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED
 
 7. Add a private attribute pusher, the instance of ETPush:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L61)
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L56)
     ```java
     private ETPush pusher;
     …
@@ -426,7 +426,7 @@ The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED
     ```
 8. Now create the reference to the EditTextPreference from preferences.xml and set the value stored in settings Preferences. Add an `OnPreferenceClickListener()` to open a Dialog with input for the user to enter their Subscriber Key.  This value is stored in the settings Preferences and will be passed to the pusher.
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L101)
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L96-L106)
     ```java
     SharedPreferences.Editor editor = sp.edit();
     editor.putString(KEY_PREF_SUBSCRIBER_KEY, newSubscriberKey);
@@ -446,37 +446,38 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
 
 1. Add a Set of tags as a private attribute.
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L42)
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L37)
     ```java
     private Set<String> allTags;
     ```
 
 2. For the implementation of this feature, an instance of PreferenceScreen is needed to display the tags dynamically on the screen.
    
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L45)
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L40)
     ```java
     private PreferenceScreen prefScreen;
     ```
 
 3. In the onCreate() method set the values for prefScreen.
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L58)
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L53)
     ```java
     this.prefScreen = getPreferenceScreen();
     ```
 
 4. To display the tags on screen, call these methods inside the onCreate() method:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L64)
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L59-L60)
     ```java
-    storeAllTags(this.pusher.getTags());
+    this.allTags = this.pusher.getTags() != null ? this.pusher.getTags() : new HashSet<String>();
+    storeAllTags(this.allTags);
     ````
 
     The `storeAllTags(Set<String> tags)` method saves the tags in Preferences and populates the allTags attribute with all of the stored tags.
 
 5. To display the tags on screen, call these methods inside the onCreate() method:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L119)
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L115)
     ```java
     configureTags();
     ````
@@ -488,7 +489,7 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
 
 1. In your application’s app/build.gradle file add the following dependence (required for applications that will run on devices with Android OS < 5.0):
     
-    [view the code](/app/build.gradle#L47)
+    [view the code](/app/build.gradle#L46-L47)
     ```gradle
     /* 3rd Party Libraries Required for SDK integration */
     compile 'com.radiusnetworks:AndroidIBeaconLibrary:0.7.6'
@@ -519,7 +520,7 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
     ```
 3. In your ApplicationClass, set the `LOCATION_ENABLED` parameter to true:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/ApplicationClass.java#L50)
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/ApplicationClass.java#L56)
     ```java
     public static final boolean LOCATION_ENABLED = true;
     ```
@@ -531,7 +532,7 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
 
 In your ApplicationClass, set the `LOCATION_ENABLED` parameter to true:
 
-[view the code](/app/src/main/java/com/salesforce/kp/wheresreid/ApplicationClass.java#L47)
+[view the code](/app/src/main/java/com/salesforce/kp/wheresreid/ApplicationClass.java#L56)
 ```java
 public static final boolean LOCATION_ENABLED = true;
 ```
@@ -540,7 +541,7 @@ public static final boolean LOCATION_ENABLED = true;
 
 Your app sends analytics whenever it goes into the background.  Override onPause() and onResume() in each Activity class to notify the SDK when activities pause and resume so the SDK can determine when your app goes into the background.
 
-[view the code](/app/src/main/java/com/salesforce/kp/wheresreid/BaseActivity.java#L14)
+[view the code](/app/src/main/java/com/salesforce/kp/wheresreid/BaseActivity.java#L15-L52)
 ```java
 @Override
 protected void onPause() {
