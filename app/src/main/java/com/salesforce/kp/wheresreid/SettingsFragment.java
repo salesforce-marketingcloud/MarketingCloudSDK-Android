@@ -26,10 +26,34 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link SettingsFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
+ * SettingsFragment handles settings that would normally be included within your customer facing app.
+ * These settings that are sent to the Marketing Cloud will take up to 15 minutes to take effect.
+ * So, after setting or changing these settings, you should wait at least 15 minutes before sending
+ * a message from the Marketing Cloud.
+ *
+ * Your app design may be different (for example, you may set notifications on by default in your
+ * Application class if you assume permission was given by the user due to the permission settings
+ * set within the Google Play definition.
+ * <p/>
+ * Settings:
+ * <ol>
+ *     <li>
+ *         <b>Subscriber Key</b>
+ *         <br/>
+ *         This attribute provides a primary key for the Contact record stored in the Salesforce Marketing Cloud.
+ *     </li>
+ *     <li>
+ *         <b>Tags</b>
+ *         <br/>
+ *         The Tags section show examples of using Tags to allow your customers to select which type
+ *         of notification they are interested in receiving, and create new tags.
+ *         The tags are sent to the Marketing Cloud and can be used to select customers to send the notification to.
+ *     </li>
+ * </ol>
+ *
+ *
+ *
+ * @author Salesforce &reg; 2015.
  */
 public class SettingsFragment extends PreferenceFragment {
     /* Current set of tags */
@@ -38,9 +62,11 @@ public class SettingsFragment extends PreferenceFragment {
     private SharedPreferences sp;
     private PreferenceScreen prefScreen;
 
-    public SettingsFragment() {
-    }
 
+    /**
+     * Retrieves the subscriber key and tags preference, listen for changes and propagate them to the SDK.
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +77,9 @@ public class SettingsFragment extends PreferenceFragment {
 
         try {
             this.pusher = ETPush.getInstance();
-            /* get and store tags */
-            Log.e("TAGS", this.pusher.getTags().toString());
+
+            /* Get and store tags */
+            Log.i("TAGS", this.pusher.getTags().toString());
             this.allTags = this.pusher.getTags() != null ? this.pusher.getTags() : new HashSet<String>();
             storeAllTags(this.allTags);
         } catch (Exception e){
@@ -111,6 +138,9 @@ public class SettingsFragment extends PreferenceFragment {
 
         this.configureTags();
 
+        /**
+         * Add new tags.
+         */
         final Preference et = findPreference("pref_new_tag");
 
         et.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
@@ -151,26 +181,11 @@ public class SettingsFragment extends PreferenceFragment {
                         }
                     });
                 } else {
-                    Toast.makeText(getActivity(), "There was a problem while loading SDK, unable to add new Tags", Toast.LENGTH_LONG);
+                    Toast.makeText(getActivity(), "There was a problem while loading SDK, unable to add new Tags", Toast.LENGTH_LONG).show();
                 }
                 return true;
             }
         });
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
     }
 
     /**

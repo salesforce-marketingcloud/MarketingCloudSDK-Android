@@ -14,7 +14,7 @@
 
     6. [Analytics](#0006b)
 
-2. [Android](#0007)
+2. [Implementation on Android](#0007)
 
     1. [Previous steps](#0008)
 
@@ -25,16 +25,17 @@
             1. [Add app to App Center](#0011)
 
             2. [Integrate App Center app](#0012)
+    2. [Setting up the SDK](#0013)
 
-    2. [Implementing the SDK Push Notifications](#0013)
+    2. [Implementing the SDK Push Notifications](#0014)
 
-    3. [Subscriber Key Implementation](#0014)
+    3. [Subscriber Key Implementation](#0015)
 
-    4. [Tag Implementation](#0015)
+    4. [Tag Implementation](#0016)
 
-    5. [Beacon and Geofence Message Implementation](#0016)
+    5. [Beacon and Geofence Messages Implementation](#0017)
 
-    6. [Implement Analytics in your Mobile App](#0016b)
+    6. [Implement Analytics in your Mobile App](#0018)
 
 <a name="0001"></a>
 # About
@@ -118,7 +119,7 @@ Mobile Application Analytics enables marketers to gather mobile app actions and 
 After enabling the analytics feature in your app, visit the Web & Mobile Analytics application within the Marketing Cloud.
 
 <a name="0007"></a>
-# Android
+# Implementation on Android
 <a name="0008"></a>
 ## Previous steps
 
@@ -268,8 +269,27 @@ Follow these steps in order to connect this MobilePush app to the correct Market
 
 Record the **Application ID** and the **Access Token** as they will be used later in the secrets.xml file.
 
+
 <a name="0013"></a>
-## Implementing the SDK Push Notifications
+## Setting up the SDK
+
+The `readyAimFire` method of the ETPush class configures the SDK to point to the correct code application.
+
+Call this from your Application's Application.onCreate() method. This initializes ETPush.
+
+When ReadyAimFire() is called for the first time for a device, it will get a device token
+from Google and send to the MarketingCloud.
+
+In ETPush.readyAimFire() you must set several parameters:
+
+    * `AppId` and `AccessToken`: these values are taken from the Marketing Cloud definition for your app.
+    * `GcmSenderId` for the push notifications: this value is taken from the Google API console.
+    * You can also set whether you enable `LocationManager`, `CloudPages`, and `Analytics`.
+
+To set the logging level, call ETPush.setLogLevel().
+
+<a name="0014"></a>
+## Push Notifications
 
 Update the following files in your project:
 
@@ -439,7 +459,7 @@ It will take up to 15 minutes for the new value to be recorded in the Contact Re
 
 By default, if your app does not set the Subscriber Key using `setSubscriberKey()`, the registration sent will be matched with a Contact Record that matches the System Token included in the registration payload. If no match is found, then a new Subscriber Key will be set in the Marketing Cloud and will not be sent back to the SDK.
 
-<a name="0015"></a>
+<a name="0016"></a>
 ## Tag Implementation
 
 This feature is implemented in Settings Preferences.  We assume that the Subscriber Key feature has been implemented as described in this guide in order for the following steps to work.
@@ -484,8 +504,8 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
 
     The `configureTags()` method renders the tags section, a clickable EditTextPreference to add a new tag and the tags from allTags with checkboxes to enable/disable the tag.
 
-<a name="0016"></a>
-## Beacon and Geofence Message Implementation
+<a name="0017"></a>
+## Beacon and Geofence Messages Implementation
 
 1. In your application’s app/build.gradle file add the following dependence (required for applications that will run on devices with Android OS < 5.0):
     
@@ -525,7 +545,7 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
     public static final boolean LOCATION_ENABLED = true;
     ```
 
-<a name="0016b"></a>
+<a name="0018"></a>
 ## Implement Analytics in your Mobile App
 
 **ApplicationClass.java**
