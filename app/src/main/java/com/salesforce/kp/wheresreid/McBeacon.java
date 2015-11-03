@@ -5,7 +5,7 @@ import com.google.android.gms.maps.model.LatLng;
 /**
  * Object meant to store Beacon's data
  *
- * Created by admin on 11/2/15.
+ * Created by Marketing Cloud on 11/2/15.
  */
 public class McBeacon {
 

@@ -5,7 +5,7 @@ import com.google.android.gms.maps.model.LatLng;
 /**
  * Object meant to store Geolocations's data
  *
- * Created by admin on 10/26/15.
+ * Created by Marketing Cloud on 10/26/15.
  */
 public class McLocation {
 

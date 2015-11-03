@@ -3,7 +3,7 @@ package com.salesforce.kp.wheresreid;
 import java.util.ArrayList;
 
 /**
- * Created by admin on 10/26/15.
+ * Created by Marketing Cloud on 10/26/15.
  */
 public class McLocationManager {
 
