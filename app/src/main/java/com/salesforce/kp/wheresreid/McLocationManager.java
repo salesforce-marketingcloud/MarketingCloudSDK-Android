@@ -3,46 +3,46 @@ package com.salesforce.kp.wheresreid;
 import java.util.ArrayList;
 
 /**
- * McLocationManager class manages the geofence and beacon location messages.
+ * MCLocationManager class manages the geofence and beacon location messages.
  *
  * @author Salesforce &reg; 2015.
  *
  */
-public class McLocationManager {
+public class MCLocationManager {
 
-    private static McLocationManager ourInstance = null;
+    private static MCLocationManager ourInstance = null;
 
     /**
      *  Geolocations retrieved from Marketing cloud's SDK
      */
-    private ArrayList<McGeofence> geofences;
+    private ArrayList<MCGeofence> geofences;
     /**
      * Beacons retrieved from Marketing cloud's SDK
      */
-    private ArrayList<McBeacon> beacons;
+    private ArrayList<MCBeacon> beacons;
 
-    public static McLocationManager getInstance() {
+    public static MCLocationManager getInstance() {
         if (ourInstance == null){
-            ourInstance = new McLocationManager();
-            ourInstance.setGeofences(new ArrayList<McGeofence>());
-            ourInstance.setBeacons(new ArrayList<McBeacon>());
+            ourInstance = new MCLocationManager();
+            ourInstance.setGeofences(new ArrayList<MCGeofence>());
+            ourInstance.setBeacons(new ArrayList<MCBeacon>());
         }
         return ourInstance;
     }
 
-    public ArrayList<McGeofence> getGeofences() {
+    public ArrayList<MCGeofence> getGeofences() {
         return geofences;
     }
 
-    public void setGeofences(ArrayList<McGeofence> geofences) {
+    public void setGeofences(ArrayList<MCGeofence> geofences) {
         this.geofences = geofences;
     }
 
-    public ArrayList<McBeacon> getBeacons() {
+    public ArrayList<MCBeacon> getBeacons() {
         return beacons;
     }
 
-    public void setBeacons(ArrayList<McBeacon> beacons) {
+    public void setBeacons(ArrayList<MCBeacon> beacons) {
         this.beacons = beacons;
     }
 }

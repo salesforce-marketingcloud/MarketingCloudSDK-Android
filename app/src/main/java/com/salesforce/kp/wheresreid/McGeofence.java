@@ -3,11 +3,11 @@ package com.salesforce.kp.wheresreid;
 import com.google.android.gms.maps.model.LatLng;
 
 /**
- * McGeofence class stores geolocation message data.
+ * MCGeofence class stores geolocation message data.
  *
  * @author Salesforce &reg; 2015.
  */
-public class McGeofence {
+public class MCGeofence {
 
     private LatLng coordenates;
     private int radius;

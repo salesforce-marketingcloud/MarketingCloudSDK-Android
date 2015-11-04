@@ -57,14 +57,14 @@ public class MapsActivity extends BaseActivity implements OnMapReadyCallback {
      * @param map Google map to work on
      */
     private void setUpMap(GoogleMap map){
-        McLocationManager lm = McLocationManager.getInstance();
+        MCLocationManager lm = MCLocationManager.getInstance();
 
         /* lastCoord is the location which the map will show, the default being San Francisco */
         LatLng lastCoord = new LatLng(Double.parseDouble(getResources().getString(R.string.default_latitude)),
                 Double.parseDouble(getResources().getString(R.string.default_longitude)));
 
         /* Loops through the beacons and set them in the map */
-        for (McBeacon beacon : lm.getBeacons()){
+        for (MCBeacon beacon : lm.getBeacons()){
             map.addMarker(new MarkerOptions()
                     .position(beacon.getCoordenates())
                     .title(beacon.getName())
@@ -78,7 +78,7 @@ public class MapsActivity extends BaseActivity implements OnMapReadyCallback {
         }
 
         /* Loops through the locations and set them in the map */
-        for (McGeofence location : lm.getGeofences()){
+        for (MCGeofence location : lm.getGeofences()){
             map.addMarker(new MarkerOptions().position(location.getCoordenates()).title(location.getName()));
             map.addCircle(new CircleOptions()
                     .center(location.getCoordenates())

@@ -4,11 +4,11 @@ import com.google.android.gms.maps.model.LatLng;
 
 
 /**
- * McBeacon class stores beacon message data.
+ * MCBeacon class stores beacon message data.
  *
  * @author Salesforce &reg; 2015.
  */
-public class McBeacon {
+public class MCBeacon {
 
     private String guid;
     private String name;
