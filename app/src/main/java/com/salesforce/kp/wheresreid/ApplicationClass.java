@@ -164,7 +164,7 @@ public class ApplicationClass extends Application {
      * Listens for a GeofenceResponseEvent on EventBus callback.
      *
      * This event retrieves the data related to geolocations
-     * beacons are saved as a list of McGeofence in McLocationManager
+     * beacons are saved as a list of MCGeofence in MCLocationManager
      *
      * @param event the type of event we're listening for.
      */
@@ -172,12 +172,12 @@ public class ApplicationClass extends Application {
     public void onEvent(final GeofenceResponseEvent event) {
         ArrayList<Region> regions = (ArrayList<Region>) event.getFences();
         for (Region r : regions){
-            McGeofence newLocation = new McGeofence();
+            MCGeofence newLocation = new MCGeofence();
             LatLng latLng = new LatLng(r.getLatitude(), r.getLongitude());
             newLocation.setCoordenates(latLng);
             newLocation.setRadius(r.getRadius());
             newLocation.setName(r.getName());
-            McLocationManager.getInstance().getGeofences().add(newLocation);
+            MCLocationManager.getInstance().getGeofences().add(newLocation);
         }
     }
 
@@ -185,7 +185,7 @@ public class ApplicationClass extends Application {
      * Listens for a BeaconResponseEvent on EventBus callback.
      * <p/>
      * This event retrieves the data related to beacon messages and saves them
-     * as a list of McBeacon in McLocationManager.
+     * as a list of MCBeacon in MCLocationManager.
      * <p/>
      * @param event the type of event we're listening for.
      */
@@ -193,13 +193,13 @@ public class ApplicationClass extends Application {
     public void onEvent(final BeaconResponseEvent event) {
         ArrayList<Region> regions = (ArrayList<Region>) event.getBeacons();
         for (Region r : regions){
-            McBeacon newBeacon = new McBeacon();
+            MCBeacon newBeacon = new MCBeacon();
             LatLng latLng = new LatLng(r.getLatitude(), r.getLongitude());
             newBeacon.setCoordenates(latLng);
             newBeacon.setRadius(getResources().getInteger(R.integer.beacon_radius));
             newBeacon.setName(r.getName());
             newBeacon.setGuid(r.getGuid());
-            McLocationManager.getInstance().getBeacons().add(newBeacon);
+            MCLocationManager.getInstance().getBeacons().add(newBeacon);
         }
     }
 }
