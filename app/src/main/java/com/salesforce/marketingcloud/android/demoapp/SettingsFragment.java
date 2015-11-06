@@ -1,4 +1,4 @@
-package com.salesforce.kp.wheresreid;
+package com.salesforce.marketingcloud.android.demoapp;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.exacttarget.etpushsdk.ETException;
 import com.exacttarget.etpushsdk.ETPush;
-import com.salesforce.kp.wheresreid.utils.Utils;
+import com.salesforce.marketingcloud.android.demoapp.utils.Utils;
 
 import java.util.HashSet;
 import java.util.Set;
