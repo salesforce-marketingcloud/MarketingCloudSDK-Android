@@ -5,7 +5,7 @@ import android.widget.EditText;
 /**
  * Utils is a class of utility methods.
  *
- * @author Salesforce (R) 2015.
+ * @author Salesforce &reg; 2015.
  */
 public class Utils {
 
