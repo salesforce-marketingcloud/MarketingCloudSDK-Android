@@ -42,7 +42,7 @@
 
 This project provides a template for creating a mobile app (Android or iOS) that uses the Journey Builder for Apps SDK.  It is also a UI for exploring its features and provides a mechanism to collect and send debugging information to learn about the workings of the SDK as you explore.
 
-The code in this repository includes all of the code used to run the fully functional APK. However, the API keys have been removed. To debug, modify or create a new app the following keys must be set within the corresponding file.
+The code in this repository includes all of the code used to run the fully functional APK. To create a new app the following keys must be set with your own values within the corresponding file.
 
 **secrets.xml**
 
@@ -282,9 +282,11 @@ from Google and send to the MarketingCloud.
 
 In ETPush.readyAimFire() you must set several parameters:
 
-    * `AppId` and `AccessToken`: these values are taken from the Marketing Cloud definition for your app.
-    * `GcmSenderId` for the push notifications: this value is taken from the Google API console.
-    * You can also set whether you enable `LocationManager`, `CloudPages`, and `Analytics`.
+  * `app_id` and `access_token`: these values are taken from the Marketing Cloud definition for your app.
+
+  * `gcm_sender_id` for the push notifications: this value is taken from the Google API console.
+
+  * You can also set whether you enable location manager, cloudP pages, and analytics.
 
 To set the logging level, call ETPush.setLogLevel().
 
