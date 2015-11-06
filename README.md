@@ -557,11 +557,11 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
 
 **ApplicationClass.java**
 
-In your ApplicationClass, set the `LOCATION_ENABLED` parameter to true:
+In your ApplicationClass, set the `ANALYTICS_ENABLED` parameter to true:
 
 [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/ApplicationClass.java#L56)
 ```java
-public static final boolean LOCATION_ENABLED = true;
+public static final boolean ANALYTICS_ENABLED = true;
 ```
 
 **BaseActivity.java**
