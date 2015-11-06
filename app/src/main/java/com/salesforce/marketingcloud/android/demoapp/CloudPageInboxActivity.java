@@ -30,6 +30,11 @@ public class CloudPageInboxActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cloudpage_inbox_layout);
 
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
+        }
+
         prepareDisplay();
     }
 

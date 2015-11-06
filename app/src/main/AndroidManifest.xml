@@ -37,13 +37,13 @@
     <application
         android:name="com.salesforce.marketingcloud.android.demoapp.ApplicationClass"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:icon="@mipmap/app_logo"
+        android:label="@string/app_label"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.salesforce.marketingcloud.android.demoapp.MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
+            <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
