@@ -28,6 +28,7 @@ public class MapsActivity extends BaseActivity implements OnMapReadyCallback {
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
         }
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
