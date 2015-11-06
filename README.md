@@ -1,3 +1,5 @@
+![Marketing Cloud](imgReadMe/marketing_cloud_logo.png)
+
 # README
 
 1. [About](#0001)
