@@ -408,7 +408,7 @@ dependencies {
 
 **ApplicationClass.java**
 
-The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED` and `LOCATION_ENABLED` enable certain functionalities of the SDK, however, they are not required for the push notifications themselves to function which will still be sent even if all are set to false.
+The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED`, `LOCATION_ENABLED` and `PROXIMITY_ENABLED` enable certain functionalities of the SDK, however, they are not required for the push notifications themselves to function which will still be sent even if all are set to false.
 
 <a name="0014"></a>
 ## Subscriber Key Implementation
@@ -544,6 +544,13 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
     ```java
     public static final boolean LOCATION_ENABLED = true;
     ```
+4. In your ApplicationClass, set the `PROXIMITY_ENABLED` parameter to true:
+
+    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/ApplicationClass.java#L52)
+    ```java
+    public static final boolean PROXIMITY_ENABLED = true;
+    ```
+
 
 <a name="0018"></a>
 ## Implement Analytics in your Mobile App
