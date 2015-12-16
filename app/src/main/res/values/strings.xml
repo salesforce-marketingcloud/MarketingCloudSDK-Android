@@ -6,8 +6,10 @@
     <string name="action_settings">Settings</string>
     <string name="action_cloudpage_inbox">CloudPage Inbox</string>
     <string name="action_map">Map</string>
+    <string name="action_original_docs">Original SDK docs</string>
     <string name="logo">Logo</string>
-    <string name="readme_remote_url">https://salesforce-marketingcloud.github.io/JB4A-SDK-Android/</string>
+    <string name="readme_remote_url">http://salesforce-marketingcloud.github.io/LearningAppAndroid/</string>
+    <string name="official_remote_url">http://salesforce-marketingcloud.github.io/JB4A-SDK-Android/</string>
 
     <!-- SETTINGS -->
     <string name="pref_personal_info_title">Attributes</string>

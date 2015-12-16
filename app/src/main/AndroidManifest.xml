@@ -133,6 +133,15 @@
                 android:value="com.salesforce.marketingcloud.android.demoapp.MainActivity" />
         </activity>
 
+        <activity
+            android:name=".OriginalDocsActivity"
+            android:parentActivityName=".OriginalDocsActivity" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.salesforce.marketingcloud.android.demoapp.OriginalDocsActivity" />
+        </activity>
+
         <!-- Google Maps API Key -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"

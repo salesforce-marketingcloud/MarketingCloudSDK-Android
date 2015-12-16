@@ -52,6 +52,9 @@ public class MainActivity extends BaseActivity {
         else if (id == R.id.action_cloudpage_inbox){
             startActivity(new Intent(this, CloudPageInboxActivity.class));
         }
+        else if (id == R.id.action_original_docs){
+            startActivity(new Intent(this, OriginalDocsActivity.class));
+        }
         return super.onOptionsItemSelected(item);
     }
 
