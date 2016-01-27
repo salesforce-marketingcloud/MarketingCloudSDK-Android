@@ -125,6 +125,7 @@ public class ApplicationClass extends Application {
     @SuppressWarnings("unused")
     public void onEvent (final ReadyAimFireInitCompletedEvent event){
         try {
+            ETLocationManager.getInstance().startWatchingLocation();
             ETLocationManager.getInstance().startWatchingProximity();
         } catch (ETException e) {
             Log.e(TAG, e.getMessage(), e);

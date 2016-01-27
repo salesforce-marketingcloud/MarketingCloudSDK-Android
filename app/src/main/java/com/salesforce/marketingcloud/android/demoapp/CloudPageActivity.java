@@ -1,6 +1,7 @@
 package com.salesforce.marketingcloud.android.demoapp;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
@@ -10,24 +11,11 @@ import android.widget.LinearLayout;
  *
  * @author Salesforce &reg; 2015.
  */
-public class CloudPageActivity extends BaseActivity {
+public class CloudPageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        prepareDisplay();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
-    }
-
-    /**
-     * Creates the Layout and a WebView, the WebView will load the url passed as parameter, showing the Cloud Page.
-     */
-    private void prepareDisplay() {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getResources().getString(R.string.action_cloudpage_inbox));
 
@@ -42,6 +30,12 @@ public class CloudPageActivity extends BaseActivity {
         linearLayout.addView(webView);
 
         setContentView(linearLayout);
-
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
+    }
+
 }

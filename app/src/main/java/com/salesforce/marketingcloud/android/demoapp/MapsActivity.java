@@ -2,6 +2,7 @@ package com.salesforce.marketingcloud.android.demoapp;
 
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -19,7 +20,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
  *
  * @author Salesforce &reg; 2015.
  */
-public class MapsActivity extends BaseActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

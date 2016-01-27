@@ -1,11 +1,12 @@
 package com.salesforce.marketingcloud.android.demoapp;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 /**
  * SettingsActivity is the primary settings activity.
  *
- * This activity extends BaseActivity and provides the primary settings interface to collect user preferences.
+ * This activity extends AppCompatActivity and provides the primary settings interface to collect user preferences.
  *
  * It is implemented calling a SettingsFragment class.
  *
@@ -13,7 +14,7 @@ import android.os.Bundle;
  * @author Salesforce &reg; 2015.
  */
 
-public class SettingsActivity extends BaseActivity {
+public class SettingsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

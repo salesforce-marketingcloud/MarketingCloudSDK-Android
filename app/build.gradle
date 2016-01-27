@@ -7,7 +7,7 @@ android {
     
     defaultConfig {
         applicationId "com.salesforce.marketingcloud.android.demoapp"
-        minSdkVersion 16
+        minSdkVersion 16 // MIN SDK for use with ETPush is 15, but this app uses 16 for maps compatibility
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
@@ -32,7 +32,7 @@ android {
 
 dependencies {
     /* SDK */
-    compile 'com.exacttarget.etpushsdk:etsdk:4.0.6@aar'
+    compile 'com.exacttarget.etpushsdk:etsdk:4.1.1@aar'
 
     /* Google's Support v4 for Notification compatibility */
     compile 'com.android.support:appcompat-v7:22.2.1'
