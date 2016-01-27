@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,7 +23,7 @@ import com.exacttarget.etpushsdk.data.Message;
  *
  * @author Salesforce &reg; 2015.
  */
-public class CloudPageInboxActivity extends BaseActivity {
+public class CloudPageInboxActivity extends AppCompatActivity {
     private MyCloudPageListAdapter cloudPageListAdapter;
 
     @Override
@@ -35,7 +36,21 @@ public class CloudPageInboxActivity extends BaseActivity {
             getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
         }
 
-        prepareDisplay();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        RadioGroup filterRadioGroup;
+        ListView cloudPageListView;
+
+        filterRadioGroup = (RadioGroup) findViewById(R.id.filterRadioGroup);
+        cloudPageListView = (ListView) findViewById(R.id.cloudPageListView);
+
+        filterRadioGroup.setOnCheckedChangeListener(radioChangedListener);
+
+        cloudPageListView.setOnItemClickListener(cloudPageItemClickListener);
+        cloudPageListView.setOnItemLongClickListener(cloudPageItemDeleteListener);
+
+        cloudPageListAdapter = new MyCloudPageListAdapter(getApplicationContext());
+        cloudPageListView.setAdapter(cloudPageListAdapter);
     }
 
     /**
@@ -89,26 +104,6 @@ public class CloudPageInboxActivity extends BaseActivity {
         }
     };
 
-    /**
-     * Sets the SDK's adapter to the list, so as the event listeners.
-     */
-    private void prepareDisplay() {
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        RadioGroup filterRadioGroup;
-        ListView cloudPageListView;
-
-        filterRadioGroup = (RadioGroup) findViewById(R.id.filterRadioGroup);
-        cloudPageListView = (ListView) findViewById(R.id.cloudPageListView);
-
-        filterRadioGroup.setOnCheckedChangeListener(radioChangedListener);
-
-        cloudPageListView.setOnItemClickListener(cloudPageItemClickListener);
-        cloudPageListView.setOnItemLongClickListener(cloudPageItemDeleteListener);
-
-        cloudPageListAdapter = new MyCloudPageListAdapter(getApplicationContext());
-        cloudPageListView.setAdapter(cloudPageListAdapter);
-    }
 
     /**
      * Navigates back to parent's Activity: MainActivity

@@ -2,6 +2,7 @@ package com.salesforce.marketingcloud.android.demoapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
@@ -14,14 +15,23 @@ import android.webkit.WebViewClient;
  *
  * @author Salesforce &reg; 2015.
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        prepareDisplay();
+        WebView markdownView = (WebView) findViewById(R.id.markdownView);
+        markdownView.getSettings().setJavaScriptEnabled(true);
+        markdownView.loadUrl(getResources().getString(R.string.readme_remote_url));
+        markdownView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return false;
+            }
+        });
     }
 
     /**
@@ -56,21 +66,5 @@ public class MainActivity extends BaseActivity {
             startActivity(new Intent(this, OriginalDocsActivity.class));
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * Loads the webView with project's readme at github
-     */
-    private void prepareDisplay(){
-        WebView markdownView = (WebView) findViewById(R.id.markdownView);
-        markdownView.getSettings().setJavaScriptEnabled(true);
-        markdownView.loadUrl(getResources().getString(R.string.readme_remote_url));
-        markdownView.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return false;
-            }
-        });
     }
 }

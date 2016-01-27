@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,21 +25,12 @@ import com.exacttarget.etpushsdk.data.Message;
  *
  * @author Salesforce &reg; 2015.
  */
-public class OriginalDocsActivity extends BaseActivity {
+public class OriginalDocsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        prepareDisplay();
-    }
-
-
-
-    /**
-     * Sets the SDK's adapter to the list, so as the event listeners.
-     */
-    private void prepareDisplay() {
         WebView markdownView = (WebView) findViewById(R.id.markdownView);
         markdownView.getSettings().setJavaScriptEnabled(true);
         markdownView.loadUrl(getResources().getString(R.string.official_remote_url));
