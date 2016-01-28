@@ -44,5 +44,5 @@ dependencies {
     compile 'com.google.android.gms:play-services-gcm:7.8.0'
 
     /* 3rd Party Libraries Required for SDK integration */
-    compile 'com.radiusnetworks:AndroidIBeaconLibrary:0.7.6'
+    compile 'org.altbeacon:android-beacon-library:2.5.1@aar'
 }
