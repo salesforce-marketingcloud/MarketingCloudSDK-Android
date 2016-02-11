@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.exacttarget.etpushsdk.ETAnalytics;
 import com.exacttarget.etpushsdk.ETException;
 import com.exacttarget.etpushsdk.ETPush;
 import com.salesforce.marketingcloud.android.demoapp.utils.Utils;
@@ -69,7 +70,7 @@ public class SettingsFragment extends PreferenceFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preferences);
-
+        ETAnalytics.trackPageView("data://SettingsActivity", "Loading Settings activity");
         this.sp = getActivity().getPreferences(Context.MODE_PRIVATE);
         this.prefScreen = getPreferenceScreen();
 
@@ -130,6 +131,7 @@ public class SettingsFragment extends PreferenceFragment {
                         d.dismiss();
                     }
                 });
+                ETAnalytics.trackPageView("data://SettingsActivity-SubscriberKeySet", "Subscriber Key Set");
                 return true;
             }
         });

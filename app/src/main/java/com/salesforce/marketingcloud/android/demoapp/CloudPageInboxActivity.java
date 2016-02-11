@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.exacttarget.etpushsdk.ETAnalytics;
 import com.exacttarget.etpushsdk.adapter.CloudPageListAdapter;
 import com.exacttarget.etpushsdk.data.Message;
 
@@ -30,6 +31,7 @@ public class CloudPageInboxActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cloudpage_inbox_layout);
+        ETAnalytics.trackPageView("data://CloudPageInbox", "Cloud Page Inbox index view displayed");
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setHomeButtonEnabled(true);

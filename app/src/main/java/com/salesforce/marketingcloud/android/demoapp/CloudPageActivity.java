@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
+import com.exacttarget.etpushsdk.ETAnalytics;
 
 /**
  * CloudPageActivity displays a Cloud Page.
@@ -28,7 +29,7 @@ public class CloudPageActivity extends AppCompatActivity {
         webView.loadUrl(this.getIntent().getExtras().getString("_x"));
         webView.getSettings().setJavaScriptEnabled(true);
         linearLayout.addView(webView);
-
+        ETAnalytics.trackPageView(this.getIntent().getExtras().getString("_x"), "Cloud Page displayed");
         setContentView(linearLayout);
     }
 

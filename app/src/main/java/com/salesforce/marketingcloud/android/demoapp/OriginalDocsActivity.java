@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.exacttarget.etpushsdk.ETAnalytics;
 import com.exacttarget.etpushsdk.adapter.CloudPageListAdapter;
 import com.exacttarget.etpushsdk.data.Message;
 
@@ -41,6 +42,7 @@ public class OriginalDocsActivity extends AppCompatActivity {
                 return false;
             }
         });
+        ETAnalytics.trackPageView("data://OriginalDocsActivity", getResources().getString(R.string.official_remote_url));
     }
 
     /**
