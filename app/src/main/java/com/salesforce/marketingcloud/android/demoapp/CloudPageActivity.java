@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2016, salesforce.com, inc.
+ * All rights reserved.
+ * Licensed under the BSD 3-Clause license.
+ * For full license text, see LICENSE.txt file in the repo root  or https://opensource.org/licenses/BSD-3-Clause
+ */
 package com.salesforce.marketingcloud.android.demoapp;
 
 import android.os.Bundle;
@@ -5,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
+import com.exacttarget.etpushsdk.ETAnalytics;
 
 /**
  * CloudPageActivity displays a Cloud Page.
@@ -28,7 +35,7 @@ public class CloudPageActivity extends AppCompatActivity {
         webView.loadUrl(this.getIntent().getExtras().getString("_x"));
         webView.getSettings().setJavaScriptEnabled(true);
         linearLayout.addView(webView);
-
+        ETAnalytics.trackPageView(this.getIntent().getExtras().getString("_x"), "Cloud Page displayed");
         setContentView(linearLayout);
     }
 

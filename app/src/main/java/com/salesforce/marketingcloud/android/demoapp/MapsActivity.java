@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2016, salesforce.com, inc.
+ * All rights reserved.
+ * Licensed under the BSD 3-Clause license.
+ * For full license text, see LICENSE.txt file in the repo root  or https://opensource.org/licenses/BSD-3-Clause
+ */
 package com.salesforce.marketingcloud.android.demoapp;
 
 import android.os.Bundle;
@@ -5,6 +11,7 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.exacttarget.etpushsdk.ETAnalytics;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -31,6 +38,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             getSupportActionBar().setHomeButtonEnabled(true);
             getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
         }
+        ETAnalytics.trackPageView("data://MapActivity", getResources().getString(R.string.app_name));
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
