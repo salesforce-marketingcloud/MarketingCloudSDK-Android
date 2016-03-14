@@ -78,7 +78,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             map.addMarker(new MarkerOptions()
                     .position(beacon.getCoordenates())
                     .title(beacon.getName())
-                    .icon(BitmapDescriptorFactory.fromResource((R.drawable.beacon))));
+                    .icon(BitmapDescriptorFactory.fromResource((R.drawable.tags))));
             map.addCircle(new CircleOptions()
                     .center(beacon.getCoordenates())
                     .radius(beacon.getRadius())
