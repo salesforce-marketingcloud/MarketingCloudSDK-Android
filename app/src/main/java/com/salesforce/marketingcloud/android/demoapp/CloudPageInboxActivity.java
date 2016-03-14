@@ -160,9 +160,9 @@ public class CloudPageInboxActivity extends AppCompatActivity {
             Message message = (Message) getItem(position);
 
             if (message.getRead()) {
-                icon.setImageResource(R.drawable.read);
+                icon.setImageResource(R.drawable.mail);
             } else {
-                icon.setImageResource(R.drawable.unread);
+                icon.setImageResource(R.drawable.mail);
             }
 
             subject.setText(message.getSubject());
