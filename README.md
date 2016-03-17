@@ -423,17 +423,17 @@ The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED
 
 3. Now create an instance of the SettingsFragment in the SettingsActivity class, add the following code to the `onCreate()` method:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsActivity.java#L37-L38)
+    [view the code](/app/src/main/java/com/salesforce/marketingcloud/android/demoapp/SettingsActivity.java#L37-L38)
     ```java
     getFragmentManager().beginTransaction().replace(android.R.id.content, new SettingsFragment()).commit();
     ```
-4. Create a new file called [preferences.xml](app/src/main/res/xml/preferences.xml) in res/xml that will be the settings view.
+4. Create a new file called [preferences.xml](/app/src/main/res/xml/preferences.xml) in res/xml that will be the settings view.
 
 5. Reference the preferences.xml file in the `onCreate()` method in the SettingsFragment class with the following code: `addPreferencesFromResource(R.xml.preferences);`
 
 6. Add a private attribute SharedPreferences sp and set it as the default shared preference:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L50)
+    [view the code](/app/src/main/java/com/salesforce/marketingcloud/android/demoapp/SettingsFragment.java#L50)
     ```java
     private SharedPreferences sp;
     …
@@ -442,7 +442,7 @@ The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED
 
 7. Add a private attribute pusher, the instance of ETPush:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L54)
+    [view the code](/app/src/main/java/com/salesforce/marketingcloud/android/demoapp/SettingsFragment.java#L54)
     ```java
     private ETPush pusher;
     …
@@ -450,7 +450,7 @@ The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED
     ```
 8. Now create the reference to the EditTextPreference from preferences.xml and set the value stored in settings Preferences. Add an `OnPreferenceClickListener()` to open a Dialog with input for the user to enter their Subscriber Key.  This value is stored in the settings Preferences and will be passed to the pusher.
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L94-L104)
+    [view the code](/app/src/main/java/com/salesforce/marketingcloud/android/demoapp/SettingsFragment.java#L94-L104)
     ```java
     SharedPreferences.Editor editor = sp.edit();
     editor.putString(KEY_PREF_SUBSCRIBER_KEY, newSubscriberKey);
@@ -470,28 +470,28 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
 
 1. Add a Set of tags as a private attribute.
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L37)
+    [view the code](/app/src/main/java/com/salesforce/marketingcloud/android/demoapp/SettingsFragment.java#L37)
     ```java
     private Set<String> allTags;
     ```
 
 2. For the implementation of this feature, an instance of PreferenceScreen is needed to display the tags dynamically on the screen.
    
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L40)
+    [view the code](/app/src/main/java/com/salesforce/marketingcloud/android/demoapp/SettingsFragment.java#L40)
     ```java
     private PreferenceScreen prefScreen;
     ```
 
 3. In the onCreate() method set the values for prefScreen.
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L53)
+    [view the code](/app/src/main/java/com/salesforce/marketingcloud/android/demoapp/SettingsFragment.java#L53)
     ```java
     this.prefScreen = getPreferenceScreen();
     ```
 
 4. To display the tags on screen, call these methods inside the onCreate() method:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L59-L60)
+    [view the code](/app/src/main/java/com/salesforce/marketingcloud/android/demoapp/SettingsFragment.java#L59-L60)
     ```java
     this.allTags = this.pusher.getTags() != null ? this.pusher.getTags() : new HashSet<String>();
     storeAllTags(this.allTags);
@@ -501,7 +501,7 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
 
 5. To display the tags on screen, call these methods inside the onCreate() method:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/SettingsFragment.java#L115)
+    [view the code](/app/src/main/java/com/salesforce/marketingcloud/android/demoapp/SettingsFragment.java#L115)
     ```java
     configureTags();
     ````
@@ -544,13 +544,13 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
     ```
 3. In your ApplicationClass, set the `LOCATION_ENABLED` parameter to true:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/ApplicationClass.java#L56)
+    [view the code](/app/src/main/java/com/salesforce/marketingcloud/android/demoapp/ApplicationClass.java#L56)
     ```java
     public static final boolean LOCATION_ENABLED = true;
     ```
 4. In your ApplicationClass, set the `PROXIMITY_ENABLED` parameter to true:
 
-    [view the code](/app/src/main/java/com/salesforce/kp/wheresreid/ApplicationClass.java#L52)
+    [view the code](/app/src/main/java/com/salesforce/marketingcloud/android/demoapp/ApplicationClass.java#L52)
     ```java
     public static final boolean PROXIMITY_ENABLED = true;
     ```
@@ -563,7 +563,7 @@ This feature is implemented in Settings Preferences.  We assume that the Subscri
 
 In your ApplicationClass, set the `ANALYTICS_ENABLED` parameter to true:
 
-[view the code](/app/src/main/java/com/salesforce/kp/wheresreid/ApplicationClass.java#L56)
+[view the code](/app/src/main/java/com/salesforce/marketingcloud/android/demoapp/ApplicationClass.java#L56)
 ```java
 public static final boolean ANALYTICS_ENABLED = true;
 ```
@@ -572,7 +572,7 @@ public static final boolean ANALYTICS_ENABLED = true;
 
 Your app sends analytics whenever it goes into the background.  Override onPause() and onResume() in each Activity class to notify the SDK when activities pause and resume so the SDK can determine when your app goes into the background.
 
-[view the code](/app/src/main/java/com/salesforce/kp/wheresreid/BaseActivity.java#L15-L52)
+[view the code](/app/src/main/java/com/salesforce/marketingcloud/android/demoapp/BaseActivity.java#L15-L52)
 ```java
 @Override
 protected void onPause() {
