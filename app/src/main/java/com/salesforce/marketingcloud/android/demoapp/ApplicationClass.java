@@ -1,9 +1,15 @@
-
+/*
+ * Copyright (c) 2016, salesforce.com, inc.
+ * All rights reserved.
+ * Licensed under the BSD 3-Clause license.
+ * For full license text, see LICENSE.txt file in the repo root  or https://opensource.org/licenses/BSD-3-Clause
+ */
 package com.salesforce.marketingcloud.android.demoapp;
 
 import android.app.Application;
 import android.util.Log;
 
+import com.exacttarget.etpushsdk.ETAnalytics;
 import com.exacttarget.etpushsdk.ETException;
 import com.exacttarget.etpushsdk.ETLocationManager;
 import com.exacttarget.etpushsdk.ETPush;
@@ -124,6 +130,7 @@ public class ApplicationClass extends Application {
      */
     @SuppressWarnings("unused")
     public void onEvent (final ReadyAimFireInitCompletedEvent event){
+        ETAnalytics.trackPageView("data://ReadyAimFireCompleted", "Marketing Cloud SDK Initialization Complete");
         try {
             ETLocationManager.getInstance().startWatchingLocation();
             ETLocationManager.getInstance().startWatchingProximity();
@@ -147,6 +154,7 @@ public class ApplicationClass extends Application {
      */
     @SuppressWarnings({"unused", "unchecked"})
     public void onEvent(final RegistrationEvent event) {
+        ETAnalytics.trackPageView("data://RegistrationEvent", "Registration Event Completed");
         if (ETPush.getLogLevel() <= Log.DEBUG) {
             Log.d(TAG, "Marketing Cloud update occurred.");
             Log.d(TAG, "Device ID:" + event.getDeviceId());
@@ -171,6 +179,7 @@ public class ApplicationClass extends Application {
      */
     @SuppressWarnings("unused, unchecked")
     public void onEvent(final GeofenceResponseEvent event) {
+        ETAnalytics.trackPageView("data://GeofenceResponseEvent", "Geofence Response Event Received");
         ArrayList<Region> regions = (ArrayList<Region>) event.getFences();
         for (Region r : regions){
             MCGeofence newLocation = new MCGeofence();
@@ -192,6 +201,7 @@ public class ApplicationClass extends Application {
      */
     @SuppressWarnings("unused, unchecked")
     public void onEvent(final BeaconResponseEvent event) {
+        ETAnalytics.trackPageView("data://BeaconResponse", "Beacon Response Event Received");
         ArrayList<Region> regions = (ArrayList<Region>) event.getBeacons();
         for (Region r : regions){
             MCBeacon newBeacon = new MCBeacon();

@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2016, salesforce.com, inc.
+ * All rights reserved.
+ * Licensed under the BSD 3-Clause license.
+ * For full license text, see LICENSE.txt file in the repo root  or https://opensource.org/licenses/BSD-3-Clause
+ */
 package com.salesforce.marketingcloud.android.demoapp;
 
 import android.content.Context;
@@ -17,6 +23,7 @@ import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.exacttarget.etpushsdk.ETAnalytics;
 import com.exacttarget.etpushsdk.adapter.CloudPageListAdapter;
 import com.exacttarget.etpushsdk.data.Message;
 
@@ -41,6 +48,7 @@ public class OriginalDocsActivity extends AppCompatActivity {
                 return false;
             }
         });
+        ETAnalytics.trackPageView("data://OriginalDocsActivity", getResources().getString(R.string.official_remote_url));
     }
 
     /**
