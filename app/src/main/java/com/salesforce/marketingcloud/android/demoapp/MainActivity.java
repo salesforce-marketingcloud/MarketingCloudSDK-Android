@@ -23,6 +23,7 @@ import com.exacttarget.etpushsdk.ETException;
 import com.exacttarget.etpushsdk.ETLocationManager;
 import com.exacttarget.etpushsdk.ETPush;
 import com.exacttarget.etpushsdk.data.Attribute;
+import com.exacttarget.etpushsdk.util.EventBus;
 
 /**
  * MainActivity is the primary activity.
@@ -31,7 +32,7 @@ import com.exacttarget.etpushsdk.data.Attribute;
  *
  * @author Salesforce &reg; 2015.
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ApplicationClass.EtPushListener {
 
     private final static String TAG = "MAIN ACTIVITY";
     private ActivityPermissionDelegate permissionDelegate;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         WebView markdownView = (WebView) findViewById(R.id.markdownView);
         markdownView.getSettings().setJavaScriptEnabled(true);
         markdownView.loadUrl(getResources().getString(R.string.readme_remote_url));
-        ETAnalytics.trackPageView(getResources().getString(R.string.readme_remote_url), "Displaying Learning Apps Documentation On Device: " );
+        ETAnalytics.trackPageView(getResources().getString(R.string.readme_remote_url), "Displaying Learning Apps Documentation On Device: ");
         markdownView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -52,6 +53,17 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        EventBus.getInstance().register(this);
+
+        if (etPush == null) {
+            // If etPush is null then get it from our application class or register for updates
+            etPush = ApplicationClass.getEtPush(this);
+            if (etPush != null) {
+                // We can assume that we need to execute the tasks in our interface if our previous call resulted in a non-null etPush otherwise this would have already executed and our etPush would not have been null to begin with :)
+                this.onReadyForPush(etPush);
+            }
+        }
     }
 
     /**
@@ -96,8 +108,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //@Override
+    @Override
     public void onReadyForPush(ETPush etPush) {
+        Log.v("Kevin", "Calling onReadyForPush");
         ETAnalytics.trackPageView("data://OnPushReady", "Marketing Cloud SDK Ready for Push Messages");
         this.etPush = etPush;
         try {
@@ -113,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                 requesting them at installation time.
              */
             ActivityPermissionDelegate.PermissionRequest request = new ActivityPermissionDelegate.PermissionRequest(
-                    "Location",
+                    "location",
                     new ActivityPermissionDelegate.PermissionCallback() {
                         @Override
                         public void handleGranted() {

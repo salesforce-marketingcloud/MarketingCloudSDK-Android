@@ -43,7 +43,7 @@ android {
 
 dependencies {
     /* SDK */
-    compile 'com.exacttarget.etpushsdk:etsdk:4.2.0@aar'
+    compile 'com.exacttarget.etpushsdk:etsdk:4.3.0@aar'
 
     /* Google's Support v4 for Notification compatibility */
     compile 'com.android.support:appcompat-v7:23.1.1'

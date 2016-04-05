@@ -20,7 +20,7 @@
 
 2. [Implementation on Android](#0007)
 
-    1. [Previous steps](#0008)
+    1. [Pre-requisite steps](#0008)
 
         1. [Provision Apps with Google](#0009)
 
@@ -162,37 +162,12 @@ Review the Android documentation regarding the integration of your Android mobil
 
 6. Click **Credentials** in the left menu.
 
-7. Click **Add credentials** → **API key**, and select **Android key** in the dialog.
+7. Click **Add credentials** → **API key**, and select **Server key** in the dialog.
 
     ![image alt text](imgReadMe/image_03.png)
 
     ![image alt text](imgReadMe/image_04.png)
 
-8. Retrieve the **SHA1 Certificate Fingerprint** of the Android Debug Key from a (Unix/Mac) Terminal or (Windows) Command Prompt.  *Have each developer on your team complete this step and provide their SHA1 Certificate Fingerprint for inclusion in the* ***allowed Android applications*** *field below*. ***You will also need to add an entry for your production signing key.***
-
-    Unix/Mac: `keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore -list -v`
-
-    Windows: `keytool -alias androiddebugkey -keystore %USERPROFILE%\.android\debug.keystore -list -v`
-
-    ![image alt text](imgReadMe/image_05.jpg)
-
-    ![image alt text](imgReadMe/image_06.jpg) 
-
-9. Enter a name for your key, and click in **Add package name and fingerprint**. Enter your package name (must match the package name you will use in your Android project) and paste each developer’s **SHA1 Certificate Fingerprint** separated by a semicolon in the corresponding fields, and then click **Create**.
-
-    ![image alt text](imgReadMe/image_07.png)
-
-10. Click **Ok** in the dialog.
-
-    ![image alt text](imgReadMe/image_08.png)
-
-11. Now create a new Server key by repeating step 7 but choosing **Server key**.
-
-12. Enter a name for the key. You can enter server IP address to filter request or leave this entry blank.
-
-    *Important: Leaving this entry blank will simplify development but is not secure. When you have verified that you have things setup correctly you should restrict access by providing individual server IP addresses or, at least, restrict the range to your known address ranges.*
-
-    ![image alt text](imgReadMe/image_09.png)
 
 13. Click **Create** and copy the **API KEY** value from the **Server application**.
 
@@ -290,7 +265,7 @@ In ETPush.readyAimFire() you must set several parameters:
 
   * `gcm_sender_id` for the push notifications: this value is taken from the Google API console.
 
-  * You can also set whether you enable location manager, cloud pages, and analytics.
+  * You can also set whether you enable location services, cloud pages, analytics, Web and Mobile Analytics and Proximity.
 
 To set the logging level, call ETPush.setLogLevel().
 
@@ -310,73 +285,33 @@ Update the following files in your project:
 The SDK can now be configured with the App ID and Access Token, as explained in the *About* section.  Update `app_id` and `access_token` with their respective values.
 
 **AndroidManifest.xml**
+[view the code](/app/src/main/AndroidManifest.xml#L5-L20)
 
-In this file declare the following permissions:
-
-*JB4A SDK Google Permissions* - These permissions are required to receive push messages which use the Google Cloud Messaging service.
-
-[view the code](/app/src/main/AndroidManifest.xml#L5-L12)
 ```xml
-<!-- JB4A SDK Google Permissions -->
-<permission 
-    android:name="${applicationId}.permission.C2D_MESSAGE"
-    android:protectionLevel="signature" />
+    
+    <!--
+        As of 2016-02, the SDK's manifest is merged into your apps
+        manifest during the build process. As a result, you no longer
+        need to include any SDK based permissions, activities,
+        receivers or services in the manifest. Much simpler eh?
 
-<uses-permission android:name="${applicationId}.permission.C2D_MESSAGE" />
-<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-<!-- END JB4A SDK Google Permissions -->
+        In fact, the only required element of this Manifest is the
+        Application's android:name= key.
+
+        **** UNLESS **** you're using location.
+        Since we're using location, the following two permissions
+        must be manually included.
+    -->
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 ```
-*JB4A SDK required permissions* - These permissions are necessary for the SDK to function.  The first three permissions establish internet connection status for the application to synchronize with Marketing Cloud. The WAKE_LOCK permission allows PowerManager WakeLocks to keep the processor from sleeping or screen from dimming.
 
-[view the code](/app/src/main/AndroidManifest.xml#L15-L20)
-```xml
-<!-- JB4A SDK required permissions -->
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.WAKE_LOCK" />
-<!-- END JB4A SDK required permissions -->
-```
-In the activity section, make sure to include the ETPushReceiver and Service for the push notifications.
-
-[view the code](/app/src/main/AndroidManifest.xml#L56-L84)
-```xml
-<!-- ETPushReceiver and Service -->
-<receiver
-    android:name="com.exacttarget.etpushsdk.ETPushReceiver"
-    android:permission="com.google.android.c2dm.permission.SEND" >
-
-   <intent-filter>
-       <action android:name="${applicationId}.MESSAGE_OPENED" />
-       <action android:name="com.exacttarget.etpushsdk.SEND_REGISTRATION" />
-       <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-       <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-       <action android:name="android.intent.action.ACTION_SHUTDOWN" />
-       <action android:name="android.intent.action.AIRPLANE_MODE" />
-       <action android:name="android.intent.action.BATTERY_LOW" />
-       <action android:name="android.intent.action.BATTERY_OKAY" />
-       <action android:name="android.intent.action.BOOT_COMPLETED" />
-       <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-       <category android:name="${applicationId}" />
-   </intent-filter>
-
-   <intent-filter>
-       <action android:name="android.intent.action.PACKAGE_REPLACED" />
-       <data android:scheme="package" />
-   </intent-filter>
-</receiver>
-
-<service
-    android:name="com.exacttarget.etpushsdk.ETPushService"
-    android:enabled="true" />
-
-<!-- END ETPushReceiver and Service -->
-```
 **build.gradle**
 
 Add the following repository:
+[view the code](/build.gradle#L23-L31)
 
-[view the code](/build.gradle#L18-L26)
 ```gradle
 allprojects {
     repositories {
@@ -391,24 +326,24 @@ allprojects {
 **app/build.gradle**
 
 Include the following dependencies in your application's app/build.gradle file:
+[view the code](/app/build.gradle#L44-L59)
 
-[view the code](/app/build.gradle#L33-L48)
 ```gradle
 dependencies {
-    /* Google's Support v4 for Notification compatibility */
-    compile 'com.android.support:appcompat-v7:23.1.0'
-    compile 'com.android.support:support-v4:23.1.0'
-    compile 'com.android.support:design:23.1.0'
-
     /* SDK */
-    compile 'com.exacttarget.etpushsdk:etsdk:4.0.6@aar'
+    compile 'com.exacttarget.etpushsdk:etsdk:4.3.0@aar'
+
+    /* Google's Support v4 for Notification compatibility */
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:support-v4:23.1.1'
+    compile 'com.android.support:design:23.1.1'
 
     /* Google Play Services for Location and Google Cloud Messaging */
-    compile 'com.google.android.gms:play-services-location:7.8.0'
-    compile 'com.google.android.gms:play-services-gcm:7.8.0'
+    compile 'com.google.android.gms:play-services-location:8.1.0'
+    compile 'com.google.android.gms:play-services-gcm:8.1.0'
 
     /* 3rd Party Libraries Required for SDK integration */
-    compile 'com.radiusnetworks:AndroidIBeaconLibrary:0.7.6'
+    compile 'org.altbeacon:android-beacon-library:2.5.1@aar'
 }
 ```
 
@@ -424,8 +359,8 @@ The boolean parameters `ANALYTICS_ENABLED`, `CLOUD_PAGES_ENABLED`, `WAMA_ENABLED
 2. Create a new fragment called `SettingsFragment` that extends `PreferenceFragment`.
 
 3. Now create an instance of the SettingsFragment in the SettingsActivity class, add the following code to the `onCreate()` method:
-
     [view the code](/app/src/main/java/com/salesforce/marketingcloud/android/demoapp/SettingsActivity.java#L37-L38)
+    
     ```java
     getFragmentManager().beginTransaction().replace(android.R.id.content, new SettingsFragment()).commit();
     ```
