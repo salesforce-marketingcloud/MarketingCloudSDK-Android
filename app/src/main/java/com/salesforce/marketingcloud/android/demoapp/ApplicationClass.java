@@ -7,11 +7,14 @@
 package com.salesforce.marketingcloud.android.demoapp;
 
 import android.app.Application;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.exacttarget.etpushsdk.ETAnalytics;
 import com.exacttarget.etpushsdk.ETException;
 import com.exacttarget.etpushsdk.ETLocationManager;
+import com.exacttarget.etpushsdk.ETLogListener;
 import com.exacttarget.etpushsdk.ETPush;
 import com.exacttarget.etpushsdk.ETPushConfig;
 import com.exacttarget.etpushsdk.data.Attribute;
@@ -24,15 +27,20 @@ import com.exacttarget.etpushsdk.util.EventBus;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Locale;
 
 
 /**
  * ApplicationClass is the primary application class.
  * This class extends Application to provide global activities.
  *
+ * As of 2016-02, you can now implement the ETLogListener interface.
+ * Doing so enables you to capture log output from the SDK programmatically.
+ *
  * @author Salesforce &reg; 2015.
  */
-public class ApplicationClass extends Application {
+public class ApplicationClass extends Application implements ETLogListener {
 
     private static final String TAG = "ApplicationClass";
 
@@ -63,6 +71,16 @@ public class ApplicationClass extends Application {
      * Set to true to show how geo fencing works within the SDK.
      */
     public static final boolean LOCATION_ENABLED = true;
+
+    /*
+     * Public interface for the main activity to implement
+     */
+    public interface EtPushListener {
+        void onReadyForPush(ETPush etPush);
+    }
+
+    private static ETPush etPush;
+    private static final LinkedHashSet<EtPushListener> listeners = new LinkedHashSet<>();
 
     /**
      * The onCreate() method initialize your app.
@@ -131,9 +149,21 @@ public class ApplicationClass extends Application {
     @SuppressWarnings("unused")
     public void onEvent (final ReadyAimFireInitCompletedEvent event){
         ETAnalytics.trackPageView("data://ReadyAimFireCompleted", "Marketing Cloud SDK Initialization Complete");
+        ETPush etPush;
         try {
-            ETLocationManager.getInstance().startWatchingLocation();
-            ETLocationManager.getInstance().startWatchingProximity();
+            etPush = event.getEtPush();
+            ApplicationClass.etPush = etPush;
+            // Log out the sdkState data
+            Log.v("SDKState Information", ETPush.getInstance().getSDKState());
+            Log.v("Kevin", "158");
+            if (!listeners.isEmpty()) {
+                for (EtPushListener listener : listeners) {
+                    if (listener != null) {
+                        listener.onReadyForPush(ApplicationClass.etPush);
+                    }
+                }
+                listeners.clear();
+            }
         } catch (ETException e) {
             Log.e(TAG, e.getMessage(), e);
         }
@@ -213,4 +243,62 @@ public class ApplicationClass extends Application {
             MCLocationManager.getInstance().getBeacons().add(newBeacon);
         }
     }
+
+    /**
+     * If ETPush is null then hold on to a reference of the listener so we can notify them when push
+     * is ready.
+     *
+     * @param etPushListener our object that cares about ETPush
+     * @return ETPush or null
+     */
+    public static ETPush getEtPush(@NonNull final EtPushListener etPushListener) {
+        if (etPush == null) {
+            listeners.add(etPushListener);
+        }
+        return etPush;
+    }
+
+    @Override
+    public void out(int severity, String tag, String message, @Nullable Throwable throwable) {
+        /*
+         * Using this method you can interact with SDK log output.
+         * Severity is populated with log levels like Log.VERBOSE, Log.INFO etc.
+         * Message, is populated with the actual log output text.
+         * Tag, is a free form string representing the log tag you've selected.
+         * Finally, the optional Throwable Throwable represents a thrown exception.
+         */
+
+        /*
+         * Assuming you have crashytics enabled for your app, the following code would send
+         * log data to Crashytics in the event that the log's severity is ERROR or ASSERT
+         */
+
+        if(throwable != null) {
+            // We have an exception to log:
+            // Commenting out all references to Crashlytics.
+            // Crashlytics.logException(throwable);
+        }
+
+        switch(severity) {
+            case Log.ERROR:
+                Log.e(tag, message);
+                // Crashlytics.log(severity, tag, message);
+                break;
+            case Log.ASSERT:
+                Log.wtf(tag, message);
+                // Crashlytics.log(severity, tag, message);
+                try {
+                    // If we're logging a failed ASSERT, also grab the getSDKState() data and log that as well
+                    Log.v("SDKState Information", ETPush.getInstance().getSDKState());
+                    // Crashlytics.log(ETPush.getInstance().getSDKState());
+                } catch (ETException etException){
+                    Log.v("ErrorGettingSDKState", etException.getMessage());
+                    // Crashlytics.log(String.format(Locale.ENGLISH, "Error Getting SDK State: %s", etException.getMessage()));
+                }
+                break;
+            default:
+                Log.v(tag, message);
+        }
+    }
+
 }
