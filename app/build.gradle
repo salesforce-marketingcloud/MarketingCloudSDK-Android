@@ -43,17 +43,41 @@ android {
 
 dependencies {
     /* SDK */
-    compile 'com.exacttarget.etpushsdk:etsdk:4.3.0@aar'
+    compile('com.exacttarget.etpushsdk:etsdk:4.3.1@aar') {
+            transitive = true;
+    }
 
-    /* Google's Support v4 for Notification compatibility */
+    // This particular app, requires appCompat and design
     compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:support-v4:23.1.1'
     compile 'com.android.support:design:23.1.1'
 
-    /* Google Play Services for Location and Google Cloud Messaging */
-    compile 'com.google.android.gms:play-services-location:8.1.0'
-    compile 'com.google.android.gms:play-services-gcm:8.1.0'
+    /*
+        If you're implementing our SDK and do not need
+        custom versions of:
+            support
+            design
+            play-services-location
+            play-services-gcm
 
-    /* 3rd Party Libraries Required for SDK integration */
-    compile 'org.altbeacon:android-beacon-library:2.5.1@aar'
+        You can utilize the transitive = true gradle
+        directive to automatically pull in the needed
+        libraries at the needed versions for the SDK
+        to properly function.
+
+        Otherwise, include them manually specifying
+        the version(s) you require.
+
+        //* Google's Support v4 for Notification compatibility
+        compile 'com.android.support:appcompat-v7:23.1.1'
+        compile 'com.android.support:support-v4:23.1.1'
+        compile 'com.android.support:design:23.1.1'
+
+        //* Google Play Services for Location and Google Cloud Messaging
+        compile 'com.google.android.gms:play-services-location:8.1.0'
+        compile 'com.google.android.gms:play-services-gcm:8.1.0'
+
+        //* 3rd Party Libraries Required for SDK integration
+        compile 'org.altbeacon:android-beacon-library:2.5.1@aar'
+     */
+
 }
