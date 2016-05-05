@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.salesforce.marketingcloud.android.demoapp" >
+
+    <!--
+        As of 2016-02, the SDK's manifest is merged into your apps
+        manifest during the build process. As a result, you no longer
+        need to include any SDK based permissions, activities,
+        receivers or services in the manifest. Much simpler eh?
+
+        In fact, the only required element of this Manifest is the
+        Application's android:name= key.
+
+        **** UNLESS **** you're using location.
+        Since we're using location, the following two permissions
+        must be manually included.
+    -->
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- ##### Begin 2016-02 Release functional Application node -->
+    <application
+        android:name="com.salesforce.marketingcloud.android.demoapp.ApplicationClass"
+        android:allowBackup="true"
+        android:icon="@mipmap/app_logo"
+        android:label="@string/app_label"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.salesforce.marketingcloud.android.demoapp.MainActivity"
+            android:label="@string/app_name" />
+
+        <activity-alias
+            android:name="com.salesforce.marketingcloud.android.demoapp.LaunchActivity"
+            android:targetActivity="com.salesforce.marketingcloud.android.demoapp.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity
+            android:name="com.salesforce.marketingcloud.android.demoapp.SettingsActivity"
+            android:parentActivityName="com.salesforce.marketingcloud.android.demoapp.MainActivity" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.salesforce.marketingcloud.android.demoapp.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.salesforce.marketingcloud.android.demoapp.CloudPageInboxActivity"
+            android:parentActivityName="com.salesforce.marketingcloud.android.demoapp.MainActivity" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.salesforce.marketingcloud.android.demoapp.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.salesforce.marketingcloud.android.demoapp.CloudPageActivity"
+            android:parentActivityName="com.salesforce.marketingcloud.android.demoapp.CloudPageInboxActivity" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.salesforce.marketingcloud.android.demoapp.CloudPageInboxActivity" />
+        </activity>
+        <activity
+            android:name=".MapsActivity"
+            android:parentActivityName=".MainActivity" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.salesforce.marketingcloud.android.demoapp.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".OriginalDocsActivity"
+            android:parentActivityName=".OriginalDocsActivity" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.salesforce.marketingcloud.android.demoapp.OriginalDocsActivity" />
+        </activity>
+
+        <!-- Google Maps API Key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+    </application>
+    <!-- ##### End 2016-02 Release functional Application node -->
+</manifest>

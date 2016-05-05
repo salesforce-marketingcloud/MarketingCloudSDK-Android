@@ -1,0 +1,48 @@
+All the models in this example directory can be found on Thingiverse (www.thingiverse.com), a site for sharing digital designs for physical objects.  Sharing is fun!
+
+The below models are shared under the CC BY 3.0 license
+(http://creativecommons.org/licenses/by/3.0/):
+
+* Dual_Cupcake.thing: MakerBot Cupcake (Dual Color) by MakerBot
+  http://www.thingiverse.com/thing:16824
+  
+* Dual_Pendant.thing: MakerBot Pendant by MakerBot
+  http://www.thingiverse.com/thing:25556
+  
+The below models are shared under the CC BY-SA 3.0 license (http://creativecommons.org/licenses/by-sa/3.0/):
+
+* 20mm_Calibration_Box.stl: 20 mm calibration box by Spacexula (Derivative of 40mm cube by bre)
+  http://www.thingiverse.com/thing:2064
+
+* Chain_Linked.stl: Chain Generator by Sal
+  http://www.thingiverse.com/thing:28405
+
+* Dual_Hilbert_Cube.thing: Hilbert Cube by tbuser
+  http://www.thingiverse.com/thing:16343
+  
+* Dual_Monster_Valentine.thing: Pet Monster Valentine - Dualstrusion Ready by tbuser (Derivative of Pet monster Valentine by andreas)
+  http://www.thingiverse.com/thing:29088
+
+* Dual_Traffic_Cone.thing: Traffic Cone (Dual Extrusion) by CocoNut
+  http://www.thingiverse.com/thing:21773
+
+* Laurana.stl: Laurana 50k by jmil
+  http://www.thingiverse.com/thing:1978
+  
+* Octopus.stl: Mini Bucket O' Octopi by Cynar (Derivative of Bucket O' Octopi by yeoldebrian)
+  http://www.thingiverse.com/thing:9599
+
+* Mr_Jaws.stl: Mr. Jaws by Mahoney
+  http://www.thingiverse.com/thing:14702
+
+* Secret_Heart_Box.stl: Preassembled Secret Heart Box by Emmett (Derivative of Secret Heart Box by EricYoung)
+  http://www.thingiverse.com/thing:44579
+
+The below models are in the public domain
+(http://creativecommons.org/licenses/publicdomain/):
+
+* MakerBolt_Set.thing: Knurled surface finishing library by aubenc
+  http://www.thingiverse.com/thing:9095
+
+* Teapot.stl: Utah Teapot by phooky (Based on data by Martin Newell)
+  http://www.thingiverse.com/thing:821

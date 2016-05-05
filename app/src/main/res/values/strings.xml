@@ -1,0 +1,55 @@
+<resources>
+
+    <!-- GENERAL -->
+    <string name="app_name">Marketing Cloud Learning App</string>
+    <string name="app_label">Marketing Cloud</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_cloudpage_inbox">CloudPage Inbox</string>
+    <string name="action_map">Map</string>
+    <string name="action_original_docs">Original SDK docs</string>
+    <string name="logo">Logo</string>
+    <string name="readme_remote_url">http://salesforce-marketingcloud.github.io/LearningAppAndroid/</string>
+    <string name="official_remote_url">http://salesforce-marketingcloud.github.io/JB4A-SDK-Android/</string>
+
+    <!-- SETTINGS -->
+    <string name="pref_personal_info_title">Attributes</string>
+    <string name="pref_tag_category_title">Tags</string>
+
+    <string name="pref_subscriber_key">Subscriber Key</string>
+    <string name="pref_subscriber_key_summ">Please enter a subscriber key (usually email address)</string>
+    <string name="pref_subscriber_key_about">About Subscriber Key</string>
+
+    <string name="pref_new_tag">New Tag</string>
+    <string name="pref_new_tag_summ">Tap here to add a new Tag</string>
+    <string name="pref_new_tag_dialog">Enter the new Tag</string>
+    <string name="pref_tag_about">About Tags</string>
+
+    <!-- HELP -->
+    <string name="attribute_help">Attributes contain specific information about your subscribers, such as first and last name, gender, and geographical location.\n\nYou can assign specific information as part of a subscriber attribute to be used as part of sends or subscriber management.\n\nThis JB4A SDK Explorer stores first name and last name as attributes.</string>
+    <string name="subscriber_key_help">Your subscriber key provides a key for the Contact Record and can be used to tie together multiple channels/devices for each Contact.</string>
+    <string name="tag_help">Tags are used to specify which messages a customer wishes to receive.  For example to receive messages for an interest in a particular activity.</string>
+
+
+    <!-- DEBUG SETTINGS -->
+    <string name="debug_pref_settings_title">Debug Settings</string>
+
+    <string name="debug_pref_enable_debug">Enable Debug</string>
+    <string name="debug_pref_enable_debug_summ_off">Debug logging is off.</string>
+    <string name="debug_pref_enable_debug_summ_on">Debug logging is on.</string>
+
+    <string name="debug_pref_collect_logcat">Email Log Data</string>
+    <string name="debug_pref_collect_logcat_summ">Click to email log data.</string>
+
+    <!-- Errors -->
+    <string name="error_cannot_be_blank">This field cannot be blank</string>
+
+    <!-- Cloud Inbox -->
+    <string name="option_all">All</string>
+    <string name="option_read">Read</string>
+    <string name="option_unread">Unread</string>
+
+    <!-- Map -->
+    <string name="default_latitude">37.7842955</string>
+    <string name="default_longitude">-122.4301521</string>
+
+</resources>

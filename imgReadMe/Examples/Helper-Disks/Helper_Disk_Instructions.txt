@@ -1,0 +1,11 @@
+If you're having problems with the edges of your prints peeling, try using Helper Disks! 
+
+First, open a model. Then add a Helper Disk from the File menu and use the Move tool to move the Helper Disk to one corner of your object, so the disk just slightly overlaps with the corner of the object on the plate.
+
+You can copy and paste a Helper Disk to create more. Select the Helper Disk to copy and paste, and add one to each corner of your model. Then go ahead and print! 
+Helper Disks prevent warping by interrupting long runs of plastic with short, curved segments, which are less likely to warp. When your print finishes, you can remove the Helper Disks by cutting or peeling them off.
+
+Still having trouble getting your prints to stick? 
+https://www.makerbot.com/support/new/Support/Object_Peels_Off_Plate
+
+These Helper Disks were designed by Thingiverse user ctheroux: http://www.thingiverse.com/thing:51066
