@@ -22,7 +22,6 @@ import com.exacttarget.etpushsdk.ETAnalytics;
 import com.exacttarget.etpushsdk.ETException;
 import com.exacttarget.etpushsdk.ETLocationManager;
 import com.exacttarget.etpushsdk.ETPush;
-import com.exacttarget.etpushsdk.data.Attribute;
 import com.exacttarget.etpushsdk.util.EventBus;
 
 /**
@@ -114,6 +113,13 @@ public class MainActivity extends AppCompatActivity implements ApplicationClass.
         ETAnalytics.trackPageView("data://OnPushReady", "Marketing Cloud SDK Ready for Push Messages");
         this.etPush = etPush;
         try {
+            /*
+                Add attributes as required.  For this application we'll assume our user is John Doe as
+                the goal is to demonstrate the SDK's usage.
+             */
+            etPush.addAttribute("FirstName", "John");
+            etPush.addAttribute("LastName", "Doe");
+
             /*
                 A good practice is to add the application's version name as a tag that can later
                 be used to target push notifications to specific application versions.
