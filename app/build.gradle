@@ -13,8 +13,10 @@ android {
     /* Pickup latest build tools from SDK installation - Thanks @androidfu */
     Properties localProps = new Properties()
     localProps.load(new FileInputStream(file('../local.properties')))
-    def buildToolVer = file("${localProps['sdk.dir']}/build-tools/").listFiles().sort().reverse().first().name;
-    buildToolsVersion buildToolVer;
+    //def buildToolVer = file("${localProps['sdk.dir']}/build-tools/").listFiles().sort().reverse().first().name;
+    //buildToolsVersion buildToolVer;
+
+    buildToolsVersion = "23.0.3"
     
     defaultConfig {
         applicationId "com.salesforce.marketingcloud.android.demoapp"
@@ -43,7 +45,7 @@ android {
 
 dependencies {
     /* SDK */
-    compile('com.exacttarget.etpushsdk:etsdk:4.3.1@aar') {
+    compile('com.exacttarget.etpushsdk:etsdk:4.4.0-SNAPSHOT@aar') {
             transitive = true;
     }
 
