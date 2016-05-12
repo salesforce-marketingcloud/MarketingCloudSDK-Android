@@ -10,12 +10,8 @@ android {
     /* Change these to fit your applications requirements! */
     /* 01 release brings support for android 23 (Marshmallow) */
     compileSdkVersion 23
-    /* Pickup latest build tools from SDK installation - Thanks @androidfu */
-    Properties localProps = new Properties()
-    localProps.load(new FileInputStream(file('../local.properties')))
-    def buildToolVer = file("${localProps['sdk.dir']}/build-tools/").listFiles().sort().reverse().first().name;
-    buildToolsVersion buildToolVer;
-
+    buildToolsVersion = "23.0.3"
+    
     defaultConfig {
         applicationId "com.salesforce.marketingcloud.android.demoapp"
         minSdkVersion 16 // MIN SDK for use with ETPush is 15, but this app uses 16 for maps compatibility
