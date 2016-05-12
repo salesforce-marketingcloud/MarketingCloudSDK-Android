@@ -24,9 +24,8 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral()
-        maven {
-            url "http://salesforce-marketingcloud.github.io/JB4A-SDK-Android/repository"
-        }
+        maven { url "http://nexus:8081/nexus/content/groups/public" }
+        maven { url "http://salesforce-marketingcloud.github.io/JB4A-SDK-Android/repository" }
     }
 }
 
