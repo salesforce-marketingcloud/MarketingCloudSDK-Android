@@ -11,7 +11,7 @@ android {
     /* 01 release brings support for android 23 (Marshmallow) */
     compileSdkVersion 23
     buildToolsVersion = "23.0.3"
-    
+
     defaultConfig {
         applicationId "com.salesforce.marketingcloud.android.demoapp"
         minSdkVersion 16 // MIN SDK for use with ETPush is 15, but this app uses 16 for maps compatibility
@@ -39,7 +39,7 @@ android {
 
 dependencies {
     /* SDK */
-    compile('com.exacttarget.etpushsdk:etsdk:4.4.0-SNAPSHOT@aar') {
+    compile('com.exacttarget.etpushsdk:etsdk:4.4.0@aar') {
             transitive = true;
     }
 
