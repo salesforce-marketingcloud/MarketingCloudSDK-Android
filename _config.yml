@@ -55,11 +55,8 @@ sections: [
     ['sdk-implementation', 'SDK Implementation'],
     ['features', 'Feature Implementation'],
     ['notifications', 'Notifications'],
-    ['rich-notifications', 'Rich Notifications'],
     ['inbox', 'Inbox'],
     ['location', 'Location Services'],
-    ['trouble', 'Troubleshooting'],
-    ['resources', 'Additional Resources'],
     ['trouble-shooting', 'Troubleshooting']
 ]
 
