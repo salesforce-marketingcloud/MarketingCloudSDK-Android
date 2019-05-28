@@ -20,7 +20,7 @@ Create an app in MobilePush. This process connects the device to the MobilePush 
 ### Update module-level `build.gradle` file
 
 Add the SDK repository:
-{% include gist.html sectionId="gradle_repo" names="Gradle" gists="https://gist.github.com/sfmc-mobilepushsdk/31ded30f72c635275af4fe87ce5c3923.js" %}
+{% include gist.html sectionId="gradle_repo" names="Gradle" gists="https://gist.github.com/sfmc-mobilepushsdk/d1caa687eedbf5792f1ea399cf8e5749.js" %}
 
 Add the SDK dependency:
 {% include gist.html sectionId="gradle_deps" names="Gradle" gists="https://gist.github.com/sfmc-mobilepushsdk/847e10adaed170e613a21986487d47d5.js" %}
