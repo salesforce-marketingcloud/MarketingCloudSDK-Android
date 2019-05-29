@@ -1,0 +1,23 @@
+
+#### Version {{ page.version }}
+
+{% assign day = page.date | date: "%-d"  %}
+{% capture day_str %}
+    {% case day %}
+    {% when '1' or '21' or '31' %}{{ day }}st
+    {% when '2' or '22' %}{{ day }}nd
+    {% when '3' or '23' %}{{ day }}rd
+    {% else %}{{ day }}th
+    {% endcase %}
+{% endcapture %}
+
+_Released {{ page.date | date: "%B" }} {{ day_str | strip }}, correlating with the Marketing Cloud {{ page.mc_release }} release._
+
+{% capture version_note %}
+Version {{ page.version }} of the Android SDK has been tested with Google Play Services version {{ page.gps_version }} and AltBeacon 
+Library version {{ page.alt_beacon_version }}.  The minimum compatible Android API version is {{ page.min_sdk }}.  Compiled with 
+Android API version {{ page.compile_sdk }}.
+{% endcapture %}
+> {{ version_note | strip_newline }}
+
+{{ content }}
