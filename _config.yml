@@ -47,6 +47,10 @@ google_analytics_id: 'UA-82902574-3' #PROD
 #   2 - show only if posts are present
 navigation: 1
 
+collections:
+  releases:
+    permalink: "releases/:path"
+
 # Default categories (in order) to appear in the navigation
 sections: [
     ['overview', 'Overview'],
