@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.salesforce.marketingcloud.learningapp"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField "String", "MC_APP_ID", MC_APP_ID
+        buildConfigField "String", "MC_ACCESS_TOKEN", MC_ACCESS_TOKEN
+        buildConfigField "String", "MC_SENDER_ID", MC_SENDER_ID
+        buildConfigField "String", "MC_MID", MC_MID
+        buildConfigField "String", "MC_SERVER_URL", MC_SERVER_URL
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "version"
+    productFlavors {
+        basic {
+            applicationIdSuffix ".basic"
+            versionNameSuffix "-basic"
+        }
+    }
+}
+
+dependencies {
+    implementation "com.salesforce.marketingcloud:marketingcloudsdk:$marketingcloudsdk_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'com.google.android.material:material:1.1.0-alpha06'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+}
