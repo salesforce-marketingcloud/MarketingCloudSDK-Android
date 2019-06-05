@@ -1,11 +1,33 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="MyTheme.DayNight" parent="Base.MyTheme"/>
+
+    <style name="Base.MyTheme" parent="Base.MaterialThemeBuilder">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorError">#F44336</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/onSecondary</item>
+        <item name="colorOnBackground">@color/onBackground</item>
+        <item name="colorOnSurface">@color/onSurface</item>
+        <item name="colorOnError">@color/white</item>
+    </style>
+
+    <style name="Base.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorAccent">@color/secondaryColor</item>
+    </style>
+
+    <style name="TextAppearance.SectionHeading" parent="TextAppearance.MaterialComponents.Headline4">
+    </style>
+
+    <style name="TextAppearance.DialogBody" parent="TextAppearance.MaterialComponents.Body1">
+
     </style>
 
 </resources>

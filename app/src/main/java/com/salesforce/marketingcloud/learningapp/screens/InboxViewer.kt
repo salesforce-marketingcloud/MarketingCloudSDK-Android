@@ -23,26 +23,41 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.salesforce.marketingcloud.learningapp
+package com.salesforce.marketingcloud.learningapp.screens
 
-import com.salesforce.marketingcloud.MarketingCloudConfig
-import com.salesforce.marketingcloud.notifications.NotificationCustomizationOptions
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.webkit.WebView
+import androidx.fragment.app.Fragment
 
-class LearningApplication : BaseLearningApplication() {
+class InboxViewer : Fragment() {
 
-    override val configBuilder: MarketingCloudConfig.Builder
-        get() = MarketingCloudConfig.builder().apply {
-            setApplicationId(BuildConfig.MC_APP_ID)
-            setAccessToken(BuildConfig.MC_ACCESS_TOKEN)
-            setSenderId(BuildConfig.MC_SENDER_ID)
-            setMid(BuildConfig.MC_MID)
-            setMarketingCloudServerUrl(BuildConfig.MC_SERVER_URL)
-            setNotificationCustomizationOptions(NotificationCustomizationOptions.create(R.drawable.ic_notification))
-            setInboxEnabled(true)
-            setAnalyticsEnabled(true)
-            setPiAnalyticsEnabled(true)
-            setGeofencingEnabled(true)
-            setProximityEnabled(true)
-            setUrlHandler(this@LearningApplication)
-        }
+    private lateinit var webView: WebView
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        webView = WebView(context)
+        webView.settings.javaScriptEnabled = true
+        return webView
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        webView.loadUrl(InboxViewerArgs.fromBundle(requireArguments()).url)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        webView.onPause()
+    }
+
+    override fun onResume() {
+        webView.onResume()
+        super.onResume()
+    }
+
+    override fun onDestroy() {
+        webView.destroy()
+        super.onDestroy()
+    }
 }

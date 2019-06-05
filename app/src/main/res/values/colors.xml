@@ -8,6 +8,11 @@
     <color name="secondaryDarkColor">#bd6500</color>
     <color name="primaryTextColor">#000000</color>
     <color name="secondaryTextColor">#000000</color>
+    <color name="onBackground">#000000</color>
+    <color name="onSurface">#000000</color>
+    <color name="onSecondary">#000000</color>
+
+    <color name="white">#FFFFFF</color>
 
     <color name="ic_launcher_background">#FFFFFF</color>
 </resources>

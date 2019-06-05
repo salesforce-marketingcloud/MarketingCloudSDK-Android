@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+            app:startDestination="@id/home"
+            android:id="@+id/nav_graph">
+
+    <fragment android:id="@+id/home"
+              android:name="com.salesforce.marketingcloud.learningapp.screens.Home"
+              android:label="Home"
+              tools:layout="@layout/fragment_home">
+        <action android:id="@+id/action_home_to_location" app:destination="@id/location"/>
+        <action android:id="@+id/action_home_to_inbox" app:destination="@id/inbox_graph"/>
+    </fragment>
+
+    <fragment android:id="@+id/location"
+              android:name="com.salesforce.marketingcloud.learningapp.screens.Location"
+              android:label="Location"
+              tools:layout="@layout/fragment_location">
+        <deepLink android:id="@+id/deepLink" app:uri="http://www.marketingcloud.com/location"/>
+    </fragment>
+
+    <navigation android:id="@+id/inbox_graph" app:startDestination="@id/inbox" android:label="Inbox">
+        <fragment android:id="@+id/inbox"
+                  android:name="com.salesforce.marketingcloud.learningapp.screens.Inbox"
+                  android:label="Inbox"
+                  tools:layout="@layout/fragment_inbox">
+            <action android:id="@+id/action_inbox_to_inboxViewer" app:destination="@id/inboxViewer"/>
+            <deepLink android:id="@+id/deepLink2" app:uri="http://www.marketingcloud.com/inbox"/>
+        </fragment>
+        <fragment android:id="@+id/inboxViewer"
+                  android:name="com.salesforce.marketingcloud.learningapp.screens.InboxViewer"
+                  android:label="Inbox Viewer"
+                  tools:layout="@layout/fragment_inbox_viewer">
+            <argument android:name="url" app:argType="string"/>
+        </fragment>
+    </navigation>
+</navigation>

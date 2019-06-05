@@ -25,24 +25,46 @@
  */
 package com.salesforce.marketingcloud.learningapp
 
-import com.salesforce.marketingcloud.MarketingCloudConfig
-import com.salesforce.marketingcloud.notifications.NotificationCustomizationOptions
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.ViewStub
+import android.widget.ViewSwitcher
+import androidx.annotation.LayoutRes
+import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
+import com.salesforce.marketingcloud.MarketingCloudSdk
 
-class LearningApplication : BaseLearningApplication() {
+abstract class SdkFragment : Fragment() {
 
-    override val configBuilder: MarketingCloudConfig.Builder
-        get() = MarketingCloudConfig.builder().apply {
-            setApplicationId(BuildConfig.MC_APP_ID)
-            setAccessToken(BuildConfig.MC_ACCESS_TOKEN)
-            setSenderId(BuildConfig.MC_SENDER_ID)
-            setMid(BuildConfig.MC_MID)
-            setMarketingCloudServerUrl(BuildConfig.MC_SERVER_URL)
-            setNotificationCustomizationOptions(NotificationCustomizationOptions.create(R.drawable.ic_notification))
-            setInboxEnabled(true)
-            setAnalyticsEnabled(true)
-            setPiAnalyticsEnabled(true)
-            setGeofencingEnabled(true)
-            setProximityEnabled(true)
-            setUrlHandler(this@LearningApplication)
+    private lateinit var switcher: ViewSwitcher
+    private lateinit var sdk: MarketingCloudSdk
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        switcher = inflater.inflate(R.layout.fragment_sdk, container, false) as ViewSwitcher
+        return switcher
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        view.findViewById<ViewStub>(R.id.viewStub).apply {
+            layoutResource = layoutId
+            inflate()
         }
+
+        MarketingCloudSdk.requestSdk {
+            sdk = it
+            switcher.showNext()
+            onSdkReady(sdk)
+        }
+    }
+
+    internal fun String.showSnackbar(length: Int = Snackbar.LENGTH_SHORT) {
+        Snackbar.make(requireView(), this, length).show()
+    }
+
+    @get:LayoutRes
+    abstract val layoutId: Int
+
+    abstract fun onSdkReady(sdk: MarketingCloudSdk)
 }

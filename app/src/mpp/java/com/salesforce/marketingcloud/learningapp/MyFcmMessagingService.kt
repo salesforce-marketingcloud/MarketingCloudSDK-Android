@@ -25,24 +25,30 @@
  */
 package com.salesforce.marketingcloud.learningapp
 
-import com.salesforce.marketingcloud.MarketingCloudConfig
-import com.salesforce.marketingcloud.notifications.NotificationCustomizationOptions
+import com.google.firebase.messaging.FirebaseMessagingService
+import com.google.firebase.messaging.RemoteMessage
+import com.salesforce.marketingcloud.MarketingCloudSdk
+import com.salesforce.marketingcloud.messages.push.PushMessageManager
 
-class LearningApplication : BaseLearningApplication() {
+class MyFcmMessagingService : FirebaseMessagingService() {
 
-    override val configBuilder: MarketingCloudConfig.Builder
-        get() = MarketingCloudConfig.builder().apply {
-            setApplicationId(BuildConfig.MC_APP_ID)
-            setAccessToken(BuildConfig.MC_ACCESS_TOKEN)
-            setSenderId(BuildConfig.MC_SENDER_ID)
-            setMid(BuildConfig.MC_MID)
-            setMarketingCloudServerUrl(BuildConfig.MC_SERVER_URL)
-            setNotificationCustomizationOptions(NotificationCustomizationOptions.create(R.drawable.ic_notification))
-            setInboxEnabled(true)
-            setAnalyticsEnabled(true)
-            setPiAnalyticsEnabled(true)
-            setGeofencingEnabled(true)
-            setProximityEnabled(true)
-            setUrlHandler(this@LearningApplication)
+    override fun onMessageReceived(message: RemoteMessage) {
+        // Only pass messages sent from the Marketing Cloud into the SDK.  Anything else will be ignored if passed into
+        // handleMessage.
+        if (PushMessageManager.isMarketingCloudPush(message)) {
+            MarketingCloudSdk.requestSdk { sdk ->
+                sdk.pushMessageManager.handleMessage(message)
+            }
+        } else {
+            // Not a push from the Marketing Cloud.  Handle manually.
         }
+    }
+
+    override fun onNewToken(token: String) {
+        // When a new token is received we have to set it in the SDK.  This will trigger an updated registration to be
+        // sent to the Marketing Cloud.
+        MarketingCloudSdk.requestSdk { sdk ->
+            sdk.pushMessageManager.setPushToken(token)
+        }
+    }
 }

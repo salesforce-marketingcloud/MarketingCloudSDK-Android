@@ -1,0 +1,2 @@
+* Update the [gradle.properties](gradle.properties) file with your Marketing Cloud `application id`, `access token`, `mid`, `fcm sender id` and `server url`.
+* Add an app to your Firebase project in the Firebase console with the package name of `com.salesforce.marketingcloud.learningapp` and place the [app](app/) directory.

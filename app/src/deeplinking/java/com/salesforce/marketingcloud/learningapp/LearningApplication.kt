@@ -25,10 +25,18 @@
  */
 package com.salesforce.marketingcloud.learningapp
 
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import androidx.navigation.NavDeepLinkBuilder
 import com.salesforce.marketingcloud.MarketingCloudConfig
+import com.salesforce.marketingcloud.learningapp.screens.InboxViewerArgs
 import com.salesforce.marketingcloud.notifications.NotificationCustomizationOptions
+import com.salesforce.marketingcloud.notifications.NotificationManager
+import com.salesforce.marketingcloud.notifications.NotificationMessage
 
-class LearningApplication : BaseLearningApplication() {
+class LearningApplication : BaseLearningApplication(), NotificationManager.NotificationLaunchIntentProvider {
 
     override val configBuilder: MarketingCloudConfig.Builder
         get() = MarketingCloudConfig.builder().apply {
@@ -37,7 +45,11 @@ class LearningApplication : BaseLearningApplication() {
             setSenderId(BuildConfig.MC_SENDER_ID)
             setMid(BuildConfig.MC_MID)
             setMarketingCloudServerUrl(BuildConfig.MC_SERVER_URL)
-            setNotificationCustomizationOptions(NotificationCustomizationOptions.create(R.drawable.ic_notification))
+            setNotificationCustomizationOptions(
+                NotificationCustomizationOptions.create(
+                    R.drawable.ic_notification, this@LearningApplication, null
+                )
+            )
             setInboxEnabled(true)
             setAnalyticsEnabled(true)
             setPiAnalyticsEnabled(true)
@@ -45,4 +57,27 @@ class LearningApplication : BaseLearningApplication() {
             setProximityEnabled(true)
             setUrlHandler(this@LearningApplication)
         }
+
+    override fun getNotificationPendingIntent(context: Context, message: NotificationMessage): PendingIntent? {
+        val url = message.url()
+        val type = message.type()
+
+        return when {
+            url != null && type == NotificationMessage.Type.OPEN_DIRECT -> PendingIntent.getActivity(
+                context,
+                1,
+                Intent(Intent.ACTION_VIEW, Uri.parse(url)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+                PendingIntent.FLAG_UPDATE_CURRENT
+            )
+            url != null && type == NotificationMessage.Type.CLOUD_PAGE -> NavDeepLinkBuilder(context).apply {
+                setGraph(R.navigation.nav_graph)
+                setDestination(R.id.inboxViewer)
+                setArguments(InboxViewerArgs.Builder(url).build().toBundle())
+            }.createPendingIntent()
+            else -> NavDeepLinkBuilder(context).apply {
+                setGraph(R.navigation.nav_graph)
+                setDestination(R.id.home)
+            }.createPendingIntent()
+        }
+    }
 }
