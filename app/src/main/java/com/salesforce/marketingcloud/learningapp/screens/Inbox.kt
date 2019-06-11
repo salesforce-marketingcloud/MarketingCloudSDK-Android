@@ -55,9 +55,9 @@ class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseLi
     private lateinit var marketingCloudSdk: MarketingCloudSdk
     private lateinit var refreshLayout: SwipeRefreshLayout
 
-    private val job = Job()
+    var job: Job? = null
     override val coroutineContext: CoroutineContext
-        get() = job + Dispatchers.Main
+        get() = Dispatchers.Main
 
     private val inboxAdapter = InboxAdapter(
         messageClickListener = { message ->
@@ -82,7 +82,7 @@ class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseLi
         if (::marketingCloudSdk.isInitialized) {
             marketingCloudSdk.inboxMessageManager.unregisterInboxResponseListener(this)
         }
-        job.cancel()
+        job?.cancel()
         super.onDestroyView()
     }
 
@@ -124,7 +124,7 @@ class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseLi
     }
 
     private fun fetchMessageFromSdk(sdk: MarketingCloudSdk) {
-        launch {
+        job = launch {
             // Here we are using coroutines to move the request of Inbox messages from the SDK off of the main thread.
             // This will prevent any visual hiccups in our UI since the SDK will perform the database lookup  of
             // messages on the calling thread.
