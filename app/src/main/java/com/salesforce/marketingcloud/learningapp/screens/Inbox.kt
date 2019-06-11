@@ -64,7 +64,7 @@ class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseLi
             // Mark the message as `read`.
             marketingCloudSdk.inboxMessageManager.setMessageRead(message)
 
-            // Log an open analytics to the Inbox message.
+            // Log an open analytics for the Inbox message.
             marketingCloudSdk.analyticsManager.trackInboxOpenEvent(message)
 
             findNavController().navigate(InboxDirections.actionInboxToInboxViewer(message.url()))
@@ -96,7 +96,7 @@ class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseLi
     override fun onSdkReady(sdk: MarketingCloudSdk) {
         marketingCloudSdk = sdk
 
-        // Here we are registering the Inbox fragment to receive callbacks when the SDK receives an
+        // Here we are registering the Inbox fragment to receive callbacks when the SDK receives a
         // refreshed list of Inbox messages from the Marketing Cloud.
         marketingCloudSdk.inboxMessageManager.registerInboxResponseListener(this)
 
@@ -142,7 +142,7 @@ class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseLi
 
     override fun onInboxMessagesChanged(messages: List<InboxMessage>) {
         // The messages provided in this callback will contain every message sent from the Marketing Cloud, including
-        // message that not yet active.  Instead of filtering out inactive/ineligible messages from this list we
+        // message that are not yet active.  Instead of filtering out inactive/ineligible messages from this list we
         // will instead request the presentable list of messages from the SDK.
         fetchMessageFromSdk(marketingCloudSdk)
     }
@@ -165,13 +165,13 @@ class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseLi
             itemView.setOnClickListener { clickListener.invoke(message) }
             itemView.setOnLongClickListener { longClickListener.invoke(message); true }
 
-            // When the SDK receives an Inbox+Push push message from the Marketing Cloud via FCM it will populate a record
-            // in the Inbox list based off of the content in the push message.  This is not the complete set of content
-            // for the Inbox message and will not contain the subject.  When the Inbox+Push message is received with the
-            // app in the foreground the SDK will immediately make a request to retrieve the updated list of Inbox
-            // messages from the Marketing Cloud, but that does mean there is the potential for us to display a message
-            // whose subject field is `null`.  To prevent an empty item in our RecyclerView we will fall back to the
-            // push title or alert message when the subject field is `null`.
+            // When the SDK receives an Alert+Inbox push message from the Marketing Cloud via FCM it will populate a
+            // record in the Inbox list based off of the content in the push message.  This is not the complete set of
+            // content for the Inbox message and will not contain the subject.  When the Inbox+Push message is received
+            // with the app in the foreground the SDK will immediately make a request to retrieve the updated list of
+            // Inbox messages from the Marketing Cloud, but that does mean there is the potential for us to display a
+            // message whose subject field is `null`.  To prevent an empty item in our RecyclerView we will fall back
+            // to the push title or alert message when the subject field is `null`.
             subjectView.text = when {
                 message.subject() != null -> message.subject()
                 message.title() != null -> message.title()

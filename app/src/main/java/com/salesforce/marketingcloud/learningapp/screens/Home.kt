@@ -72,8 +72,8 @@ class Home : SdkFragment() {
 
     private fun setRegistrationValues(sdk: MarketingCloudSdk) {
 
-        // Update the registration with user data.  This information can then be used by a marketer in the Marketing
-        // Cloud UI to target this device/user for messaging.
+        // Update the registration with user data.  This information can then be used by a marketer
+        // in the Marketing Cloud UI to target this device/user for messaging.
         val success = sdk.registrationManager.edit().apply {
             setContactKey("username@example.com")
             setAttribute("LastName", "Smith")

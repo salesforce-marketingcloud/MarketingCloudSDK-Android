@@ -97,12 +97,12 @@ class Location : SdkFragment() {
         if (grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
             when (requestCode) {
                 REQUEST_GEOFENCE -> {
-                    // Once the permissions have ben granted we will enable Geofence messaging.
+                    // Once the permissions have been granted we will enable Geofence messaging.
                     marketingCloudSdk.regionMessageManager.enableGeofenceMessaging()
                     view?.setupGeofenceToggle(marketingCloudSdk)
                 }
                 REQUEST_PROXIMITY -> {
-                    // Once the permissions have ben granted we will enable Proximity messaging.
+                    // Once the permissions have been granted we will enable Proximity messaging.
                     marketingCloudSdk.regionMessageManager.enableProximityMessaging()
                     view?.setupProximityToggle(marketingCloudSdk)
                 }
