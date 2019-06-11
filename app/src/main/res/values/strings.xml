@@ -1,0 +1,3 @@
+<resources>
+    <string name="mcsdk_default_notification_channel_name">Learning App Channel</string>
+</resources>
