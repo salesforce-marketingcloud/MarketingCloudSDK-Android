@@ -1,11 +1,11 @@
 # Keep as an empty string if served up at the root. If served up at a specific
 # path (e.g. on GitHub pages0) leave off the trailing slash, e.g. /my-project
-# baseurl: "/MarketingCloudSdk-Android" # the subpath of your site, e.g. /blog/
+# baseurl: "/MarketingCloudSDK-Android" # the subpath of your site, e.g. /blog/
 
 url: "http://salesforce-marketingcloud.github.io" # the base hostname & protocol for your site
 
 # URL to source code, used in _includes/footer.html
-codeurl: 'https://github.com/salesforce-marketingcloud/MarketingCloudSdk-Android'
+codeurl: 'https://github.com/salesforce-marketingcloud/MarketingCloudSDK-Android'
 
 # Site title and subtitle. This is used in _includes/header.html
 #
