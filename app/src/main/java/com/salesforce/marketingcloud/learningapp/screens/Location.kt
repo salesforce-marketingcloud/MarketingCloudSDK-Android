@@ -29,11 +29,14 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
+import android.os.Build
+import android.util.Log
 import android.view.View
 import android.widget.CompoundButton
 import androidx.core.content.ContextCompat
 import com.google.android.material.switchmaterial.SwitchMaterial
 import com.salesforce.marketingcloud.MarketingCloudSdk
+import com.salesforce.marketingcloud.learningapp.LOG_TAG
 import com.salesforce.marketingcloud.learningapp.R
 import com.salesforce.marketingcloud.learningapp.SdkFragment
 
@@ -44,14 +47,14 @@ class Location : SdkFragment() {
         private const val REQUEST_GEOFENCE = 1
         private const val REQUEST_PROXIMITY = 2
 
-        // Required for 'Q' devices - Must be targeting Q.
-        //private val REQUIRED_PERMISSIONS = arrayOf(
-        //    Manifest.permission.ACCESS_FINE_LOCATION,
-        //    Manifest.permission.ACCESS_BACKGROUND_LOCATION
-        //)
-        private val REQUIRED_PERMISSIONS = arrayOf(
-            Manifest.permission.ACCESS_FINE_LOCATION
-        )
+        private val REQUIRED_PERMISSIONS = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            arrayOf(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_BACKGROUND_LOCATION
+            )
+        } else {
+            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
+        }
     }
 
     private val geofenceCheckedListener = CompoundButton.OnCheckedChangeListener { _, checked ->
@@ -107,6 +110,15 @@ class Location : SdkFragment() {
                     view?.setupProximityToggle(marketingCloudSdk)
                 }
             }
+        } else {
+            when (requestCode) {
+                REQUEST_GEOFENCE -> view?.setupGeofenceToggle(marketingCloudSdk)
+                REQUEST_PROXIMITY -> view?.setupProximityToggle(marketingCloudSdk)
+            }
+            Log.d(
+                LOG_TAG,
+                "Not all required permissions for location messaging were granted. ${permissions.zip(grantResults.toTypedArray()).toMap()}"
+            )
         }
     }
 
