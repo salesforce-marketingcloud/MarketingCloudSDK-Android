@@ -12,10 +12,10 @@ codeurl: 'https://github.com/salesforce-marketingcloud/MarketingCloudSDK-Android
 # to create a new page, use this format:
 # ruby bin/jekyll-page "name of page" section
 #
-title: 'MarketingCloudSdk Android'
+title: 'MarketingCloudSDK Android'
 
 # Current SDK version, use for all mentions
-currentVersion: "6.3.2"
+currentVersion: "6.3.3"
 
 # Current SDK major minor version.  Used to reference javadoc
 currentMajorMinor: "6.3"
