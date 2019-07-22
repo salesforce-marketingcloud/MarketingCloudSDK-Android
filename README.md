@@ -29,8 +29,8 @@ For further information about implementing the MobilePush SDK, see the documenta
 **Setup**
 
 1. Clone the Learning App from the source repository.
-2. Open the project in Android Studio.
-3. After the initial build completes, the following error appears. To resolve this, add Learning App's package (`com.salesforce.marketingcloud.learningapp`) to the Firebase project that is associated with your Marketing Cloud application and download the `google-services.json` file.
+1. Open the project in Android Studio.
+1. After the initial build completes, the following error appears. To resolve this, add the Learning App's package (`com.salesforce.marketingcloud.learningapp`) to the Firebase project that is associated with your Marketing Cloud application and download the `google-services.json` file.
 
         FAILURE: Build failed with an exception.
     
@@ -38,8 +38,8 @@ For further information about implementing the MobilePush SDK, see the documenta
         Execution failed for task ':app:processBasicDebugGoogleServices'.
         > File google-services.json is missing. The Google Services Plugin cannot function without it.
        
-4. Paste the file into the /app directory of the Learning App project.
-5. Open the gradle.properties file in the LearningApp directory and replace the values for MC_APP_ID, MC_ACCESS_TOKEN, MC_SENDER_ID, MC_MID and MC_SERVER_URL. Find these values on the MobilePush Administration screen in Marketing Cloud.
+1. Paste the file into the /app directory of the Learning App project.
+1. Open the gradle.properties file in the LearningApp directory and replace the values for MC_APP_ID, MC_ACCESS_TOKEN, MC_SENDER_ID, MC_MID and MC_SERVER_URL. Find these values on the MobilePush Administration screen in Marketing Cloud.
 
         MC_APP_ID="{replace with marketing cloud app id}"
         MC_ACCESS_TOKEN="{replace with marketing cloud access token}"
@@ -47,7 +47,7 @@ For further information about implementing the MobilePush SDK, see the documenta
         MC_MID="{replace with marketing cloud mid}"
         MC_SERVER_URL="{replace with marketing cloud server url}"
         
-6. To deploy the Learning App to your Android device, click **Run** in Android Studio.
+1. To deploy the Learning App to your Android device, click **Run** in Android Studio.
 
 **Development Notes for Android SDK** 
 
