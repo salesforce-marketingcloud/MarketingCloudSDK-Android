@@ -3,6 +3,10 @@ layout: default
 title: "Home"
 ---
 
+## Android Q
+
+Support for Android Q was added in version 6.3.4 of the SDK.  See the [Releases]({{site.baseurl}}/#releases) section for more details.
+
 ## Get Started
 
 Integrate MobilePush into your mobile app using the MarketingCloudSdk:
@@ -30,7 +34,7 @@ Sign up for email announcements and contact us with questions or feedback about 
 
 * The [Marketing Cloud MobilePush Documentation](http://help.exacttarget.com/en/documentation/mobilepush/) contains information on the Marketing Cloud MobilePush app, including information on associating MobilePush with a mobile app.
 * Review the [Javadocs]({{ site.baseurl }}/javadocs/{{site.currentMajorMinor}}/index.html) for the SDK.
-* The Marketing Cloud provides the [Learning App for Android](https://github.com/salesforce-marketingcloud/LearningAppAndroid) that implements features of the SDK to allow you to explore how a native app implements the MarketingCloudSDK.
+* The Marketing Cloud provides the [LearningApp for Android](https://github.com/salesforce-marketingcloud/MarketingCloudSDK-Android) which implements features of the SDK to allow you to explore how a native app properly utilizes the MarketingCloudSDK.
 * [Sign up for email updates about the Android SDK](http://pub.s1.exacttarget.com/2ujjacpet3t)
 * View the [iOS MobilePush SDK docs](https://salesforce-marketingcloud.github.io/MarketingCloudSDK-iOS/)
 
