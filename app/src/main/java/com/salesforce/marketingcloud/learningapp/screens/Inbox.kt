@@ -179,9 +179,7 @@ class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseLi
                 else -> "No subject provided."
             }
 
-            startDateView.text = if (message.sendDateUtc() != null) {
-                DATE_FORMAT.format(message.sendDateUtc())
-            } else ""
+            startDateView.text = message.sendDateUtc()?.let { DATE_FORMAT.format(it) } ?: ""
 
             if (message.read()) {
                 subjectView.typeface = Typeface.DEFAULT
