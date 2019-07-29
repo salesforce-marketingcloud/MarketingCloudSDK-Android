@@ -16,6 +16,7 @@ Additionally, the January, 2020 Android MobilePush SDK will release with the fol
 1. Usage of Android Support libraries will migrate to the androidx-packaged library artifacts.
 2. Java 8 source compatibility.
 3. New dependency on the Kotlin std-lib.
+4. Small changes to the API to better align with expected method naming in Kotlin.
 
 ## Android Q
 
