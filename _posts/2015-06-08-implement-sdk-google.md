@@ -31,7 +31,7 @@ Add the SDK dependency:
 
 ## 2.  Set up Firebase
 
-Follow the [Android Firebase setup](https://firebase.google.com/docs/android/setup) documentation.  When you add the Firebase core dependency to your module gradle file, use `com.google.firebase:firebase-core:{{ site.firebaseMajor }}.x.x`.
+Follow the [Android Firebase setup](https://firebase.google.com/docs/android/setup) documentation.  When you add the Firebase core dependency to your module gradle file, use `com.google.firebase:firebase-core:{{ site.firebaseCoreMajor }}.x.x`.
 
 > If you initialize the `FirebaseApp` manually, you must initialize Firebase before initializing the SDK.
 

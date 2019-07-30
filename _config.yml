@@ -24,7 +24,7 @@ currentMajorMinor: "6.3"
 currentGmsLocationVersion: "16.0.0"
 
 # Firebase major version
-firebaseMajor: "18"
+firebaseCoreMajor: "17"
 
 # AltBeacon version for current SDK release
 currentAltBeaconVersion: "2.16.2"
