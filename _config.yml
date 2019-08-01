@@ -60,8 +60,9 @@ sections: [
     ['features', 'Feature Implementation'],
     ['notifications', 'Notifications'],
     ['in-app-message', 'In-App Messaging'],
-    ['inbox', 'Inbox'],
-    ['location', 'Location Services'],
+    ['inbox', 'Inbox Messaging'],
+    ['location', 'Location Messaging'],
+    ['use-cases', 'Use Cases'],
     ['trouble-shooting', 'Troubleshooting']
 ]
 
