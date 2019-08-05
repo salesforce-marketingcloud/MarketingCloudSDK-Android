@@ -19,11 +19,11 @@ Test that your device can receive a push directly from FCM.
 
 * Get the push token from the SDK
 
-{% include gist.html sectionId="get_push_token" names="Kotlin,Java" gists="https://gist.github.com/sfmc-mobilepushsdk/37dbb372438c4ceda897b235c93ab073.js,https://gist.github.com/sfmc-mobilepushsdk/32d056f7004a473b4d34f5ee252d0623.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/37dbb372438c4ceda897b235c93ab073.js"></script>
 
 * Use this script to send yourself a push message
 
-{% include gist.html sectionId="test_push" names="Shell" gists="https://gist.github.com/sfmc-mobilepushsdk/699fa2b23dd68377a8d835ac22b1dfad.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/699fa2b23dd68377a8d835ac22b1dfad.js"></script>
 
 * If you successfully receive a message using the sample script but still cannot to receive a message from the Marketing Cloud to your device, follow these steps:
     1. Wait {{ site.propagationDelay }} after the first registration call for the device you're testing with to ensure your device properly registered in the Marketing Cloud.
@@ -32,9 +32,9 @@ Test that your device can receive a push directly from FCM.
 #### Evaluate the SDK state
 
 Look through the output from the MarketingCloudSDK's `getSdkState()` method.
-{% include gist.html sectionId="get_sdk_state" names="Kotlin,Java" gists="https://gist.github.com/sfmc-mobilepushsdk/426e01da0ed63d9e2580eafe6bee8ea3.js,https://gist.github.com/sfmc-mobilepushsdk/75f7dd675b308cd46f22fb78ec9d457e.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/426e01da0ed63d9e2580eafe6bee8ea3.js"></script>
 
 There is a lot of information provided in this method, but for debugging push messaging you will want to look specifically at the NotificationManager and PushMessageManager sections.
-{% include gist.html sectionId="state_output" names="JSON" gists="https://gist.github.com/sfmc-mobilepushsdk/91d0a4018c72d484c30414c74fc7841c.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/91d0a4018c72d484c30414c74fc7841c.js"></script>
 
 If you implement multiple push providers, review the [Multiple Push SDKs]({{ site.baseurl }}/trouble-shooting/multiple-push-sdks.html) page for additional information.

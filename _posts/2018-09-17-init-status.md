@@ -28,4 +28,4 @@ Enabling [geofence]({{ site.baseurl}}/javadocs/{{ site.currentMajorMinor }}/refe
 
 ### Example InitializationListener Implementation
 
-{% include gist.html sectionId="init_status" names="Kotlin,Java" gists="https://gist.github.com/sfmc-mobilepushsdk/ad48b629a87c262c4d0d672940c26b1a.js,https://gist.github.com/sfmc-mobilepushsdk/00524aabb3d9ce03b807760a11baec4c.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/ad48b629a87c262c4d0d672940c26b1a.js"></script>
