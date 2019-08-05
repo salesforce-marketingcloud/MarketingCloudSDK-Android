@@ -2,7 +2,7 @@
 layout: page
 title: "Logging Interface"
 subtitle: "Add a Log Listener"
-category: features
+category: trouble-shooting
 date: 2016-03-18 12:00:00
 order: 13
 ---
