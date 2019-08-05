@@ -17,7 +17,7 @@ You can fully enable in-app messages in [Marketing Cloud Journey Builder](https:
 
 Marketers can configure the action that occurs when an end-user taps a button on an in-app message. Actions for *Notification Settings* and *Location Settings* are handled by the SDK, while actions for *Web URL* and *App URL* require that you implement a new SDK initialization method, as shown in the following example.
 
-{% include gist.html sectionId="setUrlHandler" names="Kotlin" gists="https://gist.github.com/sfmc-mobilepushsdk/e26e7a94744e27cda902b88ececb42b9.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/e26e7a94744e27cda902b88ececb42b9.js"></script>
 
 ### Optional Methods
 
@@ -26,7 +26,7 @@ You can use the SDK’s optional in-app messaging [EventListener]({{ site.baseur
 
 After the SDK's initialization is complete you can register your in-app message [EventListener]({{ site.baseurl }}/javadocs/{{ site.currentMajorMinor }}/reference/com/salesforce/marketingcloud/messages/iam/InAppMessageManager.EventListener.html) with the [InAppMessageManager]({{ site.baseurl }}/javadocs/{{ site.currentMajorMinor }}/reference/com/salesforce/marketingcloud/messages/iam/InAppMessageManager.html).
 
-{% include gist.html sectionId="setInAppMessageListener" names="Kotlin" gists="https://gist.github.com/sfmc-mobilepushsdk/93b17c5aae85b915e0e8b46d5b66d570.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/93b17c5aae85b915e0e8b46d5b66d570.js"></script>
 
 #### didShowMessage and didCloseMessage
 The following delegate methods help ensure that you can appropriately manage your app's view state. In-app messages are shown in an activity controlled by the SDK in your app's activity stack. Your app may need to respond to a view appearing or disappearing.
@@ -40,7 +40,7 @@ You can delay or prevent an in-app message’s display. For example, prevent an 
 
 You can capture the message data and show that message later. For example, present the message after the end-user has signed in. Capture the ID of the message and show that message later.
 
-{% include gist.html sectionId="showMessage" names="Kotlin" gists="https://gist.github.com/sfmc-mobilepushsdk/ccdaba4245c2e28b631bf2ca5bb9c453.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/ccdaba4245c2e28b631bf2ca5bb9c453.js"></script>
 
 #### Customize Display
 
@@ -50,8 +50,8 @@ In-app messages use your device's system font. You can override the default font
 
 To set the display font, pass the SDK a valid [TypeFace](https://developer.android.com/reference/android/graphics/Typeface) for the device's installed fonts or your app's custom fonts via the following method.
 
-{% include gist.html sectionId="setTypeFace" names="Kotlin" gists="https://gist.github.com/sfmc-mobilepushsdk/d26c90a87b3f782192dfad8f943ae070.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/d26c90a87b3f782192dfad8f943ae070.js"></script>
 
 The SDK can’t use AppCompatActivity and can’t inherit your app's status bar color. Instead, set a custom status bar color in your app's theme. The SDK applies this color on Android API versions that support status bar color, which is Lollipop and newer.
 
-{% include gist.html sectionId="setStatusBarColor" names="Kotlin" gists="https://gist.github.com/sfmc-mobilepushsdk/481804515687b4d2e8882a2e2a12e1af.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/481804515687b4d2e8882a2e2a12e1af.js"></script>

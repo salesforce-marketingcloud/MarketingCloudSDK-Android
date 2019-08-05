@@ -21,7 +21,7 @@ It will take up to {{ site.propagationDelay }} for the registration data to be p
 
 You can configure the SDK in a mode that delays registration until a contact key is set by the application. Use this configuration mode **only** in implementations where the device running your app is tied to a specific contact key in Marketing Cloud and not to a generic device contact.
 
-{% include gist.html sectionId="delay_registration" names="Kotlin,Java" gists="https://gist.github.com/sfmc-mobilepushsdk/00ec2a1cce7803be9e91e0e2ce795394.js,https://gist.github.com/sfmc-mobilepushsdk/53acc25a087f73c2b861ff555ff3b0e0.js,https_url" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/00ec2a1cce7803be9e91e0e2ce795394.js"></script>
 
 ---
 ### Contact Key
@@ -30,7 +30,7 @@ Contact key is the unique identifier used to aggregate a contact's devices withi
 
 > Contact key can’t be null and can’t be an empty string. Leading or trailing whitespace is removed. After you set the contact key for a contact, you can change it, but you can’t clear it. Don’t set the contact key to a generic, non-unique value.
 
-{% include gist.html sectionId="contact_key" names="Kotlin,Java" gists="https://gist.github.com/sfmc-mobilepushsdk/41b11be25b6a9797ab6da63f0fbc91ca.js,https://gist.github.com/sfmc-mobilepushsdk/65f1ee422e4ebd8a67c45fa1632988a3.js,https_url" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/41b11be25b6a9797ab6da63f0fbc91ca.js"></script>
 
 > If your app doesn’t set the contact key using `setContactKey()`, Marketing Cloud uses the registration sent with a contact record that matches the system token included in the registration payload. If Marketing Cloud doesn’t find a match, it sets a new contact key and doesn’t send the value back to the SDK.
 
@@ -41,7 +41,7 @@ Contact key is the unique identifier used to aggregate a contact's devices withi
 
 You can use attributes to segment your audience and personalize your messages. Before you can use attributes, create them in your MobilePush account. Attributes may only be set or cleared by the SDK. See the [Reserved Words](#reserved-words) section for a list of attribute keys that can’t be modified by the SDK or your application.
 
-{% include gist.html sectionId="attributes" names="Kotlin,Java" gists="https://gist.github.com/sfmc-mobilepushsdk/d08b52107fac6a18aafe9b900fb292fa.js,https://gist.github.com/sfmc-mobilepushsdk/8e2a3f37c2a15b0863ba51afbcd34a49.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/d08b52107fac6a18aafe9b900fb292fa.js"></script>
 
 > The attribute key can not be one of the [reserved words](#reserved-words); it can’t be null or an empty string; and whitespace is trimmed.
 
@@ -54,7 +54,7 @@ You can use tags to segment your audience. Tags are commonly used to allow custo
 
 Dynamically add and remove tags via the SDK. You don’t have to create tags in Marketing Cloud.
 
-{% include gist.html sectionId="tags" names="Kotlin,Java" gists="https://gist.github.com/sfmc-mobilepushsdk/3447f513c11c5113134c3da45f3bcc6f.js,https://gist.github.com/sfmc-mobilepushsdk/f1b3340e8af6326d55e142fb61690acf.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/3447f513c11c5113134c3da45f3bcc6f.js"></script>
 
 > Tags can not be null or an empty string, and whitespace is trimmed.
 

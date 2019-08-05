@@ -53,6 +53,11 @@ code {
     padding-right: 0;
 }
 
+a.navlinkselected:link { 
+    font-size: 1.1em;
+    font-weight: bold; 
+}
+
 body.rtl {
 	direction: rtl;
 }

@@ -7,13 +7,11 @@ date: 2016-09-01 12:00:00
 order: 3
 ---
 
-{% assign _names="Kotlin,Java" %}
-
 ### Add Beacons
 
 #### 1. Add AltBeacon and Google Play Service Location Dependency to your build
 
-<script src="https://gist.github.com/sfmc-mobilepushsdk/799a322831fc00ef306d02e781d3e1d3.js"></script><br/>
+<script src="https://gist.github.com/sfmc-mobilepushsdk/799a322831fc00ef306d02e781d3e1d3.js"></script>
 
 > To be compatible with the current version of the SDK, replace {currentBeaconVersion} with {{ site.currentAltBeaconVersion}}, and replace {currentLocationVersion} with {{ site.currentGmsLocationVersion }}. These versions have been tested with the latest version of the SDK. Behavior is not guaranteed if you use a different version of either dependency.
 
@@ -23,7 +21,7 @@ order: 3
 
 #### 3. Enable beacon messaging during SDK initialization
 
-{% include gist.html sectionId="init_enable_messaging" names=_names gists="https://gist.github.com/sfmc-mobilepushsdk/0b844c9a6a8a97699dacdf4e3d213e10.js,https://gist.github.com/sfmc-mobilepushsdk/4dae38330a98001e4596a8f1ee444c42.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/0b844c9a6a8a97699dacdf4e3d213e10.js"></script>
 
 > To troubleshoot information related to beacons in the InitializationStatus that is returned during the SDK's initialization call, see [initialization status]({{ site.baseurl }}/trouble-shooting/init-status.html) documentation.
 
@@ -37,11 +35,11 @@ See [Request App Permissions](https://developer.android.com/training/permissions
 
 Once the permission is granted you can enable beacon notification by calling `enableProximityMessaging()`.
 
-{% include gist.html sectionId="enable_messaging" names=_names gists="https://gist.github.com/sfmc-mobilepushsdk/4cece3020878bbf654bc596d901b0ca3.js,https://gist.github.com/sfmc-mobilepushsdk/c50d7f877140729a9d36d5d5b364c307.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/4cece3020878bbf654bc596d901b0ca3.js"></script>
 
 You can disable beacon notifications by calling `disableProximityMessaging()`.
 
-{% include gist.html sectionId="disable_messaging" names=_names gists="https://gist.github.com/sfmc-mobilepushsdk/12d88c94cae4a916887cd3a0022b79ce.js,https://gist.github.com/sfmc-mobilepushsdk/6d01ac52f8a0b21c8b10aa4a4104f9de.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/12d88c94cae4a916887cd3a0022b79ce.js"></script>
 
 > MobilePush prevents the app from displaying a beacon message with an empty alert. If you include AMPscript in your message that returns no content or an empty string, the mobile app will not display that message.
 
@@ -50,4 +48,5 @@ You can disable beacon notifications by calling `disableProximityMessaging()`.
 ### Add Debug Logging for Beacons
 
 Proximity logging is off by default. To turn it on, use AltBeacon’s `LogManager` class. Our AltBeacon Logger implementation sends their logs through our internal logging interface. Use the following example code as a guide.
-<script src="https://gist.github.com/sfmc-mobilepushsdk/c73fca7651549f5c26acf081ce194481.js"></script>
+
+<script src="https://gist.github.com/sfmc-mobilepushsdk/ff3f0f800a81d9cd1717005dc9602968.js"></script>

@@ -15,7 +15,7 @@ The [NotificationMessage]({{ site.baseurl}}/javadocs/6.0/reference/com/salesforc
 ### Simplified Customization ###
 [NotificationCustomizationOptions]({{ site.baseurl }}/javadocs/6.0/reference/com/salesforce/marketingcloud/notifications/NotificationCustomizationOptions.html) can be created with a [NotificationChannelIdProvider]({{ site.baseurl }}/javadocs/6.0/reference/com/salesforce/marketingcloud/notifications/NotificationManager.NotificationChannelIdProvider.html) to customize the channel for a [NotificationMessage]({{ site.baseurl }}/javadocs/6.0/reference/com/salesforce/marketingcloud/notifications/NotificationMessage.html) and a [NotificationLaunchIntentProvider]({{ site.baseurl }}/javadocs/6.0/reference/com/salesforce/marketingcloud/notifications/NotificationManager.NotificationLaunchIntentProvider.html) to customize the action that will be taken when a [NotificationMessage]({{ site.baseurl }}/javadocs/6.0/reference/com/salesforce/marketingcloud/notifications/NotificationMessage.html) is tapped in addition to your application's Notification Icon.
 
-{% include gist.html sectionId="notification_customizations_options" names="Kotlin,Java" gists="https://gist.github.com/sfmc-mobilepushsdk/d3a632e2601bc482804e710158c15bc2.js,https://gist.github.com/sfmc-mobilepushsdk/5e499b52b6b79b1920d9d64d135ee8bc.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/d3a632e2601bc482804e710158c15bc2.js"></script>
 
 ---
 
@@ -25,4 +25,4 @@ When providing a builder to the [NotificationCustomizationOptions]({{ site.baseu
 
 > NOTE: You must wrap your `PendingIntent` in the SDK's analytics helper method [NotificationManager.redirectForAnalytics()]({{ site.baseurl }}/javadocs/{{ site.currentMajorMinor }}/reference/com/salesforce/marketingcloud/notifications/NotificationManager.html#redirectIntentForAnalytics(android.content.Context,%20android.app.PendingIntent,%20com.salesforce.marketingcloud.notifications.NotificationMessage,%20boolean)) if you wish to have the Marketing Cloud collect notification open analytics for your notifications.
 
-{% include gist.html sectionId="providing_a_builder" names="Kotlin,Java" gists="https://gist.github.com/sfmc-mobilepushsdk/63df5dd27ce472bc76213b3cfe7b03d6.js,https://gist.github.com/sfmc-mobilepushsdk/2cb240317c8039af10f93e82a6f457c9.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/63df5dd27ce472bc76213b3cfe7b03d6.js"></script>

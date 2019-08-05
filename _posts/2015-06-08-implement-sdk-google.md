@@ -20,10 +20,10 @@ Create an app in MobilePush. This process connects the device to the MobilePush 
 ### Update module-level `build.gradle` file
 
 Add the SDK repository:
-{% include gist.html sectionId="gradle_repo" names="Gradle" gists="https://gist.github.com/sfmc-mobilepushsdk/d1caa687eedbf5792f1ea399cf8e5749.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/d1caa687eedbf5792f1ea399cf8e5749.js"></script>
 
 Add the SDK dependency:
-{% include gist.html sectionId="gradle_deps" names="Gradle" gists="https://gist.github.com/sfmc-mobilepushsdk/847e10adaed170e613a21986487d47d5.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/847e10adaed170e613a21986487d47d5.js"></script>
 
 > Replace `{currentVersion}` with {{ site.currentVersion }} to use the latest SDK version.
 
@@ -39,7 +39,7 @@ Follow the [Android Firebase setup](https://firebase.google.com/docs/android/set
 
 The SDK **must** be initialized during the execution of your [Application](https://developer.android.com/reference/android/app/Application) class's `onCreate` method.  Initialization will require configuration data for your Marketing Cloud Application.  Please refer to the [documentation]({{ site.baseurl}}/create-apps/create-apps-overview.html#finding-your-marketing-cloud-application-configuration-data) for guidance on where to find the required pieces of data.
 
-{% include gist.html sectionId="sdk_init" names="Kotlin,Java" gists="https://gist.github.com/sfmc-mobilepushsdk/4016de963a1e7f828faabab46c8bb1a3.js,https://gist.github.com/sfmc-mobilepushsdk/145c5fc15b5fdb0ba046a0fe7ace3f48.js" %}
+<script src="https://gist.github.com/sfmc-mobilepushsdk/4016de963a1e7f828faabab46c8bb1a3.js"></script>
 
 > If you don’t call the SDK's `init` method from your app's `onCreate`, the SDK can’t post notifications while the app is in the background.
 
