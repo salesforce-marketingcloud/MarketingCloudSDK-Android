@@ -53,10 +53,9 @@ code {
     padding-right: 0;
 }
 
-a.navlinkselected:link { 
-    font-size: 1.1em;
-    font-weight: bold; 
-}
+#navigation li.active a {
+    cursor: default;
+  }
 
 body.rtl {
 	direction: rtl;

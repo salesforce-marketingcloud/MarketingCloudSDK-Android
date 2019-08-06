@@ -35,7 +35,7 @@ Integrate MobilePush into your mobile app using the MarketingCloudSdk:
 1. Implement additional optional features of the SDK to take full advantage of Salesforce Marketing Cloud.
     * Use a [contact key]({{ site.baseurl }}/sdk-implementation/device-contact-registration.html#contact-key) to set the unique identifier used to aggregate a contact's devices within Marketing Cloud. Set the contact key to a specific value provided by your customer or to another unique identifier for the contact, such as mobile number, email address, customer number, or another value.
     * Add [attributes]({{ site.baseurl }}/sdk-implementation/device-contact-registration.html#attributes) and [tags]({{ site.baseurl }}/sdk-implementation/device-contact-registration.html#tags) -- Enhance your ability to segment your push message audiences.
-    * Add [predictive intelligence]({{ site.baseurl }}/features/analytics.html) using Personalization Builder -- Track cart and cart conversions. Purchase this feature separately.
+    * Add [predictive intelligence]({{ site.baseurl }}/analytics/analytics.html) using Personalization Builder -- Track cart and cart conversions. Purchase this feature separately.
     * Add other features -- Send push notifications along with your [inbox messages]({{ site.baseurl }}/inbox/inbox.html) and trigger location-based messages with [location and beacon messaging]({{ site.baseurl }}/location/geolocation-overview.html).
 
 ## Contact Us

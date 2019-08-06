@@ -50,7 +50,3 @@ The SDK **must** be initialized during the execution of your [Application](https
 ## 4. Send a test push notification
 
 Send a test push notification from the Marketing Cloud to your app.
-
----
-
-To upgrade from a previous version, see the [upgrading documentation]({{ site.baseurl }}/overview/upgrading.html).

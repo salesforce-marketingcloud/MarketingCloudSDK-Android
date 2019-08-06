@@ -53,15 +53,15 @@ collections:
 
 # Default categories (in order) to appear in the navigation
 sections: [
-    ['overview', 'Overview'],
+    ['docs', "Documentation"],
     ['provisioning', 'Provisioning'],
     ['create-apps', 'Create Cloud Apps'],
     ['sdk-implementation', 'SDK Implementation'],
-    ['features', 'Feature Implementation'],
     ['notifications', 'Notifications'],
     ['in-app-message', 'In-App Messaging'],
     ['inbox', 'Inbox Messaging'],
     ['location', 'Location Messaging'],
+    ['analytics', 'Analytics'],
     ['use-cases', 'Use Cases'],
     ['trouble-shooting', 'Troubleshooting']
 ]

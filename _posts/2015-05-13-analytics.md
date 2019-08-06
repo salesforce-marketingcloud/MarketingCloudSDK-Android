@@ -2,7 +2,7 @@
 layout: page
 title: "Analytics, Personalization Builder, and Collect API"
 subtitle: "Analytics, Personalization Builder, and Collect API"
-category: features
+category: analytics
 date: 2015-05-14 12:00:00
 order: 6
 ---
