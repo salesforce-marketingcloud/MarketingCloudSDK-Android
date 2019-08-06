@@ -10,7 +10,7 @@ If you encounter issues receiving messages in your app, consider these troublesh
 
 #### Check the SDK's log output
 
- [Enabling logging]({{ site.baseurl }}/features/loginterface.html) in the SDK and verify no errors are being logged.
+ [Enabling logging]({{ site.baseurl }}/trouble-shooting/loginterface.html) in the SDK and verify no errors are being logged.
  > Ensure you attempt this important debugging step. The SDK provides very verbose messages, and you can correct many errors and issues by reviewing the logcat.
 
 #### Send a test push
