@@ -9,11 +9,7 @@
             {% if forloop.first %}
                 <li class=nav-header>{{ label }}</li>
             {% endif %}
-            {% if sp.url == page.url %}
-            <li data-order="{{ sp.order }}"><a class="navlinkselected" href="{{ site.baseurl }}{{ sp.url }}">{{ sp.title }}</a></li>
-            {% else %}
-            <li data-order="{{ sp.order }}"><a href="{{ site.baseurl }}{{ sp.url }}">{{ sp.title }}</a></li>
-            {% endif %}
+            <li data-order="{{sp.order}}" class="{% if sp.url == page.url" %}active{% endif %}"><a href="{{ site.baseurl }}{{ sp.url }}">{{ sp.title }}</a></li>
         {% endfor %}
         
     {% endfor %}
