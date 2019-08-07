@@ -14,9 +14,14 @@ Existing mobile applications will continue to function, without change.  Mobile 
 
 Additionally, the January, 2020 Android MobilePush SDK will release with the following changes:
 1. Usage of Android Support libraries will migrate to the androidx-packaged library artifacts.
-2. Java 8 source compatibility.
-3. New dependency on the Kotlin std-lib.
-4. Small changes to the API to better align with expected method naming in Kotlin.
+   * If your application still depends on the old support packaging you can enable jetifier to continue using the SDK by adding the following to our project's `gradle.properties` file.
+        ```groovy
+      android.userAndroidX=true
+      android.enableJetifier=true
+        ```
+1. Java 8 source compatibility.
+2. New dependency on the Kotlin std-lib.
+3. Small changes to the API to better align with expected method naming in Kotlin.
 
 ## Android Q
 
