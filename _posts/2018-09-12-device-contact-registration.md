@@ -73,7 +73,7 @@ An orphaned contact is a contact that is no longer targetable by the marketer du
 
 #### Common causes of orphaned contacts
 
-* Initializing the SDK without setting the `delayRegistrationForContactKey` flag to `true` in an app that will eventually associate the device users with a known identifier.
+* Initializing the SDK without setting the `delayRegistrationUntilContactKeyIsSet` flag to `true` in an app that will eventually associate the device users with a known identifier.
     1. The first launch of the app the SDK will send a registration to the Marketing Cloud.  This will be done before it would be possible for the customer to set a contact key.
     2. Upon receiving a registration payload without a contact key, the Marketing Cloud will generate one for the device. (eg. abc123)
     3. At a point in the future (let's say once the user logs into their account in the application) the app sets the known contact key in the registration.
@@ -87,9 +87,9 @@ An orphaned contact is a contact that is no longer targetable by the marketer du
 
 #### Avoiding orphaned contacts
 
-Depending on the design/usage of an application, orphaned contacts may not be entirely avoidable.  However, the likelihood of an orphaned contact being created can be reduced by using the `delayRegistrationForContactKey` configuration flag when initializing the SDK.
+Depending on the design/usage of an application, orphaned contacts may not be entirely avoidable.  However, the likelihood of an orphaned contact being created can be reduced by using the `delayRegistrationUntilContactKeyIsSet` configuration flag when initializing the SDK.
 
-The default value for `delayRegistrationForContactKey` is `false`, but if a developer sets the flag to `true` the SDK will not send a registration request to the Marketing Cloud until a contact key has been set by the application.  For new installs of the application, this will prevent an unknown contact from being created in the Marketing Cloud.
+The default value for `delayRegistrationUntilContactKeyIsSet` is `false`, but if a developer sets the flag to `true` the SDK will not send a registration request to the Marketing Cloud until a contact key has been set by the application.  For new installs of the application, this will prevent an unknown contact from being created in the Marketing Cloud.
 
 #### How is billing affected by orphaned contacts?
 
