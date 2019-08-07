@@ -64,3 +64,33 @@ Dynamically add and remove tags via the SDK. You don’t have to create tags in 
 The SDK ignores calls to modify values associated with the following attribute keys because these attributes are reserved for internal use.
 
 <script src="https://gist.github.com/sfmc-mobilepushsdk/d203ad25ac96ed8cb570d9c40910cf0a.js"></script>
+
+### Orphaned Contacts
+
+#### What is an orphaned contact?
+
+An orphaned contact is a contact that is no longer targetable by the marketer due to the contact becoming disassociated with any known devices in the Marketing Cloud.
+
+#### Common causes of orphaned contacts
+
+* Initializing the SDK without setting the `delayRegistrationForContactKey` flag to *true *in an app that will eventually associate the device users with a known identifier.
+    1. The first launch of the app the SDK will send a registration to the Marketing Cloud.  This will be done before it would be possible for the customer to set a contact key.
+    2. Upon receiving a registration payload without a contact key, the Marketing Cloud will generate one for the device. (eg. abc123)
+    3. At a point in the future (let's say once the user logs into their account in the application) the app sets the known contact key in the registration.
+    4. The device will now send a new registration payload to the Marketing Cloud, a new contact will be created and the device will become associated with the new contact.
+
+* The application allows for multiple users, for example, a banking app, where each user can log into the application and are targeted as individual users.
+    1. **User A** logs into their account in the banking app and the application sets the contact key in the registration to **user.a@example.com**.  
+    2. The Marketing Cloud creates a contact for **User A** in the contact record for the customer’s MC App.
+    3. At a point in the future **User B** logs into their account on the same device and the application sets the contact key in the registration to **user.b@example.com**.
+    4. The Marketing Cloud creates a contact for **User B** in the contact record and associates the device with that contact.  The contact for **User A** no longer has an association with a targettable device and is now considered “orphaned”
+
+#### Avoiding orphaned contacts
+
+Depending on the design/usage of an application, orphaned contacts may not be entirely avoidable.  However, the likelihood of an orphaned contact being created can be reduced by using the `delayRegistrationForContactKey` configuration flag when initializing the SDK.
+
+The default value for `delayRegistrationForContactKey` is `false`, but if a developer sets the flag to `true` the SDK will not send a registration request to the Marketing Cloud until a contact key has been set by the application.  For new installs of the application, this will prevent an unknown contact from being created in the Marketing Cloud.
+
+#### How is billing affected by orphaned contacts?
+
+Each Contact with a unique ContactKey/SubscriberKey is counted as a Distinct Contact for billing purposes. 
