@@ -73,7 +73,7 @@ An orphaned contact is a contact that is no longer targetable by the marketer du
 
 #### Common causes of orphaned contacts
 
-* Initializing the SDK without setting the `delayRegistrationForContactKey` flag to *true *in an app that will eventually associate the device users with a known identifier.
+* Initializing the SDK without setting the `delayRegistrationForContactKey` flag to `true` in an app that will eventually associate the device users with a known identifier.
     1. The first launch of the app the SDK will send a registration to the Marketing Cloud.  This will be done before it would be possible for the customer to set a contact key.
     2. Upon receiving a registration payload without a contact key, the Marketing Cloud will generate one for the device. (eg. abc123)
     3. At a point in the future (let's say once the user logs into their account in the application) the app sets the known contact key in the registration.
@@ -83,7 +83,7 @@ An orphaned contact is a contact that is no longer targetable by the marketer du
     1. **User A** logs into their account in the banking app and the application sets the contact key in the registration to **user.a@example.com**.  
     2. The Marketing Cloud creates a contact for **User A** in the contact record for the customer’s MC App.
     3. At a point in the future **User B** logs into their account on the same device and the application sets the contact key in the registration to **user.b@example.com**.
-    4. The Marketing Cloud creates a contact for **User B** in the contact record and associates the device with that contact.  The contact for **User A** no longer has an association with a targettable device and is now considered “orphaned”
+    4. The Marketing Cloud creates a contact for **User B** in the contact record and associates the device with that contact.  The contact for **User A** no longer has an association with a targettable device and is now considered “orphaned.”
 
 #### Avoiding orphaned contacts
 
