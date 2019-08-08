@@ -1,10 +1,15 @@
+
 <ul class="nav nav-list">
     <li><a href="{{ site.baseurl }}/">Home</a></li>
     {% for section in site.sections %}
         {% assign attr = section[0] %}
         {% assign label = section[1] %}
 
-        {% assign sorted_pages = site.categories[attr] | sort: 'order' %} 
+        {% assign unsorted_pages = site.categories[attr] %}
+        {% if unsorted_pages == null %}
+            {% continue %}
+        {% endif %}
+        {% assign sorted_pages = unsorted_pages | sort: 'order' %} 
         {% for sp in sorted_pages %}
             {% if forloop.first %}
                 <li class=nav-header>{{ label }}</li>
