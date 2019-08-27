@@ -60,22 +60,22 @@ abstract class BaseLearningApplication : Application(), UrlHandler {
         // functionality when the app is launched from a background service (receiving push message,
         // entering a geofence, ...)
         MarketingCloudSdk.init(this, configBuilder.build(this)) { initStatus ->
-            when (initStatus.status()) {
+            when (initStatus.status) {
                 SUCCESS -> Log.v(LOG_TAG, "Marketing Cloud initialization successful.")
                 COMPLETED_WITH_DEGRADED_FUNCTIONALITY -> {
                     Log.v(LOG_TAG, "Marketing Cloud initialization completed with recoverable errors.")
-                    if (initStatus.locationsError() && GoogleApiAvailability.getInstance().isUserResolvableError(
-                            initStatus.playServicesStatus()
+                    if (initStatus.locationsError && GoogleApiAvailability.getInstance().isUserResolvableError(
+                            initStatus.playServicesStatus
                         )
                     ) {
                         // User will likely need to update GooglePlayServices through the Play Store.
-                        GoogleApiAvailability.getInstance().showErrorNotification(this, initStatus.playServicesStatus())
+                        GoogleApiAvailability.getInstance().showErrorNotification(this, initStatus.playServicesStatus)
                     }
                 }
                 FAILED -> {
                     // Given that this app is used to show SDK functionality we will hard exit if SDK init outright failed.
                     Log.e(LOG_TAG, "Marketing Cloud initialization failed.  Exiting Learning App with exception.")
-                    throw initStatus.unrecoverableException() ?: RuntimeException("Init failed")
+                    throw initStatus.unrecoverableException ?: RuntimeException("Init failed")
 
                 }
             }
@@ -98,11 +98,11 @@ abstract class BaseLearningApplication : Application(), UrlHandler {
                     }
 
                     override fun didShowMessage(message: InAppMessage) {
-                        Log.v(LOG_TAG, "${message.id()} was displayed.")
+                        Log.v(LOG_TAG, "${message.id} was displayed.")
                     }
 
                     override fun didCloseMessage(message: InAppMessage) {
-                        Log.v(LOG_TAG, "${message.id()} was closed.")
+                        Log.v(LOG_TAG, "${message.id} was closed.")
                     }
                 })
             }

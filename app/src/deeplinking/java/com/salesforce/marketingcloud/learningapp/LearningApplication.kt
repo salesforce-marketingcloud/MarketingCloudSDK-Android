@@ -59,8 +59,8 @@ class LearningApplication : BaseLearningApplication(), NotificationManager.Notif
         }
 
     override fun getNotificationPendingIntent(context: Context, message: NotificationMessage): PendingIntent? {
-        val url = message.url()
-        val type = message.type()
+        val url = message.url
+        val type = message.type
 
         return when {
             url != null && type == NotificationMessage.Type.OPEN_DIRECT -> PendingIntent.getActivity(

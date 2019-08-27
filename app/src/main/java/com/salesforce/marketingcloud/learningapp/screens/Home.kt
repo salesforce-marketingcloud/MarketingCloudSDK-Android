@@ -37,7 +37,7 @@ import com.salesforce.marketingcloud.MarketingCloudSdk
 import com.salesforce.marketingcloud.learningapp.R
 import com.salesforce.marketingcloud.learningapp.SdkFragment
 
-private const val DOCUMENTATION_URL = "https://salesforce-marketingcloud.github.io/JB4A-SDK-Android/"
+private const val DOCUMENTATION_URL = "https://salesforce-marketingcloud.github.io/MarketingCloudSDK-Android/"
 
 class Home : SdkFragment() {
     override val layoutId: Int
