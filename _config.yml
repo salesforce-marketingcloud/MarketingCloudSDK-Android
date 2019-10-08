@@ -21,7 +21,7 @@ currentVersion: "6.4.0"
 currentMajorMinor: "6.4"
 
 # Google Play Services Location version for current SDK release
-currentGmsLocationVersion: "16.0.0"
+currentGmsLocationVersion: "17.0.0"
 
 # Firebase major version
 firebaseCoreMajor: "17"
