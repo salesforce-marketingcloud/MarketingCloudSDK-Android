@@ -14,7 +14,7 @@ Review the steps to connect your Android app to your Marketing Cloud account in 
 
 Locate your app ID, access token, and app endpoint on your app's administration page in [MobilePush Administration](https://mc.exacttarget.com/cloud/#app/MobilePush/MobilePush/).
 
-<img class="img-responsive" src="{{ site.baseurl }}/assets/setupConfigValues.png"   style="border:1px solid black"/><br/>
+<img class="img-responsive" src="{{ site.baseurl }}/assets/setupConfigValues-222.png"   style="border:1px solid black"/><br/>
 
 Locate your MID under your app’s name in the Marketing Cloud navigation bar.
 
