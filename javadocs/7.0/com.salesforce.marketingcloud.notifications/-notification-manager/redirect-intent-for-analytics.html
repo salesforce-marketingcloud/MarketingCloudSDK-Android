@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NotificationManager.redirectIntentForAnalytics - Marketing Cloud SDK</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">Marketing Cloud SDK</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.notifications</a>&nbsp;/&nbsp;<a href="index.html">NotificationManager</a>&nbsp;/&nbsp;<a href="./redirect-intent-for-analytics.html">redirectIntentForAnalytics</a><br/>
+<br/>
+<h1>redirectIntentForAnalytics</h1>
+<a name="com.salesforce.marketingcloud.notifications.NotificationManager$redirectIntentForAnalytics(android.content.Context, android.app.PendingIntent, com.salesforce.marketingcloud.notifications.NotificationMessage, kotlin.Boolean)"></a>
+<code><span class="identifier">@NonNull</span> <span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">redirectIntentForAnalytics</span><span class="symbol">(</span><span class="identifier">@NonNull</span> <span class="identifier" id="com.salesforce.marketingcloud.notifications.NotificationManager$redirectIntentForAnalytics(android.content.Context, android.app.PendingIntent, com.salesforce.marketingcloud.notifications.NotificationMessage, kotlin.Boolean)/context">context</span><span class="symbol">:</span>&nbsp;<span class="identifier">Context</span><span class="symbol">, </span><span class="identifier">@NonNull</span> <span class="identifier" id="com.salesforce.marketingcloud.notifications.NotificationManager$redirectIntentForAnalytics(android.content.Context, android.app.PendingIntent, com.salesforce.marketingcloud.notifications.NotificationMessage, kotlin.Boolean)/openIntent">openIntent</span><span class="symbol">:</span>&nbsp;<span class="identifier">PendingIntent</span><span class="symbol">, </span><span class="identifier">@NonNull</span> <span class="identifier" id="com.salesforce.marketingcloud.notifications.NotificationManager$redirectIntentForAnalytics(android.content.Context, android.app.PendingIntent, com.salesforce.marketingcloud.notifications.NotificationMessage, kotlin.Boolean)/message">message</span><span class="symbol">:</span>&nbsp;<a href="../-notification-message/index.html"><span class="identifier">NotificationMessage</span></a><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.notifications.NotificationManager$redirectIntentForAnalytics(android.content.Context, android.app.PendingIntent, com.salesforce.marketingcloud.notifications.NotificationMessage, kotlin.Boolean)/autoCancel">autoCancel</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">PendingIntent</span></code>
+<p>Returns a PendingIntent that will redirect to our internal Service to handle notification opened analytics. Once the analytic has been logged it will redirect the application to the provided .</p>
+<h3>Parameters</h3>
+<p><a name="context"></a>
+<code>context</code> - <span class="identifier">Context</span><span class="symbol">:</span> The context to use to create the <code><a href="#">android.app.PendingIntent</a></code></p>
+<p><a name="openIntent"></a>
+<code>openIntent</code> - <span class="identifier">PendingIntent</span><span class="symbol">:</span> PendingIntent to be used when the notification is clicked.</p>
+<p><a name="message"></a>
+<code>message</code> - <a href="../-notification-message/index.html"><span class="identifier">NotificationMessage</span></a><span class="symbol">:</span> Message associated with the notification</p>
+<p><a name="autoCancel"></a>
+<code>autoCancel</code> - <span class="identifier">Boolean</span><span class="symbol">:</span> If true, the notification will be clear from the notification shade once it has been clicked</p>
+</BODY>
+</HTML>
