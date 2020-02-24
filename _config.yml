@@ -15,10 +15,10 @@ codeurl: 'https://github.com/salesforce-marketingcloud/MarketingCloudSDK-Android
 title: 'MarketingCloudSDK Android'
 
 # Current SDK version, use for all mentions
-currentVersion: "6.4.0"
+currentVersion: "7.0.0"
 
 # Current SDK major minor version.  Used to reference javadoc
-currentMajorMinor: "6.4"
+currentMajorMinor: "7.0"
 
 # Google Play Services Location version for current SDK release
 currentGmsLocationVersion: "17.0.0"
@@ -27,10 +27,10 @@ currentGmsLocationVersion: "17.0.0"
 firebaseCoreMajor: "17"
 
 # AltBeacon version for current SDK release
-currentAltBeaconVersion: "2.16.3"
+currentAltBeaconVersion: "2.16.4"
 
 # Min Android SDK supported by MC SDK
-minAndroidSdkVersion: "16"
+minAndroidSdkVersion: "21"
 
 # Target and compile Android SDK used by MC SDK
 compileAndroidSdkVersion: "29"

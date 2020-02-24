@@ -1,0 +1,156 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RegionMessageManager - Marketing Cloud SDK</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">Marketing Cloud SDK</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.messages</a>&nbsp;/&nbsp;<a href="./index.html">RegionMessageManager</a><br/>
+<br/>
+<h1>RegionMessageManager</h1>
+<code><span class="keyword">interface </span><span class="identifier">RegionMessageManager</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-geofence-message-response-listener/index.html">GeofenceMessageResponseListener</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">GeofenceMessageResponseListener</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-proximity-message-response-listener/index.html">ProximityMessageResponseListener</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">ProximityMessageResponseListener</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-region-transition-event-listener/index.html">RegionTransitionEventListener</a></h4>
+</td>
+<td>
+<p>Interface to use to listen for region(Geofence/Proximity) transition(enter/exit) events. The <code><a href="#"> </a></code> in the provided <code><a href="../-region/index.html">Region</a></code> will always be empty when these methods are called. If there is a message attached to the region transition that should be shown as a notification then it will be displayed shortly after this interface is notified of the event.</p>
+<code><span class="keyword">interface </span><span class="identifier">RegionTransitionEventListener</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="disable-geofence-messaging.html">disableGeofenceMessaging</a></h4>
+</td>
+<td>
+<p>Disables geofence messaging.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">disableGeofenceMessaging</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="disable-proximity-messaging.html">disableProximityMessaging</a></h4>
+</td>
+<td>
+<p>Disables proximity messaging.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">disableProximityMessaging</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="enable-geofence-messaging.html">enableGeofenceMessaging</a></h4>
+</td>
+<td>
+<p>Enables geofence messaging. This will only succeed if: <ul> <li><code><a href="../../com.salesforce.marketingcloud/-marketing-cloud-config/-builder/set-geofencing-enabled.html">com.salesforce.marketingcloud.MarketingCloudConfig.Builder#setGeofencingEnabled(boolean)</a></code> (boolean)} was set to true</li>
+ <li>The device has GPS hardware</li>
+ <li>The play-services-location dependency was included in your build</li>
+ <li>The <code><a href="#">Manifest.permission#ACCESS_FINE_LOCATION</a></code> permission has been granted.</li>
+ <li>The <code><a href="#">Manifest.permission#ACCESS_BACKGROUND_LOCATION</a></code> permission has been granted on Android Q+.</li>
+ <li>The device has the supported play services version.</li>
+ </ul>
+</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">enableGeofenceMessaging</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="enable-proximity-messaging.html">enableProximityMessaging</a></h4>
+</td>
+<td>
+<p>Enables proximity messaging. This will only succeed if: <ul> <li><code><a href="../../com.salesforce.marketingcloud/-marketing-cloud-config/-builder/set-proximity-enabled.html">com.salesforce.marketingcloud.MarketingCloudConfig.Builder#setProximityEnabled(boolean)</a></code> was set to true</li>
+ <li>The <a href="https://github.com/AltBeacon/android-beacon-library">AltBeacon</a> dependency was included in your build.</li>
+ <li>The device has the correct hardware and API level (18)</li>
+ <li>The play-services-location dependency was included in your build</li>
+ <li>The <code><a href="#">Manifest.permission#ACCESS_FINE_LOCATION</a></code> permission has been granted.</li>
+ <li>The <code><a href="#">Manifest.permission#ACCESS_BACKGROUND_LOCATION</a></code> permission has been granted on Android Q+.</li>
+ <li>The device has the supported play services version.</li>
+ </ul>
+</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">enableProximityMessaging</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-geofence-messaging-enabled.html">isGeofenceMessagingEnabled</a></h4>
+</td>
+<td>
+<p>Indicates whether geofence messaging is enabled.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">isGeofenceMessagingEnabled</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-proximity-messaging-enabled.html">isProximityMessagingEnabled</a></h4>
+</td>
+<td>
+<p>Indicates whether proximity messaging is enabled.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">isProximityMessagingEnabled</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="register-geofence-message-response-listener.html">registerGeofenceMessageResponseListener</a></h4>
+</td>
+<td>
+<p>Registers the provided <code><a href="-geofence-message-response-listener/index.html">listener</a></code> for geofence message response events.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">registerGeofenceMessageResponseListener</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.RegionMessageManager$registerGeofenceMessageResponseListener(com.salesforce.marketingcloud.messages.RegionMessageManager.GeofenceMessageResponseListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="identifier">GeofenceMessageResponseListener</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="register-proximity-message-response-listener.html">registerProximityMessageResponseListener</a></h4>
+</td>
+<td>
+<p>Registers the provided <code><a href="-proximity-message-response-listener/index.html">listener</a></code> for proximity message response events.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">registerProximityMessageResponseListener</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.RegionMessageManager$registerProximityMessageResponseListener(com.salesforce.marketingcloud.messages.RegionMessageManager.ProximityMessageResponseListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="identifier">ProximityMessageResponseListener</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="register-region-transition-event-listener.html">registerRegionTransitionEventListener</a></h4>
+</td>
+<td>
+<p>Registers the provided <code><a href="-region-transition-event-listener/index.html">listener</a></code> for region transition events.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">registerRegionTransitionEventListener</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.RegionMessageManager$registerRegionTransitionEventListener(com.salesforce.marketingcloud.messages.RegionMessageManager.RegionTransitionEventListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="identifier">RegionTransitionEventListener</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="unregister-geofence-message-response-listener.html">unregisterGeofenceMessageResponseListener</a></h4>
+</td>
+<td>
+<p>Unregisters the provided <code><a href="-geofence-message-response-listener/index.html">listener</a></code> for geofence message response events.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">unregisterGeofenceMessageResponseListener</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.RegionMessageManager$unregisterGeofenceMessageResponseListener(com.salesforce.marketingcloud.messages.RegionMessageManager.GeofenceMessageResponseListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="identifier">GeofenceMessageResponseListener</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="unregister-proximity-message-response-listener.html">unregisterProximityMessageResponseListener</a></h4>
+</td>
+<td>
+<p>Unregisters the provided <code><a href="-proximity-message-response-listener/index.html">listener</a></code> for proximity message response events.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">unregisterProximityMessageResponseListener</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.RegionMessageManager$unregisterProximityMessageResponseListener(com.salesforce.marketingcloud.messages.RegionMessageManager.ProximityMessageResponseListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="identifier">ProximityMessageResponseListener</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="unregister-region-transition-event-listener.html">unregisterRegionTransitionEventListener</a></h4>
+</td>
+<td>
+<p>Unregisters the provided <code><a href="-region-transition-event-listener/index.html">listener</a></code> for region transition events.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">unregisterRegionTransitionEventListener</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.RegionMessageManager$unregisterRegionTransitionEventListener(com.salesforce.marketingcloud.messages.RegionMessageManager.RegionTransitionEventListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="identifier">RegionTransitionEventListener</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
