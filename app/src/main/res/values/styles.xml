@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="MyTheme.DayNight" parent="Base.MyTheme"/>
+    <style name="MyTheme.DayNight" parent="Base.MyTheme" />
 
     <style name="Base.MyTheme" parent="Base.MaterialThemeBuilder">
         <!-- Customize your theme here. -->
@@ -23,8 +23,7 @@
         <item name="colorAccent">@color/secondaryColor</item>
     </style>
 
-    <style name="TextAppearance.SectionHeading" parent="TextAppearance.MaterialComponents.Headline4">
-    </style>
+    <style name="TextAppearance.SectionHeading" parent="TextAppearance.MaterialComponents.Headline4"></style>
 
     <style name="TextAppearance.DialogBody" parent="TextAppearance.MaterialComponents.Body1">
 

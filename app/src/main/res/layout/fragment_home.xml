@@ -1,104 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/root"
-            android:layout_width="match_parent"
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+        <Button
+            android:id="@+id/button_open_documentation"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp">
-
-        <Button
-                android:id="@+id/button_open_documentation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:text="Open SDK Documentation"
-        />
+            android:text="Open SDK Documentation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-                android:id="@+id/textview_registration"
-                style="@style/TextAppearance.SectionHeading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Registration"
-                app:layout_constraintTop_toBottomOf="@id/button_open_documentation"
-                app:layout_constraintStart_toStartOf="parent"
-        />
+            android:id="@+id/textview_registration"
+            style="@style/TextAppearance.SectionHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registration"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_open_documentation" />
 
         <Button
-                android:id="@+id/button_set_registration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/textview_registration"
-                app:layout_constraintStart_toStartOf="@id/textview_registration"
-                android:text="Set Values"
-        />
+            android:id="@+id/button_set_registration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Values"
+            app:layout_constraintStart_toStartOf="@id/textview_registration"
+            app:layout_constraintTop_toBottomOf="@id/textview_registration" />
 
         <Button
-                android:id="@+id/button_show_registration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/button_set_registration"
-                app:layout_constraintStart_toStartOf="@id/textview_registration"
-                android:text="Show Registration"
-        />
+            android:id="@+id/button_show_registration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show Registration"
+            app:layout_constraintStart_toStartOf="@id/textview_registration"
+            app:layout_constraintTop_toBottomOf="@id/button_set_registration" />
 
         <androidx.constraintlayout.widget.Barrier
-                android:id="@+id/registration_barrier"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:barrierDirection="bottom"
-                app:constraint_referenced_ids="textview_registration,button_set_registration,button_show_registration"
-        />
+            android:id="@+id/registration_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="textview_registration,button_set_registration,button_show_registration" />
 
         <TextView
-                android:id="@+id/textview_location"
-                style="@style/TextAppearance.SectionHeading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Location"
-                app:layout_constraintTop_toBottomOf="@id/registration_barrier"
-                app:layout_constraintStart_toStartOf="parent"
-        />
+            android:id="@+id/textview_location"
+            style="@style/TextAppearance.SectionHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registration_barrier" />
 
         <Button
-                android:id="@+id/button_location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Open Location Screen"
-                app:layout_constraintTop_toBottomOf="@id/textview_location"
-                app:layout_constraintStart_toStartOf="@id/textview_location"
-        />
+            android:id="@+id/button_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open Location Screen"
+            app:layout_constraintStart_toStartOf="@id/textview_location"
+            app:layout_constraintTop_toBottomOf="@id/textview_location" />
 
         <androidx.constraintlayout.widget.Barrier
-                android:id="@+id/location_barrier"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:barrierDirection="bottom"
-                app:constraint_referenced_ids="textview_location,button_location"
-        />
+            android:id="@+id/location_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="textview_location,button_location" />
 
         <TextView
-                android:id="@+id/textview_inbox"
-                style="@style/TextAppearance.SectionHeading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Inbox"
-                app:layout_constraintTop_toBottomOf="@id/location_barrier"
-                app:layout_constraintStart_toStartOf="parent"
-        />
+            android:id="@+id/textview_inbox"
+            style="@style/TextAppearance.SectionHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/location_barrier" />
 
         <Button
-                android:id="@+id/button_inbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Open Inbox Screen"
-                app:layout_constraintTop_toBottomOf="@id/textview_inbox"
-                app:layout_constraintStart_toStartOf="@id/textview_inbox"
-        />
+            android:id="@+id/button_inbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open Inbox Screen"
+            app:layout_constraintStart_toStartOf="@id/textview_inbox"
+            app:layout_constraintTop_toBottomOf="@id/textview_inbox" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

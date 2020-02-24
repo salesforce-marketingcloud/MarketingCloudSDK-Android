@@ -41,7 +41,11 @@ abstract class SdkFragment : Fragment() {
     private lateinit var switcher: ViewSwitcher
     private lateinit var sdk: MarketingCloudSdk
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         switcher = inflater.inflate(R.layout.fragment_sdk, container, false) as ViewSwitcher
         return switcher
     }
