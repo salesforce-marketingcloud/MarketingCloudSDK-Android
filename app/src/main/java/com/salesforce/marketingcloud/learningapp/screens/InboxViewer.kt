@@ -36,7 +36,11 @@ class InboxViewer : Fragment() {
 
     private lateinit var webView: WebView
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         webView = WebView(context)
         webView.settings.javaScriptEnabled = true
         return webView

@@ -37,7 +37,8 @@ import com.salesforce.marketingcloud.MarketingCloudSdk
 import com.salesforce.marketingcloud.learningapp.R
 import com.salesforce.marketingcloud.learningapp.SdkFragment
 
-private const val DOCUMENTATION_URL = "https://salesforce-marketingcloud.github.io/MarketingCloudSDK-Android/"
+private const val DOCUMENTATION_URL =
+    "https://salesforce-marketingcloud.github.io/MarketingCloudSDK-Android/"
 
 class Home : SdkFragment() {
     override val layoutId: Int
@@ -49,8 +50,16 @@ class Home : SdkFragment() {
         marketingCloudSdk = sdk
 
         requireView().apply {
-            findViewById<Button>(R.id.button_set_registration).setOnClickListener { setRegistrationValues(sdk) }
-            findViewById<Button>(R.id.button_show_registration).setOnClickListener { showRegistration(sdk) }
+            findViewById<Button>(R.id.button_set_registration).setOnClickListener {
+                setRegistrationValues(
+                    sdk
+                )
+            }
+            findViewById<Button>(R.id.button_show_registration).setOnClickListener {
+                showRegistration(
+                    sdk
+                )
+            }
 
             val navController = findNavController()
 
@@ -89,7 +98,8 @@ class Home : SdkFragment() {
             ?.optJSONObject("current_registration")
 
         MaterialAlertDialogBuilder(requireContext()).apply {
-            val view = LayoutInflater.from(context).inflate(R.layout.selectable_textview, null) as TextView
+            val view =
+                LayoutInflater.from(context).inflate(R.layout.selectable_textview, null) as TextView
             view.text =
                 if (currentRegistration != null) currentRegistration.toString(2) else "Unable to get current registration"
             setView(view)

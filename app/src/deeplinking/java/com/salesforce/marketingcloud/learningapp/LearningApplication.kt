@@ -36,7 +36,8 @@ import com.salesforce.marketingcloud.notifications.NotificationCustomizationOpti
 import com.salesforce.marketingcloud.notifications.NotificationManager
 import com.salesforce.marketingcloud.notifications.NotificationMessage
 
-class LearningApplication : BaseLearningApplication(), NotificationManager.NotificationLaunchIntentProvider {
+class LearningApplication : BaseLearningApplication(),
+    NotificationManager.NotificationLaunchIntentProvider {
 
     override val configBuilder: MarketingCloudConfig.Builder
         get() = MarketingCloudConfig.builder().apply {
@@ -58,7 +59,10 @@ class LearningApplication : BaseLearningApplication(), NotificationManager.Notif
             setUrlHandler(this@LearningApplication)
         }
 
-    override fun getNotificationPendingIntent(context: Context, message: NotificationMessage): PendingIntent? {
+    override fun getNotificationPendingIntent(
+        context: Context,
+        message: NotificationMessage
+    ): PendingIntent? {
         val url = message.url
         val type = message.type
 

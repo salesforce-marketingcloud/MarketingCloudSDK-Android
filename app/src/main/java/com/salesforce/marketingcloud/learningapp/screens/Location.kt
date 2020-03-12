@@ -96,7 +96,11 @@ class Location : SdkFragment() {
     }
 
     @SuppressLint("MissingPermission")
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
         if (grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
             when (requestCode) {
                 REQUEST_GEOFENCE -> {
@@ -117,7 +121,9 @@ class Location : SdkFragment() {
             }
             Log.d(
                 LOG_TAG,
-                "Not all required permissions for location messaging were granted. ${permissions.zip(grantResults.toTypedArray()).toMap()}"
+                "Not all required permissions for location messaging were granted. ${permissions.zip(
+                    grantResults.toTypedArray()
+                ).toMap()}"
             )
         }
     }

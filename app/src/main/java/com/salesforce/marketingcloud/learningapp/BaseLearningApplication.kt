@@ -60,22 +60,29 @@ abstract class BaseLearningApplication : Application(), UrlHandler {
         // functionality when the app is launched from a background service (receiving push message,
         // entering a geofence, ...)
         MarketingCloudSdk.init(this, configBuilder.build(this)) { initStatus ->
-            when (initStatus.status()) {
+            when (initStatus.status) {
                 SUCCESS -> Log.v(LOG_TAG, "Marketing Cloud initialization successful.")
                 COMPLETED_WITH_DEGRADED_FUNCTIONALITY -> {
-                    Log.v(LOG_TAG, "Marketing Cloud initialization completed with recoverable errors.")
-                    if (initStatus.locationsError() && GoogleApiAvailability.getInstance().isUserResolvableError(
-                            initStatus.playServicesStatus()
+                    Log.v(
+                        LOG_TAG,
+                        "Marketing Cloud initialization completed with recoverable errors."
+                    )
+                    if (initStatus.locationsError && GoogleApiAvailability.getInstance().isUserResolvableError(
+                            initStatus.playServicesStatus
                         )
                     ) {
                         // User will likely need to update GooglePlayServices through the Play Store.
-                        GoogleApiAvailability.getInstance().showErrorNotification(this, initStatus.playServicesStatus())
+                        GoogleApiAvailability.getInstance()
+                            .showErrorNotification(this, initStatus.playServicesStatus)
                     }
                 }
                 FAILED -> {
                     // Given that this app is used to show SDK functionality we will hard exit if SDK init outright failed.
-                    Log.e(LOG_TAG, "Marketing Cloud initialization failed.  Exiting Learning App with exception.")
-                    throw initStatus.unrecoverableException() ?: RuntimeException("Init failed")
+                    Log.e(
+                        LOG_TAG,
+                        "Marketing Cloud initialization failed.  Exiting Learning App with exception."
+                    )
+                    throw initStatus.unrecoverableException ?: RuntimeException("Init failed")
 
                 }
             }
@@ -85,7 +92,12 @@ abstract class BaseLearningApplication : Application(), UrlHandler {
             sdk.inAppMessageManager.run {
 
                 // Set the status bar color to be used when displaying an In App Message.
-                setStatusBarColor(ContextCompat.getColor(this@BaseLearningApplication, R.color.primaryColor))
+                setStatusBarColor(
+                    ContextCompat.getColor(
+                        this@BaseLearningApplication,
+                        R.color.primaryColor
+                    )
+                )
                 // Set the font to be used when an In App Message is rendered by the SDK
                 setTypeface(ResourcesCompat.getFont(this@BaseLearningApplication, R.font.fira_sans))
 
@@ -98,11 +110,11 @@ abstract class BaseLearningApplication : Application(), UrlHandler {
                     }
 
                     override fun didShowMessage(message: InAppMessage) {
-                        Log.v(LOG_TAG, "${message.id()} was displayed.")
+                        Log.v(LOG_TAG, "${message.id} was displayed.")
                     }
 
                     override fun didCloseMessage(message: InAppMessage) {
-                        Log.v(LOG_TAG, "${message.id()} was closed.")
+                        Log.v(LOG_TAG, "${message.id} was closed.")
                     }
                 })
             }
@@ -113,7 +125,10 @@ abstract class BaseLearningApplication : Application(), UrlHandler {
 
     override fun handleUrl(context: Context, url: String, urlSource: String): PendingIntent? {
         return PendingIntent.getActivity(
-            context, 1, Intent(Intent.ACTION_VIEW, Uri.parse(url)), PendingIntent.FLAG_UPDATE_CURRENT
+            context,
+            1,
+            Intent(Intent.ACTION_VIEW, Uri.parse(url)),
+            PendingIntent.FLAG_UPDATE_CURRENT
         )
     }
 }

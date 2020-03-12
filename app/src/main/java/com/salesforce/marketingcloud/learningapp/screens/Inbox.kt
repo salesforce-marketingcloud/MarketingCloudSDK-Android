@@ -67,7 +67,7 @@ class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseLi
             // Log an open analytics for the Inbox message.
             marketingCloudSdk.analyticsManager.trackInboxOpenEvent(message)
 
-            findNavController().navigate(InboxDirections.actionInboxToInboxViewer(message.url()))
+            findNavController().navigate(InboxDirections.actionInboxToInboxViewer(message.url))
         }, messageLongClickListener = { message ->
             // Mark a message as deleted.  This will remove it from the messages returned from the SDK.
             marketingCloudSdk.inboxMessageManager.deleteMessage(message)
@@ -134,7 +134,7 @@ class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseLi
 
             updateSubtitle(messages.size)
             inboxAdapter.messages = messages
-                .sortedWith(compareByDescending(nullsFirst<Date>()) { it.sendDateUtc() })
+                .sortedWith(compareByDescending(nullsFirst<Date>()) { it.sendDateUtc })
 
             refreshLayout.isRefreshing = false
         }
@@ -149,7 +149,8 @@ class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseLi
 
     private fun updateSubtitle(numOfMessages: Int) {
         if (findNavController().currentDestination?.id == R.id.inbox) {
-            (activity as? AppCompatActivity)?.supportActionBar?.subtitle = "Number of messages: $numOfMessages"
+            (activity as? AppCompatActivity)?.supportActionBar?.subtitle =
+                "Number of messages: $numOfMessages"
         }
     }
 
@@ -173,15 +174,15 @@ class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseLi
             // message whose subject field is `null`.  To prevent an empty item in our RecyclerView we will fall back
             // to the push title or alert message when the subject field is `null`.
             subjectView.text = when {
-                message.subject() != null -> message.subject()
-                message.title() != null -> message.title()
-                message.alert() != null -> message.alert()
+                message.subject != null -> message.subject
+                message.title != null -> message.title
+                message.alert != null -> message.alert
                 else -> "No subject provided."
             }
 
-            startDateView.text = message.sendDateUtc()?.let { DATE_FORMAT.format(it) } ?: ""
+            startDateView.text = message.sendDateUtc?.let { DATE_FORMAT.format(it) } ?: ""
 
-            if (message.read()) {
+            if (message.read) {
                 subjectView.typeface = Typeface.DEFAULT
             } else {
                 subjectView.typeface = Typeface.DEFAULT_BOLD
@@ -202,7 +203,8 @@ class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseLi
             }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InboxViewHolder {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_inbox, parent, false)
+            val view =
+                LayoutInflater.from(parent.context).inflate(R.layout.item_inbox, parent, false)
             return InboxViewHolder(view)
         }
 
