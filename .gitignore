@@ -6,6 +6,9 @@
 /build
 /captures
 .externalNativeBuild
+.project
+.settings
+.classpath
 
 # Ignore firebase file so we don't accidentally add it to git
 google-services.json
