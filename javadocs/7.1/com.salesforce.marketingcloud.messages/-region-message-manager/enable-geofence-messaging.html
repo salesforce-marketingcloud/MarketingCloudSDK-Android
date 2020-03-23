@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RegionMessageManager.enableGeofenceMessaging - Marketing Cloud SDK</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">Marketing Cloud SDK</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.messages</a>&nbsp;/&nbsp;<a href="index.html">RegionMessageManager</a>&nbsp;/&nbsp;<a href="./enable-geofence-messaging.html">enableGeofenceMessaging</a><br/>
+<br/>
+<h1>enableGeofenceMessaging</h1>
+<a name="com.salesforce.marketingcloud.messages.RegionMessageManager$enableGeofenceMessaging()"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">enableGeofenceMessaging</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code>
+<p>Enables geofence messaging. This will only succeed if: <ul> <li><code><a href="../../com.salesforce.marketingcloud/-marketing-cloud-config/-builder/set-geofencing-enabled.html">com.salesforce.marketingcloud.MarketingCloudConfig.Builder#setGeofencingEnabled(boolean)</a></code> (boolean)} was set to true</li>
+ <li>The device has GPS hardware</li>
+ <li>The play-services-location dependency was included in your build</li>
+ <li>The <code><a href="#">Manifest.permission#ACCESS_FINE_LOCATION</a></code> permission has been granted.</li>
+ <li>The <code><a href="#">Manifest.permission#ACCESS_BACKGROUND_LOCATION</a></code> permission has been granted on Android Q+.</li>
+ <li>The device has the supported play services version.</li>
+ </ul>
+</p>
+<p><strong>Return</strong><br/>
+<span class="identifier">Boolean</span><span class="symbol">:</span> True if geofence messaging was successfully enabled</p>
+</BODY>
+</HTML>
