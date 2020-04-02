@@ -4,3 +4,41 @@ _pages
 .jekyll-metadata
 .DS_Store
 .jekyll-cache/*
+
+# Crashlytics Files
+crashlytics.properties
+crashlytics-build.properties
+
+# Mac Specific Files/Folders
+.DS_Store
+
+# Android Studio
+*.iml
+.gradle
+.idea/
+!.idea/codeStyleSettings.xml
+!.idea/codeStyles
+build
+.project
+.settings
+.classpath
+app/
+
+# Local Configuration Files
+/local.properties
+
+# Build version properties
+app/version.properties
+
+# Built Application Files
+*.apk
+*.ap_
+app/jar/
+#*.aar
+#*.jar
+
+# Files for the Dex VM
+*.dex
+
+# Java Class Files
+*.class

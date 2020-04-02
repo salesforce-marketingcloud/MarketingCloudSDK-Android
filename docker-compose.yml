@@ -2,7 +2,7 @@ version: "3"
 services:
   jekyll:
     image: jekyll/jekyll:latest
-    command: jekyll serve --watch --force_polling --verbose --trace
+    command: jekyll serve --watch --force_polling --verbose --trace --incremental
     volumes:
       - .:/srv/jekyll
     ports:
