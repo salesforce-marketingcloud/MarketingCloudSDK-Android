@@ -1,0 +1,170 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>InboxMessageManager - Marketing Cloud SDK</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">Marketing Cloud SDK</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.messages.inbox</a>&nbsp;/&nbsp;<a href="./index.html">InboxMessageManager</a><br/>
+<br/>
+<h1>InboxMessageManager</h1>
+<code><span class="keyword">interface </span><span class="identifier">InboxMessageManager</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-inbox-refresh-listener/index.html">InboxRefreshListener</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">InboxRefreshListener</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-inbox-response-listener/index.html">InboxResponseListener</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">InboxResponseListener</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-t-a-g.html">TAG</a></h4>
+</td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">TAG</span><span class="symbol">: </span><span class="identifier">String</span><span class="symbol">!</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="delete-message.html">deleteMessage</a></h4>
+</td>
+<td>
+<p>Marks a <code><a href="../-inbox-message/index.html">InboxMessage</a></code> as deleted in local storage. This will prevent the message from being shown in the future unless local storage is cleared on the device.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">deleteMessage</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.inbox.InboxMessageManager$deleteMessage(com.salesforce.marketingcloud.messages.inbox.InboxMessage)/message">message</span><span class="symbol">:</span>&nbsp;<a href="../-inbox-message/index.html"><span class="identifier">InboxMessage</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">deleteMessage</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.inbox.InboxMessageManager$deleteMessage(kotlin.String)/messageId">messageId</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-deleted-message-count.html">getDeletedMessageCount</a></h4>
+</td>
+<td>
+<p>Get the number deleted <code><a href="../-inbox-message/index.html">Inbox Messages</a></code> regardless of their read status.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getDeletedMessageCount</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-deleted-messages.html">getDeletedMessages</a></h4>
+</td>
+<td>
+<p>Gets a <code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a></code> of Active, Deleted <code><a href="../-inbox-message/index.html">Inboc Messages</a></code> for use with your own adapter. </p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getDeletedMessages</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableList</span><span class="symbol">&lt;</span><a href="../-inbox-message/index.html"><span class="identifier">InboxMessage</span></a><span class="symbol">!</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-message-count.html">getMessageCount</a></h4>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getMessageCount</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-messages.html">getMessages</a></h4>
+</td>
+<td>
+<p>Gets a <code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a></code> of Active, Read &amp; Unread, not Deleted <code><a href="../-inbox-message/index.html">Inbox Messages</a></code> for use with your own adapter. </p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getMessages</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableList</span><span class="symbol">&lt;</span><a href="../-inbox-message/index.html"><span class="identifier">InboxMessage</span></a><span class="symbol">!</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-read-message-count.html">getReadMessageCount</a></h4>
+</td>
+<td>
+<p>Get the number of read, not deleted <code><a href="../-inbox-message/index.html">Inbox Messages</a></code></p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getReadMessageCount</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-read-messages.html">getReadMessages</a></h4>
+</td>
+<td>
+<p>Gets a <code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a></code> of Active, Read, not Deleted <code><a href="../-inbox-message/index.html">Inbox Messages</a></code> for use with your own adapter. </p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getReadMessages</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableList</span><span class="symbol">&lt;</span><a href="../-inbox-message/index.html"><span class="identifier">InboxMessage</span></a><span class="symbol">!</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-unread-message-count.html">getUnreadMessageCount</a></h4>
+</td>
+<td>
+<p>Get the number of unread, not deleted <code><a href="../-inbox-message/index.html">Inbox Messages</a></code></p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getUnreadMessageCount</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-unread-messages.html">getUnreadMessages</a></h4>
+</td>
+<td>
+<p>Gets a <code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">List</a></code> of Active, Unread, not Deleted <code><a href="../-inbox-message/index.html">Inbox Messages</a></code> for use with your own adapter. </p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getUnreadMessages</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableList</span><span class="symbol">&lt;</span><a href="../-inbox-message/index.html"><span class="identifier">InboxMessage</span></a><span class="symbol">!</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="mark-all-messages-deleted.html">markAllMessagesDeleted</a></h4>
+</td>
+<td>
+<p>Marks all active <code><a href="../-inbox-message/index.html">InboxMessages</a></code> as deleted.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">markAllMessagesDeleted</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="mark-all-messages-read.html">markAllMessagesRead</a></h4>
+</td>
+<td>
+<p>Marks all active, unread <code><a href="../-inbox-message/index.html">InboxMessages</a></code> as read.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">markAllMessagesRead</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="refresh-inbox.html">refreshInbox</a></h4>
+</td>
+<td>
+<p>Requests an updated list of Inbox Messages from the Marketing Cloud Servers. The Inbox request can be made, at most, once per minute. This throttle also includes the Inbox request that is made by the SDK when your application is brought into the foreground.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">refreshInbox</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.inbox.InboxMessageManager$refreshInbox(com.salesforce.marketingcloud.messages.inbox.InboxMessageManager.InboxRefreshListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="identifier">InboxRefreshListener</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="register-inbox-response-listener.html">registerInboxResponseListener</a></h4>
+</td>
+<td>
+<p>Call this method to be notified of Inbox events within the Marketing Cloud SDK.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">registerInboxResponseListener</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.inbox.InboxMessageManager$registerInboxResponseListener(com.salesforce.marketingcloud.messages.inbox.InboxMessageManager.InboxResponseListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="identifier">InboxResponseListener</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-message-read.html">setMessageRead</a></h4>
+</td>
+<td>
+<p>Marks a <code><a href="../-inbox-message/index.html">InboxMessage</a></code> as read in local storage. This status will persist unless local storage is cleared on the device.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">setMessageRead</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.inbox.InboxMessageManager$setMessageRead(com.salesforce.marketingcloud.messages.inbox.InboxMessage)/message">message</span><span class="symbol">:</span>&nbsp;<a href="../-inbox-message/index.html"><span class="identifier">InboxMessage</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">setMessageRead</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.inbox.InboxMessageManager$setMessageRead(kotlin.String)/messageId">messageId</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="unregister-inbox-response-listener.html">unregisterInboxResponseListener</a></h4>
+</td>
+<td>
+<p>Unregister your <code><a href="-inbox-response-listener/index.html">InboxMessageManager.InboxResponseListener</a></code> listener.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">unregisterInboxResponseListener</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.inbox.InboxMessageManager$unregisterInboxResponseListener(com.salesforce.marketingcloud.messages.inbox.InboxMessageManager.InboxResponseListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="identifier">InboxResponseListener</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

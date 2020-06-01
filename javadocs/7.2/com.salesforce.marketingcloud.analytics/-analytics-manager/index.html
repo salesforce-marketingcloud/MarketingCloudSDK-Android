@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>AnalyticsManager - Marketing Cloud SDK</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">Marketing Cloud SDK</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.analytics</a>&nbsp;/&nbsp;<a href="./index.html">AnalyticsManager</a><br/>
+<br/>
+<h1>AnalyticsManager</h1>
+<code><span class="keyword">interface </span><span class="identifier">AnalyticsManager</span></code>
+<p>Public facing interface for interacting with the Marketing Cloud SDK's analytics features.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-pi-identifier.html">getPiIdentifier</a></h4>
+</td>
+<td>
+<p>Returns the value set by <code><a href="set-pi-identifier.html">#setPiIdentifier(String)</a></code>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getPiIdentifier</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-pi-identifier.html">setPiIdentifier</a></h4>
+</td>
+<td>
+<p>Set the Predictive Intelligence Identifier to be associated with your Predictive Intelligence analytics. This value can be cleared by setting it to null. By default, if unset, the SDK will use the Contact Key. You can decide whether or not you want this default, legacy behavior by setting MarketingCloudConfig.Builder#setUseLegacyPiIdentifier(boolean). This default behavior will be removed in an upcoming SDK release and you will be required to explicitly set the identifier.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">setPiIdentifier</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.analytics.AnalyticsManager$setPiIdentifier(kotlin.String)/piIdentifier">piIdentifier</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="track-cart-contents.html">trackCartContents</a></h4>
+</td>
+<td>
+<p>PI Analytics Convenience method to track a shopping cart.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">trackCartContents</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.analytics.AnalyticsManager$trackCartContents(com.salesforce.marketingcloud.analytics.PiCart)/cart">cart</span><span class="symbol">:</span>&nbsp;<a href="../-pi-cart/index.html"><span class="identifier">PiCart</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="track-cart-conversion.html">trackCartConversion</a></h4>
+</td>
+<td>
+<p>PI Analytics Convenience method to track a purchase.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">trackCartConversion</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.analytics.AnalyticsManager$trackCartConversion(com.salesforce.marketingcloud.analytics.PiOrder)/order">order</span><span class="symbol">:</span>&nbsp;<a href="../-pi-order/index.html"><span class="identifier">PiOrder</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="track-inbox-open-event.html">trackInboxOpenEvent</a></h4>
+</td>
+<td>
+<p>Track the opening of a <code><a href="../../com.salesforce.marketingcloud.messages.inbox/-inbox-message/index.html">InboxMessage</a></code> in ETAnalytics.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">trackInboxOpenEvent</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.analytics.AnalyticsManager$trackInboxOpenEvent(com.salesforce.marketingcloud.messages.inbox.InboxMessage)/message">message</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.messages.inbox/-inbox-message/index.html"><span class="identifier">InboxMessage</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="track-page-view.html">trackPageView</a></h4>
+</td>
+<td>
+<p>Track page views within your application</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">trackPageView</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.analytics.AnalyticsManager$trackPageView(kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">trackPageView</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.analytics.AnalyticsManager$trackPageView(kotlin.String, kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.analytics.AnalyticsManager$trackPageView(kotlin.String, kotlin.String)/title">title</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">trackPageView</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.analytics.AnalyticsManager$trackPageView(kotlin.String, kotlin.String, kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.analytics.AnalyticsManager$trackPageView(kotlin.String, kotlin.String, kotlin.String)/title">title</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.analytics.AnalyticsManager$trackPageView(kotlin.String, kotlin.String, kotlin.String)/item">item</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">trackPageView</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.analytics.AnalyticsManager$trackPageView(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.analytics.AnalyticsManager$trackPageView(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/title">title</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.analytics.AnalyticsManager$trackPageView(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/item">item</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.analytics.AnalyticsManager$trackPageView(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/searchTerms">searchTerms</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,141 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MarketingCloudConfig.Builder - Marketing Cloud SDK</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">Marketing Cloud SDK</a>&nbsp;/&nbsp;<a href="../../index.html">com.salesforce.marketingcloud</a>&nbsp;/&nbsp;<a href="../index.html">MarketingCloudConfig</a>&nbsp;/&nbsp;<a href="./index.html">Builder</a><br/>
+<br/>
+<h1>Builder</h1>
+<code><span class="keyword">class </span><span class="identifier">Builder</span></code>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="build.html">build</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">build</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudConfig.Builder$build(android.content.Context)/context">context</span><span class="symbol">:</span>&nbsp;<span class="identifier">Context</span><span class="symbol">)</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">MarketingCloudConfig</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-access-token.html">setAccessToken</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setAccessToken</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudConfig.Builder$setAccessToken(kotlin.String)/accessToken">accessToken</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-analytics-enabled.html">setAnalyticsEnabled</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setAnalyticsEnabled</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudConfig.Builder$setAnalyticsEnabled(kotlin.Boolean)/analyticsEnabled">analyticsEnabled</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-application-id.html">setApplicationId</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setApplicationId</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudConfig.Builder$setApplicationId(kotlin.String)/applicationId">applicationId</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-delay-registration-until-contact-key-is-set.html">setDelayRegistrationUntilContactKeyIsSet</a></h4>
+</td>
+<td>
+<p>Set the behavior for initial Contact Key registration.</p>
+<code><span class="keyword">fun </span><span class="identifier">setDelayRegistrationUntilContactKeyIsSet</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudConfig.Builder$setDelayRegistrationUntilContactKeyIsSet(kotlin.Boolean)/delay">delay</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-geofencing-enabled.html">setGeofencingEnabled</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setGeofencingEnabled</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudConfig.Builder$setGeofencingEnabled(kotlin.Boolean)/geofenceEnabled">geofenceEnabled</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-inbox-enabled.html">setInboxEnabled</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setInboxEnabled</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudConfig.Builder$setInboxEnabled(kotlin.Boolean)/inboxEnabled">inboxEnabled</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-marketing-cloud-server-url.html">setMarketingCloudServerUrl</a></h4>
+</td>
+<td>
+<p>Set the Tenant Specific Endpoint URL for your application.  For more information reference the
+<a href="http://salesforce-marketingcloud.github.io/MarketingCloudSDK-Android">SDK documentation website</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">setMarketingCloudServerUrl</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudConfig.Builder$setMarketingCloudServerUrl(kotlin.String)/marketingCloudServerUrl">marketingCloudServerUrl</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-mark-message-read-on-inbox-notification-open.html">setMarkMessageReadOnInboxNotificationOpen</a></h4>
+</td>
+<td>
+<p>The default behavior of the SDK has been to mark an {@link InboxMessage} as read when the notification
+is clicked. The default behavior remains unchanged and messages will continue to be marked as read
+unless you set this field to false.</p>
+<code><span class="keyword">fun </span><span class="identifier">setMarkMessageReadOnInboxNotificationOpen</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudConfig.Builder$setMarkMessageReadOnInboxNotificationOpen(kotlin.Boolean)/markRead">markRead</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-mid.html">setMid</a></h4>
+</td>
+<td>
+<p>Set your application's MID value found in your profile in your Marketing Cloud account.</p>
+<code><span class="keyword">fun </span><span class="identifier">setMid</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudConfig.Builder$setMid(kotlin.String)/mid">mid</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-notification-customization-options.html">setNotificationCustomizationOptions</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setNotificationCustomizationOptions</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudConfig.Builder$setNotificationCustomizationOptions(com.salesforce.marketingcloud.notifications.NotificationCustomizationOptions)/options">options</span><span class="symbol">:</span>&nbsp;<a href="../../../com.salesforce.marketingcloud.notifications/-notification-customization-options/index.html"><span class="identifier">NotificationCustomizationOptions</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-pi-analytics-enabled.html">setPiAnalyticsEnabled</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setPiAnalyticsEnabled</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudConfig.Builder$setPiAnalyticsEnabled(kotlin.Boolean)/piAnalyticsEnabled">piAnalyticsEnabled</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-proximity-enabled.html">setProximityEnabled</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setProximityEnabled</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudConfig.Builder$setProximityEnabled(kotlin.Boolean)/proximityEnabled">proximityEnabled</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-sender-id.html">setSenderId</a></h4>
+</td>
+<td>
+<p>Sender Id used for push.</p>
+<code><span class="keyword">fun </span><span class="identifier">setSenderId</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudConfig.Builder$setSenderId(kotlin.String)/senderId">senderId</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-url-handler.html">setUrlHandler</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setUrlHandler</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudConfig.Builder$setUrlHandler(com.salesforce.marketingcloud.UrlHandler)/urlHandler">urlHandler</span><span class="symbol">:</span>&nbsp;<a href="../../-url-handler/index.html"><span class="identifier">UrlHandler</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-use-legacy-pi-identifier.html">setUseLegacyPiIdentifier</a></h4>
+</td>
+<td>
+<p>The SDK will, by default, use the <a href="#">RegistrationManager.getContactKey</a> as the
+Predictive Intelligence Identifier for all Predictive Intelligence analytics.  A future release of the
+SDK will eliminate this default behavior such that a value must be explicitly set as the pi identifier.</p>
+<code><span class="keyword">fun </span><span class="identifier">setUseLegacyPiIdentifier</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudConfig.Builder$setUseLegacyPiIdentifier(kotlin.Boolean)/useLegacyPiIdentifier">useLegacyPiIdentifier</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

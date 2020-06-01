@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>InAppMessageManager.showMessage - Marketing Cloud SDK</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">Marketing Cloud SDK</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.messages.iam</a>&nbsp;/&nbsp;<a href="index.html">InAppMessageManager</a>&nbsp;/&nbsp;<a href="./show-message.html">showMessage</a><br/>
+<br/>
+<h1>showMessage</h1>
+<a name="com.salesforce.marketingcloud.messages.iam.InAppMessageManager$showMessage(kotlin.String)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">showMessage</span><span class="symbol">(</span><span class="identifier">@NonNull</span> <span class="identifier" id="com.salesforce.marketingcloud.messages.iam.InAppMessageManager$showMessage(kotlin.String)/messageId">messageId</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+<p>Will display the <code><a href="../-in-app-message/index.html">InAppMessage</a></code> with the matching <code><a href="#">id</a></code> as long as: <ul> <li>The message's <code><a href="#">start date</a></code> is in the past.</li>
+ <li>The message's <code><a href="#">end date</a></code> is in the future.</li>
+ <li>The message has not previously been displayed.</li>
+ </ul>
+</p>
+<h3>Parameters</h3>
+<p><a name="messageId"></a>
+<code>messageId</code> - <span class="identifier">String</span><span class="symbol">:</span> The <code><a href="#">id</a></code> of a previously blocked in app message display attempt.</p>
+</BODY>
+</HTML>
