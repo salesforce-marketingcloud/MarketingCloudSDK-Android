@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.marketingcloudsdk_version = '7.1.+'
+    ext.marketingcloudsdk_version = '7.2.+'
     ext.kotlin_version = '1.3.50'
     repositories {
         google()
@@ -9,10 +9,10 @@ buildscript {
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.android.tools.build:gradle:3.6.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.google.gms:google-services:4.3.3'
-        classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.0.0'
+        classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.2.2'
     }
 }
 
@@ -20,7 +20,9 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url "https://salesforce-marketingcloud.github.io/MarketingCloudSDK-Android/repository" }
+        maven {
+            url "https://salesforce-marketingcloud.github.io/MarketingCloudSDK-Android/repository"
+        }
     }
 }
 
