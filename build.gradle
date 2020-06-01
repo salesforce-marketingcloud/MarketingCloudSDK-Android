@@ -20,7 +20,9 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url "https://salesforce-marketingcloud.github.io/MarketingCloudSDK-Android/repository" }
+        maven {
+            url "https://salesforce-marketingcloud.github.io/MarketingCloudSDK-Android/repository"
+        }
     }
 }
 
