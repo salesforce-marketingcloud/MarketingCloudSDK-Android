@@ -62,4 +62,7 @@ Sign up for email announcements and contact us with questions about the Android 
 We provide support for plugins, such as Cordova, to implement the MobilePush SDK for your Android applications.
 * [Cordova Plugin](https://www.npmjs.com/package/cordova-plugin-marketingcloudsdk)
 
+### 3rd Party Product Language Disclaimers
+Where possible, we changed noninclusive terms to align with our company value of Equality. We retained noninclusive terms to document a third-party system, but we encourage the developer community to embrace more inclusive language. We can update the term when it’s no longer required for technical accuracy.
+
 {% include release_notes.html %}
