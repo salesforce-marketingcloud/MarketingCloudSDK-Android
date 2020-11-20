@@ -59,8 +59,10 @@ Sign up for email announcements and contact us with questions about the Android 
 
 ## Hybrid Mobile Apps
 
-We provide support for plugins, such as Cordova, to implement the MobilePush SDK for your Android applications.
+We provide support for the plugins below to implement the MobilePush SDK for your iOS and Android applications.
+
 * [Cordova Plugin](https://www.npmjs.com/package/cordova-plugin-marketingcloudsdk)
+* [React Native Plugin](https://www.npmjs.com/package/react-native-marketingcloudsdk)
 
 ### 3rd Party Product Language Disclaimers
 Where possible, we changed noninclusive terms to align with our company value of Equality. We retained noninclusive terms to document a third-party system, but we encourage the developer community to embrace more inclusive language. We can update the term when it’s no longer required for technical accuracy.
