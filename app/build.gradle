@@ -47,7 +47,7 @@ android {
 }
 
 dependencies {
-    implementation "com.salesforce.marketingcloud:marketingcloudsdk:latest.release"
+    implementation "com.salesforce.marketingcloud:marketingcloudsdk:$marketingcloudsdk_version"
 
     implementation 'com.google.android.gms:play-services-location:17.1.0'
     implementation 'org.altbeacon:android-beacon-library:2.17.1'
