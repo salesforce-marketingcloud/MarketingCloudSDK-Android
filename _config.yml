@@ -39,7 +39,7 @@ compileAndroidSdkVersion: "29"
 propagationDelay: "5 minutes"
 
 # if you use google analytics, add your tracking id here
-google_analytics_id: 'UA-82902574-3' #PROD
+google_analytics_id: 'G-5JSZM48ZY9' #PROD
 
 # Enable/show navigation. There are there options:
 #   0 - always hide
