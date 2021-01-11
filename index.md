@@ -45,9 +45,7 @@ Integrate MobilePush into your mobile app using the MarketingCloudSdk:
 
 ## Contact Us
 
-Sign up for email announcements and contact us with questions about the Android SDK.
-  * Post on our [Stack Exchange](https://salesforce.stackexchange.com/). Example tags: mobilepush-android and marketing-cloud
-  * Sign up for [email updates](http://pub.s1.exacttarget.com/2ujjacpet3t) about release announcements and other important information. (10 or fewer emails per year)
+Post on our [Stack Exchange](https://salesforce.stackexchange.com/). Example tags: mobilepush-android and marketing-cloud
 
 ## Additional Resources
 
