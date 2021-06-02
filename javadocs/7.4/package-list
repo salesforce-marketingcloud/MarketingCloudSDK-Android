@@ -1,0 +1,17 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:com.salesforce.marketingcloud.extensions$getStringOrNull(org.json.JSONObject, kotlin.String)com.salesforce.marketingcloud.extensions/org.json.-j-s-o-n-object/get-string-or-null.html
+com.salesforce.marketingcloud
+com.salesforce.marketingcloud.analytics
+com.salesforce.marketingcloud.events
+com.salesforce.marketingcloud.extensions
+com.salesforce.marketingcloud.location
+com.salesforce.marketingcloud.messages
+com.salesforce.marketingcloud.messages.geofence
+com.salesforce.marketingcloud.messages.iam
+com.salesforce.marketingcloud.messages.inbox
+com.salesforce.marketingcloud.messages.proximity
+com.salesforce.marketingcloud.messages.push
+com.salesforce.marketingcloud.notifications
+com.salesforce.marketingcloud.proximity
+com.salesforce.marketingcloud.registration

@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>InAppMessageManager - Marketing Cloud SDK</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">Marketing Cloud SDK</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.messages.iam</a>&nbsp;/&nbsp;<a href="./index.html">InAppMessageManager</a><br/>
+<br/>
+<h1>InAppMessageManager</h1>
+<code><span class="keyword">interface </span><span class="identifier">InAppMessageManager</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-event-listener/index.html">EventListener</a></h4>
+</td>
+<td>
+<p>When an object of this type is registered with the <code><a href="./index.html">InAppMessageManager</a></code>, its methods will be called to signal certain in app message events.</p>
+<code><span class="keyword">interface </span><span class="identifier">EventListener</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="set-in-app-message-listener.html">setInAppMessageListener</a></h4>
+</td>
+<td>
+<p>Set a <code><a href="-event-listener/index.html">EventListener</a></code> that will be called during In App Message life cycle events.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">setInAppMessageListener</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.iam.InAppMessageManager$setInAppMessageListener(com.salesforce.marketingcloud.messages.iam.InAppMessageManager.EventListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="identifier">EventListener</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-status-bar-color.html">setStatusBarColor</a></h4>
+</td>
+<td>
+<p>Set the color of the In App Message Activity status bar on Android 21 or higher.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">setStatusBarColor</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.iam.InAppMessageManager$setStatusBarColor(kotlin.Int)/color">color</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-typeface.html">setTypeface</a></h4>
+</td>
+<td>
+<p>Set the font <code><a href="#">android.graphics.Typeface</a></code> to be used for In app Messages.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">setTypeface</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.iam.InAppMessageManager$setTypeface(android.graphics.Typeface)/typeface">typeface</span><span class="symbol">:</span>&nbsp;<span class="identifier">Typeface</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="show-message.html">showMessage</a></h4>
+</td>
+<td>
+<p>Will display the <code><a href="../-in-app-message/index.html">InAppMessage</a></code> with the matching <code><a href="#">id</a></code> as long as: <ul> <li>The message's <code><a href="#">start date</a></code> is in the past.</li>
+ <li>The message's <code><a href="#">end date</a></code> is in the future.</li>
+ <li>The message has not previously been displayed.</li>
+ </ul>
+</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">showMessage</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.iam.InAppMessageManager$showMessage(kotlin.String)/messageId">messageId</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
