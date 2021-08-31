@@ -21,7 +21,8 @@
       <version>7.3.1</version>
       <version>7.4.0</version>
       <version>7.4.1</version>
+      <version>8.0.1-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20210611000000</lastUpdated>
+    <lastUpdated>20210831125100</lastUpdated>
   </versioning>
 </metadata>
