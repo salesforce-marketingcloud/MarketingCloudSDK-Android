@@ -36,8 +36,10 @@ class MyFcmMessagingService : FirebaseMessagingService() {
         // Only pass messages sent from the Marketing Cloud into the SDK.  Anything else will be ignored if passed into
         // handleMessage.
         if (PushMessageManager.isMarketingCloudPush(message)) {
-            MarketingCloudSdk.requestSdk { sdk ->
-                sdk.pushMessageManager.handleMessage(message)
+            SFMCSdk.requestSdk { sdk ->
+                sdk.mp {
+                    it.pushMessageManager.handleMessage(message)
+                }
             }
         } else {
             // Not a push from the Marketing Cloud.  Handle manually.
@@ -47,8 +49,10 @@ class MyFcmMessagingService : FirebaseMessagingService() {
     override fun onNewToken(token: String) {
         // When a new token is received we have to set it in the SDK.  This will trigger an updated registration to be
         // sent to the Marketing Cloud.
-        MarketingCloudSdk.requestSdk { sdk ->
-            sdk.pushMessageManager.setPushToken(token)
+        SFMCSdk.requestSdk { sdk ->
+            sdk.mp {
+                it.pushMessageManager.setPushToken(token)
+            }
         }
     }
 }
