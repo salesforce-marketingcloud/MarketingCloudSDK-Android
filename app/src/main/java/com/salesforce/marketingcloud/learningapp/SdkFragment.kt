@@ -35,11 +35,11 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.salesforce.marketingcloud.MarketingCloudSdk
+import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
 
 abstract class SdkFragment : Fragment() {
 
     private lateinit var switcher: ViewSwitcher
-    private lateinit var sdk: MarketingCloudSdk
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,10 +56,11 @@ abstract class SdkFragment : Fragment() {
             inflate()
         }
 
-        MarketingCloudSdk.requestSdk {
-            sdk = it
-            switcher.showNext()
-            onSdkReady(sdk)
+        SFMCSdk.requestSdk { sdk ->
+            sdk.mp {
+                switcher.showNext()
+                onSdkReady(it as MarketingCloudSdk)
+            }
         }
     }
 

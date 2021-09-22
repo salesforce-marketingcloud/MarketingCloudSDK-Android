@@ -121,9 +121,11 @@ class Location : SdkFragment() {
             }
             Log.d(
                 LOG_TAG,
-                "Not all required permissions for location messaging were granted. ${permissions.zip(
-                    grantResults.toTypedArray()
-                ).toMap()}"
+                "Not all required permissions for location messaging were granted. ${
+                    permissions.zip(
+                        grantResults.toTypedArray()
+                    ).toMap()
+                }"
             )
         }
     }

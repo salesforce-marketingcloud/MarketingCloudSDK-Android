@@ -25,6 +25,7 @@
  */
 package com.salesforce.marketingcloud.learningapp.screens
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -36,11 +37,12 @@ class InboxViewer : Fragment() {
 
     private lateinit var webView: WebView
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         webView = WebView(context)
         webView.settings.javaScriptEnabled = true
         return webView
