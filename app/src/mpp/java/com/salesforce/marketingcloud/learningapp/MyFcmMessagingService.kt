@@ -27,8 +27,8 @@ package com.salesforce.marketingcloud.learningapp
 
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.salesforce.marketingcloud.MarketingCloudSdk
 import com.salesforce.marketingcloud.messages.push.PushMessageManager
+import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
 
 class MyFcmMessagingService : FirebaseMessagingService() {
 
