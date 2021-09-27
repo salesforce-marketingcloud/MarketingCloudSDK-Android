@@ -31,7 +31,7 @@ See [Request App Permissions](https://developer.android.com/training/permissions
 
 #### 5. Enable geofence messaging at runtime
 
-Once the permission is granted you can enable beacon notification by calling `enableGeofenceMessaging()`.
+Once the permission is granted you can enable geofence notification by calling `enableGeofenceMessaging()`.
 
 <script src="https://gist.github.com/sfmc-mobilepushsdk/70262e9c24d4f43e925cf1a01c337a03.js"></script>
 
