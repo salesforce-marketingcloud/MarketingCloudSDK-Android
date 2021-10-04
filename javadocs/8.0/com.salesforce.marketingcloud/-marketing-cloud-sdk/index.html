@@ -1,0 +1,228 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MarketingCloudSdk - Marketing Cloud SDK</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">Marketing Cloud SDK</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud</a>&nbsp;/&nbsp;<a href="./index.html">MarketingCloudSdk</a><br/>
+<br/>
+<h1>MarketingCloudSdk</h1>
+<code><span class="keyword">class </span><span class="identifier">MarketingCloudSdk</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">PushModuleInterface</span><span class="symbol">, </span><span class="identifier">ControlChannelListener</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-initialization-listener/index.html">InitializationListener</a></h4>
+</td>
+<td>
+<p>Returns an instance of <code><a href="../-initialization-status/index.html">InitializationStatus</a></code> when the initialization of <code><a href="./index.html">MarketingCloudSdk</a></code> has completed.</p>
+<code><span class="keyword">interface </span><span class="identifier">InitializationListener</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-when-ready-listener/index.html">WhenReadyListener</a></h4>
+</td>
+<td>
+<p>Returns a valid instance of <code><a href="./index.html">MarketingCloudSdk</a></code> when it is ready. If initialization of the SDK has already completed then <code><a href="-when-ready-listener/ready.html">ready</a></code> will be called immediately. If <code><a href="#">init</a></code> has not been called, or is executing, <code><a href="-when-ready-listener/ready.html">ready</a></code> will be called upon completion. <strong>Note:</strong> If <code><a href="#">init</a></code> completes with a status of <code><a href="../-initialization-status/-status/-f-a-i-l-e-d.html">FAILED</a></code> <code><a href="-when-ready-listener/ready.html">#ready(MarketingCloudSdk)</a></code> ready <strong>will not</strong> be called, and the current list of <code><a href="-when-ready-listener/index.html">WhenReadyListener</a></code> listeners will be cleared.</p>
+<code><span class="keyword">interface </span><span class="identifier">WhenReadyListener</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="analytics-manager.html">analyticsManager</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">analyticsManager</span><span class="symbol">: </span><a href="../../com.salesforce.marketingcloud.analytics/-analytics-manager/index.html"><span class="identifier">AnalyticsManager</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="event-manager.html">eventManager</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">eventManager</span><span class="symbol">: </span><a href="../../com.salesforce.marketingcloud.events/-event-manager/index.html"><span class="identifier">EventManager</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="in-app-message-manager.html">inAppMessageManager</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">inAppMessageManager</span><span class="symbol">: </span><a href="../../com.salesforce.marketingcloud.messages.iam/-in-app-message-manager/index.html"><span class="identifier">InAppMessageManager</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="inbox-message-manager.html">inboxMessageManager</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">inboxMessageManager</span><span class="symbol">: </span><a href="../../com.salesforce.marketingcloud.messages.inbox/-inbox-message-manager/index.html"><span class="identifier">InboxMessageManager</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="initialization-status.html">initializationStatus</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">initializationStatus</span><span class="symbol">: </span><a href="../-initialization-status/index.html"><span class="identifier">InitializationStatus</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="module-identity.html">moduleIdentity</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">moduleIdentity</span><span class="symbol">: </span><span class="identifier">ModuleIdentity</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notification-manager.html">notificationManager</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">notificationManager</span><span class="symbol">: </span><a href="../../com.salesforce.marketingcloud.notifications/-notification-manager/index.html"><span class="identifier">NotificationManager</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="push-message-manager.html">pushMessageManager</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">pushMessageManager</span><span class="symbol">: </span><a href="../../com.salesforce.marketingcloud.messages.push/-push-message-manager/index.html"><span class="identifier">PushMessageManager</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="region-message-manager.html">regionMessageManager</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">regionMessageManager</span><span class="symbol">: </span><a href="../../com.salesforce.marketingcloud.messages/-region-message-manager/index.html"><span class="identifier">RegionMessageManager</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="registration-manager.html">registrationManager</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">registrationManager</span><span class="symbol">: </span><a href="../../com.salesforce.marketingcloud.registration/-registration-manager/index.html"><span class="identifier">RegistrationManager</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="state.html">state</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">state</span><span class="symbol">: </span><span class="identifier">JSONObject</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="control-channel-flag-changed.html">controlChannelFlagChanged</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">controlChannelFlagChanged</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudSdk$controlChannelFlagChanged(kotlin.Int)/ccFlag">ccFlag</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-instance.html">getInstance</a></h4>
+</td>
+<td>
+<p>Returns an instance of the <code><a href="./index.html">MarketingCloudSdk</a></code>. An <code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html">IllegalStateException</a></code> will be thrown if this method is called before <code><a href="#"> init</a></code>. <strong>Note:</strong> This method will block the calling thread if <code><a href="#">init</a></code> has not finished.</p>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">getInstance</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">MarketingCloudSdk</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-log-level.html">getLogLevel</a></h4>
+</td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">getLogLevel</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-marketing-cloud-config.html">getMarketingCloudConfig</a></h4>
+</td>
+<td>
+<p>Returns the <code><a href="../-marketing-cloud-config/index.html">MarketingCloudConfig</a></code> instance used to initialize the <code><a href="./index.html">MarketingCloudSdk</a></code>.</p>
+<code><span class="keyword">fun </span><span class="identifier">getMarketingCloudConfig</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-marketing-cloud-config/index.html"><span class="identifier">MarketingCloudConfig</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-sdk-state.html">getSdkState</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getSdkState</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">JSONObject</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-sdk-version-code.html">getSdkVersionCode</a></h4>
+</td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">getSdkVersionCode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-sdk-version-name.html">getSdkVersionName</a></h4>
+</td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">getSdkVersionName</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="init.html">init</a></h4>
+</td>
+<td>
+<p>Initializes the SDK with the provided <code><a href="../-marketing-cloud-config/index.html">config</a></code>. Once complete, the will be notified. Any subsequent calls to this method will be ignored as long as the values provided in are the same. <strong>Note:</strong> Anyone that <code><a href="request-sdk.html">requested the sdk</a></code> before or during the initialization will be notified before the <code><a href="-initialization-listener/index.html">listener</a></code> will be notified.</p>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><s><span class="identifier">init</span></s><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudSdk$init(android.content.Context, com.salesforce.marketingcloud.MarketingCloudConfig, com.salesforce.marketingcloud.MarketingCloudSdk.InitializationListener)/context">context</span><span class="symbol">:</span>&nbsp;<span class="identifier">Context</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudSdk$init(android.content.Context, com.salesforce.marketingcloud.MarketingCloudConfig, com.salesforce.marketingcloud.MarketingCloudSdk.InitializationListener)/config">config</span><span class="symbol">:</span>&nbsp;<a href="../-marketing-cloud-config/index.html"><span class="identifier">MarketingCloudConfig</span></a><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudSdk$init(android.content.Context, com.salesforce.marketingcloud.MarketingCloudConfig, com.salesforce.marketingcloud.MarketingCloudSdk.InitializationListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="identifier">InitializationListener</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-initializing.html">isInitializing</a></h4>
+</td>
+<td>
+<p>Indicates whether the sdk is currently executing its initialization routine.</p>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">isInitializing</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="is-ready.html">isReady</a></h4>
+</td>
+<td>
+<p>Indicates whether or not there is a valid instance of <code><a href="./index.html">MarketingCloudSdk</a></code> that is ready(initialized) to be used. If the value is <code>true</code> then calls to <code><a href="get-instance.html"> </a></code> will not block the thread.</p>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">isReady</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="request-sdk.html">requestSdk</a></h4>
+</td>
+<td>
+<p>An asynchronous request for an instance of <code><a href="./index.html">MarketingCloudSdk</a></code>.</p>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">requestSdk</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudSdk$requestSdk(com.salesforce.marketingcloud.MarketingCloudSdk.WhenReadyListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="identifier">WhenReadyListener</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+<p>An asynchronous request for a instance of <code><a href="./index.html">MarketingCloudSdk</a></code>.</p>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">requestSdk</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudSdk$requestSdk(android.os.Looper, com.salesforce.marketingcloud.MarketingCloudSdk.WhenReadyListener)/looper">looper</span><span class="symbol">:</span>&nbsp;<span class="identifier">Looper</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudSdk$requestSdk(android.os.Looper, com.salesforce.marketingcloud.MarketingCloudSdk.WhenReadyListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="identifier">WhenReadyListener</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-log-level.html">setLogLevel</a></h4>
+</td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">setLogLevel</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudSdk$setLogLevel(kotlin.Int)/level">level</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-log-listener.html">setLogListener</a></h4>
+</td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">setLogListener</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudSdk$setLogListener(com.salesforce.marketingcloud.MCLogListener)/logListener">logListener</span><span class="symbol">:</span>&nbsp;<a href="../-m-c-log-listener/index.html"><span class="identifier">MCLogListener</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="unregister-when-ready-listener.html">unregisterWhenReadyListener</a></h4>
+</td>
+<td>
+<p>Prevents a <code><a href="-when-ready-listener/index.html">WhenReadyListener</a></code> from returning an instance of <code><a href="./index.html">MarketingCloudSdk</a></code></p>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">unregisterWhenReadyListener</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.MarketingCloudSdk$unregisterWhenReadyListener(com.salesforce.marketingcloud.MarketingCloudSdk.WhenReadyListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="identifier">WhenReadyListener</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

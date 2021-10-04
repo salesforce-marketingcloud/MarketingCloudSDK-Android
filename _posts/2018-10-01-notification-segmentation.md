@@ -22,5 +22,4 @@ Provide an implementation of [ShouldShowNotificationListener]({{ site.baseurl }}
 
 #### Example
 To make sure that only gold loyalty-level customers receive the message in this example, the marketer sets the custom key “loyaltyLevel” to “gold” when creating the location message. Then, the message is shown only if the customer's contact attribute is also set to “gold”.
-
-<script src="https://gist.github.com/sfmc-mobilepushsdk/3cc858af908f1b559677294abd1a1364.js"></script>
+{% include gist.html sectionId="notification_segment" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/a6cbc33a0ee28bd5c077a13e2bbd042d.js,https://gist.github.com/sfmc-mobilepushsdk/3cc858af908f1b559677294abd1a1364.js" %}

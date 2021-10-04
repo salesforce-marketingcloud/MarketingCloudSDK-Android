@@ -19,7 +19,7 @@ Test that your device can receive a push directly from FCM.
 
 * Get the push token from the SDK
 
-<script src="https://gist.github.com/sfmc-mobilepushsdk/37dbb372438c4ceda897b235c93ab073.js"></script>
+{% include gist.html sectionId="get_push_token" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/a965fb321939c5befe7b854254ae8eff.js,https://gist.github.com/sfmc-mobilepushsdk/37dbb372438c4ceda897b235c93ab073.js" %}
 
 * Use this script to send yourself a push message
 
@@ -31,10 +31,10 @@ Test that your device can receive a push directly from FCM.
 
 #### Evaluate the SDK state
 
-Look through the output from the MarketingCloudSDK's `getSdkState()` method.
-<script src="https://gist.github.com/sfmc-mobilepushsdk/426e01da0ed63d9e2580eafe6bee8ea3.js"></script>
+Look through the output from the Sdk's `getSdkState()` method.
+{% include gist.html sectionId="evaluate_sdk_state" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/c5a1210872dcbc5105a4ead586abe266.js,https://gist.github.com/sfmc-mobilepushsdk/426e01da0ed63d9e2580eafe6bee8ea3.js" %}
 
 There is a lot of information provided in this method, but for debugging push messaging you will want to look specifically at the NotificationManager and PushMessageManager sections.
-<script src="https://gist.github.com/sfmc-mobilepushsdk/91d0a4018c72d484c30414c74fc7841c.js"></script>
+{% include gist.html sectionId="sdk_state" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/63d896be17c5c0c0866661cdcd8e7d3f.js,https://gist.github.com/sfmc-mobilepushsdk/91d0a4018c72d484c30414c74fc7841c.js" %}
 
 If you implement multiple push providers, review the [Multiple Push SDKs]({{ site.baseurl }}/trouble-shooting/multiple-push-sdks.html) page for additional information.

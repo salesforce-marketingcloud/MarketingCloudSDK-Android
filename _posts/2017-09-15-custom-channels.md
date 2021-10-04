@@ -16,8 +16,7 @@ After the SDK creates the NotificationChannel, the channel isn’t updated unles
 ### Custom Configuration
 
 You can create custom notification channels and assign channels to each notification. See the example code as a guide.
-
-<script src="https://gist.github.com/sfmc-mobilepushsdk/039b14ebd4e9913950dd10a8daa1f54d.js"></script>
+{% include gist.html sectionId="notif_custom_channel" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/6b8ec470ac81ad2ce9d93c548357ec17.js,https://gist.github.com/sfmc-mobilepushsdk/039b14ebd4e9913950dd10a8daa1f54d.js" %}
 
 To assign a notification to a channel, override the SDK channel callback. Make sure that you include a channel with your message. Otherwise, the app doesn’t display the message to the recipient.
 

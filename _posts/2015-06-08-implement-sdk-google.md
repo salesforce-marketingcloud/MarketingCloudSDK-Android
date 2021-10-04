@@ -39,9 +39,11 @@ Follow the [Android Firebase setup](https://firebase.google.com/docs/android/set
 
 The SDK **must** be initialized during the execution of your [Application](https://developer.android.com/reference/android/app/Application) class's `onCreate` method.  Initialization will require configuration data for your Marketing Cloud Application.  Please refer to the [documentation]({{ site.baseurl}}/create-apps/create-apps-overview.html#finding-your-marketing-cloud-application-configuration-data) for guidance on where to find the required pieces of data.
 
-<script src="https://gist.github.com/sfmc-mobilepushsdk/4016de963a1e7f828faabab46c8bb1a3.js"></script>
+From 8.0.0 onwards, use [SFMCSdk]() to initialize the MarketingCloudSdk.
 
-> If you don’t call the SDK's `init` method from your app's `onCreate`, the SDK can’t post notifications while the app is in the background.
+{% include gist.html sectionId="implement_sdk_google" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/23940c4a3777333dc797290c5d042163.js,https://gist.github.com/sfmc-mobilepushsdk/4016de963a1e7f828faabab46c8bb1a3.js" %}
+
+> If you don’t call the SDK's `configure` method and initialize the `pushModuleConfig` from your app's `onCreate`, the SDK can’t post notifications while the app is in the background.
 
 > To troubleshoot information the InitializationStatus returned during the SDK's initialization call, see [Initialization Status]({{ site.baseurl }}/trouble-shooting/init-status.html) in the troubleshooting section for more details.
 

@@ -5,14 +5,14 @@ title: "Home"
 
 ## MobilePush SDK: Important Forward-Compatibility Statement
 
-In the January, 2020 Marketing Cloud MobilePush SDK release, support for older Android and iOS versions will be removed from the SDK.
+In the January, 2020 Marketing Cloud MobilePush SDK release, support for older Android and iOS versions was removed from the SDK.
 
-* Android will require a minimum API version of 21.
-* iOS will require a minimum deployment target of 10.0
+* Android requires a minimum API version of 21.
+* iOS requires a minimum deployment target of 10.0
 
 Existing mobile applications will continue to function, without change.  Mobile applications may continue to reference older SDK versions, without change.  Applications which adopt the January, 2020 MobilePush SDK release may require a project change if your application build still supports an older value (Android: earlier than API 21, iOS: iOS 9).
 
-Additionally, the January, 2020 Android MobilePush SDK will release with the following changes:
+Additionally, the October, 2021 Android MobilePush SDK will release with the following changes:
 1. Usage of Android Support libraries will migrate to the androidx-packaged library artifacts.
    * If your application still depends on the old support packaging you can enable jetifier to continue using the SDK by adding the following to our project's `gradle.properties` file.
         ```groovy
@@ -23,13 +23,13 @@ Additionally, the January, 2020 Android MobilePush SDK will release with the fol
 2. New dependency on the Kotlin std-lib.
 3. Small changes to the API to better align with expected method naming in Kotlin.
 
-## Android Q
+## Android S
 
-Support for Android Q was added in version 6.3.4 of the SDK.  See the [Releases]({{site.baseurl}}/#releases) section for more details.
+Support for Android S was added in the version 8.0.0 of the SDK.  See the [Releases]({{site.baseurl}}/#releases) section for more details.
 
 ## Get Started
 
-Integrate MobilePush into your mobile app using the MarketingCloudSdk:
+Integrate MobilePush into your mobile app using the SFMCSdk:
 
 1. Provision your app with [Google]({{ site.baseurl }}/provisioning/google.html).
 1. [Create your app]({{ site.baseurl }}/create-apps/create-apps-overview.html) in MobilePush.
@@ -51,7 +51,7 @@ Post on our [Stack Exchange](https://salesforce.stackexchange.com/). Example tag
 
 * The [Marketing Cloud MobilePush Documentation](http://help.exacttarget.com/en/documentation/mobilepush/) contains information on the Marketing Cloud MobilePush app, including information on associating MobilePush with a mobile app.
 * Review the [Javadocs]({{ site.baseurl }}/javadocs/{{site.currentMajorMinor}}/index.html) for the SDK.
-* The Marketing Cloud provides the [LearningApp for Android](https://github.com/salesforce-marketingcloud/MarketingCloudSDK-Android) which implements features of the SDK to allow you to explore how a native app properly utilizes the MarketingCloudSDK.
+* The Marketing Cloud provides the [LearningApp for Android](https://github.com/salesforce-marketingcloud/MarketingCloudSDK-Android) which implements features of the SDK to allow you to explore how a native app properly utilizes the SFMCSdk.
 * [Sign up for email updates about the Android SDK](http://pub.s1.exacttarget.com/2ujjacpet3t)
 * View the [iOS MobilePush SDK docs](https://salesforce-marketingcloud.github.io/MarketingCloudSDK-iOS/)
 

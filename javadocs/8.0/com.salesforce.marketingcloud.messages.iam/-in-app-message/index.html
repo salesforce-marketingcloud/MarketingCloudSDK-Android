@@ -1,0 +1,404 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>InAppMessage - Marketing Cloud SDK</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">Marketing Cloud SDK</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.messages.iam</a>&nbsp;/&nbsp;<a href="./index.html">InAppMessage</a><br/>
+<br/>
+<h1>InAppMessage</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">InAppMessage</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Parcelable</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-alignment/index.html">Alignment</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">Alignment</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-button/index.html">Button</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Button</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Parcelable</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-button-config/index.html">ButtonConfig</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">ButtonConfig</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-close-button/index.html">CloseButton</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">CloseButton</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Parcelable</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-layout-order/index.html">LayoutOrder</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">LayoutOrder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-media/index.html">Media</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Media</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Parcelable</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-size/index.html">Size</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">Size</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-text-field/index.html">TextField</a></h4>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">TextField</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Parcelable</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-type/index.html">Type</a></h4>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">Type</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">InAppMessage</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.messages.iam.InAppMessage$<init>(org.json.JSONObject)/json">json</span><span class="symbol">:</span>&nbsp;<span class="identifier">JSONObject</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="background-color.html">backgroundColor</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">backgroundColor</span><span class="symbol">: </span><span class="identifier">String</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="body.html">body</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">body</span><span class="symbol">: </span><span class="identifier">TextField</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="border-color.html">borderColor</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">borderColor</span><span class="symbol">: </span><span class="identifier">String</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="border-width.html">borderWidth</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">borderWidth</span><span class="symbol">: </span><span class="identifier">Size</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="button-configuration.html">buttonConfiguration</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">buttonConfiguration</span><span class="symbol">: </span><span class="identifier">ButtonConfig</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="buttons.html">buttons</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">buttons</span><span class="symbol">: </span><span class="identifier">List</span><span class="symbol">&lt;</span><span class="identifier">Button</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="close-button.html">closeButton</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">closeButton</span><span class="symbol">: </span><span class="identifier">CloseButton</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="corner-radius.html">cornerRadius</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">cornerRadius</span><span class="symbol">: </span><span class="identifier">Size</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="display-duration.html">displayDuration</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">displayDuration</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="display-limit.html">displayLimit</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">displayLimit</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="display-limit-override.html">displayLimitOverride</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">displayLimitOverride</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="end-date-utc.html">endDateUtc</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">endDateUtc</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Date.html"><span class="identifier">Date</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="id.html">id</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">id</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="layout-order.html">layoutOrder</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">layoutOrder</span><span class="symbol">: </span><span class="identifier">LayoutOrder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="media.html">media</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">media</span><span class="symbol">: </span><span class="identifier">Media</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="message-delay-sec.html">messageDelaySec</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">messageDelaySec</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="modified-date-utc.html">modifiedDateUtc</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">modifiedDateUtc</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Date.html"><span class="identifier">Date</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="priority.html">priority</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">priority</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="start-date-utc.html">startDateUtc</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">startDateUtc</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Date.html"><span class="identifier">Date</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="title.html">title</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">title</span><span class="symbol">: </span><span class="identifier">TextField</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="type.html">type</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">type</span><span class="symbol">: </span><span class="identifier">Type</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="window-color.html">windowColor</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">windowColor</span><span class="symbol">: </span><span class="identifier">String</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="background-color.html">backgroundColor</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">backgroundColor</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="body.html">body</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">body</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">TextField</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="border-color.html">borderColor</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">borderColor</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="border-width.html">borderWidth</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">borderWidth</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Size</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="button-configuration.html">buttonConfiguration</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">buttonConfiguration</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ButtonConfig</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="buttons.html">buttons</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">buttons</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">List</span><span class="symbol">&lt;</span><span class="identifier">Button</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="close-button.html">closeButton</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">closeButton</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">CloseButton</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="corner-radius.html">cornerRadius</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">cornerRadius</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Size</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="display-duration.html">displayDuration</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">displayDuration</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="display-limit.html">displayLimit</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">displayLimit</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="end-date-utc.html">endDateUtc</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">endDateUtc</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Date.html"><span class="identifier">Date</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="id.html">id</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">id</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="layout-order.html">layoutOrder</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">layoutOrder</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LayoutOrder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="media.html">media</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">media</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Media</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="modified-date-utc.html">modifiedDateUtc</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">modifiedDateUtc</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Date.html"><span class="identifier">Date</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="priority.html">priority</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">priority</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="start-date-utc.html">startDateUtc</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">startDateUtc</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Date.html"><span class="identifier">Date</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="title.html">title</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">title</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">TextField</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-json.html">toJson</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toJson</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">JSONObject</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="type.html">type</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">type</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Type</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="window-color.html">windowColor</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">windowColor</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

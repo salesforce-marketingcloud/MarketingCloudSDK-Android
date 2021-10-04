@@ -21,7 +21,7 @@ order: 3
 
 #### 3. Enable beacon messaging during SDK initialization
 
-<script src="https://gist.github.com/sfmc-mobilepushsdk/0b844c9a6a8a97699dacdf4e3d213e10.js"></script>
+{% include gist.html sectionId="enable_beacon_at_init" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/b3025715fee8356a6f68fb04ebff9576.js,https://gist.github.com/sfmc-mobilepushsdk/0b844c9a6a8a97699dacdf4e3d213e10.js" %}
 
 > To troubleshoot information related to beacons in the InitializationStatus that is returned during the SDK's initialization call, see [initialization status]({{ site.baseurl }}/trouble-shooting/init-status.html) documentation.
 
@@ -35,11 +35,11 @@ See [Request App Permissions](https://developer.android.com/training/permissions
 
 Once the permission is granted you can enable beacon notification by calling `enableProximityMessaging()`.
 
-<script src="https://gist.github.com/sfmc-mobilepushsdk/4cece3020878bbf654bc596d901b0ca3.js"></script>
+{% include gist.html sectionId="enable_beacon_message" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/15ec0557f76e3a0b01305c5e987036bf.js,https://gist.github.com/sfmc-mobilepushsdk/4cece3020878bbf654bc596d901b0ca3.js" %}
 
 You can disable beacon notifications by calling `disableProximityMessaging()`.
 
-<script src="https://gist.github.com/sfmc-mobilepushsdk/12d88c94cae4a916887cd3a0022b79ce.js"></script>
+{% include gist.html sectionId="disable_beacon_message" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/e414f2f7cc441ea3c785ad06fadcbcbe.js,https://gist.github.com/sfmc-mobilepushsdk/12d88c94cae4a916887cd3a0022b79ce.js" %}
 
 > MobilePush prevents the app from displaying a beacon message with an empty alert. If you include AMPscript in your message that returns no content or an empty string, the mobile app will not display that message.
 

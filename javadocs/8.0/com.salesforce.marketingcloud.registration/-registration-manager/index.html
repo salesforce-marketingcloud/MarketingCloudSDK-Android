@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RegistrationManager - Marketing Cloud SDK</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">Marketing Cloud SDK</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.registration</a>&nbsp;/&nbsp;<a href="./index.html">RegistrationManager</a><br/>
+<br/>
+<h1>RegistrationManager</h1>
+<code><span class="keyword">interface </span><span class="identifier">RegistrationManager</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-editor/index.html">Editor</a></h4>
+</td>
+<td>
+<p>This class handles the setting of customer configurable values in the SDK. All validation for length, type, nullability, etc. is completed within the editor. When the editor's <code><a href="-editor/commit.html">commit</a></code> method is called the SDK will compare the running configuration to the previously successfully processed configuration. If there have been any changes they will be stored locally and transmitted to the Marketing Cloud Servers.</p>
+<code><span class="keyword">interface </span><span class="identifier">Editor</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-registration-event-listener/index.html">RegistrationEventListener</a></h4>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">RegistrationEventListener</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-m-a-x_-m-t_-a-t-t-r-i-b-u-t-e_-k-e-y_-s-i-z-e.html">MAX_MT_ATTRIBUTE_KEY_SIZE</a></h4>
+</td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">MAX_MT_ATTRIBUTE_KEY_SIZE</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="edit.html">edit</a></h4>
+</td>
+<td>
+<p>Returns an instance of <code><a href="-editor/index.html">Editor</a></code> which can be used to update the SDK's configurable values like contactKey, attributes or tags.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">edit</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Editor</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-attributes.html">getAttributes</a></h4>
+</td>
+<td>
+<p>Getter for attributes map.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getAttributes</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableMap</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">!</span><span class="symbol">,</span>&nbsp;<span class="identifier">String</span><span class="symbol">!</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-contact-key.html">getContactKey</a></h4>
+</td>
+<td>
+<p>Getter for contactKey, formerly known as SubscriberKey in the SDK. The name has been changed to align the SDK with the Salesforce Marketing Cloud Contacts DB. If ContactKey is unset then a random GUID will be set in the Marketing Cloud. </p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getContactKey</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-device-id.html">getDeviceId</a></h4>
+</td>
+<td>
+<p>Getter for the running device's unique identifier.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getDeviceId</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-signed-string.html">getSignedString</a></h4>
+</td>
+<td>
+<p>Getter for "Signed String"</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getSignedString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-system-token.html">getSystemToken</a></h4>
+</td>
+<td>
+<p>Getter for Google's Push Notification Token</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getSystemToken</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-tags.html">getTags</a></h4>
+</td>
+<td>
+<p>Getter for tags</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getTags</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableSet</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">!</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="register-for-registration-events.html">registerForRegistrationEvents</a></h4>
+</td>
+<td>
+<p>Register a <code><a href="-registration-event-listener/index.html">registrationEventListener</a></code> that will be notified when Registration related events happen.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">registerForRegistrationEvents</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.registration.RegistrationManager$registerForRegistrationEvents(com.salesforce.marketingcloud.registration.RegistrationManager.RegistrationEventListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="identifier">RegistrationEventListener</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="unregister-for-registration-events.html">unregisterForRegistrationEvents</a></h4>
+</td>
+<td>
+<p>Unregister a <code><a href="-registration-event-listener/index.html">registrationEventListener</a></code></p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">unregisterForRegistrationEvents</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.registration.RegistrationManager$unregisterForRegistrationEvents(com.salesforce.marketingcloud.registration.RegistrationManager.RegistrationEventListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="identifier">RegistrationEventListener</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

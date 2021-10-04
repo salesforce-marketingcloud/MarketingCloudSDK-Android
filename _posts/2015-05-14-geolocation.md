@@ -19,7 +19,7 @@ order: 2
 
 #### 3. Enable geofence messaging during SDK initialization
 
-<script src="https://gist.github.com/sfmc-mobilepushsdk/6bd87b1fbf9a049c46762adfaae92418.js"></script>
+{% include gist.html sectionId="enable_geofence_message_init" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/70e00e3bd4d931b80f74d24fbf882079.js,https://gist.github.com/sfmc-mobilepushsdk/6bd87b1fbf9a049c46762adfaae92418.js" %}
 
 > To troubleshoot information related to geofence messaging in the InitializationStatus that is returned during the SDK's initialization call, see [initialization status]({{ site.baseurl }}/trouble-shooting/init-status.html) documentation.
 
@@ -33,10 +33,10 @@ See [Request App Permissions](https://developer.android.com/training/permissions
 
 Once the permission is granted you can enable geofence notification by calling `enableGeofenceMessaging()`.
 
-<script src="https://gist.github.com/sfmc-mobilepushsdk/70262e9c24d4f43e925cf1a01c337a03.js"></script>
+{% include gist.html sectionId="enable_geofence_messaging" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/9a82bb02e9ac43dfb05f007323c57b32.js,https://gist.github.com/sfmc-mobilepushsdk/70262e9c24d4f43e925cf1a01c337a03.js" %}
 
 You can disable geofence notifications by calling `disableGeofenceMessaging()`.
 
-<script src="https://gist.github.com/sfmc-mobilepushsdk/f9e971a34513b27c8797f7857263efb3.js"></script>
+{% include gist.html sectionId="disable_geofence_messaging" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/e9c4c2c9bf0159f001c2ced62af87726.js,https://gist.github.com/sfmc-mobilepushsdk/f9e971a34513b27c8797f7857263efb3.js" %}
 
 > MobilePush prevents your app from displaying a geofence message with an empty alert. If you include AMPscript in your message that returns no content or an empty string, the mobile app doesn’t display that message.

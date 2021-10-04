@@ -12,28 +12,28 @@ codeurl: 'https://github.com/salesforce-marketingcloud/MarketingCloudSDK-Android
 # to create a new page, use this format:
 # ruby bin/jekyll-page "name of page" section
 #
-title: 'MarketingCloudSDK Android'
+title: 'SFMCSdk Android'
 
 # Current SDK version, use for all mentions
-currentVersion: "7.4.2"
+currentVersion: "8.0.0"
 
 # Current SDK major minor version.  Used to reference javadoc
-currentMajorMinor: "7.4"
+currentMajorMinor: "8.0"
 
 # Google Play Services Location version for current SDK release
 currentGmsLocationVersion: "17.1.0"
 
 # Firebase major version
-firebaseCoreMajor: "17"
+firebaseCoreMajor: "22"
 
 # AltBeacon version for current SDK release
-currentAltBeaconVersion: "2.17.1"
+currentAltBeaconVersion: "2.19"
 
 # Min Android SDK supported by MC SDK
 minAndroidSdkVersion: "21"
 
 # Target and compile Android SDK used by MC SDK
-compileAndroidSdkVersion: "29"
+compileAndroidSdkVersion: "31"
 
 # Marketing Cloud Delay
 propagationDelay: "5 minutes"
