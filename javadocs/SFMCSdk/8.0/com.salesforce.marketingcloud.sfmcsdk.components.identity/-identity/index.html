@@ -1,0 +1,124 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Identity - sfmcsdk</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">sfmcsdk</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.sfmcsdk.components.identity</a>&nbsp;/&nbsp;<a href="./index.html">Identity</a><br/>
+<br/>
+<h1>Identity</h1>
+<code><span class="keyword">class </span><span class="identifier">Identity</span></code>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="module-identities.html">moduleIdentities</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">moduleIdentities</span><span class="symbol">: </span><span class="identifier">Map</span><span class="symbol">&lt;</span><a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html"><span class="identifier">ModuleIdentifier</span></a><span class="symbol">,</span>&nbsp;<a href="../-module-identity/index.html"><span class="identifier">ModuleIdentity</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="platform.html">platform</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">platform</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="registration-id.html">registrationId</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">registrationId</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="clear-profile-attribute.html">clearProfileAttribute</a></h4>
+</td>
+<td>
+<p>Method to clear a profile Attribute on modules identified by <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a>
+If modules are not specified , defaults to all modules via <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a></p>
+<code><span class="keyword">fun </span><span class="identifier">clearProfileAttribute</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$clearProfileAttribute(kotlin.String, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$clearProfileAttribute(kotlin.String, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/modules">modules</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html"><span class="identifier">ModuleIdentifier</span></a>&nbsp;<span class="symbol">=</span>&nbsp;ModuleIdentifier.values()<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="clear-profile-attributes.html">clearProfileAttributes</a></h4>
+</td>
+<td>
+<p>Method to clear a profile list of attributes on modules identified by <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a>
+If modules are not specified , defaults to all modules via <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a></p>
+<code><span class="keyword">fun </span><span class="identifier">clearProfileAttributes</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$clearProfileAttributes(kotlin.collections.List((kotlin.String)), kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/keys">keys</span><span class="symbol">:</span>&nbsp;<span class="identifier">List</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$clearProfileAttributes(kotlin.collections.List((kotlin.String)), kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/modules">modules</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html"><span class="identifier">ModuleIdentifier</span></a>&nbsp;<span class="symbol">=</span>&nbsp;ModuleIdentifier.values()<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-profile.html">setProfile</a></h4>
+</td>
+<td>
+<p>Method to set the Profile Id , Profile attributes for a module <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a>
+and notify change to modules specified</p>
+<code><span class="keyword">fun </span><span class="identifier">setProfile</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.String)), com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/profileId">profileId</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.String)), com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/attributes">attributes</span><span class="symbol">:</span>&nbsp;<span class="identifier">Map</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">,</span>&nbsp;<span class="identifier">String</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.String)), com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/module">module</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html"><span class="identifier">ModuleIdentifier</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.String)), com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/modules">modules</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html"><span class="identifier">ModuleIdentifier</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+<p>Method to set the new Profile <a href="../-profile/index.html">Profile</a> for a module <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a>
+and notify change to modules specified</p>
+<code><span class="keyword">fun </span><span class="identifier">setProfile</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(com.salesforce.marketingcloud.sfmcsdk.components.identity.Profile, com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/profile">profile</span><span class="symbol">:</span>&nbsp;<a href="../-profile/index.html"><span class="identifier">Profile</span></a><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(com.salesforce.marketingcloud.sfmcsdk.components.identity.Profile, com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/module">module</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html"><span class="identifier">ModuleIdentifier</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(com.salesforce.marketingcloud.sfmcsdk.components.identity.Profile, com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/modules">modules</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html"><span class="identifier">ModuleIdentifier</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+<p>Method to set the Profile information for map of Modules identified by <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a></p>
+<code><span class="keyword">fun </span><span class="identifier">setProfile</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(kotlin.collections.Map((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, com.salesforce.marketingcloud.sfmcsdk.components.identity.Profile)))/identities">identities</span><span class="symbol">:</span>&nbsp;<span class="identifier">Map</span><span class="symbol">&lt;</span><a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html"><span class="identifier">ModuleIdentifier</span></a><span class="symbol">,</span>&nbsp;<a href="../-profile/index.html"><span class="identifier">Profile</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-profile-attribute.html">setProfileAttribute</a></h4>
+</td>
+<td>
+<p>Method to set Profile Attributes to the modules identified by <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a>
+If modules are not specified , defaults to all modules via <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a></p>
+<code><span class="keyword">fun </span><span class="identifier">setProfileAttribute</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfileAttribute(kotlin.String, kotlin.String, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfileAttribute(kotlin.String, kotlin.String, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">?</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfileAttribute(kotlin.String, kotlin.String, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/modules">modules</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html"><span class="identifier">ModuleIdentifier</span></a>&nbsp;<span class="symbol">=</span>&nbsp;ModuleIdentifier.values()<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-profile-attributes.html">setProfileAttributes</a></h4>
+</td>
+<td>
+<p>Method to set Profile Attributes to the modules identified by <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a>
+If modules are not specified , defaults to all modules via <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a></p>
+<code><span class="keyword">fun </span><span class="identifier">setProfileAttributes</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfileAttributes(kotlin.collections.Map((kotlin.String, kotlin.String)), kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/attributes">attributes</span><span class="symbol">:</span>&nbsp;<span class="identifier">Map</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">,</span>&nbsp;<span class="identifier">String</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfileAttributes(kotlin.collections.Map((kotlin.String, kotlin.String)), kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/modules">modules</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html"><span class="identifier">ModuleIdentifier</span></a>&nbsp;<span class="symbol">=</span>&nbsp;ModuleIdentifier.values()<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-profile-id.html">setProfileId</a></h4>
+</td>
+<td>
+<p>Method to set the Profile Id to the modules identified by <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a>
+If modules are not specified , it defaults to all modules via <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a></p>
+<code><span class="keyword">fun </span><span class="identifier">setProfileId</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfileId(kotlin.String, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/id">id</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfileId(kotlin.String, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/modules">modules</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html"><span class="identifier">ModuleIdentifier</span></a>&nbsp;<span class="symbol">=</span>&nbsp;ModuleIdentifier.values()<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+<p>Method to set the Profile Id for each module identified by <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a></p>
+<code><span class="keyword">fun </span><span class="identifier">setProfileId</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfileId(kotlin.collections.Map((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, kotlin.String)))/ids">ids</span><span class="symbol">:</span>&nbsp;<span class="identifier">Map</span><span class="symbol">&lt;</span><a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html"><span class="identifier">ModuleIdentifier</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">String</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="to-string.html">toString</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="instance.html">instance</a></h4>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">instance</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Identity</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

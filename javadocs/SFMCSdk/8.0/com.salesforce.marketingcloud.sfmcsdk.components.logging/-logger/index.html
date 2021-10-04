@@ -1,0 +1,88 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Logger - sfmcsdk</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">sfmcsdk</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.sfmcsdk.components.logging</a>&nbsp;/&nbsp;<a href="./index.html">Logger</a><br/>
+<br/>
+<h1>Logger</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Logger</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">Logger</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="listener.html">listener</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">listener</span><span class="symbol">: </span><a href="../-log-listener/index.html"><span class="identifier">LogListener</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="log-level.html">logLevel</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">logLevel</span><span class="symbol">: </span><a href="../-log-level/index.html"><span class="identifier">LogLevel</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="redacted-values.html">redactedValues</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">redactedValues</span><span class="symbol">: </span><span class="identifier">List</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="create-tag.html">createTag</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createTag</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.logging.Logger$createTag(kotlin.reflect.KClass((kotlin.Any)))/clazz">clazz</span><span class="symbol">:</span>&nbsp;<span class="identifier">KClass</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">createTag</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.logging.Logger$createTag(kotlin.String)/tag">tag</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="d.html">d</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">d</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.logging.Logger$d(kotlin.String, kotlin.Function0((kotlin.String)))/tag">tag</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.logging.Logger$d(kotlin.String, kotlin.Function0((kotlin.String)))/lazyMsg">lazyMsg</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">d</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.logging.Logger$d(kotlin.String, kotlin.Throwable, kotlin.Function0((kotlin.String)))/tag">tag</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.logging.Logger$d(kotlin.String, kotlin.Throwable, kotlin.Function0((kotlin.String)))/throwable">throwable</span><span class="symbol">:</span>&nbsp;<span class="identifier">Throwable</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.logging.Logger$d(kotlin.String, kotlin.Throwable, kotlin.Function0((kotlin.String)))/lazyMsg">lazyMsg</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="e.html">e</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">e</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.logging.Logger$e(kotlin.String, kotlin.Function0((kotlin.String)))/tag">tag</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.logging.Logger$e(kotlin.String, kotlin.Function0((kotlin.String)))/lazyMsg">lazyMsg</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">e</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.logging.Logger$e(kotlin.String, kotlin.Throwable, kotlin.Function0((kotlin.String)))/tag">tag</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.logging.Logger$e(kotlin.String, kotlin.Throwable, kotlin.Function0((kotlin.String)))/throwable">throwable</span><span class="symbol">:</span>&nbsp;<span class="identifier">Throwable</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.logging.Logger$e(kotlin.String, kotlin.Throwable, kotlin.Function0((kotlin.String)))/lazyMsg">lazyMsg</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="w.html">w</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">w</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.logging.Logger$w(kotlin.String, kotlin.Function0((kotlin.String)))/tag">tag</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.logging.Logger$w(kotlin.String, kotlin.Function0((kotlin.String)))/lazyMsg">lazyMsg</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">w</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.logging.Logger$w(kotlin.String, kotlin.Throwable, kotlin.Function0((kotlin.String)))/tag">tag</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.logging.Logger$w(kotlin.String, kotlin.Throwable, kotlin.Function0((kotlin.String)))/throwable">throwable</span><span class="symbol">:</span>&nbsp;<span class="identifier">Throwable</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.logging.Logger$w(kotlin.String, kotlin.Throwable, kotlin.Function0((kotlin.String)))/lazyMsg">lazyMsg</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

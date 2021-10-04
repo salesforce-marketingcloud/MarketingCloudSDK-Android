@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title><no name provided> - sfmcsdk</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">sfmcsdk</a>&nbsp;/&nbsp;<a href="index.html">com.salesforce.marketingcloud.sfmcsdk</a>&nbsp;/&nbsp;<a href="./-no name provided-.html">&lt;no name provided&gt;</a><br/>
+<br/>
+<h1>&lt;no name provided&gt;</h1>
+<a name="com.salesforce.marketingcloud.sfmcsdk$&lt;no name provided&gt;()"></a>
+<code><span class="keyword">fun </span><span class="identifier">&lt;no name provided&gt;</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+<p>Returns a valid instance of <a href="-s-f-m-c-sdk/index.html">SFMCSdk</a> when it is ready.  If initialization of the SDK
+has already completed then the <a href="-s-f-m-c-sdk-ready-listener/index.html">SFMCSdkReadyListener</a> will be notified immediately.  If
+<a href="-s-f-m-c-sdk/configure.html">SFMCSdk.configure</a> has not been called, or is executing, <a href="-s-f-m-c-sdk-ready-listener/index.html">SFMCSdkReadyListener</a> will be called
+upon completion.
+
+<strong>Note:</strong>  If <a href="-s-f-m-c-sdk/configure.html">SFMCSdk.configure</a> completes with a status of <a href="-initialization-status/-f-a-i-l-u-r-e.html">InitializationStatus.FAILURE</a>
+for <a href="-initialization-status/status.html">InitializationStatus.status</a> then then <a href="-s-f-m-c-sdk-ready-listener/index.html">SFMCSdkReadyListener</a> <strong>will not</strong> be called,
+and the current list of <a href="-s-f-m-c-sdk-ready-listener/index.html">SFMCSdkReadyListener</a> listeners will be cleared.</p>
+</BODY>
+</HTML>

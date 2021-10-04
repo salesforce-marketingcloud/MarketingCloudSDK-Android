@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>EventManager - sfmcsdk</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">sfmcsdk</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.sfmcsdk.components.events</a>&nbsp;/&nbsp;<a href="./index.html">EventManager</a><br/>
+<br/>
+<h1>EventManager</h1>
+<code><span class="keyword">class </span><span class="identifier">EventManager</span></code>
+<p>Class which helps in creating a EventManager for each module .
+This is initialised when <a href="../../com.salesforce.marketingcloud.sfmcsdk/-s-f-m-c-sdk/configure.html">SFMCSdk.configure</a> is called and each Module via <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-config/index.html">Config</a> has its own EventManager</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="subscribe.html">subscribe</a></h4>
+</td>
+<td>
+<p>Method to register a subscriber for <a href="../-event/index.html">Event</a></p>
+<code><span class="keyword">fun </span><span class="identifier">subscribe</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.events.EventManager$subscribe(com.salesforce.marketingcloud.sfmcsdk.components.events.EventSubscriber)/subscriber">subscriber</span><span class="symbol">:</span>&nbsp;<a href="../-event-subscriber/index.html"><span class="identifier">EventSubscriber</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="track.html">track</a></h4>
+</td>
+<td>
+<p>Method to track events from Module via <a href="../../com.salesforce.marketingcloud.sfmcsdk/-s-f-m-c-sdk-components/event-manager.html">SFMCSdkComponents.eventManager</a></p>
+<code><span class="keyword">fun </span><span class="identifier">track</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.events.EventManager$track(kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.components.events.Event)))/events">events</span><span class="symbol">:</span>&nbsp;<a href="../-event/index.html"><span class="identifier">Event</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="unsubscribe.html">unsubscribe</a></h4>
+</td>
+<td>
+<p>Method to de-register a subscriber for <a href="../-event/index.html">Event</a></p>
+<code><span class="keyword">fun </span><span class="identifier">unsubscribe</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.events.EventManager$unsubscribe(com.salesforce.marketingcloud.sfmcsdk.components.events.EventSubscriber)/subscriber">subscriber</span><span class="symbol">:</span>&nbsp;<a href="../-event-subscriber/index.html"><span class="identifier">EventSubscriber</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-t-a-g.html">TAG</a></h4>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">TAG</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="custom-event.html">customEvent</a></h4>
+</td>
+<td>
+<p>This method helps in creating a <a href="../-event/index.html">Event</a> with provided properties</p>
+<code><span class="keyword">fun </span><span class="identifier">customEvent</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.events.EventManager.Companion$customEvent(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.Any)), com.salesforce.marketingcloud.sfmcsdk.components.events.Event.Producer, com.salesforce.marketingcloud.sfmcsdk.components.events.Event.Category)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.events.EventManager.Companion$customEvent(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.Any)), com.salesforce.marketingcloud.sfmcsdk.components.events.Event.Producer, com.salesforce.marketingcloud.sfmcsdk.components.events.Event.Category)/attributes">attributes</span><span class="symbol">:</span>&nbsp;<span class="identifier">Map</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">,</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;mapOf()<span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.events.EventManager.Companion$customEvent(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.Any)), com.salesforce.marketingcloud.sfmcsdk.components.events.Event.Producer, com.salesforce.marketingcloud.sfmcsdk.components.events.Event.Category)/producer">producer</span><span class="symbol">:</span>&nbsp;<span class="identifier">Producer</span>&nbsp;<span class="symbol">=</span>&nbsp;SFMC_SDK<span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.events.EventManager.Companion$customEvent(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.Any)), com.salesforce.marketingcloud.sfmcsdk.components.events.Event.Producer, com.salesforce.marketingcloud.sfmcsdk.components.events.Event.Category)/category">category</span><span class="symbol">:</span>&nbsp;<span class="identifier">Category</span>&nbsp;<span class="symbol">=</span>&nbsp;ENGAGEMENT<span class="symbol">)</span><span class="symbol">: </span><a href="../-event/index.html"><span class="identifier">Event</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

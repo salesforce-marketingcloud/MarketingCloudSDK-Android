@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RegionMessageManager.enableProximityMessaging - Marketing Cloud SDK</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">Marketing Cloud SDK</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.messages</a>&nbsp;/&nbsp;<a href="index.html">RegionMessageManager</a>&nbsp;/&nbsp;<a href="./enable-proximity-messaging.html">enableProximityMessaging</a><br/>
+<br/>
+<h1>enableProximityMessaging</h1>
+<a name="com.salesforce.marketingcloud.messages.RegionMessageManager$enableProximityMessaging()"></a>
+<code><span class="identifier">@RequiresPermission</span><span class="symbol">(</span>["android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_BACKGROUND_LOCATION"]<span class="symbol">)</span> <span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">enableProximityMessaging</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code>
+<p>Enables proximity messaging. This will only succeed if: <ul> <li><code><a href="../../com.salesforce.marketingcloud/-marketing-cloud-config/-builder/set-proximity-enabled.html">com.salesforce.marketingcloud.MarketingCloudConfig.Builder#setProximityEnabled(boolean)</a></code> was set to true</li>
+ <li>The <a href="https://github.com/AltBeacon/android-beacon-library">AltBeacon</a> dependency was included in your build.</li>
+ <li>The device has the correct hardware and API level (18)</li>
+ <li>The play-services-location dependency was included in your build</li>
+ <li>The <code><a href="#">Manifest.permission#ACCESS_FINE_LOCATION</a></code> permission has been granted.</li>
+ <li>The <code><a href="#">Manifest.permission#ACCESS_BACKGROUND_LOCATION</a></code> permission has been granted on Android Q+.</li>
+ <li>The device has the supported play services version.</li>
+ </ul>
+</p>
+<p><strong>Return</strong><br/>
+<span class="identifier">Boolean</span><span class="symbol">:</span> True if proximity messaging was sucessfully enabled</p>
+</BODY>
+</HTML>

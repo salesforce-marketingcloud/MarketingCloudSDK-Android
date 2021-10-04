@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Identity.setProfile - sfmcsdk</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">sfmcsdk</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.sfmcsdk.components.identity</a>&nbsp;/&nbsp;<a href="index.html">Identity</a>&nbsp;/&nbsp;<a href="./set-profile.html">setProfile</a><br/>
+<br/>
+<h1>setProfile</h1>
+<a name="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.String)), com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))"></a>
+<code><span class="keyword">fun </span><span class="identifier">setProfile</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.String)), com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/profileId">profileId</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.String)), com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/attributes">attributes</span><span class="symbol">:</span>&nbsp;<span class="identifier">Map</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">,</span>&nbsp;<span class="identifier">String</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.String)), com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/module">module</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html"><span class="identifier">ModuleIdentifier</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.String)), com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/modules">modules</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html"><span class="identifier">ModuleIdentifier</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+<p>Method to set the Profile Id , Profile attributes for a module <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a>
+and notify change to modules specified</p>
+<h3>Parameters</h3>
+<p><a name="profileId"></a>
+<code>profileId</code> - New Profile id</p>
+<p><a name="attributes"></a>
+<code>attributes</code> - New Profile attributes</p>
+<p><a name="module"></a>
+<code>module</code> - <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a> on which the new Profile Id and Profile attributes to be set</p>
+<p><a name="modules"></a>
+<code>modules</code> - 
+<p>Other Modules to which the new Profile Information to be set</p>
+
+
+<p>Note: This only sets Profile on <a href="../-module-identity/index.html">ModuleIdentity</a> initialised via <a href="#">Identity.setModuleIdentity</a></p>
+</p>
+<a name="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(com.salesforce.marketingcloud.sfmcsdk.components.identity.Profile, com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))"></a>
+<code><span class="keyword">fun </span><span class="identifier">setProfile</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(com.salesforce.marketingcloud.sfmcsdk.components.identity.Profile, com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/profile">profile</span><span class="symbol">:</span>&nbsp;<a href="../-profile/index.html"><span class="identifier">Profile</span></a><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(com.salesforce.marketingcloud.sfmcsdk.components.identity.Profile, com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/module">module</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html"><span class="identifier">ModuleIdentifier</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(com.salesforce.marketingcloud.sfmcsdk.components.identity.Profile, com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier)))/modules">modules</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html"><span class="identifier">ModuleIdentifier</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+<p>Method to set the new Profile <a href="../-profile/index.html">Profile</a> for a module <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a>
+and notify change to modules specified</p>
+<h3>Parameters</h3>
+<p><a name="profile"></a>
+<code>profile</code> - New Profile information</p>
+<p><a name="module"></a>
+<code>module</code> - <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a> on which the new Profile to be set</p>
+<p><a name="modules"></a>
+<code>modules</code> - 
+<p>Other Modules to which the new Profile Information to be set</p>
+
+
+<p>Note : This only sets Profile on <a href="../-module-identity/index.html">ModuleIdentity</a> initialised via <a href="#">Identity.setModuleIdentity</a></p>
+</p>
+<a name="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(kotlin.collections.Map((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, com.salesforce.marketingcloud.sfmcsdk.components.identity.Profile)))"></a>
+<code><span class="keyword">fun </span><span class="identifier">setProfile</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.components.identity.Identity$setProfile(kotlin.collections.Map((com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier, com.salesforce.marketingcloud.sfmcsdk.components.identity.Profile)))/identities">identities</span><span class="symbol">:</span>&nbsp;<span class="identifier">Map</span><span class="symbol">&lt;</span><a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html"><span class="identifier">ModuleIdentifier</span></a><span class="symbol">,</span>&nbsp;<a href="../-profile/index.html"><span class="identifier">Profile</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+<p>Method to set the Profile information for map of Modules identified by <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a></p>
+<h3>Parameters</h3>
+<p><a name="identities"></a>
+<code>identities</code> - 
+<p>Map of format <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules/-module-identifier/index.html">ModuleIdentifier</a> to <a href="../-profile/index.html">Profile</a> to be updated.</p>
+
+
+<p>Note: This only sets Profile on <a href="../-module-identity/index.html">ModuleIdentity</a> initialised via <a href="#">Identity.setModuleIdentity</a></p>
+</p>
+</BODY>
+</HTML>

@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Authenticator - sfmcsdk</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">sfmcsdk</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.sfmcsdk.components.http</a>&nbsp;/&nbsp;<a href="./index.html">Authenticator</a><br/>
+<br/>
+<h1>Authenticator</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Authenticator</span></code>
+<p>Extend this class to instruct <a href="../-network-manager/index.html">NetworkManager</a> how to get an AuthToken to authenticate your
+calls made through <a href="../-network-manager/index.html">NetworkManager</a>.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Extend this class to instruct <a href="../-network-manager/index.html">NetworkManager</a> how to get an AuthToken to authenticate your
+calls made through <a href="../-network-manager/index.html">NetworkManager</a>.</p>
+<code><span class="identifier">Authenticator</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="delete-cached-token.html">deleteCachedToken</a></h4>
+</td>
+<td>
+<p>Provide a method to delete the locally cached token.  This method will be called when the previously
+used token has been determined to be invalid via a HTTP 401 response.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">deleteCachedToken</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-cached-token-header.html">getCachedTokenHeader</a></h4>
+</td>
+<td>
+<p>Provide the locally cached AuthToken as a key-value pair to be used in the header of your calls
+made through <a href="../-network-manager/index.html">NetworkManager</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getCachedTokenHeader</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Pair</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">,</span>&nbsp;<span class="identifier">String</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="refresh-auth-token-header.html">refreshAuthTokenHeader</a></h4>
+</td>
+<td>
+<p>Provide a "fresh" AuthToken fetched from the authentication route as a key-value pair to be used
+in the header of your calls made through <a href="../-network-manager/index.html">NetworkManager</a>.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">refreshAuthTokenHeader</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Pair</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">,</span>&nbsp;<span class="identifier">String</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

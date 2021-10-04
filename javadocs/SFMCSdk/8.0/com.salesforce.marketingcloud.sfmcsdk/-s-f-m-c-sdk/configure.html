@@ -1,0 +1,20 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SFMCSdk.configure - sfmcsdk</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">sfmcsdk</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.sfmcsdk</a>&nbsp;/&nbsp;<a href="index.html">SFMCSdk</a>&nbsp;/&nbsp;<a href="./configure.html">configure</a><br/>
+<br/>
+<h1>configure</h1>
+<a name="com.salesforce.marketingcloud.sfmcsdk.SFMCSdk.Companion$configure(android.content.Context, com.salesforce.marketingcloud.sfmcsdk.SFMCSdkModuleConfig, kotlin.Function1((com.salesforce.marketingcloud.sfmcsdk.InitializationStatus, kotlin.Unit)))"></a>
+<code><span class="identifier">@MainThread</span> <span class="identifier">@JvmStatic</span> <span class="identifier">@JvmOverloads</span> <span class="keyword">fun </span><span class="identifier">configure</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.SFMCSdk.Companion$configure(android.content.Context, com.salesforce.marketingcloud.sfmcsdk.SFMCSdkModuleConfig, kotlin.Function1((com.salesforce.marketingcloud.sfmcsdk.InitializationStatus, kotlin.Unit)))/context">context</span><span class="symbol">:</span>&nbsp;<span class="identifier">Context</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.SFMCSdk.Companion$configure(android.content.Context, com.salesforce.marketingcloud.sfmcsdk.SFMCSdkModuleConfig, kotlin.Function1((com.salesforce.marketingcloud.sfmcsdk.InitializationStatus, kotlin.Unit)))/config">config</span><span class="symbol">:</span>&nbsp;<a href="../-s-f-m-c-sdk-module-config/index.html"><span class="identifier">SFMCSdkModuleConfig</span></a><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.SFMCSdk.Companion$configure(android.content.Context, com.salesforce.marketingcloud.sfmcsdk.SFMCSdkModuleConfig, kotlin.Function1((com.salesforce.marketingcloud.sfmcsdk.InitializationStatus, kotlin.Unit)))/listener">listener</span><span class="symbol">:</span>&nbsp;<a href="../-initialization-listener.html"><span class="identifier">InitializationListener</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+<p>Initializes the SDK with the provided <a href="../-s-f-m-c-sdk-module-config/index.html">SFMCSdkModuleConfig</a>.  Once complete, the <a href="../-initialization-listener.html">InitializationListener</a>
+will be notified.
+Any subsequent calls to this method will be ignored as long as the values provided in
+<a href="../-s-f-m-c-sdk-module-config/index.html">SFMCSdkModuleConfig</a> are the same.
+Note: Anyone that calls <a href="request-sdk.html">requestSdk</a> before or during the initialization will be
+notified before the <a href="../-initialization-listener.html">InitializationListener</a> will be notified.</p>
+</BODY>
+</HTML>

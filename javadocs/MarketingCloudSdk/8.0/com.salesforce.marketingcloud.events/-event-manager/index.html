@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>EventManager - Marketing Cloud SDK</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">Marketing Cloud SDK</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.events</a>&nbsp;/&nbsp;<a href="./index.html">EventManager</a><br/>
+<br/>
+<h1>EventManager</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">EventManager</span></code>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="track.html">track</a></h4>
+</td>
+<td>
+<p>Method to track events, which could result in actions such as an InApp Message being displayed.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><s><span class="identifier">track</span></s><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="com.salesforce.marketingcloud.events.EventManager$track(kotlin.Array((com.salesforce.marketingcloud.events.Event)))/events">events</span><span class="symbol">:</span>&nbsp;<a href="../-event/index.html"><span class="identifier">Event</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="custom-event.html">customEvent</a></h4>
+</td>
+<td>
+<p>A <a href="../-event/index.html">CustomEvent</a> for use in Behavioral Triggers for InApp Messages.</p>
+<code><span class="keyword">fun </span><span class="identifier">customEvent</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.events.EventManager.Companion$customEvent(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.Any)), com.salesforce.marketingcloud.sfmcsdk.components.events.Event.Producer)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.events.EventManager.Companion$customEvent(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.Any)), com.salesforce.marketingcloud.sfmcsdk.components.events.Event.Producer)/attributes">attributes</span><span class="symbol">:</span>&nbsp;<span class="identifier">Map</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">,</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;mapOf()<span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.events.EventManager.Companion$customEvent(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.Any)), com.salesforce.marketingcloud.sfmcsdk.components.events.Event.Producer)/producer">producer</span><span class="symbol">:</span>&nbsp;<span class="identifier">Producer</span>&nbsp;<span class="symbol">=</span>&nbsp;Producer.PUSH<span class="symbol">)</span><span class="symbol">: </span><a href="../-event/index.html"><span class="identifier">Event</span></a><span class="symbol">?</span></code><code><span class="keyword">fun </span><span class="identifier">customEvent</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.events.EventManager.Companion$customEvent(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.Any)))/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.events.EventManager.Companion$customEvent(kotlin.String, kotlin.collections.Map((kotlin.String, kotlin.Any)))/attributes">attributes</span><span class="symbol">:</span>&nbsp;<span class="identifier">Map</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">,</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-event/index.html"><span class="identifier">Event</span></a><span class="symbol">?</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">customEvent</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.events.EventManager.Companion$customEvent(kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-event/index.html"><span class="identifier">Event</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

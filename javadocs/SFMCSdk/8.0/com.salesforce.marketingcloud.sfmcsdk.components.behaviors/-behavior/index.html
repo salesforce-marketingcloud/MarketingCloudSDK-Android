@@ -1,0 +1,101 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Behavior - sfmcsdk</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">sfmcsdk</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.sfmcsdk.components.behaviors</a>&nbsp;/&nbsp;<a href="./index.html">Behavior</a><br/>
+<br/>
+<h1>Behavior</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">Behavior</span></code>
+<p>Container for all known <a href="../-behavior-type/index.html">BehaviorType</a>s.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-app-backgrounded.html">AppBackgrounded</a></h4>
+</td>
+<td>
+<p>This behavior will be notified when the application's UI is no longer visible on the screen.</p>
+<code><span class="keyword">class </span><span class="identifier">AppBackgrounded</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Behavior</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-app-foregrounded.html">AppForegrounded</a></h4>
+</td>
+<td>
+<p>This behavior will be notified when the application comes into the foreground and is "sticky".</p>
+<code><span class="keyword">class </span><span class="identifier">AppForegrounded</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Behavior</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-app-version-changed.html">AppVersionChanged</a></h4>
+</td>
+<td>
+<p>This behavior will be notified when the previously recorded version of the application does
+not match the current version of the application.</p>
+<code><span class="keyword">class </span><span class="identifier">AppVersionChanged</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Behavior</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-screen-entry/index.html">ScreenEntry</a></h4>
+</td>
+<td>
+<p>This behavior will be notified as the user traverses through the application's Activities.</p>
+<code><span class="keyword">class </span><span class="identifier">ScreenEntry</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Behavior</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="app-name.html">appName</a></h4>
+</td>
+<td>
+<p>The application name.</p>
+<code><span class="keyword">val </span><span class="identifier">appName</span><span class="symbol">: </span><span class="identifier">String</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="app-version.html">appVersion</a></h4>
+</td>
+<td>
+<p>The current application version.</p>
+<code><span class="keyword">val </span><span class="identifier">appVersion</span><span class="symbol">: </span><span class="identifier">String</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="previous-version.html">previousVersion</a></h4>
+</td>
+<td>
+<p>The previously recorded version or null.</p>
+<code><span class="keyword">val </span><span class="identifier">previousVersion</span><span class="symbol">: </span><span class="identifier">String</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="timestamp.html">timestamp</a></h4>
+</td>
+<td>
+<p>The timestamp of the behavior event.</p>
+<code><span class="keyword">val </span><span class="identifier">timestamp</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../to-event.html">toEvent</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Behavior</span></a><span class="symbol">.</span><span class="identifier">toEvent</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.salesforce.marketingcloud.sfmcsdk.components.events/-event/index.html"><span class="identifier">Event</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

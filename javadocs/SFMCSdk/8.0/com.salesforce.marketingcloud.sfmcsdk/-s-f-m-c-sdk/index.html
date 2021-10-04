@@ -1,0 +1,107 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SFMCSdk - sfmcsdk</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">sfmcsdk</a>&nbsp;/&nbsp;<a href="../index.html">com.salesforce.marketingcloud.sfmcsdk</a>&nbsp;/&nbsp;<a href="./index.html">SFMCSdk</a><br/>
+<br/>
+<h1>SFMCSdk</h1>
+<code><span class="keyword">class </span><span class="identifier">SFMCSdk</span></code>
+<p>The <a href="./index.html">SFMCSdk</a> is a shared-services SDK intended to empower other libraries by providing
+ready-made implementations for commonly used services: http communications, encryption, local
+storage, etc.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="config.html">config</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">config</span><span class="symbol">: </span><a href="../-s-f-m-c-sdk-module-config/index.html"><span class="identifier">SFMCSdkModuleConfig</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="identity.html">identity</a></h4>
+</td>
+<td>
+<p>One Instance variable of identity used across modules <a href="#">Module</a> to set profile information .
+Initialised when SFMCSdk is configured via <a href="configure.html">SFMCSdk.configure</a>.</p>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">identity</span><span class="symbol">: </span><a href="../../com.salesforce.marketingcloud.sfmcsdk.components.identity/-identity/index.html"><span class="identifier">Identity</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="cdp.html">cdp</a></h4>
+</td>
+<td>
+<p>An asynchronous request for a instance of <a href="#">CdpModuleInterface</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">cdp</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.SFMCSdk$cdp(com.salesforce.marketingcloud.sfmcsdk.modules.cdp.CdpModuleReadyListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.modules.cdp/-cdp-module-ready-listener/index.html"><span class="identifier">CdpModuleReadyListener</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-sdk-state.html">getSdkState</a></h4>
+</td>
+<td>
+<p>Return the current state of all SDK modules</p>
+<code><span class="keyword">fun </span><span class="identifier">getSdkState</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">JSONObject</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="mp.html">mp</a></h4>
+</td>
+<td>
+<p>An asynchronous request for a instance of <a href="../../com.salesforce.marketingcloud.sfmcsdk.modules.push/-push-module-interface/index.html">PushModuleInterface</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">mp</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.SFMCSdk$mp(com.salesforce.marketingcloud.sfmcsdk.modules.push.PushModuleReadyListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.modules.push/-push-module-ready-listener/index.html"><span class="identifier">PushModuleReadyListener</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="configure.html">configure</a></h4>
+</td>
+<td>
+<p>Initializes the SDK with the provided <a href="../-s-f-m-c-sdk-module-config/index.html">SFMCSdkModuleConfig</a>.  Once complete, the <a href="../-initialization-listener.html">InitializationListener</a>
+will be notified.
+Any subsequent calls to this method will be ignored as long as the values provided in
+<a href="../-s-f-m-c-sdk-module-config/index.html">SFMCSdkModuleConfig</a> are the same.
+Note: Anyone that calls <a href="request-sdk.html">requestSdk</a> before or during the initialization will be
+notified before the <a href="../-initialization-listener.html">InitializationListener</a> will be notified.</p>
+<code><span class="keyword">fun </span><span class="identifier">configure</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.SFMCSdk.Companion$configure(android.content.Context, com.salesforce.marketingcloud.sfmcsdk.SFMCSdkModuleConfig, kotlin.Function1((com.salesforce.marketingcloud.sfmcsdk.InitializationStatus, kotlin.Unit)))/context">context</span><span class="symbol">:</span>&nbsp;<span class="identifier">Context</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.SFMCSdk.Companion$configure(android.content.Context, com.salesforce.marketingcloud.sfmcsdk.SFMCSdkModuleConfig, kotlin.Function1((com.salesforce.marketingcloud.sfmcsdk.InitializationStatus, kotlin.Unit)))/config">config</span><span class="symbol">:</span>&nbsp;<a href="../-s-f-m-c-sdk-module-config/index.html"><span class="identifier">SFMCSdkModuleConfig</span></a><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.SFMCSdk.Companion$configure(android.content.Context, com.salesforce.marketingcloud.sfmcsdk.SFMCSdkModuleConfig, kotlin.Function1((com.salesforce.marketingcloud.sfmcsdk.InitializationStatus, kotlin.Unit)))/listener">listener</span><span class="symbol">:</span>&nbsp;<a href="../-initialization-listener.html"><span class="identifier">InitializationListener</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="request-sdk.html">requestSdk</a></h4>
+</td>
+<td>
+<p>An asynchronous request for a instance of <a href="./index.html">SFMCSdk</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">requestSdk</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.SFMCSdk.Companion$requestSdk(com.salesforce.marketingcloud.sfmcsdk.SFMCSdkReadyListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<a href="../-s-f-m-c-sdk-ready-listener/index.html"><span class="identifier">SFMCSdkReadyListener</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-logging.html">setLogging</a></h4>
+</td>
+<td>
+<p>Enable/Disable Logging in the SFMCSdk.</p>
+<code><span class="keyword">fun </span><span class="identifier">setLogging</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.SFMCSdk.Companion$setLogging(com.salesforce.marketingcloud.sfmcsdk.components.logging.LogLevel, com.salesforce.marketingcloud.sfmcsdk.components.logging.LogListener)/level">level</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.components.logging/-log-level/index.html"><span class="identifier">LogLevel</span></a><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.SFMCSdk.Companion$setLogging(com.salesforce.marketingcloud.sfmcsdk.components.logging.LogLevel, com.salesforce.marketingcloud.sfmcsdk.components.logging.LogListener)/listener">listener</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.components.logging/-log-listener/index.html"><span class="identifier">LogListener</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="track.html">track</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">track</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="com.salesforce.marketingcloud.sfmcsdk.SFMCSdk.Companion$track(kotlin.Array((com.salesforce.marketingcloud.sfmcsdk.components.events.Event)))/events">events</span><span class="symbol">:</span>&nbsp;<a href="../../com.salesforce.marketingcloud.sfmcsdk.components.events/-event/index.html"><span class="identifier">Event</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
