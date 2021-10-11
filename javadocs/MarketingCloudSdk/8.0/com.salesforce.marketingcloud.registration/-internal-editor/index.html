@@ -17,7 +17,7 @@
 <h4><a href="set-attribute.html">setAttribute</a></h4>
 </td>
 <td>
-<p>Internal setter for attributes allowing for the toggling of whether or not to rebroadcast
+<p>Internal setter for an attribute allowing for the toggling of whether or not to rebroadcast
 this change to the Unified SDK.</p>
 <code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">setAttribute</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.registration.InternalEditor$setAttribute(kotlin.String, kotlin.String, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.registration.InternalEditor$setAttribute(kotlin.String, kotlin.String, kotlin.Boolean)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.registration.InternalEditor$setAttribute(kotlin.String, kotlin.String, kotlin.Boolean)/notifyModules">notifyModules</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Editor</span></code></td>
 </tr>
@@ -35,9 +35,18 @@ this change to the Unified SDK.</p>
 <h4><a href="update-registration.html">updateRegistration</a></h4>
 </td>
 <td>
-<p>Internal method allowing for the toggling of whether or not to rebroadcast this change to the
-Unified SDK.</p>
+<p>Internal method to set Contact key and attributes allowing the toggling of whether or not to rebroadcast
+this change to the Unified SDK.</p>
 <code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">updateRegistration</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.registration.InternalEditor$updateRegistration(kotlin.String, kotlin.collections.Map((kotlin.String, )), kotlin.Boolean)/contactKey">contactKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.registration.InternalEditor$updateRegistration(kotlin.String, kotlin.collections.Map((kotlin.String, )), kotlin.Boolean)/attributes">attributes</span><span class="symbol">:</span>&nbsp;<span class="identifier">Map</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">,</span>&nbsp;<span class="identifier">String</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.registration.InternalEditor$updateRegistration(kotlin.String, kotlin.collections.Map((kotlin.String, )), kotlin.Boolean)/notifyModules">notifyModules</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Editor</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="update-registration-with-attributes.html">updateRegistrationWithAttributes</a></h4>
+</td>
+<td>
+<p>Internal method to set only attributes allowing the toggling of whether or not to rebroadcast
+this change to the Unified SDK.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">updateRegistrationWithAttributes</span><span class="symbol">(</span><span class="identifier" id="com.salesforce.marketingcloud.registration.InternalEditor$updateRegistrationWithAttributes(kotlin.collections.Map((kotlin.String, )), kotlin.Boolean)/attributes">attributes</span><span class="symbol">:</span>&nbsp;<span class="identifier">Map</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">,</span>&nbsp;<span class="identifier">String</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.salesforce.marketingcloud.registration.InternalEditor$updateRegistrationWithAttributes(kotlin.collections.Map((kotlin.String, )), kotlin.Boolean)/notifyModules">notifyModules</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Editor</span></code></td>
 </tr>
 </tbody>
 </table>
