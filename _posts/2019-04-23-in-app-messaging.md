@@ -21,22 +21,22 @@ Marketers can configure the action that occurs when an end-user taps a button on
 
 ### Optional Methods
 
-You can use the SDK’s optional in-app messaging [EventListener]({{ site.baseurl }}/javadocs/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud.messages.iam/-in-app-message-manager/-event-listener/index.html) to control aspects of message display and to get information about the in-app message display lifecycle.
+You can use the SDK’s optional in-app messaging [EventListener]({{ site.baseurl }}/javadocs/MarketingCloudSdk/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud.messages.iam/-in-app-message-manager/-event-listener/index.html) to control aspects of message display and to get information about the in-app message display lifecycle.
 
 
-After the SDK's initialization is complete you can register your in-app message [EventListener]({{ site.baseurl }}/javadocs/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud.messages.iam/-in-app-message-manager/-event-listener/index.html) with the [InAppMessageManager]({{ site.baseurl }}/javadocs/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud.messages.iam/-in-app-message-manager/index.html).
+After the SDK's initialization is complete you can register your in-app message [EventListener]({{ site.baseurl }}/javadocs/MarketingCloudSdk/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud.messages.iam/-in-app-message-manager/-event-listener/index.html) with the [InAppMessageManager]({{ site.baseurl }}/javadocs/MarketingCloudSdk/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud.messages.iam/-in-app-message-manager/index.html).
 
 {% include gist.html sectionId="register_in_app" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/156f8ebec59e8d2c6e4445eb4b036431.js,https://gist.github.com/sfmc-mobilepushsdk/93b17c5aae85b915e0e8b46d5b66d570.js" %}
 
 #### didShowMessage and didCloseMessage
 The following delegate methods help ensure that you can appropriately manage your app's view state. In-app messages are shown in an activity controlled by the SDK in your app's activity stack. Your app may need to respond to a view appearing or disappearing.
 
-[didShowMessage]({{ site.baseurl }}/javadocs/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud.messages.iam/-in-app-message-manager/-event-listener/did-show-message.html) is called when the in-app message is initially presented.
+[didShowMessage]({{ site.baseurl }}/javadocs/MarketingCloudSdk/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud.messages.iam/-in-app-message-manager/-event-listener/did-show-message.html) is called when the in-app message is initially presented.
 
-[didCloseMessage]({{ site.baseurl }}/javadocs/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud.messages.iam/-in-app-message-manager/-event-listener/did-close-message.html) is called after the user performs closes the message.
+[didCloseMessage]({{ site.baseurl }}/javadocs/MarketingCloudSdk/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud.messages.iam/-in-app-message-manager/-event-listener/did-close-message.html) is called after the user performs closes the message.
 
 #### Prevent or Delay Message Display
-You can delay or prevent an in-app message’s display. For example, prevent an in-app message from displaying during loading, instructions, the sign-in flow, and other situations. To prevent display of the message, make the [shouldShowMessage]({{ site.baseurl }}/javadocs/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud.messages.iam/-in-app-message-manager/-event-listener/should-show-message.html) method return false.
+You can delay or prevent an in-app message’s display. For example, prevent an in-app message from displaying during loading, instructions, the sign-in flow, and other situations. To prevent display of the message, make the [shouldShowMessage]({{ site.baseurl }}/javadocs/MarketingCloudSdk/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud.messages.iam/-in-app-message-manager/-event-listener/should-show-message.html) method return false.
 
 You can capture the message data and show that message later. For example, present the message after the end-user has signed in. Capture the ID of the message and show that message later.
 

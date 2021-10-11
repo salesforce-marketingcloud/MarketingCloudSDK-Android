@@ -11,7 +11,7 @@ order: 1
 
 On devices running Android Oreo or newer, the SDK creates a notification channel called “marketing” to assign all notifications to. To change the name of the default channel, set a string resource value for `mcsdk_default_notification_channel_name`.
 
-After the SDK creates the NotificationChannel, the channel isn’t updated unless your application calls [NotificationManager#createDefaultNotificationChannel(Context context, boolean forceRecreate)]({{ site.baseurl}}/javadocs/MarketingCloudSdk/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud.notifications/-notification-manager/create-default-notification-channel.html).
+After the SDK creates the NotificationChannel, the channel isn’t updated unless your application calls [NotificationManager#createDefaultNotificationChannel(Context context, boolean forceRecreate)]({{ site.baseurl }}/javadocs/MarketingCloudSdk/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud.notifications/-notification-manager/create-default-notification-channel.html).
 
 ### Custom Configuration
 
