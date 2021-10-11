@@ -15,7 +15,7 @@ Enable analytics by setting parameters in `MarketingCloudConfig.Builder()`. To i
 ### Integrate Einstein Recommendations and Collect API
 
 #### Analytic Attribution
-Einstein Recommendations analytics uses a unique identifier to attribute collected analytics to a specific user. By default, the SDK uses the contact key as this identifier, called the PIID. Your app can explicitly set this value. Review [setPiIdentifier]({{ site.baseurl}}/javadocs/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud.analytics/-analytics-manager/set-pi-identifier.html) and [setUseLegacyPiIdentifier]({{ site.baseurl}}/javadocs/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud/-marketing-cloud-config/-builder/set-use-legacy-pi-identifier.html) for details and configuration information.
+Einstein Recommendations analytics uses a unique identifier to attribute collected analytics to a specific user. By default, the SDK uses the contact key as this identifier, called the PIID. Your app can explicitly set this value. Review [setPiIdentifier]({{ site.baseurl}}/javadocs/MarketingCloudSdk/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud.analytics/-analytics-manager/set-pi-identifier.html) and [setUseLegacyPiIdentifier]({{ site.baseurl}}/javadocs/MarketingCloudSdk/{{ site.currentMajorMinor }}/com.salesforce.marketingcloud/-marketing-cloud-config/-builder/set-use-legacy-pi-identifier.html) for details and configuration information.
 
 > If the PIID isn’t set or is null and the SDK is configured to use the Legacy PI identifier, the SDK sends the contact key as the PIID.
 
