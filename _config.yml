@@ -58,6 +58,7 @@ sections: [
     ['create-apps', 'Create Cloud Apps'],
     ['sdk-implementation', 'SDK Implementation'],
     ['notifications', 'Notifications'],
+    ["event-tracking", "Event Tracking"],
     ['in-app-message', 'In-App Messaging'],
     ['inbox', 'Inbox Messaging'],
     ['location', 'Location Messaging'],
