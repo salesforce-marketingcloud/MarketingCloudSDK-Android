@@ -22,7 +22,7 @@ Set the push token in the SDK whenever it has been retrieved/updated from the Fi
 
 {% include gist.html sectionId="handle_push_token" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/d8bc5b0cb6b31c5e47fddf823c4b58de.js,https://gist.github.com/sfmc-mobilepushsdk/01bfc40f0e326bbf72f10f0998e66992.js" %}
 
-> The SDK **will not** send a registration request to the Marketing Cloud until the push token has been set.  <br/><br/>Not updating the SDK with a new push token when [onTokenRefresh](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceIdService.html#onTokenRefresh()) is triggered will prevent the Marketing Cloud from sending push messages to your application
+> Not updating the SDK with a new push token when [onNewToken](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessagingService) is triggered will prevent the Marketing Cloud from sending push messages to your application.
 
 #### Handle Push Message
 
