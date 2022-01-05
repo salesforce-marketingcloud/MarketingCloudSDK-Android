@@ -20,12 +20,12 @@ A tracked event consists of the event name and event attributes (optional parame
 
 ### Create the event
 
-```swift
-let event = CustomEvent(name: "EventName", attributes: ["key1": "value1", "key2": "value2"])
+```kotlin
+val event = EventManager.customEvent("EventName", mapOf("key1" to "value2", "key2" to "value2"))
 ```
 
 ### Track the event
 
-```swift
-SFMCSdk.track(event: CustomEvent(name: "EventName", attributes: ["key": "value"])!)
+```kotlin
+SFMCSdk.track(event)
 ```
