@@ -32,7 +32,7 @@ Test that your device can receive a push directly from FCM.
 #### Evaluate the SDK state
 
 Look through the output from the Sdk's `getSdkState()` method.
-{% include gist.html sectionId="evaluate_sdk_state" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/c5a1210872dcbc5105a4ead586abe266.js,https://gist.github.com/sfmc-mobilepushsdk/426e01da0ed63d9e2580eafe6bee8ea3.js" %}
+{% include gist.html sectionId="evaluate_sdk_state" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/46250dad983bdf5e56fb5f2219dd5443.js,https://gist.github.com/sfmc-mobilepushsdk/8191cbff4e46d00a8a241444dba53511.js" %}
 
 There is a lot of information provided in this method, but for debugging push messaging you will want to look specifically at the NotificationManager and PushMessageManager sections.
 {% include gist.html sectionId="sdk_state" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/63d896be17c5c0c0866661cdcd8e7d3f.js,https://gist.github.com/sfmc-mobilepushsdk/91d0a4018c72d484c30414c74fc7841c.js" %}
