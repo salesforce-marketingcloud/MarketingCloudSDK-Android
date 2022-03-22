@@ -3,7 +3,7 @@
   <groupId>com.salesforce.marketingcloud</groupId>
   <artifactId>marketingcloudsdk</artifactId>
   <versioning>
-    <version>8.0.4</version>
+    <version>8.0.5</version>
     <versions>
       <version>6.0.1</version>
       <version>6.0.2</version>
@@ -26,7 +26,8 @@
       <version>8.0.2</version>
       <version>8.0.3</version>
       <version>8.0.4</version>
+      <version>8.0.5</version>
     </versions>
-    <lastUpdated>20211122000000</lastUpdated>
+    <lastUpdated>20220322000000</lastUpdated>
   </versioning>
 </metadata>
