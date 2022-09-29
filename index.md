@@ -23,9 +23,9 @@ Additionally, the October, 2021 Android MobilePush SDK will release with the fol
 2. New dependency on the Kotlin std-lib.
 3. Small changes to the API to better align with expected method naming in Kotlin.
 
-## Android S
+## Android T
 
-Support for Android S was added in the version 8.0.0 of the SDK.  See the [Releases]({{site.baseurl}}/#releases) section for more details.
+Support for Android T was added in the version 8.0.7 of the SDK.  See the [Releases]({{site.baseurl}}/#releases) section for more details.
 
 ## Get Started
 

@@ -17,7 +17,7 @@ order: 3
 
 #### 2. Add these permissions to your application's **AndroidManifest.xml**
 
-<script src="https://gist.github.com/sfmc-mobilepushsdk/0691df241cd2a843b3558d1c14876128.js"></script>
+<script src="https://gist.github.com/sfmc-mobilepushsdk/50d0b19cc5b6f6e10caea9dcf2cfa8ce.js"></script>
 
 #### 3. Enable beacon messaging during SDK initialization
 
@@ -25,15 +25,22 @@ order: 3
 
 > To troubleshoot information related to beacons in the InitializationStatus that is returned during the SDK's initialization call, see [initialization status]({{ site.baseurl }}/trouble-shooting/init-status.html) documentation.
 
-#### 4. Request location permission
+#### 4. Request permissions
 
-To enable proximity messaging, request the required location permissions from your users at runtime. For users on devices running Android Q, request both the `ACCESS_FINE_LOCATION` and `ACCESS_BACKGROUND_LOCATION` permissions. For users on devices older than Android Q, you can request only the `ACCESS_FINE_LOCATION` permission.
+* ##### Location permissions
 
-See [Request App Permissions](https://developer.android.com/training/permissions/requesting.html) for more information on requesting runtime permissions.  See [Android Q privacy change](https://developer.android.com/preview/privacy/device-location) documentation for more information on this change.
+   To enable proximity messaging, request the required location permissions from your users at runtime. For users on devices running Android Q, request both the `ACCESS_FINE_LOCATION` and `ACCESS_BACKGROUND_LOCATION` permissions. For users on devices older than Android Q, you can request only the `ACCESS_FINE_LOCATION` permission.
+
+* ##### Bluetooth permission
+
+  To enable proximity messaging, request the required location permissions from your users at runtime. For users on devices running Android S and above, request the `BLUETOOTH_SCAN` permission.
+
+See [Request App Permissions](https://developer.android.com/training/permissions/requesting.html) for more information on requesting runtime permissions.  See [Android Q privacy change](https://developer.android.com/preview/privacy/device-location) documentation for more information on location permission change.
+
 
 #### 5. Enable beacon messaging at runtime
 
-Once the permission is granted you can enable beacon notification by calling `enableProximityMessaging()`.
+Once all the permissions are granted you can enable beacon notification by calling `enableProximityMessaging()`.
 
 {% include gist.html sectionId="enable_beacon_message" names="8.x,7.x" gists="https://gist.github.com/sfmc-mobilepushsdk/15ec0557f76e3a0b01305c5e987036bf.js,https://gist.github.com/sfmc-mobilepushsdk/4cece3020878bbf654bc596d901b0ca3.js" %}
 

@@ -49,6 +49,18 @@ From 8.0.0 onwards, use [SFMCSdk]() to initialize the MarketingCloudSdk.
 
 > You can customize the display and handling of notifications. See the [customize notifications]({{ site.baseurl}}/notifications/customize-notifications.html) documentation for details.
 
-## 4. Send a test push notification
+## 4. Request runtime notification permission on Android 13+
+
+Android 13 introduces a new runtime permission for showing notifications. This affects all apps running on Android 13 or higher. Your app will not be allowed to show notifications until the user has granted this permission.
+
+See Google's documentation for details on requesting permissions from the user.
+
+Once the user has accepted the permission to display notifications you will need to notify the SDK:
+
+
+{% include gist.html sectionId="enablePush" names="8.x" gists="https://gist.github.com/sfmc-mobilepushsdk/fa1f4186125877554aa2a6b3ecc2b44e.js" %}
+
+
+## 5. Send a test push notification
 
 Send a test push notification from the Marketing Cloud to your app.
