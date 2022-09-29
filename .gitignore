@@ -9,6 +9,8 @@
 .project
 .settings
 .classpath
+.jekyll*
+_site/
 
 # Ignore firebase file so we don't accidentally add it to git
 google-services.json

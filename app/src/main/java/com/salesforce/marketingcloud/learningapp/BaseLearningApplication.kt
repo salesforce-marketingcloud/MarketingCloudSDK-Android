@@ -41,7 +41,7 @@ import com.salesforce.marketingcloud.messages.iam.InAppMessage
 import com.salesforce.marketingcloud.messages.iam.InAppMessageManager
 import com.salesforce.marketingcloud.sfmcsdk.*
 
-const val LOG_TAG = "MCSDK"
+const val LOG_TAG = "~#MCLearningApp"
 
 abstract class BaseLearningApplication : Application(), UrlHandler {
 
@@ -51,8 +51,17 @@ abstract class BaseLearningApplication : Application(), UrlHandler {
         super.onCreate()
 
         if (BuildConfig.DEBUG) {
+            // Only log for DEBUG builds
             MarketingCloudSdk.setLogLevel(MCLogListener.VERBOSE)
             MarketingCloudSdk.setLogListener(MCLogListener.AndroidLogListener())
+            SFMCSdk.requestSdk { sdk ->
+                sdk.mp { push ->
+                    push.registrationManager.registerForRegistrationEvents {
+                        // Log the registration on successful sends to the MC
+                        Log.i(LOG_TAG, "Registration: $it")
+                    }
+                }
+            }
         }
 
         // You MUST initialize the SDK in your Application's onCreate to ensure correct

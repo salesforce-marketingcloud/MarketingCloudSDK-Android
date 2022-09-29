@@ -43,7 +43,7 @@ class InboxViewer : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        webView = WebView(context)
+        webView = WebView(requireContext())
         webView.settings.javaScriptEnabled = true
         return webView
     }
