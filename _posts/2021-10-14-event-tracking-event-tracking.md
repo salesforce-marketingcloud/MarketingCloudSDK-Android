@@ -12,7 +12,7 @@ published: true
 
 With v8 onwards of the MobilePush SDK, you can track analytic events about end users’ actions with the app. Your app calls new methods in the MobilePush SDK to track events. These events can be used to orchestrate journeys or trigger in-app messages based on real-time user behavior.
 
-To start tracking events, ensure that you are on the v8 and above of the SDK. See [Migration]({{ site.baseurl }}/get-started/get-started-migration.html)
+To start tracking events, ensure that you are on the v8 and above of the SDK. See [Migration]({{ site.baseurl }}/sdk-implementation/get-started-migration.html)
 
 ## Implement Event Tracking
 
