@@ -6,7 +6,8 @@ category: trouble-shooting
 date: 2016-07-15 12:00:00
 order: 4
 ---
-While multiple push SDKs can be integrated into a single app, this may cause issues, and we cannot guarantee results. This section provides some considerations you should keep in mind as you develop your app. Areas of concern can include registration, geolocation and more. Note that this is not an exhaustive list.
+MobilePush is able to work in the same app as other push vendor SDKs. However, we recommend checking with your other SDK vendor to ensure they also support a multi-push provider implementation. This page provides considerations for multiple push SDKs to successfully work together. Common areas for poor implementation can include device registration, geolocation and more. Note that this is not an exhaustive list.
+
 
 > Any other push provider you choose must also allow a multiple push provider implementation.
 
