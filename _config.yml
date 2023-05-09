@@ -15,16 +15,16 @@ codeurl: 'https://github.com/salesforce-marketingcloud/MarketingCloudSDK-Android
 title: 'SFMCSdk Android'
 
 # Current SDK version, use for all mentions
-currentVersion: "8.0.8"
+currentVersion: "8.0.9"
 
 # Current SDK major minor version.  Used to reference javadoc
 currentMajorMinor: "8.0"
 
 # Google Play Services Location version for current SDK release
-currentGmsLocationVersion: "19.0.1"
+currentGmsLocationVersion: "21.0.1"
 
 # Firebase major version
-firebaseCoreMajor: "22"
+firebaseCoreMajor: "23"
 
 # AltBeacon version for current SDK release
 currentAltBeaconVersion: "2.19.3"
@@ -36,7 +36,7 @@ minAndroidSdkVersion: "21"
 compileAndroidSdkVersion: "33"
 
 # Marketing Cloud Delay
-propagationDelay: "5 minutes"
+propagationDelay: "15 minutes"
 
 # if you use google analytics, add your tracking id here
 google_analytics_id: 'G-5JSZM48ZY9' #PROD
