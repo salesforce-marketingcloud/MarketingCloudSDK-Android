@@ -91,5 +91,36 @@
             app:layout_constraintStart_toStartOf="@id/textview_inbox"
             app:layout_constraintTop_toBottomOf="@id/textview_inbox" />
 
+        <TextView
+            android:id="@+id/textview_runtime_toggles"
+            style="@style/TextAppearance.SectionHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Runtime Toggles"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_inbox" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:text="ET Analytics"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_runtime_toggles"
+            />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_et_analytics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView7"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

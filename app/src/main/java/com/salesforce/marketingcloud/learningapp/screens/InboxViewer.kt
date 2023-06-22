@@ -30,6 +30,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebSettings
 import android.webkit.WebView
 import androidx.fragment.app.Fragment
 
@@ -45,6 +46,8 @@ class InboxViewer : Fragment() {
     ): View {
         webView = WebView(requireContext())
         webView.settings.javaScriptEnabled = true
+        webView.settings.mixedContentMode = WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
+
         return webView
     }
 
