@@ -88,6 +88,16 @@ class Home : SdkFragment() {
                     sdk.analyticsManager.disableAnalytics()
                 }
             }
+
+            val inboxToggle = findViewById<SwitchCompat>(R.id.switch_inbox)
+            inboxToggle.isChecked = sdk.inboxMessageManager.isInboxEnabled
+            inboxToggle.setOnCheckedChangeListener { _, checked ->
+                if (checked) {
+                    sdk.inboxMessageManager.enableInbox()
+                } else {
+                    sdk.inboxMessageManager.disableInbox()
+                }
+            }
         }
     }
 
