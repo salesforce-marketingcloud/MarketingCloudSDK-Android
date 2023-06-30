@@ -29,6 +29,7 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.widget.SwitchCompat
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
@@ -75,6 +76,37 @@ class Home : SdkFragment() {
 
             findViewById<Button>(R.id.button_inbox).setOnClickListener {
                 navController.navigate(HomeDirections.actionHomeToInbox())
+            }
+
+
+            val etAnalyticsToggle = findViewById<SwitchCompat>(R.id.switch_et_analytics)
+            etAnalyticsToggle.isChecked = sdk.analyticsManager.areAnalyticsEnabled()
+            etAnalyticsToggle.setOnCheckedChangeListener { _, checked ->
+                if (checked) {
+                    sdk.analyticsManager.enableAnalytics()
+                } else {
+                    sdk.analyticsManager.disableAnalytics()
+                }
+            }
+
+            val inboxToggle = findViewById<SwitchCompat>(R.id.switch_inbox)
+            inboxToggle.isChecked = sdk.inboxMessageManager.isInboxEnabled
+            inboxToggle.setOnCheckedChangeListener { _, checked ->
+                if (checked) {
+                    sdk.inboxMessageManager.enableInbox()
+                } else {
+                    sdk.inboxMessageManager.disableInbox()
+                }
+            }
+
+            val piAnalyticsToggle = findViewById<SwitchCompat>(R.id.switch_pi_analytics)
+            piAnalyticsToggle.isChecked = sdk.analyticsManager.arePiAnalyticsEnabled()
+            piAnalyticsToggle.setOnCheckedChangeListener { _, checked ->
+                if (checked) {
+                    sdk.analyticsManager.enablePiAnalytics()
+                } else {
+                    sdk.analyticsManager.disablePiAnalytics()
+                }
             }
         }
     }
