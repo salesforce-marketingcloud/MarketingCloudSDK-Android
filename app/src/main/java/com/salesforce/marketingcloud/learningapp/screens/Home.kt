@@ -98,6 +98,16 @@ class Home : SdkFragment() {
                     sdk.inboxMessageManager.disableInbox()
                 }
             }
+
+            val piAnalyticsToggle = findViewById<SwitchCompat>(R.id.switch_pi_analytics)
+            piAnalyticsToggle.isChecked = sdk.analyticsManager.arePiAnalyticsEnabled()
+            piAnalyticsToggle.setOnCheckedChangeListener { _, checked ->
+                if (checked) {
+                    sdk.analyticsManager.enablePiAnalytics()
+                } else {
+                    sdk.analyticsManager.disablePiAnalytics()
+                }
+            }
         }
     }
 
