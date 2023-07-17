@@ -27,6 +27,7 @@ package com.salesforce.marketingcloud.learningapp
 
 import com.salesforce.marketingcloud.MarketingCloudConfig
 import com.salesforce.marketingcloud.notifications.NotificationCustomizationOptions
+import com.salesforce.marketingcloud.proximity.ProximityNotificationCustomizationOptions
 
 class LearningApplication : BaseLearningApplication() {
 
@@ -43,6 +44,7 @@ class LearningApplication : BaseLearningApplication() {
             setPiAnalyticsEnabled(true)
             setGeofencingEnabled(true)
             setProximityEnabled(true)
+            setProximityNotificationOptions(ProximityNotificationCustomizationOptions.create(R.drawable.ic_notification))
             setUrlHandler(this@LearningApplication)
         }
 }
