@@ -18,7 +18,7 @@ title: 'SFMCSdk Android'
 currentVersion: "8.1.1"
 
 # Current SDK major minor version.  Used to reference javadoc
-currentMajorMinor: "8.1"
+currentMajorMinor: "8.0"
 
 # Google Play Services Location version for current SDK release
 currentGmsLocationVersion: "21.0.1"
