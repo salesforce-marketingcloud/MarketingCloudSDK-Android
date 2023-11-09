@@ -15,7 +15,7 @@ codeurl: 'https://github.com/salesforce-marketingcloud/MarketingCloudSDK-Android
 title: 'SFMCSdk Android'
 
 # Current SDK version, use for all mentions
-currentVersion: "8.1.2"
+currentVersion: "8.1.3"
 
 # Current SDK major minor version.  Used to reference javadoc
 currentMajorMinor: "8.0"
