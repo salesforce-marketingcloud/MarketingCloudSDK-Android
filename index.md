@@ -50,7 +50,7 @@ Post on our [Stack Exchange](https://salesforce.stackexchange.com/). Example tag
 ## Additional Resources
 
 * The [Marketing Cloud MobilePush Documentation](http://help.exacttarget.com/en/documentation/mobilepush/) contains information on the Marketing Cloud MobilePush app, including information on associating MobilePush with a mobile app.
-* Review the [Javadocs]({{ site.baseurl }}/javadocs/{{site.currentMajorMinor}}/index.html) for the SDK.
+* Review the [Javadocs]({{ site.baseurl }}/docs/javadocs.html) for the SDK.
 * The Marketing Cloud provides the [LearningApp for Android](https://github.com/salesforce-marketingcloud/MarketingCloudSDK-Android) which implements features of the SDK to allow you to explore how a native app properly utilizes the SFMCSdk.
 * View the [iOS MobilePush SDK docs](https://salesforce-marketingcloud.github.io/MarketingCloudSDK-iOS/)
 
