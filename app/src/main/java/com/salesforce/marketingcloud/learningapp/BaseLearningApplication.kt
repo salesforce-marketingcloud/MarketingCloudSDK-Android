@@ -39,7 +39,11 @@ import com.salesforce.marketingcloud.MarketingCloudSdk
 import com.salesforce.marketingcloud.UrlHandler
 import com.salesforce.marketingcloud.messages.iam.InAppMessage
 import com.salesforce.marketingcloud.messages.iam.InAppMessageManager
-import com.salesforce.marketingcloud.sfmcsdk.*
+import com.salesforce.marketingcloud.sfmcsdk.InitializationStatus
+import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
+import com.salesforce.marketingcloud.sfmcsdk.SFMCSdkModuleConfig
+import com.salesforce.marketingcloud.sfmcsdk.components.logging.LogLevel
+import com.salesforce.marketingcloud.sfmcsdk.components.logging.LogListener
 
 const val LOG_TAG = "~#MCLearningApp"
 
@@ -52,6 +56,7 @@ abstract class BaseLearningApplication : Application(), UrlHandler {
 
         if (BuildConfig.DEBUG) {
             // Only log for DEBUG builds
+            SFMCSdk.setLogging(LogLevel.DEBUG, LogListener.AndroidLogger())
             MarketingCloudSdk.setLogLevel(MCLogListener.VERBOSE)
             MarketingCloudSdk.setLogListener(MCLogListener.AndroidLogListener())
             SFMCSdk.requestSdk { sdk ->
@@ -74,6 +79,7 @@ abstract class BaseLearningApplication : Application(), UrlHandler {
                 InitializationStatus.SUCCESS -> {
                     Log.v(LOG_TAG, "Marketing Cloud initialization successful.")
                 }
+
                 InitializationStatus.FAILURE -> {
                     // Given that this app is used to show SDK functionality we will hard exit if SDK init outright failed.
                     Log.e(
