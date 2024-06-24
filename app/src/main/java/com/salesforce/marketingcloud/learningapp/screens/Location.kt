@@ -47,13 +47,32 @@ class Location : SdkFragment() {
         private const val REQUEST_GEOFENCE = 1
         private const val REQUEST_PROXIMITY = 2
 
-        private val REQUIRED_PERMISSIONS = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        private val GEOFENCE_REQUIRED_PERMISSIONS = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             arrayOf(
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_BACKGROUND_LOCATION
             )
         } else {
             arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
+        }
+
+        private val PROXIMITY_REQUIRED_PERMISSIONS = when {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.R -> {
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.BLUETOOTH_SCAN,
+                    Manifest.permission.BLUETOOTH_CONNECT
+                )
+            }
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q -> {
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_BACKGROUND_LOCATION
+                )
+            }
+            else -> {
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
+            }
         }
     }
 
@@ -131,7 +150,7 @@ class Location : SdkFragment() {
     }
 
     private fun Context.hasRequiredPermissions(): Boolean {
-        return REQUIRED_PERMISSIONS
+        return GEOFENCE_REQUIRED_PERMISSIONS
             .map { ContextCompat.checkSelfPermission(this, it) }
             .all { it == PackageManager.PERMISSION_GRANTED }
     }
@@ -143,7 +162,7 @@ class Location : SdkFragment() {
                 // If the required permissions are already granted then we will enable Geofence messaging in the SDK
                 sdk.regionMessageManager.enableGeofenceMessaging()
             } else {
-                requestPermissions(REQUIRED_PERMISSIONS, REQUEST_GEOFENCE)
+                requestPermissions(GEOFENCE_REQUIRED_PERMISSIONS, REQUEST_GEOFENCE)
             }
         } else {
             // Disable Geofence messaging in the SDK.
@@ -158,7 +177,7 @@ class Location : SdkFragment() {
                 // If the required permissions are already granted then we will enable Proximity messaging in the SDK
                 sdk.regionMessageManager.enableProximityMessaging()
             } else {
-                requestPermissions(REQUIRED_PERMISSIONS, REQUEST_PROXIMITY)
+                requestPermissions(PROXIMITY_REQUIRED_PERMISSIONS, REQUEST_PROXIMITY)
             }
         } else {
             // Disable Proximity messaging in the SDK.
