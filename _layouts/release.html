@@ -14,9 +14,8 @@
 _Released {{ page.date | date: "%B" }} {{ day_str | strip }}, correlating with the Marketing Cloud {{ page.mc_release }} release._
 
 {% capture version_note %}
-Version {{ page.version }} of the Android SDK has been tested with Google Play Services version {{ page.gps_version }} and AltBeacon 
-Library version {{ page.alt_beacon_version }}.  The minimum compatible Android API version is {{ page.min_sdk }}.  Compiled with 
-Android API version {{ page.compile_sdk }}.
+Version {{ page.version }} of the Android SDK has been tested with{% if page.firebase_messaging %} Firebase Messaging version {{ page.firebase_messaging }},{% endif %} Google Play Location Services version {{ page.gps_version }}, and AltBeacon 
+Library version {{ page.alt_beacon_version }}.  The minimum compatible Android API version is {{ page.min_sdk }}, and the SDK was compiled with Android API version {{ page.compile_sdk }}.
 {% endcapture %}
 > {{ version_note | strip_newline }}
 
