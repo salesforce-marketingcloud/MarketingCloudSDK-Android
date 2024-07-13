@@ -64,7 +64,7 @@ abstract class SdkFragment : Fragment() {
         }
     }
 
-    internal fun String.showSnackbar(length: Int = Snackbar.LENGTH_SHORT) {
+    protected fun String.showSnackbar(length: Int = Snackbar.LENGTH_SHORT) {
         Snackbar.make(requireView(), this, length).show()
     }
 
