@@ -39,6 +39,7 @@ import com.salesforce.marketingcloud.MarketingCloudSdk
 import com.salesforce.marketingcloud.learningapp.LOG_TAG
 import com.salesforce.marketingcloud.learningapp.R
 import com.salesforce.marketingcloud.learningapp.SdkFragment
+import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
 
 
 class Location : SdkFragment() {
@@ -89,12 +90,14 @@ class Location : SdkFragment() {
     override val layoutId: Int
         get() = R.layout.fragment_location
 
-    override fun onSdkReady(sdk: MarketingCloudSdk) {
-        marketingCloudSdk = sdk
+    override fun ready(sfmcSdk: SFMCSdk) {
+        sfmcSdk.mp {
+            marketingCloudSdk = it as MarketingCloudSdk
 
-        requireView().apply {
-            setupGeofenceToggle(marketingCloudSdk)
-            setupProximityToggle(marketingCloudSdk)
+            requireView().apply {
+                setupGeofenceToggle(marketingCloudSdk)
+                setupProximityToggle(marketingCloudSdk)
+            }
         }
     }
 

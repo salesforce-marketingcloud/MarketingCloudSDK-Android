@@ -26,6 +26,7 @@
 package com.salesforce.marketingcloud.learningapp.screens
 
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
@@ -37,6 +38,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.salesforce.marketingcloud.MarketingCloudSdk
 import com.salesforce.marketingcloud.learningapp.R
 import com.salesforce.marketingcloud.learningapp.SdkFragment
+import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
+import com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier
 
 private const val DOCUMENTATION_URL =
     "https://salesforce-marketingcloud.github.io/MarketingCloudSDK-Android/"
@@ -45,83 +48,87 @@ class Home : SdkFragment() {
     override val layoutId: Int
         get() = R.layout.fragment_home
 
-    private lateinit var marketingCloudSdk: MarketingCloudSdk
+    private lateinit var sfmcSdk: SFMCSdk
 
-    override fun onSdkReady(sdk: MarketingCloudSdk) {
-        marketingCloudSdk = sdk
+    override fun ready(sfmcSdk: SFMCSdk) {
+        this.sfmcSdk = sfmcSdk
 
         requireView().apply {
-            findViewById<Button>(R.id.button_set_registration).setOnClickListener {
-                setRegistrationValues(
-                    sdk
-                )
-            }
-            findViewById<Button>(R.id.button_show_registration).setOnClickListener {
-                showRegistration(
-                    sdk
-                )
-            }
-
-            val navController = findNavController()
-
-            findViewById<Button>(R.id.button_open_documentation).setOnClickListener {
-                CustomTabsIntent.Builder().apply {
-                    setToolbarColor(ContextCompat.getColor(context, R.color.primaryColor))
-                }.build().launchUrl(context, Uri.parse(DOCUMENTATION_URL))
-            }
-
-            findViewById<Button>(R.id.button_location).setOnClickListener {
-                navController.navigate(HomeDirections.actionHomeToLocation())
-            }
-
-            findViewById<Button>(R.id.button_inbox).setOnClickListener {
-                navController.navigate(HomeDirections.actionHomeToInbox())
-            }
-
-
-            val etAnalyticsToggle = findViewById<SwitchCompat>(R.id.switch_et_analytics)
-            etAnalyticsToggle.isChecked = sdk.analyticsManager.areAnalyticsEnabled()
-            etAnalyticsToggle.setOnCheckedChangeListener { _, checked ->
-                if (checked) {
-                    sdk.analyticsManager.enableAnalytics()
-                } else {
-                    sdk.analyticsManager.disableAnalytics()
+            sfmcSdk.mp { mp ->
+                findViewById<Button>(R.id.button_set_registration).setOnClickListener {
+                    setRegistrationValues(sfmcSdk)
                 }
-            }
-
-            val inboxToggle = findViewById<SwitchCompat>(R.id.switch_inbox)
-            inboxToggle.isChecked = sdk.inboxMessageManager.isInboxEnabled
-            inboxToggle.setOnCheckedChangeListener { _, checked ->
-                if (checked) {
-                    sdk.inboxMessageManager.enableInbox()
-                } else {
-                    sdk.inboxMessageManager.disableInbox()
+                findViewById<Button>(R.id.button_show_registration).setOnClickListener {
+                    showRegistration(mp as MarketingCloudSdk)
                 }
-            }
 
-            val piAnalyticsToggle = findViewById<SwitchCompat>(R.id.switch_pi_analytics)
-            piAnalyticsToggle.isChecked = sdk.analyticsManager.arePiAnalyticsEnabled()
-            piAnalyticsToggle.setOnCheckedChangeListener { _, checked ->
-                if (checked) {
-                    sdk.analyticsManager.enablePiAnalytics()
-                } else {
-                    sdk.analyticsManager.disablePiAnalytics()
+                val navController = findNavController()
+
+                findViewById<Button>(R.id.button_open_documentation).setOnClickListener {
+                    CustomTabsIntent.Builder().apply {
+                        setToolbarColor(ContextCompat.getColor(context, R.color.primaryColor))
+                    }.build().launchUrl(context, Uri.parse(DOCUMENTATION_URL))
+                }
+
+                findViewById<Button>(R.id.button_location).setOnClickListener {
+                    navController.navigate(HomeDirections.actionHomeToLocation())
+                }
+
+                findViewById<Button>(R.id.button_inbox).setOnClickListener {
+                    navController.navigate(HomeDirections.actionHomeToInbox())
+                }
+
+
+                val etAnalyticsToggle = findViewById<SwitchCompat>(R.id.switch_et_analytics)
+                etAnalyticsToggle.isChecked = mp.analyticsManager.areAnalyticsEnabled()
+                etAnalyticsToggle.setOnCheckedChangeListener { _, checked ->
+                    if (checked) {
+                        mp.analyticsManager.enableAnalytics()
+                    } else {
+                        mp.analyticsManager.disableAnalytics()
+                    }
+                }
+
+                val inboxToggle = findViewById<SwitchCompat>(R.id.switch_inbox)
+                inboxToggle.isChecked = mp.inboxMessageManager.isInboxEnabled
+                inboxToggle.setOnCheckedChangeListener { _, checked ->
+                    if (checked) {
+                        mp.inboxMessageManager.enableInbox()
+                    } else {
+                        mp.inboxMessageManager.disableInbox()
+                    }
+                }
+
+                val piAnalyticsToggle = findViewById<SwitchCompat>(R.id.switch_pi_analytics)
+                piAnalyticsToggle.isChecked = mp.analyticsManager.arePiAnalyticsEnabled()
+                piAnalyticsToggle.setOnCheckedChangeListener { _, checked ->
+                    if (checked) {
+                        mp.analyticsManager.enablePiAnalytics()
+                    } else {
+                        mp.analyticsManager.disablePiAnalytics()
+                    }
                 }
             }
         }
     }
 
-    private fun setRegistrationValues(sdk: MarketingCloudSdk) {
+    private fun setRegistrationValues(sdk: SFMCSdk) {
+        sdk.mp {
+            it.registrationManager.registerForRegistrationEvents { registration ->
+                "Registration Updated".showSnackbar()
+                Log.v(TAG, registration.toString())
+            }
+        }
 
-        // Update the registration with user data.  This information can then be used by a marketer
-        // in the Marketing Cloud UI to target this device/user for messaging.
-        val success = sdk.registrationManager.edit().apply {
-            setContactKey("username@example.com")
-            setAttribute("LastName", "Smith")
-            addTag("Camping")
-        }.commit()
+        sdk.identity.setProfile(
+            profileId = "salesforce.developer@example.com",
+            attributes = mapOf("FirstName" to "Salesforce", "LastName" to "Developer"),
+            module = ModuleIdentifier.PUSH /* , modules = ModuleIdentifier.CDP */
+        )
 
-        (if (success) "Registration updated" else "Registration unchanged").showSnackbar()
+        sdk.mp {
+            it.registrationManager.edit().addTag("Android Learning App").commit()
+        }
     }
 
     private fun showRegistration(sdk: MarketingCloudSdk) {
@@ -137,5 +144,9 @@ class Home : SdkFragment() {
             setView(view)
             setPositiveButton("Close", null)
         }.show()
+    }
+
+    companion object {
+        private val TAG = "~#Home"
     }
 }
