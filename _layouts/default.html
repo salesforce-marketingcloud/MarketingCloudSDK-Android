@@ -9,7 +9,8 @@
     <title>{{ site.title }}{% if page.title %} : {{ page.title }}{% endif %}</title>
     <meta name="description" content="{{ site.subtitle }}">
 
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
+        rel="stylesheet">
     <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/css/gist.css">
     <script src="{{ site.baseurl }}/scripts/gists.js"></script>
@@ -17,6 +18,40 @@
 </head>
 
 <body>
+
+    <!-- Modal Structure -->
+    <div id="noticeModal" class="modal-notice">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>NOTICE!</h2>
+            <p>The SDK's documentation has been moved to the <a href="https://sforce.co/4cLZPS2">Salesforce Doc Site</a>.</p>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("noticeModal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // Display the modal when the page loads
+        window.onload = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
     <div class="container">
         <div class=row-fluid>
@@ -26,7 +61,8 @@
         </div>
 
         <div class=row-fluid>
-            {% assign post_count = site.posts|size %} {% if site.navigation != 0 and site.navigation == 1 or post_count > 0 %}
+            {% assign post_count = site.posts|size %} {% if site.navigation != 0 and site.navigation == 1 or post_count
+            > 0 %}
             <div id=navigation class=span2>
                 {% include navigation.html %}
             </div>
