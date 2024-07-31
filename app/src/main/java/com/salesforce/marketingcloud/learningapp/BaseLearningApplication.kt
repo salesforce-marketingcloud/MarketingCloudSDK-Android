@@ -60,10 +60,12 @@ abstract class BaseLearningApplication : Application(), UrlHandler {
             MarketingCloudSdk.setLogLevel(MCLogListener.VERBOSE)
             MarketingCloudSdk.setLogListener(MCLogListener.AndroidLogListener())
             SFMCSdk.requestSdk { sdk ->
+                Log.i(LOG_TAG, sdk.getSdkState().toString(2)) // Show the SDK State on launch
                 sdk.mp { push ->
                     push.registrationManager.registerForRegistrationEvents {
                         // Log the registration on successful sends to the MC
                         Log.i(LOG_TAG, "Registration: $it")
+                        Log.i(LOG_TAG, sdk.getSdkState().toString(2)) // Show the SDK State on Registration update
                     }
                 }
             }
