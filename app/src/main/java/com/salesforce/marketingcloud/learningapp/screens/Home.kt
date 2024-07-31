@@ -54,30 +54,27 @@ class Home : SdkFragment() {
         this.sfmcSdk = sfmcSdk
 
         requireView().apply {
+            findViewById<Button>(R.id.button_set_registration).setOnClickListener {
+                setRegistrationValues(sfmcSdk)
+            }
+            findViewById<Button>(R.id.button_open_documentation).setOnClickListener {
+                CustomTabsIntent.Builder().apply {
+                    setToolbarColor(ContextCompat.getColor(context, R.color.primaryColor))
+                }.build().launchUrl(context, Uri.parse(DOCUMENTATION_URL))
+            }
+
+            val navController = findNavController()
+            findViewById<Button>(R.id.button_location).setOnClickListener {
+                navController.navigate(HomeDirections.actionHomeToLocation())
+            }
+            findViewById<Button>(R.id.button_inbox).setOnClickListener {
+                navController.navigate(HomeDirections.actionHomeToInbox())
+            }
+
             sfmcSdk.mp { mp ->
-                findViewById<Button>(R.id.button_set_registration).setOnClickListener {
-                    setRegistrationValues(sfmcSdk)
-                }
                 findViewById<Button>(R.id.button_show_registration).setOnClickListener {
                     showRegistration(mp as MarketingCloudSdk)
                 }
-
-                val navController = findNavController()
-
-                findViewById<Button>(R.id.button_open_documentation).setOnClickListener {
-                    CustomTabsIntent.Builder().apply {
-                        setToolbarColor(ContextCompat.getColor(context, R.color.primaryColor))
-                    }.build().launchUrl(context, Uri.parse(DOCUMENTATION_URL))
-                }
-
-                findViewById<Button>(R.id.button_location).setOnClickListener {
-                    navController.navigate(HomeDirections.actionHomeToLocation())
-                }
-
-                findViewById<Button>(R.id.button_inbox).setOnClickListener {
-                    navController.navigate(HomeDirections.actionHomeToInbox())
-                }
-
 
                 val etAnalyticsToggle = findViewById<SwitchCompat>(R.id.switch_et_analytics)
                 etAnalyticsToggle.isChecked = mp.analyticsManager.areAnalyticsEnabled()

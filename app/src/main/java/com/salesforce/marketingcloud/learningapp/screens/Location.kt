@@ -58,7 +58,14 @@ class Location : SdkFragment() {
         }
 
         private val PROXIMITY_REQUIRED_PERMISSIONS = when {
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.R -> {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE -> {
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.BLUETOOTH_SCAN,
+                    Manifest.permission.BLUETOOTH_CONNECT,
+                    Manifest.permission.FOREGROUND_SERVICE
+                )
+            }Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
                 arrayOf(
                     Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.BLUETOOTH_SCAN,

@@ -10,6 +10,7 @@
     <!-- BLUETOOTH_SCAN or BLUETOOTH_CONNECT is required for Proximity messaging features on R devices. -->
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <!-- REQUIRED for Android 14+ -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <!-- Boot complete is needed so that the SDK can re-register Geofences and Proximity beacons after a reboot -->
