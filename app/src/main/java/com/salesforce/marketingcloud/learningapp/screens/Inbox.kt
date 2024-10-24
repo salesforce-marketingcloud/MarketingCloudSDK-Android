@@ -41,9 +41,15 @@ import com.salesforce.marketingcloud.learningapp.R
 import com.salesforce.marketingcloud.learningapp.SdkFragment
 import com.salesforce.marketingcloud.messages.inbox.InboxMessage
 import com.salesforce.marketingcloud.messages.inbox.InboxMessageManager
-import kotlinx.coroutines.*
+import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.text.DateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
 import kotlin.coroutines.CoroutineContext
 
 class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseListener {
@@ -93,31 +99,33 @@ class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseLi
         }
     }
 
-    override fun onSdkReady(sdk: MarketingCloudSdk) {
-        marketingCloudSdk = sdk
+    override fun ready(sfmcSdk: SFMCSdk) {
+        sfmcSdk.mp {
+            marketingCloudSdk = it as MarketingCloudSdk
 
-        // Here we are registering the Inbox fragment to receive callbacks when the SDK receives a
-        // refreshed list of Inbox messages from the Marketing Cloud.
-        marketingCloudSdk.inboxMessageManager.registerInboxResponseListener(this)
+            // Here we are registering the Inbox fragment to receive callbacks when the SDK receives a
+            // refreshed list of Inbox messages from the Marketing Cloud.
+            marketingCloudSdk.inboxMessageManager.registerInboxResponseListener(this)
 
-        val view = requireView()
-        view.findViewById<RecyclerView>(R.id.recyclerView_inbox).apply {
-            adapter = inboxAdapter
-            val llm = LinearLayoutManager(context)
-            layoutManager = llm
-            addItemDecoration(DividerItemDecoration(context, llm.orientation))
+            val view = requireView()
+            view.findViewById<RecyclerView>(R.id.recyclerView_inbox).apply {
+                adapter = inboxAdapter
+                val llm = LinearLayoutManager(context)
+                layoutManager = llm
+                addItemDecoration(DividerItemDecoration(context, llm.orientation))
 
-            fetchMessageFromSdk(marketingCloudSdk)
-        }
+                fetchMessageFromSdk(marketingCloudSdk)
+            }
 
-        refreshLayout = view.findViewById<SwipeRefreshLayout>(R.id.swipe_layout).apply {
-            setOnRefreshListener {
-                // Request that the SDK retrieve an updated list of Inbox messages from the Marketing Cloud.  To
-                // prevent bad behaviors, the SDK will throttle these requests for 1 minute.
-                marketingCloudSdk.inboxMessageManager.refreshInbox { refreshing ->
-                    // `refreshing` will be true if the SDK initiated the request to the Marketing Cloud.  If `refreshing`
-                    // is false then the refresh was throttled.
-                    if (!refreshing) isRefreshing = false
+            refreshLayout = view.findViewById<SwipeRefreshLayout>(R.id.swipe_layout).apply {
+                setOnRefreshListener {
+                    // Request that the SDK retrieve an updated list of Inbox messages from the Marketing Cloud.  To
+                    // prevent bad behaviors, the SDK will throttle these requests for 1 minute.
+                    marketingCloudSdk.inboxMessageManager.refreshInbox { refreshing ->
+                        // `refreshing` will be true if the SDK initiated the request to the Marketing Cloud.  If `refreshing`
+                        // is false then the refresh was throttled.
+                        if (!refreshing) isRefreshing = false
+                    }
                 }
             }
         }
