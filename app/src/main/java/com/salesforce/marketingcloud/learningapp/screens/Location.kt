@@ -39,6 +39,7 @@ import com.salesforce.marketingcloud.MarketingCloudSdk
 import com.salesforce.marketingcloud.learningapp.LOG_TAG
 import com.salesforce.marketingcloud.learningapp.R
 import com.salesforce.marketingcloud.learningapp.SdkFragment
+import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
 
 
 class Location : SdkFragment() {
@@ -57,7 +58,14 @@ class Location : SdkFragment() {
         }
 
         private val PROXIMITY_REQUIRED_PERMISSIONS = when {
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.R -> {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE -> {
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.BLUETOOTH_SCAN,
+                    Manifest.permission.BLUETOOTH_CONNECT,
+                    Manifest.permission.FOREGROUND_SERVICE
+                )
+            }Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
                 arrayOf(
                     Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.BLUETOOTH_SCAN,
@@ -89,12 +97,14 @@ class Location : SdkFragment() {
     override val layoutId: Int
         get() = R.layout.fragment_location
 
-    override fun onSdkReady(sdk: MarketingCloudSdk) {
-        marketingCloudSdk = sdk
+    override fun ready(sfmcSdk: SFMCSdk) {
+        sfmcSdk.mp {
+            marketingCloudSdk = it as MarketingCloudSdk
 
-        requireView().apply {
-            setupGeofenceToggle(marketingCloudSdk)
-            setupProximityToggle(marketingCloudSdk)
+            requireView().apply {
+                setupGeofenceToggle(marketingCloudSdk)
+                setupProximityToggle(marketingCloudSdk)
+            }
         }
     }
 
