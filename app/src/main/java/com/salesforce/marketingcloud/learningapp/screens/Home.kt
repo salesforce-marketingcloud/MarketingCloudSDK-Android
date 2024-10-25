@@ -25,11 +25,18 @@
  */
 package com.salesforce.marketingcloud.learningapp.screens
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SwitchCompat
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
@@ -39,10 +46,19 @@ import com.salesforce.marketingcloud.MarketingCloudSdk
 import com.salesforce.marketingcloud.learningapp.R
 import com.salesforce.marketingcloud.learningapp.SdkFragment
 import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
+import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk.Companion.requestSdk
 import com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier
 
 private const val DOCUMENTATION_URL =
     "https://salesforce-marketingcloud.github.io/MarketingCloudSDK-Android/"
+private val NOTIFICATION_REQUIRED_PERMISSIONS =
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        arrayOf(
+            Manifest.permission.POST_NOTIFICATIONS
+        )
+    } else {
+        arrayOf()
+    }
 
 class Home : SdkFragment() {
     override val layoutId: Int
@@ -52,6 +68,12 @@ class Home : SdkFragment() {
 
     override fun ready(sfmcSdk: SFMCSdk) {
         this.sfmcSdk = sfmcSdk
+
+        if (context != null && (context as Context).hasRequiredPermissions()) {
+            togglePushPermission(true)
+        } else {
+            checkAndRequestNotificationPermission()
+        }
 
         requireView().apply {
             findViewById<Button>(R.id.button_set_registration).setOnClickListener {
@@ -109,6 +131,32 @@ class Home : SdkFragment() {
         }
     }
 
+    @Deprecated("Deprecated in Java")
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == NOTIFICATION_PERMISSION_REQUEST_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, proceed with notifications
+            } else {
+                // Permission denied
+                Toast.makeText(
+                    requireContext(),
+                    "Permission denied. You won't receive notifications.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkNotificationPermissionStatus()
+    }
+
     private fun setRegistrationValues(sdk: SFMCSdk) {
         sdk.mp {
             it.registrationManager.registerForRegistrationEvents { registration ->
@@ -143,7 +191,64 @@ class Home : SdkFragment() {
         }.show()
     }
 
+    private fun checkAndRequestNotificationPermission() {
+        if (ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
+                // Show rationale
+                AlertDialog.Builder(requireContext())
+                    .setTitle("Notification Permission Needed")
+                    .setMessage("This app needs notification permission to send alerts.")
+                    .setPositiveButton("OK") { _, _ ->
+                        requestNotificationPermission()
+                    }
+                    .setNegativeButton("Cancel", null)
+                    .create()
+                    .show()
+            } else {
+                // Directly request the permission
+                requestNotificationPermission()
+            }
+        }
+    }
+
+    @SuppressLint("InlinedApi")
+    private fun requestNotificationPermission() {
+        requestPermissions(
+            arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+            NOTIFICATION_PERMISSION_REQUEST_CODE
+        )
+    }
+
+    private fun checkNotificationPermissionStatus() {
+        if (ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.POST_NOTIFICATIONS
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            togglePushPermission(true)
+        } else {
+            togglePushPermission(false)
+        }
+    }
+
+    private fun togglePushPermission(granted: Boolean) = requestSdk { sdk ->
+        sdk.mp { push ->
+            if (granted) push.pushMessageManager.enablePush() else push.pushMessageManager.disablePush()
+        }
+    }
+
+    private fun Context.hasRequiredPermissions(): Boolean {
+        return NOTIFICATION_REQUIRED_PERMISSIONS
+            .map { ContextCompat.checkSelfPermission(this, it) }
+            .all { it == PackageManager.PERMISSION_GRANTED }
+    }
+
     companion object {
-        private val TAG = "~#Home"
+        private const val NOTIFICATION_PERMISSION_REQUEST_CODE = 1001
+        private const val TAG = "~#Home"
     }
 }
