@@ -29,17 +29,16 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Build
-import android.util.Log
 import android.view.View
 import android.widget.CompoundButton
 import com.google.android.material.switchmaterial.SwitchMaterial
 import com.salesforce.marketingcloud.MarketingCloudSdk
-import com.salesforce.marketingcloud.learningapp.LOG_TAG
 import com.salesforce.marketingcloud.learningapp.R
 import com.salesforce.marketingcloud.learningapp.SdkFragment
 import com.salesforce.marketingcloud.learningapp.hasRequiredPermissions
 import com.salesforce.marketingcloud.learningapp.showPermissionRationale
 import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
+import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk.Companion.requestSdk
 
 
 class Location : SdkFragment() {
@@ -90,11 +89,11 @@ class Location : SdkFragment() {
     }
 
     private val geofenceCheckedListener = CompoundButton.OnCheckedChangeListener { _, checked ->
-        toggleGeofenceMessaging(marketingCloudSdk, checked)
+        toggleMessagePermissions(REQUEST_GEOFENCE, GEOFENCE_REQUIRED_PERMISSIONS, checked)
     }
 
     private val proximityCheckedListener = CompoundButton.OnCheckedChangeListener { _, checked ->
-        toggleProximityMessaging(marketingCloudSdk, checked)
+        toggleMessagePermissions(REQUEST_PROXIMITY, PROXIMITY_REQUIRED_PERMISSIONS, checked)
     }
 
     private lateinit var marketingCloudSdk: MarketingCloudSdk
@@ -130,86 +129,56 @@ class Location : SdkFragment() {
     }
 
     @Deprecated("Deprecated in Java")
-    @SuppressLint("MissingPermission")
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        if (grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
-            when (requestCode) {
-                REQUEST_GEOFENCE -> {
-                    // Once the permissions have been granted we will enable Geofence messaging.
-                    marketingCloudSdk.regionMessageManager.enableGeofenceMessaging()
-                    view?.setupGeofenceToggle(marketingCloudSdk)
-                }
-
-                REQUEST_PROXIMITY -> {
-                    // Once the permissions have been granted we will enable Proximity messaging.
-                    marketingCloudSdk.regionMessageManager.enableProximityMessaging()
-                    view?.setupProximityToggle(marketingCloudSdk)
-                }
-            }
-        } else {
-            when (requestCode) {
-                REQUEST_GEOFENCE -> view?.setupGeofenceToggle(marketingCloudSdk)
-                REQUEST_PROXIMITY -> view?.setupProximityToggle(marketingCloudSdk)
-            }
-            Log.d(
-                LOG_TAG,
-                "Not all required permissions for location messaging were granted. ${
-                    permissions.zip(
-                        grantResults.toTypedArray()
-                    ).toMap()
-                }"
-            )
-        }
+        togglePermission(requestCode, grantResults.all { it == PackageManager.PERMISSION_GRANTED })
     }
 
-    @SuppressLint("MissingPermission")
-    private fun toggleGeofenceMessaging(sdk: MarketingCloudSdk, enable: Boolean) {
+    @Suppress("DEPRECATION")
+    private fun toggleMessagePermissions(
+        requestCode: Int,
+        permissions: Array<String>,
+        enable: Boolean
+    ) {
         if (enable) {
-            if (requireContext().hasRequiredPermissions(GEOFENCE_REQUIRED_PERMISSIONS)) {
-                // If the required permissions are already granted, enable Geofence messaging in the SDK.
-                sdk.regionMessageManager.enableGeofenceMessaging()
+            if (requireContext().hasRequiredPermissions(permissions)) {
+                // If the required permissions are already granted, enable messaging in the SDK.
+                togglePermission(requestCode, true)
             } else {
-                GEOFENCE_REQUIRED_PERMISSIONS.forEach {
+                // Ask the user
+                permissions.forEach {
                     if (shouldShowRequestPermissionRationale(it)) {
                         it.showPermissionRationale(requireContext()) {
-                            requestPermissions(arrayOf(it), REQUEST_GEOFENCE)
+                            requestPermissions(permissions, requestCode)
                         }
                     } else {
-                        requestPermissions(arrayOf(it), REQUEST_GEOFENCE)
+                        requestPermissions(permissions, requestCode)
                     }
-                }
-            }
-        } else {
-            // Disable Geofence messaging in the SDK.
-            sdk.regionMessageManager.disableGeofenceMessaging()
-        }
-    }
-
-    @SuppressLint("MissingPermission")
-    private fun toggleProximityMessaging(sdk: MarketingCloudSdk, enable: Boolean) {
-        if (enable) {
-            if (requireContext().hasRequiredPermissions(PROXIMITY_REQUIRED_PERMISSIONS)) {
-                // If the required permissions are already granted, enable Proximity messaging in the SDK.
-                sdk.regionMessageManager.enableProximityMessaging()
-            } else {
-                PROXIMITY_REQUIRED_PERMISSIONS.forEach {
-                    if (shouldShowRequestPermissionRationale(it)) {
-                        it.showPermissionRationale(requireContext()) {
-                            requestPermissions(PROXIMITY_REQUIRED_PERMISSIONS, REQUEST_PROXIMITY)
-                        }
-                    } else {
-                        requestPermissions(PROXIMITY_REQUIRED_PERMISSIONS, REQUEST_PROXIMITY)
-                    }
-
                 }
             }
         } else {
             // Disable Proximity messaging in the SDK.
-            sdk.regionMessageManager.disableProximityMessaging()
+            togglePermission(requestCode, false)
+        }
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun togglePermission(requestCode: Int, granted: Boolean) = requestSdk { sdk ->
+        sdk.mp { push ->
+            when (requestCode) {
+                REQUEST_GEOFENCE -> {
+                    if (granted) push.regionMessageManager.enableGeofenceMessaging() else push.regionMessageManager.disableGeofenceMessaging()
+                    requireView().setupGeofenceToggle(marketingCloudSdk)
+                }
+
+                REQUEST_PROXIMITY -> {
+                    if (granted) push.regionMessageManager.enableProximityMessaging() else push.regionMessageManager.disableProximityMessaging()
+                    requireView().setupProximityToggle(marketingCloudSdk)
+                }
+            }
         }
     }
 }

@@ -24,6 +24,7 @@
 package com.salesforce.marketingcloud.learningapp.screens
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
@@ -108,14 +109,14 @@ class Home : SdkFragment() {
     }
 
     private fun setupInboxToggle(view: View, push: PushModuleInterface) {
-        requireView().findViewById<SwitchCompat>(R.id.switch_inbox).apply {
+        view.findViewById<SwitchCompat>(R.id.switch_inbox).apply {
             isChecked = push.inboxMessageManager.isInboxEnabled
             setOnCheckedChangeListener { _, isChecked -> if (isChecked) push.inboxMessageManager.enableInbox() else push.inboxMessageManager.disableInbox() }
         }
     }
 
     private fun setupPiAnalyticsToggle(view: View, push: PushModuleInterface) {
-        requireView().findViewById<SwitchCompat>(R.id.switch_pi_analytics).apply {
+        view.findViewById<SwitchCompat>(R.id.switch_pi_analytics).apply {
             isChecked = push.analyticsManager.arePiAnalyticsEnabled()
             setOnCheckedChangeListener { _, isChecked -> if (isChecked) push.analyticsManager.enablePiAnalytics() else push.analyticsManager.disablePiAnalytics() }
         }
@@ -127,21 +128,27 @@ class Home : SdkFragment() {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == NOTIFICATION_PERMISSION_REQUEST_CODE) {
-            val message =
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    "Permission granted."
-                } else {
-                    "Permission denied. You won't receive notifications."
-                }
-            Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+        val allPermissionsGranted = grantResults.all { it == PackageManager.PERMISSION_GRANTED }
+
+        when (requestCode) {
+            NOTIFICATION_PERMISSION_REQUEST_CODE -> {
+                togglePushPermission(allPermissionsGranted)
+                Toast.makeText(
+                    requireContext(),
+                    "$NOTIFICATION_REQUIRED_PERMISSIONS granted: $allPermissionsGranted",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
     }
 
     override fun onResume() {
         super.onResume()
-        checkNotificationPermissionStatus()
+        togglePushPermission(
+            requireContext().hasRequiredPermissions(
+                NOTIFICATION_REQUIRED_PERMISSIONS
+            )
+        )
     }
 
     private fun setRegistrationValues(sdk: SFMCSdk) {
@@ -163,6 +170,7 @@ class Home : SdkFragment() {
         }
     }
 
+    @SuppressLint("InflateParams")
     private fun showRegistration(push: PushModuleInterface) {
         val currentRegistration =
             push.state.optJSONObject("RegistrationManager")?.optJSONObject("current_registration")
@@ -170,7 +178,8 @@ class Home : SdkFragment() {
 
         MaterialAlertDialogBuilder(requireContext()).apply {
             val view =
-                LayoutInflater.from(context).inflate(R.layout.selectable_textview, null) as TextView
+                LayoutInflater.from(context)
+                    .inflate(R.layout.selectable_textview, null, false) as TextView
             view.text = message
             setView(view)
             setPositiveButton("Close", null)
@@ -196,17 +205,10 @@ class Home : SdkFragment() {
     }
 
     private fun requestNotificationPermission() {
+        @Suppress("DEPRECATION")
         requestPermissions(
             NOTIFICATION_REQUIRED_PERMISSIONS,
             NOTIFICATION_PERMISSION_REQUEST_CODE
-        )
-    }
-
-    private fun checkNotificationPermissionStatus() {
-        togglePushPermission(
-            requireContext().hasRequiredPermissions(
-                NOTIFICATION_REQUIRED_PERMISSIONS
-            )
         )
     }
 
