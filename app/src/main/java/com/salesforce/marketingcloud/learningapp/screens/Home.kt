@@ -64,6 +64,31 @@ class Home : SdkFragment() {
         setupUI()
     }
 
+    override fun onResume() {
+        super.onResume()
+        togglePushPermission(
+            requireContext().hasRequiredPermissions(
+                NOTIFICATION_REQUIRED_PERMISSIONS
+            )
+        )
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        val allPermissionsGranted = grantResults.all { it == PackageManager.PERMISSION_GRANTED }
+
+        when (requestCode) {
+            NOTIFICATION_PERMISSION_REQUEST_CODE -> {
+                togglePushPermission(allPermissionsGranted)
+                notifyUserOfResults(permissions, grantResults)
+            }
+        }
+    }
+
     private fun setupUI() {
         val navController = findNavController()
         with(requireView()) {
@@ -122,33 +147,17 @@ class Home : SdkFragment() {
         }
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        val allPermissionsGranted = grantResults.all { it == PackageManager.PERMISSION_GRANTED }
-
-        when (requestCode) {
-            NOTIFICATION_PERMISSION_REQUEST_CODE -> {
-                togglePushPermission(allPermissionsGranted)
-                Toast.makeText(
-                    requireContext(),
-                    "$NOTIFICATION_REQUIRED_PERMISSIONS granted: $allPermissionsGranted",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+    private fun notifyUserOfResults(permissions: Array<out String>, grantResults: IntArray) {
+        val deniedPermissions = permissions
+            .zip(grantResults.toList()) // Combine permissions with their grant results
+            .filter { it.second != PackageManager.PERMISSION_GRANTED } // Filter out granted permissions
+            .map { it.first }
+        val message = if (deniedPermissions.isNotEmpty()) {
+            "Denied permissions: ${deniedPermissions.joinToString(", ")}"
+        } else {
+            "All permissions granted."
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        togglePushPermission(
-            requireContext().hasRequiredPermissions(
-                NOTIFICATION_REQUIRED_PERMISSIONS
-            )
-        )
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
     private fun setRegistrationValues(sdk: SFMCSdk) {
