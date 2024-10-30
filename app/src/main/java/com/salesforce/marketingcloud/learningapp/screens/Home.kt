@@ -84,7 +84,6 @@ class Home : SdkFragment() {
         when (requestCode) {
             NOTIFICATION_PERMISSION_REQUEST_CODE -> {
                 togglePushPermission(allPermissionsGranted)
-                notifyUserOfResults(permissions, grantResults)
             }
         }
     }
@@ -145,19 +144,6 @@ class Home : SdkFragment() {
             isChecked = push.analyticsManager.arePiAnalyticsEnabled()
             setOnCheckedChangeListener { _, isChecked -> if (isChecked) push.analyticsManager.enablePiAnalytics() else push.analyticsManager.disablePiAnalytics() }
         }
-    }
-
-    private fun notifyUserOfResults(permissions: Array<out String>, grantResults: IntArray) {
-        val deniedPermissions = permissions
-            .zip(grantResults.toList()) // Combine permissions with their grant results
-            .filter { it.second != PackageManager.PERMISSION_GRANTED } // Filter out granted permissions
-            .map { it.first }
-        val message = if (deniedPermissions.isNotEmpty()) {
-            "Denied permissions: ${deniedPermissions.joinToString(", ")}"
-        } else {
-            "All permissions granted."
-        }
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
     private fun setRegistrationValues(sdk: SFMCSdk) {
@@ -223,7 +209,10 @@ class Home : SdkFragment() {
 
     private fun togglePushPermission(granted: Boolean) = requestSdk { sdk ->
         sdk.mp { push ->
-            if (granted) push.pushMessageManager.enablePush() else push.pushMessageManager.disablePush()
+            push.pushMessageManager.apply {
+                if (granted && !isPushEnabled) enablePush()
+                else if (!granted && isPushEnabled) disablePush()
+            }
         }
     }
 
