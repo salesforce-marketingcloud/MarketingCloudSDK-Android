@@ -25,8 +25,13 @@
  */
 package com.salesforce.marketingcloud.learningapp
 
+import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -51,4 +56,23 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp()
     }
+}
+
+fun Context.hasRequiredPermissions(requiredPermissions: Array<String>): Boolean {
+    return requiredPermissions.all {
+        ContextCompat.checkSelfPermission(
+            this,
+            it
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+}
+
+fun String.showPermissionRationale(context: Context, onPositive: () -> Unit) {
+    AlertDialog.Builder(context)
+        .setTitle("PERMISSION ${this.uppercase()} REQUIRED")
+        .setMessage("This application requires $this to function properly.")
+        .setPositiveButton(android.R.string.ok) { _, _ -> onPositive() }
+        .setNegativeButton(android.R.string.cancel, null)
+        .create()
+        .show()
 }

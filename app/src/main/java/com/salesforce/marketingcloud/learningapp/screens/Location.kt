@@ -27,18 +27,18 @@ package com.salesforce.marketingcloud.learningapp.screens
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.util.Log
 import android.view.View
 import android.widget.CompoundButton
-import androidx.core.content.ContextCompat
 import com.google.android.material.switchmaterial.SwitchMaterial
 import com.salesforce.marketingcloud.MarketingCloudSdk
 import com.salesforce.marketingcloud.learningapp.LOG_TAG
 import com.salesforce.marketingcloud.learningapp.R
 import com.salesforce.marketingcloud.learningapp.SdkFragment
+import com.salesforce.marketingcloud.learningapp.hasRequiredPermissions
+import com.salesforce.marketingcloud.learningapp.showPermissionRationale
 import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
 
 
@@ -48,14 +48,15 @@ class Location : SdkFragment() {
         private const val REQUEST_GEOFENCE = 1
         private const val REQUEST_PROXIMITY = 2
 
-        private val GEOFENCE_REQUIRED_PERMISSIONS = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            arrayOf(
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_BACKGROUND_LOCATION
-            )
-        } else {
-            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
-        }
+        private val GEOFENCE_REQUIRED_PERMISSIONS =
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_BACKGROUND_LOCATION
+                )
+            } else {
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
+            }
 
         private val PROXIMITY_REQUIRED_PERMISSIONS = when {
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE -> {
@@ -65,19 +66,23 @@ class Location : SdkFragment() {
                     Manifest.permission.BLUETOOTH_CONNECT,
                     Manifest.permission.FOREGROUND_SERVICE
                 )
-            }Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+            }
+
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
                 arrayOf(
                     Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.BLUETOOTH_SCAN,
                     Manifest.permission.BLUETOOTH_CONNECT
                 )
             }
+
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q -> {
                 arrayOf(
                     Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.ACCESS_BACKGROUND_LOCATION
                 )
             }
+
             else -> {
                 arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
             }
@@ -124,6 +129,7 @@ class Location : SdkFragment() {
         }
     }
 
+    @Deprecated("Deprecated in Java")
     @SuppressLint("MissingPermission")
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -137,6 +143,7 @@ class Location : SdkFragment() {
                     marketingCloudSdk.regionMessageManager.enableGeofenceMessaging()
                     view?.setupGeofenceToggle(marketingCloudSdk)
                 }
+
                 REQUEST_PROXIMITY -> {
                     // Once the permissions have been granted we will enable Proximity messaging.
                     marketingCloudSdk.regionMessageManager.enableProximityMessaging()
@@ -159,20 +166,22 @@ class Location : SdkFragment() {
         }
     }
 
-    private fun Context.hasRequiredPermissions(): Boolean {
-        return GEOFENCE_REQUIRED_PERMISSIONS
-            .map { ContextCompat.checkSelfPermission(this, it) }
-            .all { it == PackageManager.PERMISSION_GRANTED }
-    }
-
     @SuppressLint("MissingPermission")
     private fun toggleGeofenceMessaging(sdk: MarketingCloudSdk, enable: Boolean) {
         if (enable) {
-            if (requireContext().hasRequiredPermissions()) {
-                // If the required permissions are already granted then we will enable Geofence messaging in the SDK
+            if (requireContext().hasRequiredPermissions(GEOFENCE_REQUIRED_PERMISSIONS)) {
+                // If the required permissions are already granted, enable Geofence messaging in the SDK.
                 sdk.regionMessageManager.enableGeofenceMessaging()
             } else {
-                requestPermissions(GEOFENCE_REQUIRED_PERMISSIONS, REQUEST_GEOFENCE)
+                GEOFENCE_REQUIRED_PERMISSIONS.forEach {
+                    if (shouldShowRequestPermissionRationale(it)) {
+                        it.showPermissionRationale(requireContext()) {
+                            requestPermissions(arrayOf(it), REQUEST_GEOFENCE)
+                        }
+                    } else {
+                        requestPermissions(arrayOf(it), REQUEST_GEOFENCE)
+                    }
+                }
             }
         } else {
             // Disable Geofence messaging in the SDK.
@@ -183,11 +192,20 @@ class Location : SdkFragment() {
     @SuppressLint("MissingPermission")
     private fun toggleProximityMessaging(sdk: MarketingCloudSdk, enable: Boolean) {
         if (enable) {
-            if (requireContext().hasRequiredPermissions()) {
-                // If the required permissions are already granted then we will enable Proximity messaging in the SDK
+            if (requireContext().hasRequiredPermissions(PROXIMITY_REQUIRED_PERMISSIONS)) {
+                // If the required permissions are already granted, enable Proximity messaging in the SDK.
                 sdk.regionMessageManager.enableProximityMessaging()
             } else {
-                requestPermissions(PROXIMITY_REQUIRED_PERMISSIONS, REQUEST_PROXIMITY)
+                PROXIMITY_REQUIRED_PERMISSIONS.forEach {
+                    if (shouldShowRequestPermissionRationale(it)) {
+                        it.showPermissionRationale(requireContext()) {
+                            requestPermissions(PROXIMITY_REQUIRED_PERMISSIONS, REQUEST_PROXIMITY)
+                        }
+                    } else {
+                        requestPermissions(PROXIMITY_REQUIRED_PERMISSIONS, REQUEST_PROXIMITY)
+                    }
+
+                }
             }
         } else {
             // Disable Proximity messaging in the SDK.
