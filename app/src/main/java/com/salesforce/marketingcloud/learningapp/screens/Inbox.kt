@@ -73,7 +73,7 @@ class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseLi
             // Log an open analytics for the Inbox message.
             marketingCloudSdk.analyticsManager.trackInboxOpenEvent(message)
 
-            findNavController().navigate(InboxDirections.actionInboxToInboxViewer(message.url))
+            message.url?.let { findNavController().navigate(InboxDirections.actionInboxToInboxViewer(it)) }
         }, messageLongClickListener = { message ->
             // Mark a message as deleted.  This will remove it from the messages returned from the SDK.
             marketingCloudSdk.inboxMessageManager.deleteMessage(message)
