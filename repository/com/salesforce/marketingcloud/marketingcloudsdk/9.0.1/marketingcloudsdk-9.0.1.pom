@@ -51,9 +51,9 @@
       <version>1.9.22</version>
     </dependency>
     <dependency>
-      <groupId>marketingcloudsdk</groupId>
+      <groupId>com.salesforce.marketingcloud</groupId>
       <artifactId>sfmcsdk</artifactId>
-      <version>unspecified</version>
+      <version>1.0.5</version>
     </dependency>
     <dependency>
       <groupId>com.salesforce.marketingcloud</groupId>
