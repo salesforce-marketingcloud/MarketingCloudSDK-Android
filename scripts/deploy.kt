@@ -63,8 +63,8 @@ fun updateMavenMetadata(metadataFile: File, version: String) {
     
     // Update the latest version tag under versioning
     val updatedContent2 = updatedContent1.replace(
-        Regex("<versioning>\\s*<latest>.*?</latest>"),
-        "<versioning>\n  <latest>$version</latest>"
+        Regex("<versioning>\\s*<version>.*?</version>"),
+        "<versioning>\n  <version>$version</version>"
     )
     
     // Then update the lastUpdated timestamp using regex
