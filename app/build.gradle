@@ -5,12 +5,12 @@ apply plugin: 'androidx.navigation.safeargs'
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.salesforce.marketingcloud.learningapp"
-        minSdkVersion 21
-        targetSdkVersion 35
+        minSdkVersion 23
+        targetSdkVersion 36
         versionCode 1
         versionName "1.0"
 
