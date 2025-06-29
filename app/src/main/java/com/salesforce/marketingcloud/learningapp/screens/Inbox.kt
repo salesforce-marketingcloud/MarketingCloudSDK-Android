@@ -54,9 +54,7 @@ import kotlin.coroutines.CoroutineContext
 
 class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseListener {
 
-    companion object {
-        val DATE_FORMAT: DateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.ENGLISH)
-    }
+    private val dateFormat: DateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.getDefault())
 
     private lateinit var marketingCloudSdk: MarketingCloudSdk
     private lateinit var refreshLayout: SwipeRefreshLayout
@@ -188,7 +186,7 @@ class Inbox : SdkFragment(), CoroutineScope, InboxMessageManager.InboxResponseLi
                 else -> "No subject provided."
             }
 
-            startDateView.text = message.sendDateUtc?.let { DATE_FORMAT.format(it) } ?: ""
+            startDateView.text = message.sendDateUtc?.let { dateFormat.format(it) } ?: ""
 
             if (message.read) {
                 subjectView.typeface = Typeface.DEFAULT

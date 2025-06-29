@@ -52,6 +52,7 @@ class InboxViewer : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         webView.loadUrl(InboxViewerArgs.fromBundle(requireArguments()).url)
     }
 
@@ -61,12 +62,12 @@ class InboxViewer : Fragment() {
     }
 
     override fun onResume() {
-        webView.onResume()
         super.onResume()
+        webView.onResume()
     }
 
     override fun onDestroy() {
-        webView.destroy()
         super.onDestroy()
+        webView.destroy()
     }
 }
