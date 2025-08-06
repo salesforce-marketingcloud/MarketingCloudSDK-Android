@@ -29,7 +29,7 @@ import android.app.Application
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
+import android.os.Build
 import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
@@ -44,6 +44,7 @@ import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
 import com.salesforce.marketingcloud.sfmcsdk.SFMCSdkModuleConfig
 import com.salesforce.marketingcloud.sfmcsdk.components.logging.LogLevel
 import com.salesforce.marketingcloud.sfmcsdk.components.logging.LogListener
+import androidx.core.net.toUri
 
 const val LOG_TAG = "~#MCLearningApp"
 
@@ -138,8 +139,16 @@ abstract class BaseLearningApplication : Application(), UrlHandler {
         return PendingIntent.getActivity(
             context,
             1,
-            Intent(Intent.ACTION_VIEW, Uri.parse(url)),
-            PendingIntent.FLAG_UPDATE_CURRENT
+            Intent(Intent.ACTION_VIEW, url.toUri()),
+            provideIntentFlags()
         )
+    }
+
+    private fun provideIntentFlags(): Int {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        } else {
+            PendingIntent.FLAG_UPDATE_CURRENT
+        }
     }
 }
