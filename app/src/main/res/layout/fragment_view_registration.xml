@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.App.ScrollView">
+
+    <LinearLayout style="@style/Widget.App.ContentContainer">
+
+        <!-- Header Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="?attr/colorPrimaryContainer"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Current Registration"
+                    android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                    android:textColor="?attr/colorOnPrimaryContainer"
+                    android:fontFamily="@font/fira_sans" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="View your current identity and profile data"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                    android:textColor="?attr/colorOnPrimaryContainer"
+                    android:alpha="0.8" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Profile Section -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/TextAppearance.CardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Profile Information"
+                    android:drawableStart="@drawable/ic_registration"
+                    android:drawablePadding="12dp"
+                    android:drawableTint="?attr/colorPrimary" />
+
+                <TextView
+                    style="@style/TextAppearance.CardSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Your profile identifier" />
+
+                <!-- Profile ID Display -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="?attr/colorSurfaceVariant"
+                    android:padding="16dp"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Profile ID"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:id="@+id/text_profile_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Loading..."
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                        android:textColor="?attr/colorOnSurface"
+                        android:fontFamily="@font/fira_sans"
+                        android:textIsSelectable="true" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Party Identification Section -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/TextAppearance.CardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Party Identification"
+                    android:drawableStart="@drawable/ic_features"
+                    android:drawablePadding="12dp"
+                    android:drawableTint="?attr/colorPrimary" />
+
+                <TextView
+                    style="@style/TextAppearance.CardSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Party identification details" />
+
+                <!-- Party ID Number -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="?attr/colorSurfaceVariant"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Party Identification Number"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:id="@+id/text_party_id_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Loading..."
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                        android:textColor="?attr/colorOnSurface"
+                        android:fontFamily="@font/fira_sans"
+                        android:textIsSelectable="true" />
+
+                </LinearLayout>
+
+                <!-- Party ID Name -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="?attr/colorSurfaceVariant"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Party Identification Name"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:id="@+id/text_party_id_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Loading..."
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                        android:textColor="?attr/colorOnSurface"
+                        android:fontFamily="@font/fira_sans"
+                        android:textIsSelectable="true" />
+
+                </LinearLayout>
+
+                <!-- Party ID Type -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="?attr/colorSurfaceVariant"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Party Identification Type"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:id="@+id/text_party_id_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Loading..."
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                        android:textColor="?attr/colorOnSurface"
+                        android:fontFamily="@font/fira_sans"
+                        android:textIsSelectable="true" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Attributes Section -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.App.LastCard">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/TextAppearance.CardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Custom Attributes"
+                    android:drawableStart="@drawable/ic_settings"
+                    android:drawablePadding="12dp"
+                    android:drawableTint="?attr/colorPrimary" />
+
+                <TextView
+                    style="@style/TextAppearance.CardSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Your custom key-value attributes" />
+
+                <!-- Dynamic attributes container -->
+                <LinearLayout
+                    android:id="@+id/attributes_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -28,7 +28,7 @@ package com.salesforce.marketingcloud.learningapp
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.salesforce.marketingcloud.messages.push.PushMessageManager
-import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
+import com.salesforce.marketingcloud.pushfeature.PushFeature
 
 class MyFcmMessagingService : FirebaseMessagingService() {
 
@@ -36,10 +36,8 @@ class MyFcmMessagingService : FirebaseMessagingService() {
         // Only pass messages sent from the Marketing Cloud into the SDK.  Anything else will be ignored if passed into
         // handleMessage.
         if (PushMessageManager.isMarketingCloudPush(message)) {
-            SFMCSdk.requestSdk { sdk ->
-                sdk.mp {
-                    it.pushMessageManager.handleMessage(message)
-                }
+            PushFeature.requestSdk { pushFeature ->
+                pushFeature.getPushMessageManager().handleMessage(message)
             }
         } else {
             // Not a push from the Marketing Cloud.  Handle manually.
@@ -49,10 +47,8 @@ class MyFcmMessagingService : FirebaseMessagingService() {
     override fun onNewToken(token: String) {
         // When a new token is received we have to set it in the SDK.  This will trigger an updated registration to be
         // sent to the Marketing Cloud.
-        SFMCSdk.requestSdk { sdk ->
-            sdk.mp {
-                it.pushMessageManager.setPushToken(token)
-            }
+        PushFeature.requestSdk { pushFeature ->
+            pushFeature.getPushMessageManager().setPushToken(token)
         }
     }
 }

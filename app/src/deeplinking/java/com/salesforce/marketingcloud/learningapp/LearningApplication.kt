@@ -32,31 +32,26 @@ import android.net.Uri
 import androidx.navigation.NavDeepLinkBuilder
 import com.salesforce.marketingcloud.MarketingCloudConfig
 import com.salesforce.marketingcloud.learningapp.screens.InboxViewerArgs
-import com.salesforce.marketingcloud.notifications.NotificationCustomizationOptions
 import com.salesforce.marketingcloud.notifications.NotificationManager
 import com.salesforce.marketingcloud.notifications.NotificationMessage
+import com.salesforce.marketingcloud.sfmcsdk.SFMCSdkModuleConfig
 
 class LearningApplication : BaseLearningApplication(),
     NotificationManager.NotificationLaunchIntentProvider {
 
-    override val configBuilder: MarketingCloudConfig.Builder
-        get() = MarketingCloudConfig.builder().apply {
-            setApplicationId(BuildConfig.MC_APP_ID)
-            setAccessToken(BuildConfig.MC_ACCESS_TOKEN)
-            setSenderId(BuildConfig.MC_SENDER_ID)
-            setMid(BuildConfig.MC_MID)
-            setMarketingCloudServerUrl(BuildConfig.MC_SERVER_URL)
-            setNotificationCustomizationOptions(
-                NotificationCustomizationOptions.create(
-                    R.drawable.ic_notification, this@LearningApplication, null
-                )
-            )
-            setInboxEnabled(true)
-            setAnalyticsEnabled(true)
-            setPiAnalyticsEnabled(true)
-            setGeofencingEnabled(true)
-            setProximityEnabled(true)
-            setUrlHandler(this@LearningApplication)
+    override val sdkConfigBuilder: SFMCSdkModuleConfig
+        get() = SFMCSdkModuleConfig.build {
+            engagementModuleConfig = MarketingCloudConfig.builder().apply {
+                setApplicationId(BuildConfig.MC_APP_ID)
+                setAccessToken(BuildConfig.MC_ACCESS_TOKEN)
+                setMid(BuildConfig.MC_MID)
+                setMarketingCloudServerUrl(BuildConfig.MC_SERVER_URL)
+                setInboxEnabled(true)
+                setAnalyticsEnabled(true)
+                //setPiAnalyticsEnabled(true)
+                //setGeofencingEnabled(true)
+                //setProximityEnabled(true)
+            }.build(this@LearningApplication)
         }
 
     override fun getNotificationPendingIntent(
@@ -73,11 +68,13 @@ class LearningApplication : BaseLearningApplication(),
                 Intent(Intent.ACTION_VIEW, Uri.parse(url)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
                 PendingIntent.FLAG_UPDATE_CURRENT
             )
+
             url != null && type == NotificationMessage.Type.CLOUD_PAGE -> NavDeepLinkBuilder(context).apply {
                 setGraph(R.navigation.nav_graph)
                 setDestination(R.id.inboxViewer)
                 setArguments(InboxViewerArgs.Builder(url).build().toBundle())
             }.createPendingIntent()
+
             else -> NavDeepLinkBuilder(context).apply {
                 setGraph(R.navigation.nav_graph)
                 setDestination(R.id.home)

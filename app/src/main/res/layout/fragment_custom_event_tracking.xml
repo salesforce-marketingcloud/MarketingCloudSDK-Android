@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.App.ScrollView">
+
+    <LinearLayout style="@style/Widget.App.ContentContainer">
+
+        <!-- Header Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/TextAppearance.CardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Custom Event Tracking"
+                    android:drawableStart="@android:drawable/ic_menu_agenda"
+                    android:drawablePadding="12dp"
+                    android:drawableTint="?attr/colorPrimary" />
+
+                <TextView
+                    style="@style/TextAppearance.CardSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Create and manage custom events for tracking user interactions" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Add Event Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_add_event"
+            style="@style/Widget.App.Button.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Create New Event"
+            app:icon="@android:drawable/ic_menu_add" />
+
+        <!-- Events Container -->
+        <LinearLayout
+            android:id="@+id/events_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </LinearLayout>
+
+</ScrollView>
+

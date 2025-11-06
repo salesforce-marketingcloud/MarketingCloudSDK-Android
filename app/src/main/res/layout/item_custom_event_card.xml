@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="?attr/colorSurface"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Event Info with Action Icons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <!-- Event Details -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/event_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Event Name"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textStyle="bold" />
+
+                <!-- Attributes Container -->
+                <LinearLayout
+                    android:id="@+id/attributes_display_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="vertical" />
+
+            </LinearLayout>
+
+            <!-- Action Icons (Top Right) -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_edit_event"
+                    style="@style/Widget.Material3.Button.IconButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="4dp"
+                    app:icon="@android:drawable/ic_menu_edit"
+                    app:iconTint="?attr/colorOnSurfaceVariant"
+                    app:iconSize="20dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_delete_event"
+                    style="@style/Widget.Material3.Button.IconButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:icon="@android:drawable/ic_menu_delete"
+                    app:iconTint="?attr/colorError"
+                    app:iconSize="20dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Track Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_track_event"
+            style="@style/Widget.App.Button.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Track Event"
+            app:icon="@android:drawable/ic_media_play" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

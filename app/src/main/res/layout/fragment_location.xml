@@ -1,31 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    style="@style/Widget.App.ScrollView">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/root"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp">
+    <LinearLayout style="@style/Widget.App.ContentContainer">
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/toggle_geofence"
+        <!-- Header Card -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Geofence Messaging"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/toggle_proximity"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/TextAppearance.CardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Location Services"
+                    android:drawableStart="@android:drawable/ic_menu_mylocation"
+                    android:drawablePadding="12dp"
+                    android:drawableTint="?attr/colorPrimary" />
+
+                <TextView
+                    style="@style/TextAppearance.CardSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Configure location-based messaging features for targeted user engagement" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Geofence Messaging Card -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Proximity Messaging"
-            app:layout_constraintStart_toStartOf="@+id/toggle_geofence"
-            app:layout_constraintTop_toBottomOf="@+id/toggle_geofence" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.Material3.TitleMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Geofence Messaging"
+                            android:textColor="?attr/colorOnSurface"
+                            android:fontFamily="@font/fira_sans"
+                            android:drawableStart="@android:drawable/ic_menu_mapmode"
+                            android:drawablePadding="8dp"
+                            android:drawableTint="?attr/colorPrimary" />
+
+                        <TextView
+                            style="@style/TextAppearance.Material3.BodySmall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Receive messages when entering or exiting specific geographic areas"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/toggle_geofence"
+                        style="@style/Widget.App.Switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Proximity Messaging Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.App.LastCard">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.Material3.TitleMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Proximity Messaging"
+                            android:textColor="?attr/colorOnSurface"
+                            android:fontFamily="@font/fira_sans"
+                            android:drawableStart="@android:drawable/stat_sys_data_bluetooth"
+                            android:drawablePadding="8dp"
+                            android:drawableTint="?attr/colorPrimary" />
+
+                        <TextView
+                            style="@style/TextAppearance.Material3.BodySmall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Receive messages when near Bluetooth beacons and proximity sensors"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/toggle_proximity"
+                        style="@style/Widget.App.Switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
 
 </ScrollView>

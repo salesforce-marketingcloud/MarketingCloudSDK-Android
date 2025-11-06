@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primaryColor">#0a9ad7</color>
-    <color name="primaryLightColor">#61cbff</color>
-    <color name="primaryDarkColor">#006ca5</color>
-    <color name="secondaryColor">#f69320</color>
-    <color name="secondaryLightColor">#ffc454</color>
-    <color name="secondaryDarkColor">#bd6500</color>
-    <color name="primaryTextColor">#ffffff</color>
-    <color name="secondaryTextColor">#ffffff</color>
-    <color name="onBackground">#ffffff</color>
-    <color name="onSurface">#ffffff</color>
-    <color name="onSecondary">#ffffff</color>
+    <!-- Material Design 3 Dark Theme Color Tokens -->
+    <!-- Legacy colors for backward compatibility -->
+    <color name="primaryColor">@color/md_theme_dark_primary</color>
+    <color name="primaryLightColor">@color/md_theme_dark_primaryContainer</color>
+    <color name="primaryDarkColor">@color/md_theme_light_primary</color>
+    <color name="secondaryColor">@color/md_theme_dark_secondary</color>
+    <color name="secondaryLightColor">@color/md_theme_dark_secondaryContainer</color>
+    <color name="secondaryDarkColor">@color/md_theme_light_secondary</color>
+    <color name="primaryTextColor">@color/md_theme_dark_onBackground</color>
+    <color name="secondaryTextColor">@color/md_theme_dark_onSurfaceVariant</color>
+    <color name="onBackground">@color/md_theme_dark_onBackground</color>
+    <color name="onSurface">@color/md_theme_dark_onSurface</color>
+    <color name="onSecondary">@color/md_theme_dark_onSecondary</color>
 
-    <color name="white">#000000</color>
-
-    <color name="ic_launcher_background">#000000</color>
-
+    <color name="white">#1A1C1E</color>
 </resources>

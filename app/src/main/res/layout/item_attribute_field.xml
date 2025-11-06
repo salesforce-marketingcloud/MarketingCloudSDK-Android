@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <!-- Attribute Key -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:hint="Key"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_attribute_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Attribute Value -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:hint="Value"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_attribute_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Remove Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_remove_attribute"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            app:icon="@android:drawable/ic_menu_delete"
+            app:iconTint="?attr/colorError" />
+
+    </LinearLayout>
+
+</LinearLayout>
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    Reusable scrollable container layout.
+    Use this as the root of your fragment layouts for consistent spacing.
+    
+    Usage in your fragment layout:
+    <include layout="@layout/include_scrollable_container" />
+    
+    Then add your content inside the LinearLayout with id="@+id/content_container"
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
+    android:fillViewport="true"
+    android:scrollbarStyle="outsideOverlay"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding"
+        android:paddingBottom="@dimen/screen_bottom_padding"
+        android:clipToPadding="false">
+
+        <!-- Your content goes here -->
+
+    </LinearLayout>
+
+</ScrollView>
+

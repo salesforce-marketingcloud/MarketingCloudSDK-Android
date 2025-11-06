@@ -24,36 +24,35 @@
 package com.salesforce.marketingcloud.learningapp.screens
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
+import android.widget.ScrollView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.widget.SwitchCompat
+import androidx.appcompat.app.AlertDialog
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.materialswitch.MaterialSwitch
+import com.salesforce.marketingcloud.MarketingCloudSdk
+import com.salesforce.marketingcloud.learningapp.NotificationManager
 import com.salesforce.marketingcloud.learningapp.R
 import com.salesforce.marketingcloud.learningapp.SdkFragment
 import com.salesforce.marketingcloud.learningapp.hasRequiredPermissions
 import com.salesforce.marketingcloud.learningapp.showPermissionRationale
+import com.salesforce.marketingcloud.mobileappmessaging.MobileAppMessaging
+import com.salesforce.marketingcloud.pushfeature.PushFeature
 import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
-import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk.Companion.requestSdk
-import com.salesforce.marketingcloud.sfmcsdk.modules.ModuleIdentifier
-import com.salesforce.marketingcloud.sfmcsdk.modules.push.PushModuleInterface
 
 class Home : SdkFragment() {
     override val layoutId: Int get() = R.layout.fragment_home
-    private lateinit var sfmcSdk: SFMCSdk
+    private lateinit var mceSdk: MarketingCloudSdk
 
-    override fun ready(sfmcSdk: SFMCSdk) {
-        this.sfmcSdk = sfmcSdk
+    override fun ready(mceSdk: MarketingCloudSdk) {
+        this.mceSdk = mceSdk
 
         if (requireContext().hasRequiredPermissions(NOTIFICATION_REQUIRED_PERMISSIONS)) {
             togglePushPermission(true)
@@ -92,14 +91,14 @@ class Home : SdkFragment() {
         val navController = findNavController()
         with(requireView()) {
             findViewById<Button>(R.id.button_set_registration).setOnClickListener {
-                setRegistrationValues(
-                    sfmcSdk
+                navController.navigate(
+                    HomeDirections.actionHomeToRegistration()
                 )
             }
             findViewById<Button>(R.id.button_open_documentation).setOnClickListener {
                 CustomTabsIntent.Builder()
                     .setToolbarColor(ContextCompat.getColor(context, R.color.primaryColor)).build()
-                    .launchUrl(context, Uri.parse(DOCUMENTATION_URL))
+                    .launchUrl(context, DOCUMENTATION_URL.toUri())
             }
             findViewById<Button>(R.id.button_location).setOnClickListener {
                 navController.navigate(
@@ -112,74 +111,78 @@ class Home : SdkFragment() {
                 )
             }
 
-            sfmcSdk.mp { push ->
-                findViewById<Button>(R.id.button_show_registration).setOnClickListener {
-                    showRegistration(
-                        push
-                    )
+
+            findViewById<Button>(R.id.button_show_registration).setOnClickListener {
+                navController.navigate(
+                    HomeDirections.actionHomeToViewRegistration()
+                )
+            }
+            findViewById<Button>(R.id.button_debug_sdk_state).setOnClickListener {
+                showSdkStateDebug()
+            }
+            findViewById<Button>(R.id.button_tracking).setOnClickListener {
+                navController.navigate(
+                    HomeDirections.actionHomeToCustomEventTracking()
+                )
+            }
+
+            // Device Data buttons
+            findViewById<Button>(R.id.button_copy_mam_device_id).setOnClickListener {
+                copyMamDeviceId()
+            }
+            findViewById<Button>(R.id.button_copy_push_token).setOnClickListener {
+                copyPushToken()
+            }
+            findViewById<Button>(R.id.button_copy_mce_device_id).setOnClickListener {
+                copyMceDeviceId()
+            }
+
+            setupAnalyticsToggle(this)
+            setupInboxToggle(this)
+            setupPiAnalyticsToggle(this)
+
+        }
+    }
+
+    private fun setupAnalyticsToggle(view: View) {
+        view.findViewById<MaterialSwitch>(R.id.switch_et_analytics).apply {
+            isChecked = mceSdk.analyticsManager.areAnalyticsEnabled()
+            setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    mceSdk.analyticsManager.enableAnalytics()
+                } else {
+                    mceSdk.analyticsManager.disableAnalytics()
                 }
-                setupAnalyticsToggle(this, push)
-                setupInboxToggle(this, push)
-                setupPiAnalyticsToggle(this, push)
             }
         }
     }
 
-    private fun setupAnalyticsToggle(view: View, push: PushModuleInterface) {
-        view.findViewById<SwitchCompat>(R.id.switch_et_analytics).apply {
-            isChecked = push.analyticsManager.areAnalyticsEnabled()
-            setOnCheckedChangeListener { _, isChecked -> if (isChecked) push.analyticsManager.enableAnalytics() else push.analyticsManager.disableAnalytics() }
-        }
-    }
-
-    private fun setupInboxToggle(view: View, push: PushModuleInterface) {
-        view.findViewById<SwitchCompat>(R.id.switch_inbox).apply {
-            isChecked = push.inboxMessageManager.isInboxEnabled
-            setOnCheckedChangeListener { _, isChecked -> if (isChecked) push.inboxMessageManager.enableInbox() else push.inboxMessageManager.disableInbox() }
-        }
-    }
-
-    private fun setupPiAnalyticsToggle(view: View, push: PushModuleInterface) {
-        view.findViewById<SwitchCompat>(R.id.switch_pi_analytics).apply {
-            isChecked = push.analyticsManager.arePiAnalyticsEnabled()
-            setOnCheckedChangeListener { _, isChecked -> if (isChecked) push.analyticsManager.enablePiAnalytics() else push.analyticsManager.disablePiAnalytics() }
-        }
-    }
-
-    private fun setRegistrationValues(sdk: SFMCSdk) {
-        sdk.mp {
-            it.registrationManager.registerForRegistrationEvents { registration ->
-                Log.v(TAG, registration.toString())
-                "Registration Updated".showSnackbar()
+    private fun setupInboxToggle(view: View) {
+        view.findViewById<MaterialSwitch>(R.id.switch_inbox).apply {
+            isChecked = mceSdk.inboxMessageManager.isInboxEnabled
+            setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    mceSdk.inboxMessageManager.enableInbox()
+                } else {
+                    mceSdk.inboxMessageManager.disableInbox()
+                }
             }
         }
+    }
 
-        sdk.identity.setProfile(
-            profileId = "salesforce.developer@example.com",
-            attributes = mapOf("FirstName" to "Salesforce", "LastName" to "Developer"),
-            module = ModuleIdentifier.PUSH
-        )
-
-        sdk.mp {
-            it.registrationManager.edit().addTag("Android Learning App").commit()
+    private fun setupPiAnalyticsToggle(view: View) {
+        view.findViewById<MaterialSwitch>(R.id.switch_pi_analytics).apply {
+            isChecked = mceSdk.analyticsManager.arePiAnalyticsEnabled()
+            setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    mceSdk.analyticsManager.enablePiAnalytics()
+                } else {
+                    mceSdk.analyticsManager.disablePiAnalytics()
+                }
+            }
         }
     }
 
-    @SuppressLint("InflateParams")
-    private fun showRegistration(push: PushModuleInterface) {
-        val currentRegistration =
-            push.state.optJSONObject("RegistrationManager")?.optJSONObject("current_registration")
-        val message = currentRegistration?.toString(2) ?: "Unable to get current registration"
-
-        MaterialAlertDialogBuilder(requireContext()).apply {
-            val view =
-                LayoutInflater.from(context)
-                    .inflate(R.layout.selectable_textview, null, false) as TextView
-            view.text = message
-            setView(view)
-            setPositiveButton("Close", null)
-        }.show()
-    }
 
     private fun checkAndRequestNotificationPermission() {
         NOTIFICATION_REQUIRED_PERMISSIONS.forEach { permission ->
@@ -207,13 +210,88 @@ class Home : SdkFragment() {
         )
     }
 
-    private fun togglePushPermission(granted: Boolean) = requestSdk { sdk ->
-        sdk.mp { push ->
-            push.pushMessageManager.apply {
-                if (granted && !isPushEnabled) enablePush()
-                else if (!granted && isPushEnabled) disablePush()
+    private fun togglePushPermission(granted: Boolean) = PushFeature.requestSdk { sdk ->
+        sdk.getPushMessageManager().apply {
+            if (granted && !isPushEnabled()) {
+                enablePush()
+            } else if (!granted && isPushEnabled()) {
+                disablePush()
             }
         }
+    }
+
+    private fun showSdkStateDebug() {
+        SFMCSdk.requestSdk {
+            showSdkStateDialog(it.getSdkState().toString(2).also {
+                Log.i(TAG, "SDK State: $it")
+            })
+        }
+    }
+
+    private fun showSdkStateDialog(stateText: String) {
+        // Create a scrollable text view for the dialog
+        val scrollView = ScrollView(requireContext())
+        val textView = TextView(requireContext()).apply {
+            text = stateText
+            textSize = 12f
+            typeface = android.graphics.Typeface.MONOSPACE
+            setPadding(32, 32, 32, 32)
+            setTextIsSelectable(true)
+        }
+        scrollView.addView(textView)
+
+        AlertDialog.Builder(requireContext())
+            .setTitle("SDK State Debug")
+            .setView(scrollView)
+            .setPositiveButton("Copy to Clipboard") { _, _ ->
+                val clipboard =
+                    requireContext().getSystemService(android.content.Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+                val clip = android.content.ClipData.newPlainText("SDK State", stateText)
+                clipboard.setPrimaryClip(clip)
+                NotificationManager.showSuccess("SDK state copied to clipboard")
+            }
+            .setNegativeButton("Close", null)
+            .create()
+            .show()
+    }
+
+    private fun copyMamDeviceId() {
+        MobileAppMessaging.requestSdk { sdk ->
+            val deviceId = sdk.getRegistrationManager().getDeviceId()
+            copyToClipboard("MAM Device ID", deviceId)
+            Log.i(TAG, "MAM Device ID: $deviceId")
+            NotificationManager.showSuccess("MAM Device ID copied to clipboard")
+        }
+    }
+
+    private fun copyPushToken() {
+        PushFeature.requestSdk {
+            val pushToken = it.getPushMessageManager().getPushToken()
+            if (pushToken != null) {
+                copyToClipboard("Push Token", pushToken)
+                Log.i(TAG, "Push Token: $pushToken")
+                NotificationManager.showSuccess("Push Token copied to clipboard")
+            } else {
+                Log.w(TAG, "Push Token is null")
+                NotificationManager.showError("Push Token is not available")
+            }
+        }
+    }
+
+    private fun copyMceDeviceId() {
+        MarketingCloudSdk.requestSdk { mceSdk ->
+            val deviceId = mceSdk.registrationManager.deviceId
+            copyToClipboard("MCE Device ID", deviceId)
+            Log.i(TAG, "MCE Device ID: $deviceId")
+            NotificationManager.showSuccess("MCE Device ID copied to clipboard")
+        }
+    }
+
+    private fun copyToClipboard(label: String, text: String) {
+        val clipboard =
+            requireContext().getSystemService(android.content.Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+        val clip = android.content.ClipData.newPlainText(label, text)
+        clipboard.setPrimaryClip(clip)
     }
 
     companion object {

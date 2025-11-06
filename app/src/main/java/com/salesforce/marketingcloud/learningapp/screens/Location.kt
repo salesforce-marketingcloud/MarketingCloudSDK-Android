@@ -32,14 +32,13 @@ import android.os.Build
 import android.util.Log
 import android.view.View
 import android.widget.CompoundButton
-import com.google.android.material.switchmaterial.SwitchMaterial
+import com.google.android.material.materialswitch.MaterialSwitch
 import com.salesforce.marketingcloud.MarketingCloudSdk
 import com.salesforce.marketingcloud.learningapp.LOG_TAG
 import com.salesforce.marketingcloud.learningapp.R
 import com.salesforce.marketingcloud.learningapp.SdkFragment
 import com.salesforce.marketingcloud.learningapp.hasRequiredPermissions
 import com.salesforce.marketingcloud.learningapp.showPermissionRationale
-import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
 
 
 class Location : SdkFragment() {
@@ -90,41 +89,39 @@ class Location : SdkFragment() {
     }
 
     private val geofenceCheckedListener = CompoundButton.OnCheckedChangeListener { _, checked ->
-        toggleGeofenceMessaging(marketingCloudSdk, checked)
+        toggleGeofenceMessaging(mceSdk, checked)
     }
 
     private val proximityCheckedListener = CompoundButton.OnCheckedChangeListener { _, checked ->
-        toggleProximityMessaging(marketingCloudSdk, checked)
+        toggleProximityMessaging(mceSdk, checked)
     }
 
-    private lateinit var marketingCloudSdk: MarketingCloudSdk
+    private lateinit var mceSdk: MarketingCloudSdk
 
     override val layoutId: Int
         get() = R.layout.fragment_location
 
-    override fun ready(sfmcSdk: SFMCSdk) {
-        sfmcSdk.mp {
-            marketingCloudSdk = it as MarketingCloudSdk
+    override fun ready(mceSdk: MarketingCloudSdk) {
+        this@Location.mceSdk = mceSdk
 
-            requireView().apply {
-                setupGeofenceToggle(marketingCloudSdk)
-                setupProximityToggle(marketingCloudSdk)
-            }
+        requireView().apply {
+            setupGeofenceToggle()
+            setupProximityToggle()
         }
     }
 
-    private fun View.setupGeofenceToggle(sdk: MarketingCloudSdk) {
-        findViewById<SwitchMaterial>(R.id.toggle_geofence).apply {
+    private fun View.setupGeofenceToggle() {
+        findViewById<MaterialSwitch>(R.id.toggle_geofence).apply {
             setOnCheckedChangeListener(null)
-            isChecked = sdk.regionMessageManager.isGeofenceMessagingEnabled
+            isChecked = mceSdk.regionMessageManager.isGeofenceMessagingEnabled
             setOnCheckedChangeListener(geofenceCheckedListener)
         }
     }
 
-    private fun View.setupProximityToggle(sdk: MarketingCloudSdk) {
-        findViewById<SwitchMaterial>(R.id.toggle_proximity).apply {
+    private fun View.setupProximityToggle() {
+        findViewById<MaterialSwitch>(R.id.toggle_proximity).apply {
             setOnCheckedChangeListener(null)
-            isChecked = sdk.regionMessageManager.isProximityMessagingEnabled
+            isChecked = mceSdk.regionMessageManager.isProximityMessagingEnabled
             setOnCheckedChangeListener(proximityCheckedListener)
         }
     }
@@ -140,20 +137,20 @@ class Location : SdkFragment() {
             when (requestCode) {
                 REQUEST_GEOFENCE -> {
                     // Once the permissions have been granted we will enable Geofence messaging.
-                    marketingCloudSdk.regionMessageManager.enableGeofenceMessaging()
-                    view?.setupGeofenceToggle(marketingCloudSdk)
+                    mceSdk.regionMessageManager.enableGeofenceMessaging()
+                    view?.setupGeofenceToggle()
                 }
 
                 REQUEST_PROXIMITY -> {
                     // Once the permissions have been granted we will enable Proximity messaging.
-                    marketingCloudSdk.regionMessageManager.enableProximityMessaging()
-                    view?.setupProximityToggle(marketingCloudSdk)
+                    mceSdk.regionMessageManager.enableProximityMessaging()
+                    view?.setupProximityToggle()
                 }
             }
         } else {
             when (requestCode) {
-                REQUEST_GEOFENCE -> view?.setupGeofenceToggle(marketingCloudSdk)
-                REQUEST_PROXIMITY -> view?.setupProximityToggle(marketingCloudSdk)
+                REQUEST_GEOFENCE -> view?.setupGeofenceToggle()
+                REQUEST_PROXIMITY -> view?.setupProximityToggle()
             }
             Log.d(
                 LOG_TAG,

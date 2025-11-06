@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:cardBackgroundColor="?attr/colorSurfaceVariant"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📊"
+            android:textSize="48sp"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Custom Events"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create your first custom event to start tracking user interactions"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:textAlignment="center"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
+

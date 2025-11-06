@@ -25,26 +25,132 @@
  */
 package com.salesforce.marketingcloud.learningapp
 
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
+import android.os.Build
+import android.util.Log
+import androidx.core.net.toUri
 import com.salesforce.marketingcloud.MarketingCloudConfig
-import com.salesforce.marketingcloud.notifications.NotificationCustomizationOptions
-import com.salesforce.marketingcloud.proximity.ProximityNotificationCustomizationOptions
+import com.salesforce.marketingcloud.mobileappmessaging.MobileAppMessagingConfig
+import com.salesforce.marketingcloud.pushfeature.config.PushFeatureConfig
+import com.salesforce.marketingcloud.pushfeature.push.UrlHandler
+import com.salesforce.marketingcloud.sfmcsdk.SFMCSdkModuleConfig
+import java.util.Random
+import com.salesforce.marketingcloud.pushmodels.NotificationMessage as PushNotificationMessage
 
 class LearningApplication : BaseLearningApplication() {
 
-    override val configBuilder: MarketingCloudConfig.Builder
+    /**
+     * Local abstraction for URL handling functionality.
+     * This provides the common implementation for both URL handler interfaces.
+     */
+    private val urlHandlerImplementation = { context: Context, url: String, urlSource: String ->
+        Log.d("LearningApplication:urlHandlerImplementation ", "$urlSource, $url")
+        val intent = Intent(Intent.ACTION_VIEW, url.toUri())
+        when (urlSource) {
+            UrlHandler.DEEPLINK ->
+                PendingIntent.getActivity(
+                    context,
+                    Random().nextInt(),
+                    if (intent.resolveActivity(context.packageManager) != null)
+                        intent
+                    else
+                        context.packageManager.getLaunchIntentForPackage(context.packageName),
+                    provideIntentFlags()
+                )
+
+            in listOf(UrlHandler.URL, UrlHandler.CLOUD_PAGE, UrlHandler.ACTION) ->
+                PendingIntent.getActivity(
+                    context,
+                    Random().nextInt(),
+                    intent,
+                    provideIntentFlags()
+                )
+
+            UrlHandler.APP_OPEN ->
+                PendingIntent.getActivity(
+                    context,
+                    Random().nextInt(),
+                    context.packageManager.getLaunchIntentForPackage(context.packageName),
+                    provideIntentFlags()
+                )
+
+            else -> null // No intent
+        }
+    }
+
+    private fun provideIntentFlags(): Int {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        } else
+            PendingIntent.FLAG_UPDATE_CURRENT
+    }
+
+    /**
+     * Adapter function to bridge between PushNotificationMessage URL handler and our common implementation
+     */
+    private val pushNotificationUrlHandler = { context: Context, message: PushNotificationMessage ->
+        val url = message.url
+        if (url.isNullOrBlank()) {
+            PendingIntent.getActivity(
+                context,
+                Random().nextInt(),
+                context.packageManager.getLaunchIntentForPackage(context.packageName),
+                provideIntentFlags()
+            )
+        } else {
+            PendingIntent.getActivity(
+                context,
+                Random().nextInt(),
+                Intent(Intent.ACTION_VIEW, url.toUri()),
+                provideIntentFlags()
+            )
+
+        }
+
+
+    }
+
+    override val sdkConfigBuilder: SFMCSdkModuleConfig
+        get() = SFMCSdkModuleConfig.build {
+            engagementModuleConfig = mceConfigBuilder
+            mamModuleConfig = mamConfigBuilder
+            pushFeatureModuleConfig = pushConfigBuilder
+        }
+
+    val mceConfigBuilder: MarketingCloudConfig
         get() = MarketingCloudConfig.builder().apply {
             setApplicationId(BuildConfig.MC_APP_ID)
             setAccessToken(BuildConfig.MC_ACCESS_TOKEN)
-            setSenderId(BuildConfig.MC_SENDER_ID)
             setMid(BuildConfig.MC_MID)
             setMarketingCloudServerUrl(BuildConfig.MC_SERVER_URL)
-            setNotificationCustomizationOptions(NotificationCustomizationOptions.create(R.drawable.ic_notification))
             setInboxEnabled(true)
             setAnalyticsEnabled(true)
-            setPiAnalyticsEnabled(true)
-            setGeofencingEnabled(true)
-            setProximityEnabled(true)
-            setProximityNotificationOptions(ProximityNotificationCustomizationOptions.create(R.drawable.ic_notification))
-            setUrlHandler(this@LearningApplication)
-        }
+            //setPiAnalyticsEnabled(true)
+            //setGeofencingEnabled(true)
+            //setProximityEnabled(true)
+            //setProximityNotificationOptions(ProximityNotificationCustomizationOptions.create(R.drawable.ic_notification))
+            setUrlHandler(urlHandlerImplementation)
+        }.build(this)
+
+    val mamConfigBuilder: MobileAppMessagingConfig
+        get() = MobileAppMessagingConfig.builder().apply {
+            moduleApplicationId(BuildConfig.MAM_APP_ID)
+            accessToken(BuildConfig.MAM_ACCESS_TOKEN)
+            tenantId(BuildConfig.MAM_TENANT_ID)
+            endpointUrl(BuildConfig.MAM_ENDPOINT_URL)
+            analyticsEnabled(true)
+        }.build()
+
+    val pushConfigBuilder: PushFeatureConfig
+        get() = PushFeatureConfig.builder().apply {
+            setSenderId(BuildConfig.MC_SENDER_ID)
+            setNotificationCustomizationOptions(
+                com.salesforce.marketingcloud.pushfeature.notifications.NotificationCustomizationOptions.create(
+                    R.drawable.ic_notification, pushNotificationUrlHandler, null /* use default */
+                )
+            )
+            setUrlHandler(urlHandlerImplementation)
+        }.build()
 }
