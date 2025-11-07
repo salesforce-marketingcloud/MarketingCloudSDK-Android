@@ -1,7 +1,6 @@
 package com.salesforce.marketingcloud.learningapp
 
 import com.salesforce.marketingcloud.MarketingCloudConfig
-import com.salesforce.marketingcloud.notifications.NotificationCustomizationOptions
 import com.salesforce.marketingcloud.pushfeature.config.PushFeatureConfig
 import com.salesforce.marketingcloud.sfmcsdk.SFMCSdkModuleConfig
 
@@ -19,5 +18,15 @@ class LearningApplication : BaseLearningApplication() {
                 //setGeofencingEnabled(true)
                 //setProximityEnabled(true)
             }.build(this@LearningApplication)
+
+            pushFeatureModuleConfig = PushFeatureConfig.builder().apply {
+                setNotificationCustomizationOptions(
+                    com.salesforce.marketingcloud.pushfeature.notifications.NotificationCustomizationOptions.create(
+                        R.drawable.ic_notification,
+                        pushNotificationUrlHandler,
+                        null /* use default */
+                    )
+                )
+            }.build()
         }
 }

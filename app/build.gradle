@@ -11,8 +11,8 @@ android {
         applicationId "com.salesforce.marketingcloud.learningapp"
         minSdkVersion 26
         targetSdkVersion 36
-        versionCode 258000000 // Example: Major Release (3 digits): 256, MR (3 digits): 6, LA Patch (3 digits): 3 = 256006003
-        versionName "2.0.0.258.0"
+        versionCode 258000001 // Example: Major Release (3 digits): 256, MR (3 digits): 6, LA Patch (3 digits): 3 = 256006003
+        versionName "2.0.1.258.0"
 
         // MCE
         buildConfigField "String", "MC_APP_ID", MC_APP_ID

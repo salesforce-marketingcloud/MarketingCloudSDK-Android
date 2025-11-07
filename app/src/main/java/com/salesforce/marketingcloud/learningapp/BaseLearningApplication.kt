@@ -26,18 +26,26 @@
 package com.salesforce.marketingcloud.learningapp
 
 import android.app.Application
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.net.toUri
 import com.salesforce.marketingcloud.MCLogListener
 import com.salesforce.marketingcloud.MarketingCloudSdk
 import com.salesforce.marketingcloud.messages.iam.InAppMessage
 import com.salesforce.marketingcloud.messages.iam.InAppMessageManager
+import com.salesforce.marketingcloud.pushfeature.push.UrlHandler
 import com.salesforce.marketingcloud.sfmcsdk.InitializationStatus
 import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
 import com.salesforce.marketingcloud.sfmcsdk.SFMCSdkModuleConfig
 import com.salesforce.marketingcloud.sfmcsdk.components.logging.LogLevel
 import com.salesforce.marketingcloud.sfmcsdk.components.logging.LogListener
+import java.util.Random
+import com.salesforce.marketingcloud.pushmodels.NotificationMessage as PushNotificationMessage
 
 const val LOG_TAG = "~#MCLearningApp"
 
@@ -117,4 +125,77 @@ abstract class BaseLearningApplication : Application() {
 
         }
     }
+
+
+    /**
+     * Local abstraction for URL handling functionality.
+     * This provides the common implementation for both URL handler interfaces.
+     */
+     val urlHandlerImplementation = { context: Context, url: String, urlSource: String ->
+        Log.d("LearningApplication:urlHandlerImplementation ", "$urlSource, $url")
+        val intent = Intent(Intent.ACTION_VIEW, url.toUri())
+        when (urlSource) {
+            UrlHandler.DEEPLINK ->
+                PendingIntent.getActivity(
+                    context,
+                    Random().nextInt(),
+                    if (intent.resolveActivity(context.packageManager) != null)
+                        intent
+                    else
+                        context.packageManager.getLaunchIntentForPackage(context.packageName),
+                    provideIntentFlags()
+                )
+
+            in listOf(UrlHandler.URL, UrlHandler.CLOUD_PAGE, UrlHandler.ACTION) ->
+                PendingIntent.getActivity(
+                    context,
+                    Random().nextInt(),
+                    intent,
+                    provideIntentFlags()
+                )
+
+            UrlHandler.APP_OPEN ->
+                PendingIntent.getActivity(
+                    context,
+                    Random().nextInt(),
+                    context.packageManager.getLaunchIntentForPackage(context.packageName),
+                    provideIntentFlags()
+                )
+
+            else -> null // No intent
+        }
+    }
+
+    private fun provideIntentFlags(): Int {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        } else
+            PendingIntent.FLAG_UPDATE_CURRENT
+    }
+
+    /**
+     * Adapter function to bridge between PushNotificationMessage URL handler and our common implementation
+     */
+     val pushNotificationUrlHandler = { context: Context, message: PushNotificationMessage ->
+        val url = message.url
+        if (url.isNullOrBlank()) {
+            PendingIntent.getActivity(
+                context,
+                Random().nextInt(),
+                context.packageManager.getLaunchIntentForPackage(context.packageName),
+                provideIntentFlags()
+            )
+        } else {
+            PendingIntent.getActivity(
+                context,
+                Random().nextInt(),
+                Intent(Intent.ACTION_VIEW, url.toUri()),
+                provideIntentFlags()
+            )
+
+        }
+
+
+    }
+
 }
