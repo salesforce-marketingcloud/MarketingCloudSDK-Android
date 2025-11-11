@@ -2,31 +2,118 @@
 
     <style name="MyTheme.DayNight" parent="Base.MyTheme" />
 
-    <style name="Base.MyTheme" parent="Base.MaterialThemeBuilder">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/primaryColor</item>
-        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
-        <item name="colorSecondary">@color/secondaryColor</item>
-        <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
-        <item name="android:colorBackground">@color/white</item>
-        <item name="colorSurface">@color/white</item>
-        <item name="colorError">#F44336</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorOnSecondary">@color/onSecondary</item>
-        <item name="colorOnBackground">@color/onBackground</item>
-        <item name="colorOnSurface">@color/onSurface</item>
-        <item name="colorOnError">@color/white</item>
+    <style name="Base.MyTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Material Design 3 Color System -->
+        <item name="colorPrimary">@color/md_theme_light_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
+
+        <item name="colorSecondary">@color/md_theme_light_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_theme_light_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_light_onSecondaryContainer</item>
+
+        <item name="colorTertiary">@color/md_theme_light_tertiary</item>
+        <item name="colorOnTertiary">@color/md_theme_light_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/md_theme_light_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/md_theme_light_onTertiaryContainer</item>
+
+        <item name="colorError">@color/md_theme_light_error</item>
+        <item name="colorOnError">@color/md_theme_light_onError</item>
+        <item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>
+        <item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>
+
+        <item name="android:colorBackground">@color/md_theme_light_background</item>
+        <item name="colorOnBackground">@color/md_theme_light_onBackground</item>
+        <item name="colorSurface">@color/md_theme_light_surface</item>
+        <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_light_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_light_onSurfaceVariant</item>
+        <item name="colorOutline">@color/md_theme_light_outline</item>
+        <item name="colorOutlineVariant">@color/md_theme_light_outline</item>
+
+        <!-- Material 3 Shape System -->
+        <item name="shapeAppearanceSmallComponent">
+            @style/ShapeAppearance.Material3.Corner.ExtraSmall
+        </item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Material3.Corner.Medium
+        </item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Material3.Corner.Large
+        </item>
+
+        <!-- Material You dynamic colors will be enabled automatically on Android 12+ devices -->
     </style>
 
-    <style name="Base.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
-        <item name="colorAccent">@color/secondaryColor</item>
+    <!-- Typography Styles -->
+    <style name="TextAppearance.SectionHeading" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:fontFamily">@font/fira_sans</item>
     </style>
 
-    <style name="TextAppearance.SectionHeading" parent="TextAppearance.MaterialComponents.Headline4"></style>
+    <style name="TextAppearance.DialogBody" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
 
-    <style name="TextAppearance.DialogBody" parent="TextAppearance.MaterialComponents.Body1">
+    <style name="TextAppearance.CardTitle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:fontFamily">@font/fira_sans</item>
+    </style>
 
+    <style name="TextAppearance.CardSubtitle" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+    <!-- Component Styles -->
+    <style name="Widget.App.Button.Primary" parent="Widget.Material3.Button">
+        <item name="backgroundTint">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="Widget.App.Button.Secondary" parent="Widget.Material3.Button.TonalButton">
+        <item name="backgroundTint">?attr/colorSecondaryContainer</item>
+        <item name="android:textColor">?attr/colorOnSecondaryContainer</item>
+    </style>
+
+    <style name="Widget.App.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">?attr/colorSurface</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="Widget.App.Switch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="thumbTint">?attr/colorPrimary</item>
+        <item name="trackTint">?attr/colorPrimaryContainer</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <!-- Base Layout Styles for Consistent Spacing -->
+    <style name="Widget.App.ScrollView" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">?android:attr/colorBackground</item>
+        <item name="android:fillViewport">true</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+
+    <style name="Widget.App.ContentContainer" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">@dimen/screen_padding</item>
+        <item name="android:paddingBottom">@dimen/screen_bottom_padding</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+
+    <style name="Widget.App.LastCard" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">?attr/colorSurface</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="android:layout_marginBottom">@dimen/last_card_bottom_margin</item>
     </style>
 
 </resources>

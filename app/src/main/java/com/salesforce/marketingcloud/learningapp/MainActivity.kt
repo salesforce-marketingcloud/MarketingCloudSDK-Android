@@ -30,7 +30,6 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -51,6 +50,18 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, _, _ ->
             supportActionBar?.subtitle = null // Clear inbox count when leaving Inbox screen
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Register this activity for global notifications
+        NotificationManager.setCurrentActivity(this)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // Clear activity reference to prevent memory leaks
+        NotificationManager.clearCurrentActivity()
     }
 
     override fun onSupportNavigateUp(): Boolean {

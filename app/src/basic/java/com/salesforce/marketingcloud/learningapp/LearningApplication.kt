@@ -26,25 +26,52 @@
 package com.salesforce.marketingcloud.learningapp
 
 import com.salesforce.marketingcloud.MarketingCloudConfig
-import com.salesforce.marketingcloud.notifications.NotificationCustomizationOptions
-import com.salesforce.marketingcloud.proximity.ProximityNotificationCustomizationOptions
+import com.salesforce.marketingcloud.mobileappmessaging.MobileAppMessagingConfig
+import com.salesforce.marketingcloud.pushfeature.config.PushFeatureConfig
+import com.salesforce.marketingcloud.sfmcsdk.SFMCSdkModuleConfig
 
 class LearningApplication : BaseLearningApplication() {
 
-    override val configBuilder: MarketingCloudConfig.Builder
+
+    override val sdkConfigBuilder: SFMCSdkModuleConfig
+        get() = SFMCSdkModuleConfig.build {
+            engagementModuleConfig = mceConfigBuilder
+            mamModuleConfig = mamConfigBuilder
+            pushFeatureModuleConfig = pushConfigBuilder
+        }
+
+    val mceConfigBuilder: MarketingCloudConfig
         get() = MarketingCloudConfig.builder().apply {
             setApplicationId(BuildConfig.MC_APP_ID)
             setAccessToken(BuildConfig.MC_ACCESS_TOKEN)
-            setSenderId(BuildConfig.MC_SENDER_ID)
             setMid(BuildConfig.MC_MID)
             setMarketingCloudServerUrl(BuildConfig.MC_SERVER_URL)
-            setNotificationCustomizationOptions(NotificationCustomizationOptions.create(R.drawable.ic_notification))
             setInboxEnabled(true)
             setAnalyticsEnabled(true)
-            setPiAnalyticsEnabled(true)
-            setGeofencingEnabled(true)
-            setProximityEnabled(true)
-            setProximityNotificationOptions(ProximityNotificationCustomizationOptions.create(R.drawable.ic_notification))
-            setUrlHandler(this@LearningApplication)
-        }
+            //setPiAnalyticsEnabled(true)
+            //setGeofencingEnabled(true)
+            //setProximityEnabled(true)
+            //setProximityNotificationOptions(ProximityNotificationCustomizationOptions.create(R.drawable.ic_notification))
+            setUrlHandler(urlHandlerImplementation)
+        }.build(this)
+
+    val mamConfigBuilder: MobileAppMessagingConfig
+        get() = MobileAppMessagingConfig.builder().apply {
+            moduleApplicationId(BuildConfig.MAM_APP_ID)
+            accessToken(BuildConfig.MAM_ACCESS_TOKEN)
+            tenantId(BuildConfig.MAM_TENANT_ID)
+            endpointUrl(BuildConfig.MAM_ENDPOINT_URL)
+            analyticsEnabled(true)
+        }.build()
+
+    val pushConfigBuilder: PushFeatureConfig
+        get() = PushFeatureConfig.builder().apply {
+            setSenderId(BuildConfig.MC_SENDER_ID)
+            setNotificationCustomizationOptions(
+                com.salesforce.marketingcloud.pushfeature.notifications.NotificationCustomizationOptions.create(
+                    R.drawable.ic_notification, pushNotificationUrlHandler, null /* use default */
+                )
+            )
+            setUrlHandler(urlHandlerImplementation)
+        }.build()
 }

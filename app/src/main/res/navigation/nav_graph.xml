@@ -16,6 +16,15 @@
         <action
             android:id="@+id/action_home_to_inbox"
             app:destination="@id/inbox_graph" />
+        <action
+            android:id="@+id/action_home_to_registration"
+            app:destination="@id/registration" />
+        <action
+            android:id="@+id/action_home_to_view_registration"
+            app:destination="@id/view_registration" />
+        <action
+            android:id="@+id/action_home_to_custom_event_tracking"
+            app:destination="@id/custom_event_tracking" />
     </fragment>
 
     <fragment
@@ -27,6 +36,24 @@
             android:id="@+id/deepLink"
             app:uri="http://www.marketingcloud.com/location" />
     </fragment>
+
+    <fragment
+        android:id="@+id/registration"
+        android:name="com.salesforce.marketingcloud.learningapp.screens.Registration"
+        android:label="Registration"
+        tools:layout="@layout/fragment_registration" />
+
+    <fragment
+        android:id="@+id/view_registration"
+        android:name="com.salesforce.marketingcloud.learningapp.screens.ViewRegistration"
+        android:label="View Registration"
+        tools:layout="@layout/fragment_view_registration" />
+
+    <fragment
+        android:id="@+id/custom_event_tracking"
+        android:name="com.salesforce.marketingcloud.learningapp.screens.CustomEventTracking"
+        android:label="Custom Event Tracking"
+        tools:layout="@layout/fragment_custom_event_tracking" />
 
     <navigation
         android:id="@+id/inbox_graph"

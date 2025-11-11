@@ -34,7 +34,7 @@ import android.widget.ViewSwitcher
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
-import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
+import com.salesforce.marketingcloud.MarketingCloudSdk
 
 abstract class SdkFragment : Fragment() {
 
@@ -55,7 +55,7 @@ abstract class SdkFragment : Fragment() {
             inflate()
         }
 
-        SFMCSdk.requestSdk { sdk ->
+        MarketingCloudSdk.requestSdk { sdk ->
             switcher.showNext()
             ready(sdk)
         }
@@ -68,5 +68,5 @@ abstract class SdkFragment : Fragment() {
     @get:LayoutRes
     abstract val layoutId: Int
 
-    abstract fun ready(sfmcSdk: SFMCSdk)
+    abstract fun ready(mceSdk: MarketingCloudSdk)
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Base scrollable layout template for consistent spacing across all screens -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll_view"
+    style="@style/Widget.App.ScrollView">
+
+    <LinearLayout
+        android:id="@+id/content_container"
+        style="@style/Widget.App.ContentContainer">
+
+        <!-- Content will be added here by including layouts -->
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Consistent spacing dimensions -->
+    <dimen name="screen_padding">16dp</dimen>
+    <dimen name="screen_bottom_padding">200dp</dimen>
+
+    <!-- Card spacing -->
+    <dimen name="card_bottom_margin">16dp</dimen>
+    <dimen name="last_card_bottom_margin">80dp</dimen>
+
+    <!-- Card styling -->
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="card_corner_radius">16dp</dimen>
+    <dimen name="card_padding">20dp</dimen>
+
+    <!-- Section spacing -->
+    <dimen name="section_spacing">24dp</dimen>
+    <dimen name="content_spacing">16dp</dimen>
+
+    <!-- Button spacing -->
+    <dimen name="button_top_margin">16dp</dimen>
+    <dimen name="button_bottom_margin">48dp</dimen>
+</resources>
+

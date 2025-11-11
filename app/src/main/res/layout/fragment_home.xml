@@ -1,170 +1,442 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    style="@style/Widget.App.ScrollView">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/root"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp">
+    <LinearLayout style="@style/Widget.App.ContentContainer">
 
-        <Button
-            android:id="@+id/button_open_documentation"
-            android:layout_width="wrap_content"
+        <!-- Welcome Header -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Open SDK Documentation"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="?attr/colorPrimaryContainer"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
 
-        <TextView
-            android:id="@+id/textview_registration"
-            style="@style/TextAppearance.SectionHeading"
-            android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Salesforce Marketing Cloud SDK"
+                    android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                    android:textColor="?attr/colorOnPrimaryContainer"
+                    android:fontFamily="@font/fira_sans" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Learning Application"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                    android:textColor="?attr/colorOnPrimaryContainer"
+                    android:alpha="0.8" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_open_documentation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="View Documentation"
+                    app:icon="@drawable/ic_documentation"
+                    style="@style/Widget.Material3.Button.TonalButton" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Registration Section -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registration"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_open_documentation" />
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
 
-        <Button
-            android:id="@+id/button_set_registration"
-            android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/TextAppearance.CardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Registration Management"
+                    android:drawableStart="@drawable/ic_registration"
+                    android:drawablePadding="12dp"
+                    android:drawableTint="?attr/colorPrimary" />
+
+                <TextView
+                    style="@style/TextAppearance.CardSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Configure user registration and profile settings" />
+
+                <!-- First row of buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_set_registration"
+                        style="@style/Widget.App.Button.Primary"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:text="Set Values"
+                        app:icon="@android:drawable/ic_menu_edit" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_show_registration"
+                        style="@style/Widget.App.Button.Primary"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="View Current"
+                        app:icon="@android:drawable/ic_menu_view" />
+
+                </LinearLayout>
+
+                <!-- Second row - Debug button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_debug_sdk_state"
+                    style="@style/Widget.App.Button.Secondary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Debug SDK State"
+                    app:icon="@android:drawable/ic_menu_info_details" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Features Section -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Set Values"
-            app:layout_constraintStart_toStartOf="@id/textview_registration"
-            app:layout_constraintTop_toBottomOf="@id/textview_registration" />
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
 
-        <Button
-            android:id="@+id/button_show_registration"
-            android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/TextAppearance.CardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SDK Features"
+                    android:drawableStart="@drawable/ic_features"
+                    android:drawablePadding="12dp"
+                    android:drawableTint="?attr/colorPrimary" />
+
+                <TextView
+                    style="@style/TextAppearance.CardSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Explore location services and messaging features" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_location"
+                        style="@style/Widget.App.Button.Primary"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:text="Location"
+                        app:icon="@android:drawable/ic_menu_mylocation" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_inbox"
+                        style="@style/Widget.App.Button.Primary"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="Inbox"
+                        app:icon="@android:drawable/ic_dialog_email" />
+
+                </LinearLayout>
+
+                <!-- Second row - Tracking button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_tracking"
+                    style="@style/Widget.App.Button.Primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Custom Event Tracking"
+                    app:icon="@android:drawable/ic_menu_agenda" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Settings Section -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Show Registration"
-            app:layout_constraintStart_toStartOf="@id/textview_registration"
-            app:layout_constraintTop_toBottomOf="@id/button_set_registration" />
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
 
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/registration_barrier"
-            android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/TextAppearance.CardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Runtime Settings"
+                    android:drawableStart="@drawable/ic_settings"
+                    android:drawablePadding="12dp"
+                    android:drawableTint="?attr/colorPrimary" />
+
+                <TextView
+                    style="@style/TextAppearance.CardSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Toggle SDK features and analytics" />
+
+                <!-- ET Analytics Toggle -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="8dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ET Analytics"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                            android:textColor="?attr/colorOnSurface" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Track user interactions and events"
+                            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switch_et_analytics"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="48dp"
+                        android:minHeight="48dp"
+                        style="@style/Widget.App.Switch" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="8dp"
+                    android:background="?attr/colorOutlineVariant" />
+
+                <!-- Pi Analytics Toggle -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="8dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pi Analytics"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                            android:textColor="?attr/colorOnSurface" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Advanced predictive analytics"
+                            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switch_pi_analytics"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="48dp"
+                        android:minHeight="48dp"
+                        style="@style/Widget.App.Switch" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="8dp"
+                    android:background="?attr/colorOutlineVariant" />
+
+                <!-- Inbox Toggle -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="8dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Inbox Messages"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                            android:textColor="?attr/colorOnSurface" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enable inbox message functionality"
+                            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switch_inbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="48dp"
+                        android:minHeight="48dp"
+                        style="@style/Widget.App.Switch" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Device Data Section -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:barrierDirection="bottom"
-            app:constraint_referenced_ids="textview_registration,button_set_registration,button_show_registration" />
+            style="@style/Widget.App.LastCard">
 
-        <TextView
-            android:id="@+id/textview_location"
-            style="@style/TextAppearance.SectionHeading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Location"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/registration_barrier" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-        <Button
-            android:id="@+id/button_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Open Location Screen"
-            app:layout_constraintStart_toStartOf="@id/textview_location"
-            app:layout_constraintTop_toBottomOf="@id/textview_location" />
+                <TextView
+                    style="@style/TextAppearance.CardTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Device Data"
+                    android:drawableStart="@android:drawable/ic_menu_info_details"
+                    android:drawablePadding="12dp"
+                    android:drawableTint="?attr/colorPrimary" />
 
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/location_barrier"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:barrierDirection="bottom"
-            app:constraint_referenced_ids="textview_location,button_location" />
+                <TextView
+                    style="@style/TextAppearance.CardSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Copy device identifiers and push tokens to clipboard" />
 
-        <TextView
-            android:id="@+id/textview_inbox"
-            style="@style/TextAppearance.SectionHeading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Inbox"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/location_barrier" />
+                <!-- Device Data Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button_inbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Open Inbox Screen"
-            app:layout_constraintStart_toStartOf="@id/textview_inbox"
-            app:layout_constraintTop_toBottomOf="@id/textview_inbox" />
+                    <!-- First Row: MAM Device ID -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_copy_mam_device_id"
+                        style="@style/Widget.App.Button.Secondary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Copy MAM Device ID"
+                        app:icon="@android:drawable/ic_menu_share" />
 
-        <TextView
-            android:id="@+id/textview_runtime_toggles"
-            style="@style/TextAppearance.SectionHeading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Runtime Toggles"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_inbox" />
+                    <!-- Second Row: Push Token -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_copy_push_token"
+                        style="@style/Widget.App.Button.Secondary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Copy Push Token"
+                        app:icon="@android:drawable/ic_menu_share" />
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
-            android:text="ET Analytics"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_runtime_toggles"
-            />
+                    <!-- Third Row: MCE Device ID -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button_copy_mce_device_id"
+                        style="@style/Widget.App.Button.Secondary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Copy MCE Device ID"
+                        app:icon="@android:drawable/ic_menu_share" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switch_et_analytics"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView7"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView7"
-            />
+                </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Inbox"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView9"
-            />
+            </LinearLayout>
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switch_inbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView8"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView8"
-            />
+        </com.google.android.material.card.MaterialCardView>
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Pi Analytics"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView7"
-            />
+    </LinearLayout>
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switch_pi_analytics"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView9"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView9"
-            />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
