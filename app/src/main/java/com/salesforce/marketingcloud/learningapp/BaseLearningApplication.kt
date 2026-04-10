@@ -36,9 +36,12 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.net.toUri
 import com.salesforce.marketingcloud.MCLogListener
 import com.salesforce.marketingcloud.MarketingCloudSdk
-import com.salesforce.marketingcloud.messages.iam.InAppMessage
-import com.salesforce.marketingcloud.messages.iam.InAppMessageManager
-import com.salesforce.marketingcloud.pushfeature.push.UrlHandler
+import com.salesforce.marketingcloud.UrlHandler
+import com.salesforce.marketingcloud.inappmessaging.models.InAppMessage
+import com.salesforce.marketingcloud.inappmessagingfeature.InAppMessageCloseAction
+import com.salesforce.marketingcloud.inappmessagingfeature.InAppMessageManager
+import com.salesforce.marketingcloud.inappmessagingfeature.InAppMessagingFeature
+
 import com.salesforce.marketingcloud.sfmcsdk.InitializationStatus
 import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
 import com.salesforce.marketingcloud.sfmcsdk.SFMCSdkModuleConfig
@@ -87,8 +90,9 @@ abstract class BaseLearningApplication : Application() {
             }
         }
 
-        MarketingCloudSdk.requestSdk {
-            it.inAppMessageManager.run {
+        InAppMessagingFeature.requestSdk { it ->
+
+            it.getInAppMessageManager().run {
 
                 // Set the status bar color to be used when displaying an In App Message.
                 setStatusBarColor(
@@ -97,7 +101,7 @@ abstract class BaseLearningApplication : Application() {
                         R.color.primaryColor
                     )
                 )
-                // Set the font to be used when an In App Message is rendered by the SDK
+                // Set the default font to be used when an In App Message is rendered by the SDK
                 setTypeface(
                     ResourcesCompat.getFont(
                         this@BaseLearningApplication,
@@ -107,18 +111,35 @@ abstract class BaseLearningApplication : Application() {
 
                 setInAppMessageListener(object : InAppMessageManager.EventListener {
                     override fun shouldShowMessage(message: InAppMessage): Boolean {
-                        // This method will be called before a in app message is presented.  You can return `false` to
-                        // prevent the message from being displayed.  You can later use call `InAppMessageManager#showMessage`
-                        // to display the message if the message is still on the device and active.
+                        // This method will be called before an in-app message is presented.
+                        // Return false to prevent display; call InAppMessageManager#showMessage
+                        // later to display the message if it is still on the device and active.
+                        if (IamState.suppressMessages) {
+                            val suppressedId = message.id
+                            IamState.suppressedMessageId = suppressedId
+                            IamState.suppressMessages = false // one-shot: auto-reset after blocking
+                            Log.v(LOG_TAG, "$suppressedId was suppressed by IamState flag.")
+                            IamState.suppressedIdLiveData.postValue(suppressedId)
+                            return false
+                        }
                         return true
                     }
 
                     override fun didShowMessage(message: InAppMessage) {
                         Log.v(LOG_TAG, "${message.id} was displayed.")
+                        IamState.lastEvent =
+                            "SHOWN  [${message.id}]  type=${message.type}  priority=${message.priority}"
                     }
 
-                    override fun didCloseMessage(message: InAppMessage) {
-                        Log.v(LOG_TAG, "${message.id} was closed.")
+                    override fun didCloseMessage(
+                        message: InAppMessage,
+                        action: InAppMessageCloseAction
+                    ) {
+                        Log.v(LOG_TAG, "${message.id} was closed with action $action")
+                        val reason = action.actionType.name
+                        val actionId = action.id?.let { "  actionId=$it" } ?: ""
+                        IamState.lastEvent =
+                            "CLOSED [${message.id}]  reason=$reason$actionId"
                     }
                 })
             }

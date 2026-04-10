@@ -26,6 +26,7 @@
 package com.salesforce.marketingcloud.learningapp
 
 import com.salesforce.marketingcloud.MarketingCloudConfig
+import com.salesforce.marketingcloud.inappmessagingfeature.config.InAppMessagingFeatureConfig
 import com.salesforce.marketingcloud.mobileappmessaging.MobileAppMessagingConfig
 import com.salesforce.marketingcloud.pushfeature.config.PushFeatureConfig
 import com.salesforce.marketingcloud.sfmcsdk.SFMCSdkModuleConfig
@@ -38,6 +39,7 @@ class LearningApplication : BaseLearningApplication() {
             engagementModuleConfig = mceConfigBuilder
             mamModuleConfig = mamConfigBuilder
             pushFeatureModuleConfig = pushConfigBuilder
+            inAppMessagingFeatureModuleConfig = iamConfigBuilder
         }
 
     val mceConfigBuilder: MarketingCloudConfig
@@ -52,7 +54,6 @@ class LearningApplication : BaseLearningApplication() {
             //setGeofencingEnabled(true)
             //setProximityEnabled(true)
             //setProximityNotificationOptions(ProximityNotificationCustomizationOptions.create(R.drawable.ic_notification))
-            setUrlHandler(urlHandlerImplementation)
         }.build(this)
 
     val mamConfigBuilder: MobileAppMessagingConfig
@@ -72,6 +73,11 @@ class LearningApplication : BaseLearningApplication() {
                     R.drawable.ic_notification, pushNotificationUrlHandler, null /* use default */
                 )
             )
+            setUrlHandler(urlHandlerImplementation)
+        }.build()
+
+    val iamConfigBuilder: InAppMessagingFeatureConfig
+        get() = InAppMessagingFeatureConfig.builder().apply {
             setUrlHandler(urlHandlerImplementation)
         }.build()
 }

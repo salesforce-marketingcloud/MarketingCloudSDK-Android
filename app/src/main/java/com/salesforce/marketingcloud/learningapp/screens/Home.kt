@@ -25,6 +25,7 @@ package com.salesforce.marketingcloud.learningapp.screens
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.graphics.Typeface
 import android.os.Build
 import android.util.Log
 import android.view.View
@@ -36,8 +37,14 @@ import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.android.material.materialswitch.MaterialSwitch
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.salesforce.marketingcloud.MarketingCloudSdk
+import com.salesforce.marketingcloud.inappmessagingfeature.InAppMessagingFeature
+import com.salesforce.marketingcloud.learningapp.IamState
 import com.salesforce.marketingcloud.learningapp.NotificationManager
 import com.salesforce.marketingcloud.learningapp.R
 import com.salesforce.marketingcloud.learningapp.SdkFragment
@@ -46,6 +53,7 @@ import com.salesforce.marketingcloud.learningapp.showPermissionRationale
 import com.salesforce.marketingcloud.mobileappmessaging.MobileAppMessaging
 import com.salesforce.marketingcloud.pushfeature.PushFeature
 import com.salesforce.marketingcloud.sfmcsdk.SFMCSdk
+import androidx.core.graphics.toColorInt
 
 class Home : SdkFragment() {
     override val layoutId: Int get() = R.layout.fragment_home
@@ -70,6 +78,7 @@ class Home : SdkFragment() {
                 NOTIFICATION_REQUIRED_PERMISSIONS
             )
         )
+        refreshIamCardState()
     }
 
     @Deprecated("Deprecated in Java")
@@ -140,7 +149,7 @@ class Home : SdkFragment() {
             setupAnalyticsToggle(this)
             setupInboxToggle(this)
             setupPiAnalyticsToggle(this)
-
+            setupIamCard(this)
         }
     }
 
@@ -221,7 +230,7 @@ class Home : SdkFragment() {
     }
 
     private fun showSdkStateDebug() {
-        SFMCSdk.requestSdk {
+        SFMCSdk.requestSdk { it ->
             showSdkStateDialog(it.getSdkState().toString(2).also {
                 Log.i(TAG, "SDK State: $it")
             })
@@ -234,7 +243,7 @@ class Home : SdkFragment() {
         val textView = TextView(requireContext()).apply {
             text = stateText
             textSize = 12f
-            typeface = android.graphics.Typeface.MONOSPACE
+            typeface = Typeface.MONOSPACE
             setPadding(32, 32, 32, 32)
             setTextIsSelectable(true)
         }
@@ -285,6 +294,145 @@ class Home : SdkFragment() {
             Log.i(TAG, "MCE Device ID: $deviceId")
             NotificationManager.showSuccess("MCE Device ID copied to clipboard")
         }
+    }
+
+    private fun setupIamCard(view: View) {
+        val primaryColorHex = String.format(
+            "#%08X",
+            ContextCompat.getColor(requireContext(), R.color.primaryColor)
+        )
+        view.findViewById<TextInputEditText>(R.id.edit_iam_status_bar_color).setText(primaryColorHex)
+
+        view.findViewById<MaterialButtonToggleGroup>(R.id.toggle_iam_font)
+            .check(R.id.button_iam_font_default)
+
+        view.findViewById<Button>(R.id.button_iam_show_message).setOnClickListener {
+            val idLayout = view.findViewById<TextInputLayout>(R.id.input_layout_iam_message_id)
+            val id = view.findViewById<TextInputEditText>(R.id.edit_iam_message_id)
+                .text?.toString()?.trim().orEmpty()
+            if (id.isEmpty()) {
+                idLayout.error = "Please enter a message ID"
+                return@setOnClickListener
+            }
+            idLayout.error = null
+            InAppMessagingFeature.requestSdk { iam ->
+                iam.getInAppMessageManager().showMessage(id)
+            }
+            Log.i(TAG, "Requested IAM display for id=$id")
+        }
+
+        val suppressStateLabel = view.findViewById<TextView>(R.id.text_iam_suppress_state)
+        view.findViewById<MaterialSwitch>(R.id.switch_iam_suppress).apply {
+            isChecked = IamState.suppressMessages
+            suppressStateLabel.text = if (IamState.suppressMessages) "ON" else "OFF"
+            suppressStateLabel.setTextColor(
+                if (IamState.suppressMessages)
+                    ContextCompat.getColor(requireContext(), android.R.color.holo_green_dark)
+                else
+                    ContextCompat.getColor(requireContext(), android.R.color.darker_gray)
+            )
+            setOnCheckedChangeListener { _, isChecked ->
+                IamState.suppressMessages = isChecked
+                suppressStateLabel.text = if (isChecked) "ON" else "OFF"
+                suppressStateLabel.setTextColor(
+                    if (isChecked)
+                        ContextCompat.getColor(requireContext(), android.R.color.holo_green_dark)
+                    else
+                        ContextCompat.getColor(requireContext(), android.R.color.darker_gray)
+                )
+            }
+        }
+
+        // Observe suppression events to update the card
+        IamState.suppressedIdLiveData.observe(viewLifecycleOwner) { suppressedId ->
+            suppressedId ?: return@observe
+            view.findViewById<TextView>(R.id.text_iam_suppressed_id)
+                ?.text = "Suppressed ID: $suppressedId"
+            view.findViewById<View>(R.id.layout_iam_suppressed_id)
+                ?.visibility = View.VISIBLE
+            view.findViewById<MaterialSwitch>(R.id.switch_iam_suppress)?.isChecked = false
+            suppressStateLabel.text = "OFF"
+            suppressStateLabel.setTextColor(
+                ContextCompat.getColor(requireContext(), android.R.color.darker_gray)
+            )
+        }
+
+        view.findViewById<Button>(R.id.button_iam_copy_suppressed_id).setOnClickListener {
+            IamState.suppressedMessageId?.let { id ->
+                copyToClipboard("Suppressed IAM ID", id)
+                view.findViewById<TextInputEditText>(R.id.edit_iam_message_id).setText(id)
+                NotificationManager.showSuccess("Suppressed ID copied & pasted into Message ID field")
+            }
+        }
+
+        view.findViewById<Button>(R.id.button_iam_apply_color).setOnClickListener {
+            val colorLayout =
+                view.findViewById<TextInputLayout>(R.id.input_layout_iam_status_bar_color)
+            val input = view.findViewById<TextInputEditText>(R.id.edit_iam_status_bar_color)
+                .text?.toString()?.trim().orEmpty()
+            try {
+                val color = input.toColorInt()
+                colorLayout.error = null
+                InAppMessagingFeature.requestSdk { iam ->
+                    iam.getInAppMessageManager().setStatusBarColor(color)
+                }
+                Snackbar.make(view, "Status bar color applied", Snackbar.LENGTH_SHORT).show()
+                Log.i(TAG, "IAM status bar color set to $input")
+            } catch (e: IllegalArgumentException) {
+                colorLayout.error = "Invalid hex color"
+            }
+        }
+
+        view.findViewById<MaterialButtonToggleGroup>(R.id.toggle_iam_font)
+            .addOnButtonCheckedListener { _, checkedId, isChecked ->
+                if (!isChecked) return@addOnButtonCheckedListener
+                val typeface: Typeface? = when (checkedId) {
+                    R.id.button_iam_font_monospace -> Typeface.MONOSPACE
+                    R.id.button_iam_font_serif -> Typeface.SERIF
+                    else -> null // Default
+                }
+                InAppMessagingFeature.requestSdk { iam ->
+                    iam.getInAppMessageManager().setTypeface(typeface)
+                }
+                Log.i(TAG, "IAM typeface set to $typeface")
+            }
+
+        view.findViewById<Button>(R.id.button_iam_clear_log).setOnClickListener {
+            IamState.lastEvent = null
+            IamState.suppressedMessageId = null
+            view.findViewById<TextView>(R.id.text_iam_last_event).text = "No events recorded yet."
+            view.findViewById<View>(R.id.layout_iam_suppressed_id).visibility = View.GONE
+        }
+    }
+
+    /** Refreshes the IAM card's live state from [IamState] — called in onResume. */
+    private fun refreshIamCardState() {
+        val root = view ?: return
+
+        val isSuppressing = IamState.suppressMessages
+        root.findViewById<MaterialSwitch>(R.id.switch_iam_suppress)?.isChecked = isSuppressing
+        root.findViewById<TextView>(R.id.text_iam_suppress_state)?.apply {
+            text = if (isSuppressing) "ON" else "OFF"
+            setTextColor(
+                if (isSuppressing)
+                    ContextCompat.getColor(requireContext(), android.R.color.holo_green_dark)
+                else
+                    ContextCompat.getColor(requireContext(), android.R.color.darker_gray)
+            )
+        }
+
+        val suppressedId = IamState.suppressedMessageId
+        val suppressedRow = root.findViewById<View>(R.id.layout_iam_suppressed_id)
+        if (suppressedId != null) {
+            suppressedRow?.visibility = View.VISIBLE
+            root.findViewById<TextView>(R.id.text_iam_suppressed_id)
+                ?.text = "Suppressed ID: $suppressedId"
+        } else {
+            suppressedRow?.visibility = View.GONE
+        }
+
+        root.findViewById<TextView>(R.id.text_iam_last_event)
+            ?.text = IamState.lastEvent ?: "No events recorded yet."
     }
 
     private fun copyToClipboard(label: String, text: String) {
