@@ -1,0 +1,438 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>InboxMessageManager</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script></head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="../../../index.html" tabindex="1">
+                    Salesforce Marketing Cloud Unified SDK
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+<dokka-template-command data="{&quot;@class&quot;:&quot;org.jetbrains.dokka.base.templating.ReplaceVersionsCommand&quot;,&quot;location&quot;:&quot;com.salesforce.marketingcloud.messages.inbox/-inbox-message-manager/index.html&quot;}"><div class="dropdown versions-dropdown" data-role="dropdown">
+  <div class="button button_dropdown versions-dropdown-button" role="combobox" data-role="dropdown-toggle" aria-controls="versions-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Select version" tabindex="0" title="11.0.0"><span class="versions-dropdown-button-text">11.0.0</span></div>
+  <div class="dropdown--list dropdown--list_positioned_left versions-dropdown-data" role="listbox" data-role="dropdown-listbox" aria-label="Versions" id="versions-listbox">
+    <div class="dropdown--header" data-remove-style="true" style="display: none"><span>Select version</span><button class="button" data-role="dropdown-toggle" aria-label="Close versions selection"><i class="ui-kit-icon ui-kit-icon_cross"></i></button></div>
+<a href="index.html" class="dropdown--option dropdown--option_active dropdown--option-link" style="display: block; padding: 5px; color: #fff" data-remove-style="true" role="option" title="11.0.0"><span class="dropdown--option-icon dropdown--option-icon_selected"></span><span class="dropdown--option-text">11.0.0</span></a><a href="../../../older/10.0.0/sdk/com.salesforce.marketingcloud.messages.inbox/-inbox-message-manager/index.html" class="dropdown--option dropdown--option-link" style="display: block; padding: 5px; color: #fff" data-remove-style="true" role="option" title="10.0.0"><span class="dropdown--option-icon"></span><span class="dropdown--option-text">10.0.0</span></a></div>
+  <div class="dropdown--overlay"></div>
+</div>
+</dokka-template-command>        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true" data-filter=":sdk/main">androidJvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":sdk/main" data-filter=":sdk/main">
+                                <span class="checkbox--icon"></span>
+                                androidJvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    Salesforce Marketing Cloud Unified SDK
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="Marketing Cloud SDK v11.0.0.0::com.salesforce.marketingcloud.messages.inbox/InboxMessageManager///PointingToDeclaration//-1715042111">
+  <div class="breadcrumbs"><a href="../../index.html">Marketing Cloud SDK v11.0.0.0</a><span class="delimiter">/</span><a href="../index.html">com.salesforce.marketingcloud.messages.inbox</a><span class="delimiter">/</span><span class="current">InboxMessageManager</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Inbox</span><wbr><span>Message</span><wbr><span><span>Manager</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">InboxMessageManager</a></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="tableheader">Types</h2>
+        <div class="table"><a data-name="-2018859400%2FClasslikes%2F-1715042111" anchor-label="InboxRefreshListener" id="-2018859400%2FClasslikes%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-inbox-refresh-listener/index.html"><span>Inbox</span><wbr><span>Refresh</span><wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2018859400%2FClasslikes%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-inbox-refresh-listener/index.html">InboxRefreshListener</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="946720870%2FClasslikes%2F-1715042111" anchor-label="InboxResponseListener" id="946720870%2FClasslikes%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-inbox-response-listener/index.html"><span>Inbox</span><wbr><span>Response</span><wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="946720870%2FClasslikes%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-inbox-response-listener/index.html">InboxResponseListener</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="2064344471%2FFunctions%2F-1715042111" anchor-label="deleteMessage" id="2064344471%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="delete-message.html"><span>delete</span><wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2064344471%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="delete-message.html"><span class="token function">deleteMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>message<span class="token operator">: </span><a href="../-inbox-message/index.html">InboxMessage</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="delete-message.html"><span class="token function">deleteMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>messageId<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Marks a <a href="../-inbox-message/index.html">InboxMessage</a> as deleted in local storage.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-905703634%2FFunctions%2F-1715042111" anchor-label="disableInbox" id="-905703634%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="disable-inbox.html"><span>disable</span><wbr><span><span>Inbox</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-905703634%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="disable-inbox.html"><span class="token function">disableInbox</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief ">This method provides the capability to disable the InboxMessage feature on the current device using the SDK.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="977144395%2FFunctions%2F-1715042111" anchor-label="enableInbox" id="977144395%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="enable-inbox.html"><span>enable</span><wbr><span><span>Inbox</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="977144395%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="enable-inbox.html"><span class="token function">enableInbox</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief ">This method provides the capability to disable the InboxMessage feature on the current device using the SDK.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1714310975%2FFunctions%2F-1715042111" anchor-label="getDeletedMessageCount" id="-1714310975%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-deleted-message-count.html"><span>get</span><wbr><span>Deleted</span><wbr><span>Message</span><wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1714310975%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-deleted-message-count.html"><span class="token function">getDeletedMessageCount</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Get the number deleted <a href="../-inbox-message/index.html">Inbox Messages</a> regardless of their read status.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1761103677%2FFunctions%2F-1715042111" anchor-label="getDeletedMessages" id="1761103677%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-deleted-messages.html"><span>get</span><wbr><span>Deleted</span><wbr><span><span>Messages</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1761103677%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a></div></div><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-deleted-messages.html"><span class="token function">getDeletedMessages</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../-inbox-message/index.html">InboxMessage</a><span class="token operator">&gt;</span></div><div class="brief ">Gets a <a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a> of Active, Deleted <a href="../-inbox-message/index.html">Inboc Messages</a> for use with your own adapter.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1343008464%2FFunctions%2F-1715042111" anchor-label="getMessageCount" id="-1343008464%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-message-count.html"><span>get</span><wbr><span>Message</span><wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1343008464%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-message-count.html"><span class="token function">getMessageCount</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1742635220%2FFunctions%2F-1715042111" anchor-label="getMessages" id="-1742635220%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-messages.html"><span>get</span><wbr><span><span>Messages</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1742635220%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a></div></div><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-messages.html"><span class="token function">getMessages</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../-inbox-message/index.html">InboxMessage</a><span class="token operator">&gt;</span></div><div class="brief ">Gets a <a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a> of Active, Read &amp;Unread, not Deleted <a href="../-inbox-message/index.html">Inbox Messages</a> for use with your own adapter.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2098882630%2FFunctions%2F-1715042111" anchor-label="getReadMessageCount" id="-2098882630%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-read-message-count.html"><span>get</span><wbr><span>Read</span><wbr><span>Message</span><wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2098882630%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-read-message-count.html"><span class="token function">getReadMessageCount</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Get the number of read, not deleted <a href="../-inbox-message/index.html">Inbox Messages</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="780180150%2FFunctions%2F-1715042111" anchor-label="getReadMessages" id="780180150%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-read-messages.html"><span>get</span><wbr><span>Read</span><wbr><span><span>Messages</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="780180150%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a></div></div><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-read-messages.html"><span class="token function">getReadMessages</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../-inbox-message/index.html">InboxMessage</a><span class="token operator">&gt;</span></div><div class="brief ">Gets a <a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a> of Active, Read, not Deleted <a href="../-inbox-message/index.html">Inbox Messages</a> for use with your own adapter.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="175236737%2FFunctions%2F-1715042111" anchor-label="getUnreadMessageCount" id="175236737%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-unread-message-count.html"><span>get</span><wbr><span>Unread</span><wbr><span>Message</span><wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="175236737%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-unread-message-count.html"><span class="token function">getUnreadMessageCount</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Get the number of unread, not deleted <a href="../-inbox-message/index.html">Inbox Messages</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-543595267%2FFunctions%2F-1715042111" anchor-label="getUnreadMessages" id="-543595267%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-unread-messages.html"><span>get</span><wbr><span>Unread</span><wbr><span><span>Messages</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-543595267%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a></div></div><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-unread-messages.html"><span class="token function">getUnreadMessages</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../-inbox-message/index.html">InboxMessage</a><span class="token operator">&gt;</span></div><div class="brief ">Gets a <a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a> of Active, Unread, not Deleted <a href="../-inbox-message/index.html">Inbox Messages</a> for use with your own adapter.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1199781465%2FFunctions%2F-1715042111" anchor-label="isInboxEnabled" id="-1199781465%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-inbox-enabled.html"><span>is</span><wbr><span>Inbox</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1199781465%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="is-inbox-enabled.html"><span class="token function">isInboxEnabled</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1846933933%2FFunctions%2F-1715042111" anchor-label="markAllMessagesDeleted" id="-1846933933%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="mark-all-messages-deleted.html"><span>mark</span><wbr><span>All</span><wbr><span>Messages</span><wbr><span><span>Deleted</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1846933933%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="mark-all-messages-deleted.html"><span class="token function">markAllMessagesDeleted</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief ">Marks all active <a href="../-inbox-message/index.html">InboxMessages</a> as deleted.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-130184008%2FFunctions%2F-1715042111" anchor-label="markAllMessagesRead" id="-130184008%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="mark-all-messages-read.html"><span>mark</span><wbr><span>All</span><wbr><span>Messages</span><wbr><span><span>Read</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-130184008%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="mark-all-messages-read.html"><span class="token function">markAllMessagesRead</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief ">Marks all active, unread <a href="../-inbox-message/index.html">InboxMessages</a> as read.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1789743209%2FFunctions%2F-1715042111" anchor-label="refreshInbox" id="1789743209%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="refresh-inbox.html"><span>refresh</span><wbr><span><span>Inbox</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1789743209%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="refresh-inbox.html"><span class="token function">refreshInbox</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/Nullable.html"><span class="token annotation builtin">Nullable</span></a>&nbsp;</span>listener<span class="token operator">: </span><a href="-inbox-refresh-listener/index.html">InboxMessageManager.InboxRefreshListener</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Requests an updated list of Inbox Messages from the Marketing Cloud Servers.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1371402678%2FFunctions%2F-1715042111" anchor-label="registerInboxResponseListener" id="-1371402678%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="register-inbox-response-listener.html"><span>register</span><wbr><span>Inbox</span><wbr><span>Response</span><wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1371402678%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="register-inbox-response-listener.html"><span class="token function">registerInboxResponseListener</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>listener<span class="token operator">: </span><a href="-inbox-response-listener/index.html">InboxMessageManager.InboxResponseListener</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Call this method to be notified of Inbox events within the Marketing Cloud SDK.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1120150883%2FFunctions%2F-1715042111" anchor-label="setMessageRead" id="1120150883%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-message-read.html"><span>set</span><wbr><span>Message</span><wbr><span><span>Read</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1120150883%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="set-message-read.html"><span class="token function">setMessageRead</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>message<span class="token operator">: </span><a href="../-inbox-message/index.html">InboxMessage</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="set-message-read.html"><span class="token function">setMessageRead</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>messageId<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Marks a <a href="../-inbox-message/index.html">InboxMessage</a> as read in local storage.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1338603299%2FFunctions%2F-1715042111" anchor-label="unregisterInboxResponseListener" id="1338603299%2FFunctions%2F-1715042111" data-filterable-set=":sdk/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":sdk/main" data-filterable-set=":sdk/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="unregister-inbox-response-listener.html"><span>unregister</span><wbr><span>Inbox</span><wbr><span>Response</span><wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1338603299%2FFunctions%2F-1715042111"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="unregister-inbox-response-listener.html"><span class="token function">unregisterInboxResponseListener</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>listener<span class="token operator">: </span><a href="-inbox-response-listener/index.html">InboxMessageManager.InboxResponseListener</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Unregister your <a href="-inbox-response-listener/index.html">InboxMessageManager.InboxResponseListener</a> listener.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>Marketing Cloud SDK v11.0.0.0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

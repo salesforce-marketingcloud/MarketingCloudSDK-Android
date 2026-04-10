@@ -1,0 +1,528 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>NotificationMessage</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../index.html">
+                            Marketing Cloud SDK
+                    </a>            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":pushmodelsmodule:dokkaHtmlPartial/release">androidJvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="Push Models Module::com.salesforce.marketingcloud.pushmodels/NotificationMessage///PointingToDeclaration//77268323">
+  <div class="breadcrumbs"><a href="../../index.html">Push Models Module</a><span class="delimiter">/</span><a href="../index.html">com.salesforce.marketingcloud.pushmodels</a><span class="delimiter">/</span><span class="current">NotificationMessage</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Notification</span><wbr><span><span>Message</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">NotificationMessage</a> : <span data-unresolved-link="android.os/Parcelable///PointingToDeclaration/">Parcelable</span></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button><button class="section-tab" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION,EXTENSION_PROPERTY,EXTENSION_FUNCTION">Members &amp; Extensions</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="1881592645%2FClasslikes%2F77268323" anchor-label="Companion" id="1881592645%2FClasslikes%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1881592645%2FClasslikes%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1113126562%2FClasslikes%2F77268323" anchor-label="Sound" id="1113126562%2FClasslikes%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-sound/index.html"><span><span>Sound</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1113126562%2FClasslikes%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-sound/index.html">Sound</a> : <span data-unresolved-link="kotlin/Enum///PointingToDeclaration/">Enum</span><span class="token operator">&lt;</span><a href="-sound/index.html">NotificationMessage.Sound</a><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1056202215%2FClasslikes%2F77268323" anchor-label="Trigger" id="-1056202215%2FClasslikes%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-trigger/index.html"><span><span>Trigger</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1056202215%2FClasslikes%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-trigger/index.html">Trigger</a> : <span data-unresolved-link="kotlin/Enum///PointingToDeclaration/">Enum</span><span class="token operator">&lt;</span><a href="-trigger/index.html">NotificationMessage.Trigger</a><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1623179881%2FClasslikes%2F77268323" anchor-label="Type" id="-1623179881%2FClasslikes%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-type/index.html"><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1623179881%2FClasslikes%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-type/index.html">Type</a> : <span data-unresolved-link="kotlin/Enum///PointingToDeclaration/">Enum</span><span class="token operator">&lt;</span><a href="-type/index.html">NotificationMessage.Type</a><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="175751330%2FProperties%2F77268323" anchor-label="alert" id="175751330%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="alert.html"><span><span>alert</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="175751330%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="alert.html">alert</a><span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1435706513%2FProperties%2F77268323" anchor-label="context" id="-1435706513%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="context.html"><span><span>context</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1435706513%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="context.html">context</a><span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-867149109%2FProperties%2F77268323" anchor-label="custom" id="-867149109%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="custom.html"><span><span>custom</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-867149109%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="custom.html">custom</a><span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-323796937%2FProperties%2F77268323" anchor-label="customKeys" id="-323796937%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="custom-keys.html"><span>custom</span><wbr><span><span>Keys</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-323796937%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="custom-keys.html">customKeys</a><span class="token operator">: </span><span data-unresolved-link="kotlin.collections/Map///PointingToDeclaration/">Map</span><span class="token operator">&lt;</span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-837766175%2FProperties%2F77268323" anchor-label="id" id="-837766175%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="id.html"><span><span>id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-837766175%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="id.html">id</a><span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2142253014%2FProperties%2F77268323" anchor-label="mediaAltText" id="-2142253014%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="media-alt-text.html"><span>media</span><wbr><span>Alt</span><wbr><span><span>Text</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2142253014%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="media-alt-text.html">mediaAltText</a><span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1356176175%2FProperties%2F77268323" anchor-label="mediaUrl" id="-1356176175%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="media-url.html"><span>media</span><wbr><span><span>Url</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1356176175%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="media-url.html">mediaUrl</a><span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="852459894%2FProperties%2F77268323" anchor-label="notificationId" id="852459894%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="notification-id.html"><span>notification</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="852459894%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@set:</span><span data-unresolved-link="androidx.annotation/RestrictTo///PointingToDeclaration/"><span class="token annotation builtin">RestrictTo</span></span><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="token punctuation">[</span><span><span data-unresolved-link="androidx.annotation/RestrictTo.Scope.LIBRARY///PointingToDeclaration/">RestrictTo.Scope.LIBRARY</span></span><wbr><span class="token punctuation">]</span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">var </span><a href="notification-id.html">notificationId</a><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1365112944%2FProperties%2F77268323" anchor-label="payload" id="1365112944%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="payload.html"><span><span>payload</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1365112944%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="payload.html">payload</a><span class="token operator">: </span><span data-unresolved-link="kotlin.collections/Map///PointingToDeclaration/">Map</span><span class="token operator">&lt;</span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1604363051%2FProperties%2F77268323" anchor-label="propertyBag" id="1604363051%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="property-bag.html"><span>property</span><wbr><span><span>Bag</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1604363051%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="property-bag.html">propertyBag</a><span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1270306648%2FProperties%2F77268323" anchor-label="region" id="-1270306648%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="region.html"><span><span>region</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1270306648%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="region.html">region</a><span class="token operator">: </span><a href="../-region/index.html">Region</a><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1952001332%2FProperties%2F77268323" anchor-label="requestId" id="1952001332%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="request-id.html"><span>request</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1952001332%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="request-id.html">requestId</a><span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1437540035%2FProperties%2F77268323" anchor-label="richFeatures" id="1437540035%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="rich-features.html"><span>rich</span><wbr><span><span>Features</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1437540035%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="rich-features.html">richFeatures</a><span class="token operator">: </span><a href="../../com.salesforce.marketingcloud.pushmodels.rich/-rich-features/index.html">RichFeatures</a><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1664843697%2FProperties%2F77268323" anchor-label="sound" id="-1664843697%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="sound.html"><span><span>sound</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1664843697%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="sound.html">sound</a><span class="token operator">: </span><a href="-sound/index.html">NotificationMessage.Sound</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1657618180%2FProperties%2F77268323" anchor-label="soundName" id="1657618180%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="sound-name.html"><span>sound</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1657618180%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="sound-name.html">soundName</a><span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="298711108%2FProperties%2F77268323" anchor-label="subtitle" id="298711108%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="subtitle.html"><span><span>subtitle</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="298711108%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="subtitle.html">subtitle</a><span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1140325158%2FProperties%2F77268323" anchor-label="title" id="1140325158%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="title.html"><span><span>title</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1140325158%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="title.html">title</a><span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1960355718%2FProperties%2F77268323" anchor-label="trigger" id="1960355718%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="trigger.html"><span><span>trigger</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1960355718%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="trigger.html">trigger</a><span class="token operator">: </span><a href="-trigger/index.html">NotificationMessage.Trigger</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-103364894%2FProperties%2F77268323" anchor-label="type" id="-103364894%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="type.html"><span><span>type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-103364894%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="type.html">type</a><span class="token operator">: </span><a href="-type/index.html">NotificationMessage.Type</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1330975697%2FProperties%2F77268323" anchor-label="url" id="-1330975697%2FProperties%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="url.html"><span><span>url</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1330975697%2FProperties%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlin.jvm/JvmField///PointingToDeclaration/"><span class="token annotation builtin">JvmField</span></span></div></div><span class="token keyword">val </span><a href="url.html">url</a><span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="EXTENSION_FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="620963909%2FFunctions%2F77268323" anchor-label="asNotificationClickEvent" id="620963909%2FFunctions%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../as-notification-click-event.html"><span>as</span><wbr><span>Notification</span><wbr><span>Click</span><wbr><span><span>Event</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="620963909%2FFunctions%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html">NotificationMessage</a><span class="token punctuation">.</span><a href="../as-notification-click-event.html"><span class="token function">asNotificationClickEvent</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">base64EncodedData<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator"> = </span>this.context<span class="token punctuation">, </span></span><span class="parameter ">receivedTimestamp<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token operator"> = </span>System.currentTimeMillis()<span class="token punctuation">, </span></span><span class="parameter ">sentTimestamp<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token operator"> = </span>System.currentTimeMillis()<span class="token punctuation">, </span></span><span class="parameter ">actionType<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span></span><span class="parameter ">actionItemId<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span></span><span class="parameter ">title<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-notification-click-event/index.html">NotificationClickEvent</a></div><div class="brief "><p class="paragraph">Direct extension to create a NotificationClickEvent from a NotificationMessage Uses toNotificationEvent() for base event and adds actionType, actionItemId, and title</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1750759672%2FFunctions%2F77268323" anchor-label="asNotificationDisplayedEvent" id="-1750759672%2FFunctions%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../as-notification-displayed-event.html"><span>as</span><wbr><span>Notification</span><wbr><span>Displayed</span><wbr><span><span>Event</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1750759672%2FFunctions%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html">NotificationMessage</a><span class="token punctuation">.</span><a href="../as-notification-displayed-event.html"><span class="token function">asNotificationDisplayedEvent</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">base64EncodedData<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator"> = </span>this.context<span class="token punctuation">, </span></span><span class="parameter ">receivedTimestamp<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token operator"> = </span>System.currentTimeMillis()<span class="token punctuation">, </span></span><span class="parameter ">sentTimestamp<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token operator"> = </span>System.currentTimeMillis()</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-notification-displayed-event/index.html">NotificationDisplayedEvent</a></div><div class="brief "><p class="paragraph">Direct extension to create a NotificationDisplayedEvent from a NotificationMessage Uses toNotificationEvent() to create the base event</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1263373267%2FFunctions%2F77268323" anchor-label="asNotificationOpenEvent" id="-1263373267%2FFunctions%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../as-notification-open-event.html"><span>as</span><wbr><span>Notification</span><wbr><span>Open</span><wbr><span><span>Event</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1263373267%2FFunctions%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html">NotificationMessage</a><span class="token punctuation">.</span><a href="../as-notification-open-event.html"><span class="token function">asNotificationOpenEvent</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">base64EncodedData<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator"> = </span>this.context<span class="token punctuation">, </span></span><span class="parameter ">receivedTimestamp<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token operator"> = </span>System.currentTimeMillis()<span class="token punctuation">, </span></span><span class="parameter ">sentTimestamp<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token operator"> = </span>System.currentTimeMillis()</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-notification-open-event/index.html">NotificationOpenEvent</a></div><div class="brief "><p class="paragraph">Direct extension to create a NotificationOpenEvent from a NotificationMessage Uses toNotificationEvent() to create the base event</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-638697689%2FFunctions%2F77268323" anchor-label="asPushReceivedEvent" id="-638697689%2FFunctions%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../as-push-received-event.html"><span>as</span><wbr><span>Push</span><wbr><span>Received</span><wbr><span><span>Event</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-638697689%2FFunctions%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html">NotificationMessage</a><span class="token punctuation">.</span><a href="../as-push-received-event.html"><span class="token function">asPushReceivedEvent</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">base64EncodedData<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator"> = </span>this.context<span class="token punctuation">, </span></span><span class="parameter ">receivedTimestamp<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token operator"> = </span>System.currentTimeMillis()<span class="token punctuation">, </span></span><span class="parameter ">sentTimestamp<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token operator"> = </span>System.currentTimeMillis()<span class="token punctuation">, </span></span><span class="parameter ">messageType<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">pushData<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/Map///PointingToDeclaration/">Map</span><span class="token operator">&lt;</span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">&gt;</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-push-received-event/index.html">PushReceivedEvent</a></div><div class="brief "><p class="paragraph">Direct extension to create a PushReceivedEvent from a NotificationMessage Uses toNotificationEvent() for base event and adds receivedTimestamp, sentTimestamp, and messageType</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2062222732%2FFunctions%2F77268323" anchor-label="toNotificationEvent" id="2062222732%2FFunctions%2F77268323" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":pushmodelsmodule:dokkaHtmlPartial/release" data-filterable-set=":pushmodelsmodule:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../to-notification-event.html"><span>to</span><wbr><span>Notification</span><wbr><span><span>Event</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2062222732%2FFunctions%2F77268323"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushmodelsmodule:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html">NotificationMessage</a><span class="token punctuation">.</span><a href="../to-notification-event.html"><span class="token function">toNotificationEvent</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">base64EncodedData<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator"> = </span>this.context<span class="token punctuation">, </span></span><span class="parameter ">receivedTimestamp<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token operator"> = </span>System.currentTimeMillis()<span class="token punctuation">, </span></span><span class="parameter ">sentTimestamp<span class="token operator">: </span><span data-unresolved-link="kotlin/Long///PointingToDeclaration/">Long</span><span class="token operator"> = </span>System.currentTimeMillis()</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-notification-event/index.html">NotificationEvent</a></div><div class="brief "><p class="paragraph">Extension function to create a PushReceivedEvent from a NotificationMessage Parses a Base64 encoded string to extract source, destination, mid, and tenantid</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

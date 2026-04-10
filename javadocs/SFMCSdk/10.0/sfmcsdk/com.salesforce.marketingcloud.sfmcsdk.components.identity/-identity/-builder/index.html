@@ -1,0 +1,250 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Builder</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../../index.html">
+                            Marketing Cloud SDK
+                    </a>            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":sfmcsdk:dokkaHtmlPartial/release">androidJvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="SFMC SDK::com.salesforce.marketingcloud.sfmcsdk.components.identity/Identity.Builder///PointingToDeclaration//1005110612">
+  <div class="breadcrumbs"><a href="../../../index.html">SFMC SDK</a><span class="delimiter">/</span><a href="../../index.html">com.salesforce.marketingcloud.sfmcsdk.components.identity</a><span class="delimiter">/</span><a href="../index.html">Identity</a><span class="delimiter">/</span><span class="current">Builder</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Builder</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sfmcsdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">Builder</a></div><p class="paragraph">Builder class for the <a href="../index.html">Identity</a> class that allows the identity to be modified. This builder provides a fluent API for setting identity properties and building a new <a href="../index.html">Identity</a> instance.</p><p class="paragraph"></p><h3>Usage Example</h3><p></p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">val builder = identity.newBuilder()<br>builder.setProfileId("John Doe")<br>    .setPartyIdentificationName("John")<br>    .putAttribute("key", "value")<br>val newIdentity = builder.build()</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h4 class="">See also</h4><div class="table"><div class="table-row" data-filterable-current=":sfmcsdk:dokkaHtmlPartial/release" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../index.html"><span><span>Identity</span></span></a></div></span></div><div><div class="title"><p class="paragraph">for the immutable identity class</p></div></div></div></div></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1878365792%2FFunctions%2F1005110612" anchor-label="build" id="1878365792%2FFunctions%2F1005110612" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sfmcsdk:dokkaHtmlPartial/release" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="build.html"><span><span>build</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1878365792%2FFunctions%2F1005110612"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sfmcsdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="build.html"><span class="token function">build</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../index.html">Identity</a></div><div class="brief "><p class="paragraph">Builds the <a href="../index.html">Identity</a> object with the current builder configuration. This method creates an immutable <a href="../index.html">Identity</a> instance with all the properties set through the builder.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-517412895%2FFunctions%2F1005110612" anchor-label="clearAllAttributes" id="-517412895%2FFunctions%2F1005110612" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sfmcsdk:dokkaHtmlPartial/release" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-all-attributes.html"><span>clear</span><wbr><span>All</span><wbr><span><span>Attributes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-517412895%2FFunctions%2F1005110612"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sfmcsdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="clear-all-attributes.html"><span class="token function">clearAllAttributes</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Identity.Builder</a></div><div class="brief "><p class="paragraph">Clears the value of all attributes effectively setting them to null.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="135753351%2FFunctions%2F1005110612" anchor-label="clearAttribute" id="135753351%2FFunctions%2F1005110612" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sfmcsdk:dokkaHtmlPartial/release" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-attribute.html"><span>clear</span><wbr><span><span>Attribute</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="135753351%2FFunctions%2F1005110612"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sfmcsdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="clear-attribute.html"><span class="token function">clearAttribute</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Identity.Builder</a></div><div class="brief "><p class="paragraph">Clears the value of the specified attribute effectively setting it to null.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2108049110%2FFunctions%2F1005110612" anchor-label="clearAttributes" id="2108049110%2FFunctions%2F1005110612" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sfmcsdk:dokkaHtmlPartial/release" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-attributes.html"><span>clear</span><wbr><span><span>Attributes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2108049110%2FFunctions%2F1005110612"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sfmcsdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="clear-attributes.html"><span class="token function">clearAttributes</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">vararg </span>keys<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Identity.Builder</a></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="clear-attributes.html"><span class="token function">clearAttributes</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">keys<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Identity.Builder</a></div><div class="brief "><p class="paragraph">Clears the value of the specified attributes effectively setting them to null.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="620176378%2FFunctions%2F1005110612" anchor-label="putAllAttributes" id="620176378%2FFunctions%2F1005110612" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sfmcsdk:dokkaHtmlPartial/release" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="put-all-attributes.html"><span>put</span><wbr><span>All</span><wbr><span><span>Attributes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="620176378%2FFunctions%2F1005110612"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sfmcsdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="put-all-attributes.html"><span class="token function">putAllAttributes</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">from<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/Map///PointingToDeclaration/">Map</span><span class="token operator">&lt;</span><span class="token keyword">out </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Identity.Builder</a></div><div class="brief "><p class="paragraph">Updates or adds all the values from the passed in map. Attributes are shared by both Marketing Cloud Engagement and Mobile App Messaging.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1226776007%2FFunctions%2F1005110612" anchor-label="putAttribute" id="-1226776007%2FFunctions%2F1005110612" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sfmcsdk:dokkaHtmlPartial/release" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="put-attribute.html"><span>put</span><wbr><span><span>Attribute</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1226776007%2FFunctions%2F1005110612"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sfmcsdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="put-attribute.html"><span class="token function">putAttribute</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span></span><span class="parameter ">value<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Identity.Builder</a></div><div class="brief "><p class="paragraph">Updates or adds the value of an entry for the given key in the attribute map. Attributes are shared by both Marketing Cloud Engagement and Mobile App Messaging.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1802830100%2FFunctions%2F1005110612" anchor-label="setAttributes" id="-1802830100%2FFunctions%2F1005110612" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sfmcsdk:dokkaHtmlPartial/release" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-attributes.html"><span>set</span><wbr><span><span>Attributes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1802830100%2FFunctions%2F1005110612"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sfmcsdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-attributes.html"><span class="token function">setAttributes</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">from<span class="token operator">: </span><span data-unresolved-link="kotlin.collections/Map///PointingToDeclaration/">Map</span><span class="token operator">&lt;</span><span class="token keyword">out </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token punctuation">, </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Identity.Builder</a></div><div class="brief "><p class="paragraph">First clears the values of all existing attributes values. Then updates or adds the values from the passed in map. Note: attribute keys cannot be removed, only the value can be cleared or set to null.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1143152878%2FFunctions%2F1005110612" anchor-label="setPartyIdentificationName" id="1143152878%2FFunctions%2F1005110612" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sfmcsdk:dokkaHtmlPartial/release" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-party-identification-name.html"><span>set</span><wbr><span>Party</span><wbr><span>Identification</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1143152878%2FFunctions%2F1005110612"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sfmcsdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-party-identification-name.html"><span class="token function">setPartyIdentificationName</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Identity.Builder</a></div><div class="brief "><p class="paragraph">Sets the party identification name, used by Mobile App Messaging. If the value is null or empty, the field will be set to null.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1367268144%2FFunctions%2F1005110612" anchor-label="setPartyIdentificationNumber" id="1367268144%2FFunctions%2F1005110612" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sfmcsdk:dokkaHtmlPartial/release" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-party-identification-number.html"><span>set</span><wbr><span>Party</span><wbr><span>Identification</span><wbr><span><span>Number</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1367268144%2FFunctions%2F1005110612"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sfmcsdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-party-identification-number.html"><span class="token function">setPartyIdentificationNumber</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Identity.Builder</a></div><div class="brief "><p class="paragraph">Sets the party identification number, used by Mobile App Messaging. This represents a unique identifier for the user. This is typically used to store a system-generated or external ID that uniquely identifies the user within your organization's systems. If the value is null or empty, the field will be set to null.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-83282593%2FFunctions%2F1005110612" anchor-label="setPartyIdentificationType" id="-83282593%2FFunctions%2F1005110612" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sfmcsdk:dokkaHtmlPartial/release" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-party-identification-type.html"><span>set</span><wbr><span>Party</span><wbr><span>Identification</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-83282593%2FFunctions%2F1005110612"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sfmcsdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-party-identification-type.html"><span class="token function">setPartyIdentificationType</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Identity.Builder</a></div><div class="brief "><p class="paragraph">Sets the party identification type, used by Mobile App Messaging. If the value is null or empty, the field will be set to null.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="737131546%2FFunctions%2F1005110612" anchor-label="setProfileId" id="737131546%2FFunctions%2F1005110612" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sfmcsdk:dokkaHtmlPartial/release" data-filterable-set=":sfmcsdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-profile-id.html"><span>set</span><wbr><span>Profile</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="737131546%2FFunctions%2F1005110612"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sfmcsdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-profile-id.html"><span class="token function">setProfileId</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Identity.Builder</a></div><div class="brief "><p class="paragraph">Sets the profile ID for the identity. The profile ID serves as the unique identifier for the user and is used by Marketing Cloud Engagement. If the value is null, blank, or empty, the value will be ignored and a warning will be logged.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

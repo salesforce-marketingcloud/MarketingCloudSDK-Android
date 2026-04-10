@@ -1,0 +1,43 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+module:Common v1.0.0
+com.salesforce.marketingcloud
+module:In App Messaging Feature Module v1.0.0
+com.salesforce.marketingcloud.inappmessagingfeature
+com.salesforce.marketingcloud.inappmessagingfeature.config
+module:In App Messaging Models Module v1.0.0
+com.salesforce.marketingcloud.inappmessaging.models
+module:Mobile App Messaging SDK v1.1.0
+com.salesforce.marketingcloud.mobileappmessaging
+com.salesforce.marketingcloud.mobileappmessaging.analytics
+com.salesforce.marketingcloud.mobileappmessaging.registration
+module:Push Feature Module v2.0.0
+com.salesforce.marketingcloud.pushfeature
+com.salesforce.marketingcloud.pushfeature.config
+com.salesforce.marketingcloud.pushfeature.notifications
+com.salesforce.marketingcloud.pushfeature.push
+module:Push Models Module v1.0.2
+com.salesforce.marketingcloud.pushmodels
+com.salesforce.marketingcloud.pushmodels.data
+com.salesforce.marketingcloud.pushmodels.exceptions
+com.salesforce.marketingcloud.pushmodels.location
+com.salesforce.marketingcloud.pushmodels.rich
+com.salesforce.marketingcloud.pushmodels.rich.buttons
+com.salesforce.marketingcloud.pushmodels.rich.carousel
+module:Marketing Cloud SDK v11.0.0.0
+com.salesforce.marketingcloud
+com.salesforce.marketingcloud.analytics
+com.salesforce.marketingcloud.location
+com.salesforce.marketingcloud.messages
+com.salesforce.marketingcloud.messages.geofence
+com.salesforce.marketingcloud.messages.inbox
+com.salesforce.marketingcloud.messages.proximity
+com.salesforce.marketingcloud.notifications
+com.salesforce.marketingcloud.proximity
+com.salesforce.marketingcloud.registration
+module:SFMC SDK v3.1.0
+com.salesforce.marketingcloud.sfmcsdk
+com.salesforce.marketingcloud.sfmcsdk.components.events
+com.salesforce.marketingcloud.sfmcsdk.components.identity
+com.salesforce.marketingcloud.sfmcsdk.components.logging

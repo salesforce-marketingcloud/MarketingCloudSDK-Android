@@ -1,0 +1,288 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Companion</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../ui-kit/ui-kit.min.js" defer></script></head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="../../../../index.html" tabindex="1">
+                    Salesforce Marketing Cloud Unified SDK
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+<dokka-template-command data="{&quot;@class&quot;:&quot;org.jetbrains.dokka.base.templating.ReplaceVersionsCommand&quot;,&quot;location&quot;:&quot;com.salesforce.marketingcloud.pushfeature.notifications/-notification-manager/-companion/index.html&quot;}"><div class="dropdown versions-dropdown" data-role="dropdown">
+  <div class="button button_dropdown versions-dropdown-button" role="combobox" data-role="dropdown-toggle" aria-controls="versions-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Select version" tabindex="0" title="11.0.0"><span class="versions-dropdown-button-text">11.0.0</span></div>
+  <div class="dropdown--list dropdown--list_positioned_left versions-dropdown-data" role="listbox" data-role="dropdown-listbox" aria-label="Versions" id="versions-listbox">
+    <div class="dropdown--header" data-remove-style="true" style="display: none"><span>Select version</span><button class="button" data-role="dropdown-toggle" aria-label="Close versions selection"><i class="ui-kit-icon ui-kit-icon_cross"></i></button></div>
+<a href="index.html" class="dropdown--option dropdown--option_active dropdown--option-link" style="display: block; padding: 5px; color: #fff" data-remove-style="true" role="option" title="11.0.0"><span class="dropdown--option-icon dropdown--option-icon_selected"></span><span class="dropdown--option-text">11.0.0</span></a><a href="../../../../older/10.0.0/pushfeaturemodule/com.salesforce.marketingcloud.pushfeature.notifications/-notification-manager/-companion/index.html" class="dropdown--option dropdown--option-link" style="display: block; padding: 5px; color: #fff" data-remove-style="true" role="option" title="10.0.0"><span class="dropdown--option-icon"></span><span class="dropdown--option-text">10.0.0</span></a></div>
+  <div class="dropdown--overlay"></div>
+</div>
+</dokka-template-command>        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true" data-filter=":pushfeaturemodule/main">androidJvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":pushfeaturemodule/main" data-filter=":pushfeaturemodule/main">
+                                <span class="checkbox--icon"></span>
+                                androidJvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    Salesforce Marketing Cloud Unified SDK
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="Push Feature Module v2.0.0::com.salesforce.marketingcloud.pushfeature.notifications/NotificationManager.Companion///PointingToDeclaration//-469267085">
+  <div class="breadcrumbs"><a href="../../../index.html">Push Feature Module v2.0.0</a><span class="delimiter">/</span><a href="../../index.html">com.salesforce.marketingcloud.pushfeature.notifications</a><span class="delimiter">/</span><a href="../index.html">NotificationManager</a><span class="delimiter">/</span><span class="current">Companion</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Companion</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="index.html">Companion</a></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="-884412413%2FProperties%2F-469267085" anchor-label="DEFAULT_CHANNEL_ID" id="-884412413%2FProperties%2F-469267085" data-filterable-set=":pushfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":pushfeaturemodule/main" data-filterable-set=":pushfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-d-e-f-a-u-l-t_-c-h-a-n-n-e-l_-i-d.html"><span>DEFAULT_</span><wbr><span>CHANNEL_</span><wbr><span>ID</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-884412413%2FProperties%2F-469267085"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-d-e-f-a-u-l-t_-c-h-a-n-n-e-l_-i-d.html">DEFAULT_CHANNEL_ID</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">The channel id of the default notification channel created be the SDK.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="824263213%2FProperties%2F-469267085" anchor-label="DEFAULT_FOREGROUND_CHANNEL_ID" id="824263213%2FProperties%2F-469267085" data-filterable-set=":pushfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":pushfeaturemodule/main" data-filterable-set=":pushfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-d-e-f-a-u-l-t_-f-o-r-e-g-r-o-u-n-d_-c-h-a-n-n-e-l_-i-d.html"><span>DEFAULT_</span><wbr><span>FOREGROUND_</span><wbr><span>CHANNEL_</span><wbr><span>ID</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="824263213%2FProperties%2F-469267085"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-d-e-f-a-u-l-t_-f-o-r-e-g-r-o-u-n-d_-c-h-a-n-n-e-l_-i-d.html">DEFAULT_FOREGROUND_CHANNEL_ID</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">The channel id of the default foreground notification channel created be the SDK.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="208992616%2FProperties%2F-469267085" anchor-label="TAG" id="208992616%2FProperties%2F-469267085" data-filterable-set=":pushfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":pushfeaturemodule/main" data-filterable-set=":pushfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-t-a-g.html"><span><span>TAG</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="208992616%2FProperties%2F-469267085"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-t-a-g.html">TAG</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="-1018626066%2FFunctions%2F-469267085" anchor-label="addMessage" id="-1018626066%2FFunctions%2F-469267085" data-filterable-set=":pushfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":pushfeaturemodule/main" data-filterable-set=":pushfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-message.html"><span>add</span><wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1018626066%2FFunctions%2F-469267085"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="add-message.html"><span class="token function">addMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">intent<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Intent.html">Intent</a><span class="token punctuation">, </span></span><span class="parameter ">message<span class="token operator">: </span><a href="../../../../pushmodelsmodule/com.salesforce.marketingcloud.pushmodels/-notification-message/index.html">NotificationMessage</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Intent.html">Intent</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1828561914%2FFunctions%2F-469267085" anchor-label="cancelNotificationMessage" id="1828561914%2FFunctions%2F-469267085" data-filterable-set=":pushfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":pushfeaturemodule/main" data-filterable-set=":pushfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cancel-notification-message.html"><span>cancel</span><wbr><span>Notification</span><wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1828561914%2FFunctions%2F-469267085"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="cancel-notification-message.html"><span class="token function">cancelNotificationMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">message<span class="token operator">: </span><a href="../../../../pushmodelsmodule/com.salesforce.marketingcloud.pushmodels/-notification-message/index.html">NotificationMessage</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Will cancel the notification associated with the provided <a href="../../../../pushmodelsmodule/com.salesforce.marketingcloud.pushmodels/-notification-message/index.html">message</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2093313096%2FFunctions%2F-469267085" anchor-label="createDefaultNotificationChannel" id="-2093313096%2FFunctions%2F-469267085" data-filterable-set=":pushfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":pushfeaturemodule/main" data-filterable-set=":pushfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-default-notification-channel.html"><span>create</span><wbr><span>Default</span><wbr><span>Notification</span><wbr><span><span>Channel</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2093313096%2FFunctions%2F-469267085"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="create-default-notification-channel.html"><span class="token function">createDefaultNotificationChannel</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Will create the default notification channel used by the SDK only if it does not already exist.</p></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="create-default-notification-channel.html"><span class="token function">createDefaultNotificationChannel</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">forceRecreate<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Will create the default notification channel used by the SDK.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="557413662%2FFunctions%2F-469267085" anchor-label="createForegroundNotificationChannel" id="557413662%2FFunctions%2F-469267085" data-filterable-set=":pushfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":pushfeaturemodule/main" data-filterable-set=":pushfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-foreground-notification-channel.html"><span>create</span><wbr><span>Foreground</span><wbr><span>Notification</span><wbr><span><span>Channel</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="557413662%2FFunctions%2F-469267085"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="create-foreground-notification-channel.html"><span class="token function">createForegroundNotificationChannel</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Will create the foreground notification channel used by the SDK only if it does not already exist.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-755481278%2FFunctions%2F-469267085" anchor-label="extractMessage" id="-755481278%2FFunctions%2F-469267085" data-filterable-set=":pushfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":pushfeaturemodule/main" data-filterable-set=":pushfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="extract-message.html"><span>extract</span><wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-755481278%2FFunctions%2F-469267085"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="extract-message.html"><span class="token function">extractMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">intent<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Intent.html">Intent</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../../pushmodelsmodule/com.salesforce.marketingcloud.pushmodels/-notification-message/index.html">NotificationMessage</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Extracts the <a href="../../../../pushmodelsmodule/com.salesforce.marketingcloud.pushmodels/-notification-message/index.html">NotificationMessage</a> from the Intent.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1187020818%2FFunctions%2F-469267085" anchor-label="getDefaultNotificationBuilder" id="1187020818%2FFunctions%2F-469267085" data-filterable-set=":pushfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":pushfeaturemodule/main" data-filterable-set=":pushfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-default-notification-builder.html"><span>get</span><wbr><span>Default</span><wbr><span>Notification</span><wbr><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1187020818%2FFunctions%2F-469267085"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-default-notification-builder.html"><span class="token function">getDefaultNotificationBuilder</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">message<span class="token operator">: </span><a href="../../../../pushmodelsmodule/com.salesforce.marketingcloud.pushmodels/-notification-message/index.html">NotificationMessage</a><span class="token punctuation">, </span></span><span class="parameter ">channelId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/DrawableRes.html"><span class="token annotation builtin">DrawableRes</span></a>&nbsp;</span>smallIconResId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/core/app/NotificationCompat.Builder.html">NotificationCompat.Builder</a></div><div class="brief "><p class="paragraph">This method will build out a <a href="https://developer.android.com/reference/kotlin/androidx/core/app/NotificationCompat.Builder.html">NotificationCompat.Builder</a> with the defaults typically used by the SDK.  It will set the following:</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1759352820%2FFunctions%2F-469267085" anchor-label="redirectIntentForAnalytics" id="1759352820%2FFunctions%2F-469267085" data-filterable-set=":pushfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":pushfeaturemodule/main" data-filterable-set=":pushfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="redirect-intent-for-analytics.html"><span>redirect</span><wbr><span>Intent</span><wbr><span>For</span><wbr><span><span>Analytics</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1759352820%2FFunctions%2F-469267085"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":pushfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="redirect-intent-for-analytics.html"><span class="token function">redirectIntentForAnalytics</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">openIntent<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/app/PendingIntent.html">PendingIntent</a><span class="token punctuation">, </span></span><span class="parameter ">message<span class="token operator">: </span><span data-unresolved-link="com.google.firebase.messaging/RemoteMessage///PointingToDeclaration/">RemoteMessage</span><span class="token punctuation">, </span></span><span class="parameter ">autoCancel<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/app/PendingIntent.html">PendingIntent</a><span class="token operator">?</span></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="redirect-intent-for-analytics.html"><span class="token function">redirectIntentForAnalytics</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">openIntent<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/app/PendingIntent.html">PendingIntent</a><span class="token punctuation">, </span></span><span class="parameter ">message<span class="token operator">: </span><a href="../../../../pushmodelsmodule/com.salesforce.marketingcloud.pushmodels/-notification-message/index.html">NotificationMessage</a><span class="token punctuation">, </span></span><span class="parameter ">autoCancel<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/app/PendingIntent.html">PendingIntent</a></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="redirect-intent-for-analytics.html"><span class="token function">redirectIntentForAnalytics</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">openIntent<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/app/PendingIntent.html">PendingIntent</a><span class="token punctuation">, </span></span><span class="parameter ">message<span class="token operator">: </span><a href="../../../../pushmodelsmodule/com.salesforce.marketingcloud.pushmodels/-notification-message/index.html">NotificationMessage</a><span class="token punctuation">, </span></span><span class="parameter ">autoCancel<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">bundle<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/os/Bundle.html">Bundle</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/app/PendingIntent.html">PendingIntent</a></div><div class="brief "><p class="paragraph">Returns a PendingIntent that will redirect to our internal Service to handle notification opened analytics.  Once the analytic has been logged it will redirect the application to the provided [ ].</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>Push Feature Module v2.0.0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
