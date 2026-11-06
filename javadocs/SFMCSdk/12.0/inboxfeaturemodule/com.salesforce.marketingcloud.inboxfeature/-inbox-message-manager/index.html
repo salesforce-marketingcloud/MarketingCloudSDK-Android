@@ -1,0 +1,476 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>InboxMessageManager</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script></head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="../../../index.html" tabindex="1">
+                    Salesforce Marketing Cloud Unified SDK
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+<dokka-template-command data="{&quot;@class&quot;:&quot;org.jetbrains.dokka.base.templating.ReplaceVersionsCommand&quot;,&quot;location&quot;:&quot;com.salesforce.marketingcloud.inboxfeature/-inbox-message-manager/index.html&quot;}">12.0.0</dokka-template-command>        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true" data-filter=":inboxfeaturemodule/main">androidJvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":inboxfeaturemodule/main" data-filter=":inboxfeaturemodule/main">
+                                <span class="checkbox--icon"></span>
+                                androidJvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    Salesforce Marketing Cloud Unified SDK
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="Inbox Feature Module v1.0.0::com.salesforce.marketingcloud.inboxfeature/InboxMessageManager///PointingToDeclaration//-1229988915">
+  <div class="breadcrumbs"><a href="../../index.html">Inbox Feature Module v1.0.0</a><span class="delimiter">/</span><a href="../index.html">com.salesforce.marketingcloud.inboxfeature</a><span class="delimiter">/</span><span class="current">InboxMessageManager</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Inbox</span><wbr><span>Message</span><wbr><span><span>Manager</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">InboxMessageManager</a></div><p class="paragraph">Reads and manages Inbox messages, from both Marketing Cloud servers (MCE and MAM). Get the instance from <a href="../-inbox-feature/get-inbox-message-manager.html">InboxFeature.getInboxMessageManager</a>; configure the feature with <a href="../../com.salesforce.marketingcloud.inboxfeature.config/-inbox-feature-config/index.html">com.salesforce.marketingcloud.inboxfeature.config.InboxFeatureConfig</a>.</p><p class="paragraph">A message is <i>active</i> from its start date until its end date, if it has one. The query and count methods only see active messages. MAM messages are scoped to the currently identified user (or to the anonymous user when none is set); MCE messages are shared by all users of the device.</p><p class="paragraph"><strong>Threading:</strong> the query and count methods (<a href="get-messages.html">getMessages</a>, <a href="get-unread-messages.html">getUnreadMessages</a>, <a href="get-read-messages.html">getReadMessages</a>, <a href="get-deleted-messages.html">getDeletedMessages</a> and the <code class="lang-kotlin">get*Count</code> methods) read and decrypt the local database synchronously on the calling thread, so they are annotated <span data-unresolved-link="androidx.annotation/WorkerThread///PointingToDeclaration/">WorkerThread</span>: call them off the main thread, e.g. <code class="lang-kotlin">withContext(Dispatchers.IO) { manager.getMessages() }</code>, and post the result to the UI. The mutations and track methods only queue their work on an SDK background thread, and every listener is called on the main thread.</p><p class="paragraph"><strong>While Inbox is disabled</strong> (<a href="is-inbox-enabled.html">isInboxEnabled</a> is <code class="lang-kotlin">false</code>: blocked by privacy mode, <a href="disable-inbox.html">disableInbox</a>, or disabled in the config) the query methods return an empty list, the count methods return <code class="lang-kotlin">0</code>, the mutations and track methods are ignored (logged), and <a href="refresh-inbox.html">refreshInbox</a> is refused. Registered listeners are kept but not called; the first fetch after Inbox is enabled again notifies them.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="tableheader">Types</h2>
+        <div class="table"><a data-name="1075510532%2FClasslikes%2F-1229988915" anchor-label="InboxRefreshListener" id="1075510532%2FClasslikes%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-inbox-refresh-listener/index.html"><span>Inbox</span><wbr><span>Refresh</span><wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1075510532%2FClasslikes%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">fun </span><span class="token keyword">interface </span><a href="-inbox-refresh-listener/index.html">InboxRefreshListener</a></div><div class="brief "><p class="paragraph">Notified upon completion of a <a href="refresh-inbox.html">refreshInbox</a> attempt, at most once per source.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1912059046%2FClasslikes%2F-1229988915" anchor-label="InboxResponseListener" id="-1912059046%2FClasslikes%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-inbox-response-listener/index.html"><span>Inbox</span><wbr><span>Response</span><wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1912059046%2FClasslikes%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">fun </span><span class="token keyword">interface </span><a href="-inbox-response-listener/index.html">InboxResponseListener</a></div><div class="brief "><p class="paragraph">Notified when a fetch delivers a fresh set of Inbox messages.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="2028305468%2FFunctions%2F-1229988915" anchor-label="deleteMessage" id="2028305468%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="delete-message.html"><span>delete</span><wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2028305468%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="delete-message.html"><span class="token function">deleteMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><a href="../../../inboxmodelsmodule/com.salesforce.marketingcloud.inboxmodels/-inbox-message/index.html">InboxMessage</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Marks <a href="delete-message.html">message</a> deleted in local storage. It is returned by <a href="get-deleted-messages.html">getDeletedMessages</a> instead of <a href="get-messages.html">getMessages</a>. The status persists until the message changes on the server or local storage is cleared.</p></div><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="delete-message.html"><span class="token function">deleteMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">messageId<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Marks the message with <a href="delete-message.html">messageId</a> deleted in local storage. It is returned by <a href="get-deleted-messages.html">getDeletedMessages</a> instead of <a href="get-messages.html">getMessages</a>. The status persists until the message changes on the server or local storage is cleared.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1278627398%2FFunctions%2F-1229988915" anchor-label="disableInbox" id="-1278627398%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="disable-inbox.html"><span>disable</span><wbr><span><span>Inbox</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1278627398%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="disable-inbox.html"><span class="token function">disableInbox</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Disables the Inbox feature at runtime. Stored messages are kept but hidden until enabled. The choice is persisted across restarts and takes precedence over <a href="../../com.salesforce.marketingcloud.inboxfeature.config/-inbox-feature-config/inbox-enabled.html">com.salesforce.marketingcloud.inboxfeature.config.InboxFeatureConfig.inboxEnabled</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-281811393%2FFunctions%2F-1229988915" anchor-label="enableInbox" id="-281811393%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="enable-inbox.html"><span>enable</span><wbr><span><span>Inbox</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-281811393%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="enable-inbox.html"><span class="token function">enableInbox</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Enables the Inbox feature at runtime. The choice is persisted across restarts and takes precedence over <a href="../../com.salesforce.marketingcloud.inboxfeature.config/-inbox-feature-config/inbox-enabled.html">com.salesforce.marketingcloud.inboxfeature.config.InboxFeatureConfig.inboxEnabled</a>. Refused while GDPR-blocked.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-142175155%2FFunctions%2F-1229988915" anchor-label="getDeletedMessageCount" id="-142175155%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-deleted-message-count.html"><span>get</span><wbr><span>Deleted</span><wbr><span>Message</span><wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-142175155%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.annotation/WorkerThread///PointingToDeclaration/"><span class="token annotation builtin">WorkerThread</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-deleted-message-count.html"><span class="token function">getDeletedMessageCount</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span></div><div class="brief "><p class="paragraph">Returns the number of active, deleted Inbox messages regardless of read status. Reads the local database on the calling thread; call it off the main thread.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-899360567%2FFunctions%2F-1229988915" anchor-label="getDeletedMessages" id="-899360567%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-deleted-messages.html"><span>get</span><wbr><span>Deleted</span><wbr><span><span>Messages</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-899360567%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.annotation/WorkerThread///PointingToDeclaration/"><span class="token annotation builtin">WorkerThread</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-deleted-messages.html"><span class="token function">getDeletedMessages</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><a href="../../../inboxmodelsmodule/com.salesforce.marketingcloud.inboxmodels/-inbox-message/index.html">InboxMessage</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns the active, deleted Inbox messages ordered by start date descending. Reads the local database on the calling thread; call it off the main thread.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-34467036%2FFunctions%2F-1229988915" anchor-label="getMessageCount" id="-34467036%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-message-count.html"><span>get</span><wbr><span>Message</span><wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-34467036%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.annotation/WorkerThread///PointingToDeclaration/"><span class="token annotation builtin">WorkerThread</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-message-count.html"><span class="token function">getMessageCount</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span></div><div class="brief "><p class="paragraph">Returns the total number of active, not-deleted Inbox messages regardless of read status. Reads the local database on the calling thread; call it off the main thread.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1293376288%2FFunctions%2F-1229988915" anchor-label="getMessages" id="1293376288%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-messages.html"><span>get</span><wbr><span><span>Messages</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1293376288%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.annotation/WorkerThread///PointingToDeclaration/"><span class="token annotation builtin">WorkerThread</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-messages.html"><span class="token function">getMessages</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><a href="../../../inboxmodelsmodule/com.salesforce.marketingcloud.inboxmodels/-inbox-message/index.html">InboxMessage</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns the active, not-deleted Inbox messages ordered by start date descending. Reads the local database on the calling thread; call it off the main thread.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1326071726%2FFunctions%2F-1229988915" anchor-label="getReadMessageCount" id="1326071726%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-read-message-count.html"><span>get</span><wbr><span>Read</span><wbr><span>Message</span><wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1326071726%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.annotation/WorkerThread///PointingToDeclaration/"><span class="token annotation builtin">WorkerThread</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-read-message-count.html"><span class="token function">getReadMessageCount</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span></div><div class="brief "><p class="paragraph">Returns the number of active, read, not-deleted Inbox messages. Reads the local database on the calling thread; call it off the main thread.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2088721578%2FFunctions%2F-1229988915" anchor-label="getReadMessages" id="2088721578%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-read-messages.html"><span>get</span><wbr><span>Read</span><wbr><span><span>Messages</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2088721578%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.annotation/WorkerThread///PointingToDeclaration/"><span class="token annotation builtin">WorkerThread</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-read-messages.html"><span class="token function">getReadMessages</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><a href="../../../inboxmodelsmodule/com.salesforce.marketingcloud.inboxmodels/-inbox-message/index.html">InboxMessage</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns the active, read, not-deleted Inbox messages ordered by start date descending. Reads the local database on the calling thread; call it off the main thread.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1611424117%2FFunctions%2F-1229988915" anchor-label="getUnreadMessageCount" id="1611424117%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-unread-message-count.html"><span>get</span><wbr><span>Unread</span><wbr><span>Message</span><wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1611424117%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.annotation/WorkerThread///PointingToDeclaration/"><span class="token annotation builtin">WorkerThread</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-unread-message-count.html"><span class="token function">getUnreadMessageCount</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin/Int///PointingToDeclaration/">Int</span></div><div class="brief "><p class="paragraph">Returns the number of active, unread, not-deleted Inbox messages. Reads the local database on the calling thread; call it off the main thread.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1460700687%2FFunctions%2F-1229988915" anchor-label="getUnreadMessages" id="-1460700687%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-unread-messages.html"><span>get</span><wbr><span>Unread</span><wbr><span><span>Messages</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1460700687%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.annotation/WorkerThread///PointingToDeclaration/"><span class="token annotation builtin">WorkerThread</span></span></div></div><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-unread-messages.html"><span class="token function">getUnreadMessages</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin.collections/List///PointingToDeclaration/">List</span><span class="token operator">&lt;</span><a href="../../../inboxmodelsmodule/com.salesforce.marketingcloud.inboxmodels/-inbox-message/index.html">InboxMessage</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns the active, unread, not-deleted Inbox messages ordered by start date descending. Reads the local database on the calling thread; call it off the main thread.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1197734195%2FFunctions%2F-1229988915" anchor-label="isInboxEnabled" id="1197734195%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-inbox-enabled.html"><span>is</span><wbr><span>Inbox</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1197734195%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="is-inbox-enabled.html"><span class="token function">isInboxEnabled</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlin/Boolean///PointingToDeclaration/">Boolean</span></div><div class="brief "><p class="paragraph">Returns <code class="lang-kotlin">true</code> if the Inbox feature is currently enabled for this device. A GDPR block takes precedence over the runtime choice (<a href="enable-inbox.html">enableInbox</a> / <a href="disable-inbox.html">disableInbox</a>), which takes precedence over <a href="../../com.salesforce.marketingcloud.inboxfeature.config/-inbox-feature-config/inbox-enabled.html">com.salesforce.marketingcloud.inboxfeature.config.InboxFeatureConfig.inboxEnabled</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-274798113%2FFunctions%2F-1229988915" anchor-label="markAllMessagesDeleted" id="-274798113%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="mark-all-messages-deleted.html"><span>mark</span><wbr><span>All</span><wbr><span>Messages</span><wbr><span><span>Deleted</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-274798113%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="mark-all-messages-deleted.html"><span class="token function">markAllMessagesDeleted</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Marks all active Inbox messages deleted.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1000196948%2FFunctions%2F-1229988915" anchor-label="markAllMessagesRead" id="-1000196948%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="mark-all-messages-read.html"><span>mark</span><wbr><span>All</span><wbr><span>Messages</span><wbr><span><span>Read</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1000196948%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="mark-all-messages-read.html"><span class="token function">markAllMessagesRead</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Marks all active, unread, not-deleted Inbox messages read.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1785508890%2FFunctions%2F-1229988915" anchor-label="refreshInbox" id="1785508890%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="refresh-inbox.html"><span>refresh</span><wbr><span><span>Inbox</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1785508890%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="refresh-inbox.html"><span class="token function">refreshInbox</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">listener<span class="token operator">: </span><a href="-inbox-refresh-listener/index.html">InboxMessageManager.InboxRefreshListener</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Requests an updated list of Inbox messages from Marketing Cloud. <a href="refresh-inbox.html">listener</a>, if provided, is notified <strong>at most once per source</strong> for this call: once for each configured server (MCE, MAM) whose fetch completes, tagged with that server. Once the first server answers, a new refresh may be started; doing so stops this <a href="refresh-inbox.html">listener</a> from receiving the remaining server's outcome. Outcomes are not matched to a specific call: a server's next outcome goes to the latest refresh's <a href="refresh-inbox.html">listener</a>, even if it comes from a fetch started earlier. If the module itself refuses or cancels the request (a refresh is already in progress, Inbox is disabled or GDPR-blocked, or Inbox is disabled/torn down before any server has answered), <a href="refresh-inbox.html">listener</a> is notified once with <code class="lang-kotlin">(false, Event.Producer.INBOX_FEATURE_MODULE)</code>. If Inbox is disabled/torn down after one server has answered, <a href="refresh-inbox.html">listener</a> is released without a callback for the other server. Every <a href="refresh-inbox.html">listener</a> callback, including a refusal, is made on the main thread after this call returns.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="537413746%2FFunctions%2F-1229988915" anchor-label="registerInboxResponseListener" id="537413746%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="register-inbox-response-listener.html"><span>register</span><wbr><span>Inbox</span><wbr><span>Response</span><wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="537413746%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="register-inbox-response-listener.html"><span class="token function">registerInboxResponseListener</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">listener<span class="token operator">: </span><a href="-inbox-response-listener/index.html">InboxMessageManager.InboxResponseListener</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Registers a <a href="-inbox-response-listener/index.html">InboxResponseListener</a> to be notified when a fetch delivers a fresh set of Inbox messages. The SDK holds <a href="register-inbox-response-listener.html">listener</a> until it is unregistered, so call <a href="unregister-inbox-response-listener.html">unregisterInboxResponseListener</a> when its owner is destroyed. Registering the same instance again has no effect.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1209222446%2FFunctions%2F-1229988915" anchor-label="setMessageRead" id="-1209222446%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-message-read.html"><span>set</span><wbr><span>Message</span><wbr><span><span>Read</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1209222446%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="set-message-read.html"><span class="token function">setMessageRead</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><a href="../../../inboxmodelsmodule/com.salesforce.marketingcloud.inboxmodels/-inbox-message/index.html">InboxMessage</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Marks <a href="set-message-read.html">message</a> read in local storage. The status persists until the message changes on the server or local storage is cleared. A deleted message is left unchanged.</p></div><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="set-message-read.html"><span class="token function">setMessageRead</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">messageId<span class="token operator">: </span><span data-unresolved-link="kotlin/String///PointingToDeclaration/">String</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Marks the message with <a href="set-message-read.html">messageId</a> read in local storage. The status persists until the message changes on the server or local storage is cleared. A deleted message is left unchanged.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-94355611%2FFunctions%2F-1229988915" anchor-label="trackMessageInteractionEvent" id="-94355611%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="track-message-interaction-event.html"><span>track</span><wbr><span>Message</span><wbr><span>Interaction</span><wbr><span><span>Event</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-94355611%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="track-message-interaction-event.html"><span class="token function">trackMessageInteractionEvent</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><a href="../../../inboxmodelsmodule/com.salesforce.marketingcloud.inboxmodels/-inbox-message/index.html">InboxMessage</a><span class="token punctuation">, </span></span><span class="parameter ">interaction<span class="token operator">: </span><a href="../../../inboxmodelsmodule/com.salesforce.marketingcloud.inboxmodels/-inbox-message-interaction/index.html">InboxMessageInteraction</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Records that <a href="track-message-interaction-event.html">message</a> was interacted with (a button/CTA click) via <a href="track-message-interaction-event.html">interaction</a>. The message is validated against the module store before an interaction is recorded; interacting with an unknown message is a no-op.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1399838126%2FFunctions%2F-1229988915" anchor-label="trackMessageOpenEvent" id="-1399838126%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="track-message-open-event.html"><span>track</span><wbr><span>Message</span><wbr><span>Open</span><wbr><span><span>Event</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1399838126%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="track-message-open-event.html"><span class="token function">trackMessageOpenEvent</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><a href="../../../inboxmodelsmodule/com.salesforce.marketingcloud.inboxmodels/-inbox-message/index.html">InboxMessage</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Records that <a href="track-message-open-event.html">message</a> was opened by the app. The message is validated against the module store before an open is recorded; opening an unknown message is a no-op. This records the open <strong>analytic only</strong> — it does not mark the message read (that is the caller's responsibility).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1813789923%2FFunctions%2F-1229988915" anchor-label="unregisterInboxRefreshListener" id="1813789923%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="unregister-inbox-refresh-listener.html"><span>unregister</span><wbr><span>Inbox</span><wbr><span>Refresh</span><wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1813789923%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="unregister-inbox-refresh-listener.html"><span class="token function">unregisterInboxRefreshListener</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">listener<span class="token operator">: </span><a href="-inbox-refresh-listener/index.html">InboxMessageManager.InboxRefreshListener</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Stops <a href="unregister-inbox-refresh-listener.html">listener</a> from receiving any further <a href="refresh-inbox.html">refreshInbox</a> callbacks and releases the SDK's reference to it. Call this when the owner of <a href="unregister-inbox-refresh-listener.html">listener</a> is destroyed, so the SDK does not keep it (and anything it captures) alive while waiting for a server that may answer late or never.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="192980619%2FFunctions%2F-1229988915" anchor-label="unregisterInboxResponseListener" id="192980619%2FFunctions%2F-1229988915" data-filterable-set=":inboxfeaturemodule/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":inboxfeaturemodule/main" data-filterable-set=":inboxfeaturemodule/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="unregister-inbox-response-listener.html"><span>unregister</span><wbr><span>Inbox</span><wbr><span>Response</span><wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="192980619%2FFunctions%2F-1229988915"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="unregister-inbox-response-listener.html"><span class="token function">unregisterInboxResponseListener</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">listener<span class="token operator">: </span><a href="-inbox-response-listener/index.html">InboxMessageManager.InboxResponseListener</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Unregisters a previously registered <a href="-inbox-response-listener/index.html">InboxResponseListener</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>Inbox Feature Module v1.0.0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
