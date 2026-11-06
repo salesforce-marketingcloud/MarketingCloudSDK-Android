@@ -1,0 +1,118 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>refreshInbox</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script></head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="../../../index.html" tabindex="1">
+                    Salesforce Marketing Cloud Unified SDK
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+<dokka-template-command data="{&quot;@class&quot;:&quot;org.jetbrains.dokka.base.templating.ReplaceVersionsCommand&quot;,&quot;location&quot;:&quot;com.salesforce.marketingcloud.inboxfeature/-inbox-message-manager/refresh-inbox.html&quot;}">12.0.0</dokka-template-command>        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true" data-filter=":inboxfeaturemodule/main">androidJvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":inboxfeaturemodule/main" data-filter=":inboxfeaturemodule/main">
+                                <span class="checkbox--icon"></span>
+                                androidJvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    Salesforce Marketing Cloud Unified SDK
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="member" id="content" pageids="Inbox Feature Module v1.0.0::com.salesforce.marketingcloud.inboxfeature/InboxMessageManager/refreshInbox/#com.salesforce.marketingcloud.inboxfeature.InboxMessageManager.InboxRefreshListener?/PointingToDeclaration//-1229988915">
+  <div class="breadcrumbs"><a href="../../index.html">Inbox Feature Module v1.0.0</a><span class="delimiter">/</span><a href="../index.html">com.salesforce.marketingcloud.inboxfeature</a><span class="delimiter">/</span><a href="index.html">InboxMessageManager</a><span class="delimiter">/</span><span class="current">refreshInbox</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>refresh</span><wbr><span><span>Inbox</span></span></h1>
+  </div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":inboxfeaturemodule/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="refresh-inbox.html"><span class="token function">refreshInbox</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">listener<span class="token operator">: </span><a href="-inbox-refresh-listener/index.html">InboxMessageManager.InboxRefreshListener</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><p class="paragraph">Requests an updated list of Inbox messages from Marketing Cloud. <a href="refresh-inbox.html">listener</a>, if provided, is notified <strong>at most once per source</strong> for this call: once for each configured server (MCE, MAM) whose fetch completes, tagged with that server. Once the first server answers, a new refresh may be started; doing so stops this <a href="refresh-inbox.html">listener</a> from receiving the remaining server's outcome. Outcomes are not matched to a specific call: a server's next outcome goes to the latest refresh's <a href="refresh-inbox.html">listener</a>, even if it comes from a fetch started earlier. If the module itself refuses or cancels the request (a refresh is already in progress, Inbox is disabled or GDPR-blocked, or Inbox is disabled/torn down before any server has answered), <a href="refresh-inbox.html">listener</a> is notified once with <code class="lang-kotlin">(false, Event.Producer.INBOX_FEATURE_MODULE)</code>. If Inbox is disabled/torn down after one server has answered, <a href="refresh-inbox.html">listener</a> is released without a callback for the other server. Every <a href="refresh-inbox.html">listener</a> callback, including a refusal, is made on the main thread after this call returns.</p><p class="paragraph">Refreshes are rate limited, by the SDK and by the server, so a refresh requested too soon after another can be refused. A refused refresh is not retried: <a href="-inbox-refresh-listener/on-refresh-complete.html">InboxRefreshListener.onRefreshComplete</a> reports <code class="lang-kotlin">successful = false</code>. Use it for a user-initiated refresh (for example pull-to-refresh) and rely on the SDK's automatic refreshes otherwise.</p><p class="paragraph"><strong>Lifecycle:</strong> the SDK holds a strong reference to <a href="refresh-inbox.html">listener</a> until both servers have answered, the next refresh is accepted, Inbox is disabled, or <a href="unregister-inbox-refresh-listener.html">unregisterInboxRefreshListener</a> is called. With only one server configured, the other server never answers, so without <a href="unregister-inbox-refresh-listener.html">unregisterInboxRefreshListener</a> that means until the next refresh or until Inbox is disabled. A fetch can take a long time (MAM waits for network connectivity), so a callback may arrive after the Activity, Fragment or ViewModel that started the refresh is gone. Call <a href="unregister-inbox-refresh-listener.html">unregisterInboxRefreshListener</a> when that owner is destroyed (e.g. <code class="lang-kotlin">Activity.onDestroy</code>, <code class="lang-kotlin">ViewModel.onCleared</code>).</p></div></div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>Inbox Feature Module v1.0.0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
